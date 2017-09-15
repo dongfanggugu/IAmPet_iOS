@@ -12,6 +12,7 @@
 #import "BaseNavigationController.h"
 #import "NSArray+Log.h"
 #import "SideMenuViewController.h"
+#import "BaseTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -31,8 +32,9 @@
     
 //    UIViewController *controller = [[ViewController alloc] init];
 //    UIViewController *navController = [[BaseNavigationController alloc] initWithRootViewController:controller];
-    UIViewController *controller = [[SideMenuViewController alloc] init];
-    self.window.rootViewController = controller;
+    UIViewController *controller = [[BaseTableViewController alloc] init];
+    UIViewController *navController = [[BaseNavigationController alloc] initWithRootViewController:controller];
+    self.window.rootViewController = navController;
     
     return YES;
 }

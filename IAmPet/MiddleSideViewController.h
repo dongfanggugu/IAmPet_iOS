@@ -6,7 +6,7 @@
 //  Copyright © 2017年 changhaozhang. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseTableViewController.h"
 
 @class MiddleSideViewController;
 
@@ -21,7 +21,7 @@
 
 @end
 
-@interface MiddleSideViewController : BaseViewController
+@interface MiddleSideViewController : BaseTableViewController
 
 @property (nonatomic, weak) id<MiddleSideViewControllerDelegate> delegate;
 

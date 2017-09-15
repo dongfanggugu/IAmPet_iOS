@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self initView];
+    //[self initView];
 }
 
 - (void)viewWillAppear:(BOOL)animated

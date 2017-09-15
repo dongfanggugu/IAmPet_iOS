@@ -6,4 +6,5 @@ pod 'jastor', '~> 0.2.1'
 pod 'IQKeyboardManager', '~> 4.0.4'
 pod 'BaiduMapKit'
 pod 'JPush', '~> 2.1.8'
+pod 'MJRefresh', '~> 3.1.12'
 end

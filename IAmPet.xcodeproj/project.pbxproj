@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		277D0BC6D6FE3A20B29D38B3 /* libPods-IAmPet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF319E986DDE4BC068AC6EC /* libPods-IAmPet.a */; };
+		6508B23D1F6BBA3700B0418F /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */; };
 		657C73FA1F662C02002BE2BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C73F91F662C02002BE2BA /* main.m */; };
 		657C73FD1F662C02002BE2BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C73FC1F662C02002BE2BA /* AppDelegate.m */; };
 		657C74001F662C02002BE2BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C73FF1F662C02002BE2BA /* ViewController.m */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6508B23B1F6BBA3700B0418F /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		657C73F51F662C02002BE2BA /* IAmPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IAmPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		657C73F91F662C02002BE2BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		657C73FB1F662C02002BE2BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -276,6 +279,8 @@
 				657C744A1F6655F7002BE2BA /* BaseViewController.m */,
 				657C744C1F6657F2002BE2BA /* BaseNavigationController.h */,
 				657C744D1F6657F2002BE2BA /* BaseNavigationController.m */,
+				6508B23B1F6BBA3700B0418F /* BaseTableViewController.h */,
+				6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -510,6 +515,7 @@
 				657C74421F66300E002BE2BA /* Utils.m in Sources */,
 				657C746D1F68C211002BE2BA /* MiddleSideViewController.m in Sources */,
 				657C74551F6658D2002BE2BA /* SectionInfo.m in Sources */,
+				6508B23D1F6BBA3700B0418F /* BaseTableViewController.m in Sources */,
 				657C743F1F662FE1002BE2BA /* LoginUtils.m in Sources */,
 				657C745F1F6786D2002BE2BA /* RegisterView.m in Sources */,
 				657C744E1F6657F2002BE2BA /* BaseNavigationController.m in Sources */,
