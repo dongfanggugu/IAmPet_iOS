@@ -8,18 +8,19 @@
 
 #import "SideMenuViewController.h"
 #import "LeftSideViewController.h"
-#import "MiddleSideViewController.h"
+//#import "MiddleSideViewController.h"
+#import "MainTabBarViewController.h"
 #import "BaseNavigationController.h"
 #import "RegisterViewController.h"
 
-@interface SideMenuViewController () <MiddleSideViewControllerDelegate>
+@interface SideMenuViewController() <MainTabBarViewControllerDelegate>
 {
         CGPoint _start, _last;
 }
 
 @property (nonatomic, strong) LeftSideViewController *leftViewController;
 
-@property (nonatomic, strong) MiddleSideViewController *middleViewController;
+@property (nonatomic, strong) MainTabBarViewController *middleViewController;
 
 @property (nonatomic, strong) BaseNavigationController *naviMiddle;
 
@@ -71,33 +72,12 @@
  */
 - (void)loadMiddleViewController
 {
-    _middleViewController = [[MiddleSideViewController alloc] init];
-    _middleViewController.delegate = self;
-    _naviMiddle = [[BaseNavigationController alloc] initWithRootViewController:_middleViewController];
+    _middleViewController = [[MainTabBarViewController alloc] init];
+    _middleViewController.mainDelegate = self;
+    _middleViewController.view.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
     
-    _naviMiddle.view.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
-    [self.view addSubview:_naviMiddle.view];
+    [self.view addSubview:_middleViewController.view];
 }
-
-- (void)onSlide:(MiddleSideViewController *)controller
-{
-    if (self.leftHidden)
-    {
-        [self showLeft];
-    }
-    else
-    {
-        [self hideLeft];
-    }
-}
-- (void)onPush:(MiddleSideViewController *)controller
-{
-    RegisterViewController *con = [[RegisterViewController alloc] init];
-    [_middleViewController.navigationController pushViewController:con animated:YES];
-    //[_naviMiddle pushViewController:con animated:YES];
-}
-
-
 
 - (void)showLeft
 {
@@ -111,6 +91,18 @@
     _middleViewController.view.transform = CGAffineTransformTranslate(_middleViewController.view.transform, - ScreenWidth * 0.6, 0);
     _leftViewController.view.transform = CGAffineTransformTranslate(_leftViewController.view.transform, - ScreenWidth * 0.6, 0);
     self.leftHidden = YES;
+}
+
+- (void)showPersonCenter
+{
+    if (self.leftHidden)
+    {
+        [self showLeft];
+    }
+    else
+    {
+        [self hideLeft];
+    }
 }
 
 @end

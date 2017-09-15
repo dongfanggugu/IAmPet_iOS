@@ -27,23 +27,25 @@
  */
 - (void)initTableView
 {
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+   // self.automaticallyAdjustsScrollViewInsets = NO;
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
     _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    //_tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     
     __weak id weakSelf = self;
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         NSLog(@"refresh");
+        [[weakSelf tableView].mj_header endRefreshing];
         [[weakSelf tableView] reloadData];
     }];
     
     _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         NSLog(@"load more");
         [[weakSelf tableView] reloadData];
+        [[weakSelf tableView].mj_footer endRefreshing];
     }];
     
     [self.view addSubview:_tableView];

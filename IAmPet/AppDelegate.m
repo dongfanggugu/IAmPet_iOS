@@ -30,11 +30,10 @@
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, screen.bounds.size.width, screen.bounds.size.height)];
     self.window.backgroundColor = RGB(Color_Window);
     
-//    UIViewController *controller = [[ViewController alloc] init];
-//    UIViewController *navController = [[BaseNavigationController alloc] initWithRootViewController:controller];
-    UIViewController *controller = [[BaseTableViewController alloc] init];
-    UIViewController *navController = [[BaseNavigationController alloc] initWithRootViewController:controller];
-    self.window.rootViewController = navController;
+    UIViewController *controller = [SideMenuViewController new];
+    self.window.rootViewController = controller;
+    
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
