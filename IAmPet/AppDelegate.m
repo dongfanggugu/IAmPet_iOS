@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import <IQKeyboardManager.h>
+#import "ViewController.h"
+#import "BaseNavigationController.h"
+#import "NSArray+Log.h"
+#import "SideMenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,8 +20,20 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     // Override point for customization after application launch.
+    [self initKeyboardManager];
+    
+    UIScreen *screen = [UIScreen mainScreen];
+    self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, screen.bounds.size.width, screen.bounds.size.height)];
+    self.window.backgroundColor = RGB(Color_Window);
+    
+//    UIViewController *controller = [[ViewController alloc] init];
+//    UIViewController *navController = [[BaseNavigationController alloc] initWithRootViewController:controller];
+    UIViewController *controller = [[SideMenuViewController alloc] init];
+    self.window.rootViewController = controller;
+    
     return YES;
 }
 
@@ -93,6 +110,16 @@
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
+}
+
+/**
+ *  注册键盘管理
+ */
+- (void)initKeyboardManager
+{
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable = YES;
+    manager.shouldResignOnTouchOutside = YES;
 }
 
 @end

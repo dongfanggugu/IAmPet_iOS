@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		277D0BC6D6FE3A20B29D38B3 /* libPods-IAmPet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF319E986DDE4BC068AC6EC /* libPods-IAmPet.a */; };
 		657C73FA1F662C02002BE2BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C73F91F662C02002BE2BA /* main.m */; };
 		657C73FD1F662C02002BE2BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C73FC1F662C02002BE2BA /* AppDelegate.m */; };
 		657C74001F662C02002BE2BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C73FF1F662C02002BE2BA /* ViewController.m */; };
@@ -14,8 +15,23 @@
 		657C74061F662C02002BE2BA /* IAmPet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 657C74041F662C02002BE2BA /* IAmPet.xcdatamodeld */; };
 		657C74081F662C02002BE2BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 657C74071F662C02002BE2BA /* Assets.xcassets */; };
 		657C740B1F662C02002BE2BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 657C74091F662C02002BE2BA /* LaunchScreen.storyboard */; };
-		657C74161F662C02002BE2BA /* IAmPetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74151F662C02002BE2BA /* IAmPetTests.m */; };
-		657C74211F662C02002BE2BA /* IAmPetUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74201F662C02002BE2BA /* IAmPetUITests.m */; };
+		657C74341F662D48002BE2BA /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74331F662D48002BE2BA /* NSArray+Log.m */; };
+		657C743C1F662EA5002BE2BA /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C743B1F662EA5002BE2BA /* HttpClient.m */; };
+		657C743F1F662FE1002BE2BA /* LoginUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C743E1F662FE1002BE2BA /* LoginUtils.m */; };
+		657C74421F66300E002BE2BA /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74411F66300E002BE2BA /* Utils.m */; };
+		657C74451F663494002BE2BA /* HUDClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74441F663494002BE2BA /* HUDClass.m */; };
+		657C74481F6637E7002BE2BA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74471F6637E7002BE2BA /* User.m */; };
+		657C744B1F6655F7002BE2BA /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C744A1F6655F7002BE2BA /* BaseViewController.m */; };
+		657C744E1F6657F2002BE2BA /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C744D1F6657F2002BE2BA /* BaseNavigationController.m */; };
+		657C74521F6658A7002BE2BA /* SectionManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74511F6658A7002BE2BA /* SectionManagerController.m */; };
+		657C74551F6658D2002BE2BA /* SectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74541F6658D2002BE2BA /* SectionInfo.m */; };
+		657C74581F6785F8002BE2BA /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74571F6785F8002BE2BA /* RegisterViewController.m */; };
+		657C745C1F678627002BE2BA /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 657C745B1F678627002BE2BA /* RegisterView.xib */; };
+		657C745F1F6786D2002BE2BA /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C745E1F6786D2002BE2BA /* RegisterView.m */; };
+		657C74621F6786E8002BE2BA /* BaseNibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74611F6786E8002BE2BA /* BaseNibView.m */; };
+		657C74661F68C1AF002BE2BA /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74651F68C1AF002BE2BA /* SideMenuViewController.m */; };
+		657C746A1F68C1EE002BE2BA /* LeftSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74691F68C1EE002BE2BA /* LeftSideViewController.m */; };
+		657C746D1F68C211002BE2BA /* MiddleSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C746C1F68C211002BE2BA /* MiddleSideViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,11 +64,47 @@
 		657C740A1F662C02002BE2BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		657C740C1F662C02002BE2BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		657C74111F662C02002BE2BA /* IAmPetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IAmPetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		657C74151F662C02002BE2BA /* IAmPetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAmPetTests.m; sourceTree = "<group>"; };
-		657C74171F662C02002BE2BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		657C741C1F662C02002BE2BA /* IAmPetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IAmPetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		657C74201F662C02002BE2BA /* IAmPetUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAmPetUITests.m; sourceTree = "<group>"; };
-		657C74221F662C02002BE2BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		657C74321F662D48002BE2BA /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
+		657C74331F662D48002BE2BA /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		657C74361F662DC1002BE2BA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		657C74371F662E3C002BE2BA /* Colors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
+		657C74381F662E4F002BE2BA /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		657C743A1F662EA5002BE2BA /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
+		657C743B1F662EA5002BE2BA /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
+		657C743D1F662FE1002BE2BA /* LoginUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginUtils.h; sourceTree = "<group>"; };
+		657C743E1F662FE1002BE2BA /* LoginUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginUtils.m; sourceTree = "<group>"; };
+		657C74401F66300E002BE2BA /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		657C74411F66300E002BE2BA /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		657C74431F663494002BE2BA /* HUDClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDClass.h; sourceTree = "<group>"; };
+		657C74441F663494002BE2BA /* HUDClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDClass.m; sourceTree = "<group>"; };
+		657C74461F6637E7002BE2BA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		657C74471F6637E7002BE2BA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		657C74491F6655F7002BE2BA /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		657C744A1F6655F7002BE2BA /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		657C744C1F6657F2002BE2BA /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
+		657C744D1F6657F2002BE2BA /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		657C74501F6658A7002BE2BA /* SectionManagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionManagerController.h; sourceTree = "<group>"; };
+		657C74511F6658A7002BE2BA /* SectionManagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionManagerController.m; sourceTree = "<group>"; };
+		657C74531F6658D2002BE2BA /* SectionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionInfo.h; sourceTree = "<group>"; };
+		657C74541F6658D2002BE2BA /* SectionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionInfo.m; sourceTree = "<group>"; };
+		657C74561F6785F8002BE2BA /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		657C74571F6785F8002BE2BA /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		657C745B1F678627002BE2BA /* RegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
+		657C745D1F6786D2002BE2BA /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
+		657C745E1F6786D2002BE2BA /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
+		657C74601F6786E8002BE2BA /* BaseNibView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNibView.h; sourceTree = "<group>"; };
+		657C74611F6786E8002BE2BA /* BaseNibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNibView.m; sourceTree = "<group>"; };
+		657C74631F67AEEA002BE2BA /* NetConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetConstant.h; sourceTree = "<group>"; };
+		657C74641F68C1AF002BE2BA /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		657C74651F68C1AF002BE2BA /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
+		657C74681F68C1EE002BE2BA /* LeftSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSideViewController.h; sourceTree = "<group>"; };
+		657C74691F68C1EE002BE2BA /* LeftSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSideViewController.m; sourceTree = "<group>"; };
+		657C746B1F68C211002BE2BA /* MiddleSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiddleSideViewController.h; sourceTree = "<group>"; };
+		657C746C1F68C211002BE2BA /* MiddleSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiddleSideViewController.m; sourceTree = "<group>"; };
+		B97713CE8A912A9AE47273FC /* Pods-IAmPet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IAmPet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IAmPet/Pods-IAmPet.debug.xcconfig"; sourceTree = "<group>"; };
+		CFF319E986DDE4BC068AC6EC /* libPods-IAmPet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IAmPet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E02BD6CDF676C152A6B1FCBF /* Pods-IAmPet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IAmPet.release.xcconfig"; path = "Pods/Target Support Files/Pods-IAmPet/Pods-IAmPet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				277D0BC6D6FE3A20B29D38B3 /* libPods-IAmPet.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,13 +133,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11FD1644C063E3839EEAD624 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B97713CE8A912A9AE47273FC /* Pods-IAmPet.debug.xcconfig */,
+				E02BD6CDF676C152A6B1FCBF /* Pods-IAmPet.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2024DDD2B94DF1658AFA881C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CFF319E986DDE4BC068AC6EC /* libPods-IAmPet.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		657C73EC1F662C01002BE2BA = {
 			isa = PBXGroup;
 			children = (
 				657C73F71F662C02002BE2BA /* IAmPet */,
-				657C74141F662C02002BE2BA /* IAmPetTests */,
-				657C741F1F662C02002BE2BA /* IAmPetUITests */,
 				657C73F61F662C02002BE2BA /* Products */,
+				11FD1644C063E3839EEAD624 /* Pods */,
+				2024DDD2B94DF1658AFA881C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +173,12 @@
 		657C73F71F662C02002BE2BA /* IAmPet */ = {
 			isa = PBXGroup;
 			children = (
+				657C74391F662E89002BE2BA /* NetUtils */,
+				657C74351F662D71002BE2BA /* Resources */,
+				657C74311F662D13002BE2BA /* Utils */,
+				657C74301F662D02002BE2BA /* Controllers */,
+				657C742F1F662CFA002BE2BA /* Models */,
+				657C742E1F662CEA002BE2BA /* Views */,
 				657C73FB1F662C02002BE2BA /* AppDelegate.h */,
 				657C73FC1F662C02002BE2BA /* AppDelegate.m */,
 				657C73FE1F662C02002BE2BA /* ViewController.h */,
@@ -121,26 +197,119 @@
 			isa = PBXGroup;
 			children = (
 				657C73F91F662C02002BE2BA /* main.m */,
+				657C74361F662DC1002BE2BA /* PrefixHeader.pch */,
+				657C74371F662E3C002BE2BA /* Colors.h */,
+				657C74381F662E4F002BE2BA /* Constant.h */,
+				657C74631F67AEEA002BE2BA /* NetConstant.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		657C74141F662C02002BE2BA /* IAmPetTests */ = {
+		657C742E1F662CEA002BE2BA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				657C74151F662C02002BE2BA /* IAmPetTests.m */,
-				657C74171F662C02002BE2BA /* Info.plist */,
+				657C745A1F67861B002BE2BA /* src */,
+				657C74591F678611002BE2BA /* nib */,
 			);
-			path = IAmPetTests;
+			name = Views;
 			sourceTree = "<group>";
 		};
-		657C741F1F662C02002BE2BA /* IAmPetUITests */ = {
+		657C742F1F662CFA002BE2BA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				657C74201F662C02002BE2BA /* IAmPetUITests.m */,
-				657C74221F662C02002BE2BA /* Info.plist */,
+				657C74461F6637E7002BE2BA /* User.h */,
+				657C74471F6637E7002BE2BA /* User.m */,
+				657C74531F6658D2002BE2BA /* SectionInfo.h */,
+				657C74541F6658D2002BE2BA /* SectionInfo.m */,
 			);
-			path = IAmPetUITests;
+			name = Models;
+			sourceTree = "<group>";
+		};
+		657C74301F662D02002BE2BA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				657C74671F68C1B9002BE2BA /* SideMenu */,
+				657C744F1F6657F6002BE2BA /* Base */,
+				657C74501F6658A7002BE2BA /* SectionManagerController.h */,
+				657C74511F6658A7002BE2BA /* SectionManagerController.m */,
+				657C74561F6785F8002BE2BA /* RegisterViewController.h */,
+				657C74571F6785F8002BE2BA /* RegisterViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		657C74311F662D13002BE2BA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				657C74431F663494002BE2BA /* HUDClass.h */,
+				657C74441F663494002BE2BA /* HUDClass.m */,
+				657C74401F66300E002BE2BA /* Utils.h */,
+				657C74411F66300E002BE2BA /* Utils.m */,
+				657C743D1F662FE1002BE2BA /* LoginUtils.h */,
+				657C743E1F662FE1002BE2BA /* LoginUtils.m */,
+				657C74321F662D48002BE2BA /* NSArray+Log.h */,
+				657C74331F662D48002BE2BA /* NSArray+Log.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		657C74351F662D71002BE2BA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		657C74391F662E89002BE2BA /* NetUtils */ = {
+			isa = PBXGroup;
+			children = (
+				657C743A1F662EA5002BE2BA /* HttpClient.h */,
+				657C743B1F662EA5002BE2BA /* HttpClient.m */,
+			);
+			name = NetUtils;
+			sourceTree = "<group>";
+		};
+		657C744F1F6657F6002BE2BA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				657C74491F6655F7002BE2BA /* BaseViewController.h */,
+				657C744A1F6655F7002BE2BA /* BaseViewController.m */,
+				657C744C1F6657F2002BE2BA /* BaseNavigationController.h */,
+				657C744D1F6657F2002BE2BA /* BaseNavigationController.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		657C74591F678611002BE2BA /* nib */ = {
+			isa = PBXGroup;
+			children = (
+				657C745B1F678627002BE2BA /* RegisterView.xib */,
+			);
+			name = nib;
+			sourceTree = "<group>";
+		};
+		657C745A1F67861B002BE2BA /* src */ = {
+			isa = PBXGroup;
+			children = (
+				657C745D1F6786D2002BE2BA /* RegisterView.h */,
+				657C745E1F6786D2002BE2BA /* RegisterView.m */,
+				657C74601F6786E8002BE2BA /* BaseNibView.h */,
+				657C74611F6786E8002BE2BA /* BaseNibView.m */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		657C74671F68C1B9002BE2BA /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				657C74641F68C1AF002BE2BA /* SideMenuViewController.h */,
+				657C74651F68C1AF002BE2BA /* SideMenuViewController.m */,
+				657C74681F68C1EE002BE2BA /* LeftSideViewController.h */,
+				657C74691F68C1EE002BE2BA /* LeftSideViewController.m */,
+				657C746B1F68C211002BE2BA /* MiddleSideViewController.h */,
+				657C746C1F68C211002BE2BA /* MiddleSideViewController.m */,
+			);
+			name = SideMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,9 +319,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 657C74251F662C02002BE2BA /* Build configuration list for PBXNativeTarget "IAmPet" */;
 			buildPhases = (
+				BD18529627229E33D5E04FB3 /* [CP] Check Pods Manifest.lock */,
 				657C73F11F662C02002BE2BA /* Sources */,
 				657C73F21F662C02002BE2BA /* Frameworks */,
 				657C73F31F662C02002BE2BA /* Resources */,
+				89C18F9B0B55A2D5138741D7 /* [CP] Embed Pods Frameworks */,
+				E374B1DD151FFFF917B488ED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				657C740B1F662C02002BE2BA /* LaunchScreen.storyboard in Resources */,
+				657C745C1F678627002BE2BA /* RegisterView.xib in Resources */,
 				657C74081F662C02002BE2BA /* Assets.xcassets in Resources */,
 				657C74031F662C02002BE2BA /* Main.storyboard in Resources */,
 			);
@@ -274,15 +447,79 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		89C18F9B0B55A2D5138741D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IAmPet/Pods-IAmPet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD18529627229E33D5E04FB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E374B1DD151FFFF917B488ED /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IAmPet/Pods-IAmPet-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		657C73F11F662C02002BE2BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				657C74661F68C1AF002BE2BA /* SideMenuViewController.m in Sources */,
+				657C74481F6637E7002BE2BA /* User.m in Sources */,
+				657C743C1F662EA5002BE2BA /* HttpClient.m in Sources */,
+				657C744B1F6655F7002BE2BA /* BaseViewController.m in Sources */,
+				657C74341F662D48002BE2BA /* NSArray+Log.m in Sources */,
+				657C74451F663494002BE2BA /* HUDClass.m in Sources */,
 				657C74001F662C02002BE2BA /* ViewController.m in Sources */,
+				657C74421F66300E002BE2BA /* Utils.m in Sources */,
+				657C746D1F68C211002BE2BA /* MiddleSideViewController.m in Sources */,
+				657C74551F6658D2002BE2BA /* SectionInfo.m in Sources */,
+				657C743F1F662FE1002BE2BA /* LoginUtils.m in Sources */,
+				657C745F1F6786D2002BE2BA /* RegisterView.m in Sources */,
+				657C744E1F6657F2002BE2BA /* BaseNavigationController.m in Sources */,
+				657C74581F6785F8002BE2BA /* RegisterViewController.m in Sources */,
 				657C73FD1F662C02002BE2BA /* AppDelegate.m in Sources */,
+				657C746A1F68C1EE002BE2BA /* LeftSideViewController.m in Sources */,
 				657C73FA1F662C02002BE2BA /* main.m in Sources */,
+				657C74621F6786E8002BE2BA /* BaseNibView.m in Sources */,
 				657C74061F662C02002BE2BA /* IAmPet.xcdatamodeld in Sources */,
+				657C74521F6658A7002BE2BA /* SectionManagerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +527,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				657C74161F662C02002BE2BA /* IAmPetTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +534,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				657C74211F662C02002BE2BA /* IAmPetUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,10 +664,14 @@
 		};
 		657C74261F662C02002BE2BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B97713CE8A912A9AE47273FC /* Pods-IAmPet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6LK27K74LE;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/IAmPet/PrefixHeader.pch";
 				INFOPLIST_FILE = IAmPet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhenhao.IAmPet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -441,10 +680,14 @@
 		};
 		657C74271F662C02002BE2BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E02BD6CDF676C152A6B1FCBF /* Pods-IAmPet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6LK27K74LE;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/IAmPet/PrefixHeader.pch";
 				INFOPLIST_FILE = IAmPet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhenhao.IAmPet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -520,6 +763,7 @@
 				657C74271F662C02002BE2BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		657C74281F662C02002BE2BA /* Build configuration list for PBXNativeTarget "IAmPetTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +772,7 @@
 				657C742A1F662C02002BE2BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		657C742B1F662C02002BE2BA /* Build configuration list for PBXNativeTarget "IAmPetUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +781,7 @@
 				657C742D1F662C02002BE2BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
