@@ -17,25 +17,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setNavTitle:@"主页"];
     
-    self.navigationItem.title = @"窝窝";
-    self.navigationController.navigationBar.barTintColor = [UIColor yellowColor];
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 25)];
-    [btn addTarget:self action:@selector(clickLeft) forControlEvents:UIControlEventTouchUpInside];
-    btn.backgroundColor = [UIColor redColor];
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
-    self.navigationItem.leftBarButtonItem = item;
+    __weak id weakSelf = self;
+    [self setNavBarLeft:[UIImage imageNamed:@"icon_person"] click:^{
+        [weakSelf clickNavLeft];
+    }];
+    
+    [self setNavBarRight:[UIImage imageNamed:@"icon_edit"] click:^{
+        [weakSelf showPulishPage];
+    }];
 }
 
 /**
  *  点击导航栏左侧按钮
  */
-- (void)clickLeft
+- (void)clickNavLeft
 {
-    if (_delegate && [_delegate respondsToSelector:@selector(showPersonCenter)])
+    if (_delegate && [_delegate respondsToSelector:@selector(clickNavLeft)])
     {
-        [_delegate showPersonCenter];
+        [_delegate clickNavLeft];
     }
+}
+
+- (void)showPulishPage
+{
 }
 
 - (void)didReceiveMemoryWarning

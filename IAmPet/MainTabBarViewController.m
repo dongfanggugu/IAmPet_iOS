@@ -13,7 +13,7 @@
 #import "SearchViewController.h"
 #import "ChatViewController.h"
 
-@interface MainTabBarViewController () <HomeViewControllerDelegate>
+@interface MainTabBarViewController () <HomeViewControllerDelegate, AreaViewControllerDelegate, SearchViewControllerDelegate, ChatViewControllerDelegate>
 
 @end
 
@@ -32,9 +32,15 @@
 {
     HomeViewController *home = [HomeViewController new];
     home.delegate = self;
-    UIViewController *area = [AreaViewController new];
-    UIViewController *search = [SearchViewController new];
-    UIViewController *chat = [ChatViewController new];
+    
+    AreaViewController *area = [AreaViewController new];
+    area.delegate = self;
+    
+    SearchViewController *search = [SearchViewController new];
+    search.delegate = self;
+    
+    ChatViewController *chat = [ChatViewController new];
+    chat.delegate = self;
     
     self.viewControllers = @[[self getNavigationController:home],
                              [self getNavigationController:area],
@@ -48,16 +54,16 @@
  */
 - (void)initItem
 {
-    self.tabBar.tintColor = [UIColor redColor];
+    self.tabBar.tintColor = RGB(Color_Main1);
     [self.tabBar.items[0] setImage:[UIImage imageNamed:@"icon_main_page"]];
-    [self.tabBar.items[1] setImage:[UIImage imageNamed:@"icon_main_page"]];
-    [self.tabBar.items[2] setImage:[UIImage imageNamed:@"icon_main_page"]];
-    [self.tabBar.items[3] setImage:[UIImage imageNamed:@"icon_main_page"]];
+    [self.tabBar.items[1] setImage:[UIImage imageNamed:@"icon_shop"]];
+    [self.tabBar.items[2] setImage:[UIImage imageNamed:@"icon_search_mainpage"]];
+    [self.tabBar.items[3] setImage:[UIImage imageNamed:@"chat"]];
     
-    [self.tabBar.items[0] setTitle:@"窝窝"];
-    [self.tabBar.items[1] setTitle:@"逛一逛"];
-    [self.tabBar.items[2] setTitle:@"嗅一嗅"];
-    [self.tabBar.items[3] setTitle:@"聊一聊"];
+    [self.tabBar.items[0] setTitle:@"主页"];
+    [self.tabBar.items[1] setTitle:@"广场"];
+    [self.tabBar.items[2] setTitle:@"搜索"];
+    [self.tabBar.items[3] setTitle:@"私信"];
 }
 
 /**
@@ -70,11 +76,13 @@
     return [[BaseNavigationController alloc] initWithRootViewController:rootViewController];
 }
 
-- (void)showPersonCenter
+#pragma mark - HomeViewControllerDelegate
+
+- (void)clickNavLeft
 {
-    if (_mainDelegate && [_mainDelegate respondsToSelector:@selector(showPersonCenter)])
+    if (_mainDelegate && [_mainDelegate respondsToSelector:@selector(clickNavLeft)])
     {
-        [_mainDelegate showPersonCenter];
+        [_mainDelegate clickNavLeft];
     }
 }
 

@@ -8,6 +8,14 @@
 
 #import "BaseViewController.h"
 
+@protocol AreaViewControllerDelegate <NSObject>
+
+- (void)clickNavLeft;
+
+@end
+
 @interface AreaViewController : BaseViewController
+
+@property (nonatomic, weak) id<AreaViewControllerDelegate> delegate;
 
 @end

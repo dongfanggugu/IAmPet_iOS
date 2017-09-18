@@ -8,6 +8,14 @@
 
 #import "BaseViewController.h"
 
+@protocol ChatViewControllerDelegate <NSObject>
+
+- (void)clickNavLeft;
+
+@end
+
 @interface ChatViewController : BaseViewController
+
+@property (nonatomic, weak) id<ChatViewControllerDelegate> delegate;
 
 @end

@@ -62,7 +62,8 @@
 - (void)loadLeftViewController
 {
     _leftViewController = [[LeftSideViewController alloc] init];
-    _leftViewController.view.frame = CGRectMake(- ScreenWidth * 0.6, 0, ScreenWidth * 0.6, ScreenHeight);
+    _leftViewController.view.frame = CGRectMake(- ScreenWidth , 0, ScreenWidth, ScreenHeight);
+    
     [self.view addSubview:_leftViewController.view];
     [self addChildViewController:_leftViewController];
 }
@@ -93,7 +94,9 @@
     self.leftHidden = YES;
 }
 
-- (void)showPersonCenter
+#pragma mark - MainTabBarViewControllerDelegate
+
+- (void)clickNavLeft
 {
     if (self.leftHidden)
     {

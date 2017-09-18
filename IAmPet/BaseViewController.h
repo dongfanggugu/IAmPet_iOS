@@ -30,6 +30,29 @@
  */
 - (UIAlertController *)showAlertMsg:(NSString *)msg positive:(void(^)())positive negative:(void(^)())negative;
 
+/**
+ *  设置导航栏标题
+ *
+ *  @param title navigationbar title
+ */
+- (void)setNavTitle:(NSString *)title;
+
+/**
+ *  设置导航栏左侧按钮和回调
+ *
+ *  @param image     image
+ *  @param clickLeft click callback
+ */
+- (void)setNavBarLeft:(UIImage *)image click:(void(^)())clickLeft;
+
+/**
+ *  设置导航栏右侧按钮和回调
+ *
+ *  @param image     image
+ *  @param clickRight click callback
+ */
+- (void)setNavBarRight:(UIImage *)image click:(void(^)())clickRight;
+
 //屏幕宽度
 @property (nonatomic, assign, readonly) CGFloat sWidth;
 

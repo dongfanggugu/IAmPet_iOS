@@ -7,6 +7,7 @@
 //
 
 #import "LeftSideViewController.h"
+#import "PersonCenterView.h"
 
 @interface LeftSideViewController ()
 
@@ -14,26 +15,22 @@
 
 @implementation LeftSideViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor redColor];
-    // Do any additional setup after loading the view.
+//    self.navigationController.navigationBar.hidden = YES;
+    [self initView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)initView
+{
+//    [self setGradientLayer];
+    PersonCenterView *view = [PersonCenterView viewFromNib];
+    view.frame = CGRectMake(ScreenWidth * 0.4, 0, ScreenWidth * 0.6, ScreenHeight);
+    [self.view addSubview:view];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
 
 @end

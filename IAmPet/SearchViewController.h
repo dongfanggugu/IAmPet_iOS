@@ -8,6 +8,14 @@
 
 #import "BaseViewController.h"
 
+@protocol SearchViewControllerDelegate <NSObject>
+
+- (void)clickNavLeft;
+
+@end
+
 @interface SearchViewController : BaseViewController
+
+@property (nonatomic, weak) id<SearchViewControllerDelegate> delegate;
 
 @end

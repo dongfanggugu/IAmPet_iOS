@@ -10,7 +10,7 @@
 
 @protocol HomeViewControllerDelegate <NSObject>
 
-- (void)showPersonCenter;
+- (void)clickNavLeft;
 
 @end
 

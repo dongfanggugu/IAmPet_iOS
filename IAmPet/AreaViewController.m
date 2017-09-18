@@ -14,24 +14,26 @@
 
 @implementation AreaViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setNavTitle:@"广场"];
+    
+    __weak id weakSelf = self;
+    [self setNavBarLeft:[UIImage imageNamed:@"icon_person"] click:^{
+        [weakSelf clickNavLeft];
+    }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+/**
+ *  点击导航栏左侧按钮
+ */
+- (void)clickNavLeft
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(clickNavLeft)])
+    {
+        [_delegate clickNavLeft];
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
