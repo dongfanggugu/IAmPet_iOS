@@ -7,4 +7,6 @@ pod 'IQKeyboardManager', '~> 4.0.4'
 pod 'BaiduMapKit'
 pod 'JPush', '~> 2.1.8'
 pod 'MJRefresh', '~> 3.1.12'
+pod 'TZImagePickerController', '~> 1.8.7'
+pod 'RSKImageCropper', '~> 1.6.3'
 end

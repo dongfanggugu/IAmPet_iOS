@@ -20,6 +20,7 @@
 #import "AppDelegate.h"
 #import "User.h"
 #import "HttpClient.h"
+#import "ImageUtils.h"
 
 
 #ifdef DEBUG

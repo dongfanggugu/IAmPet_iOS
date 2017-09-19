@@ -53,6 +53,11 @@
  */
 - (void)setNavBarRight:(UIImage *)image click:(void(^)())clickRight;
 
+/**
+ *  跳转到应用的设置界面
+ */
+- (void)jumpToSettings;
+
 //屏幕宽度
 @property (nonatomic, assign, readonly) CGFloat sWidth;
 

@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "PublishViewController.h"
 
 @interface HomeViewController ()
 
@@ -40,8 +41,14 @@
     }
 }
 
+/**
+ *  显示发布页面
+ */
 - (void)showPulishPage
 {
+    PublishViewController *controller = [PublishViewController new];
+//    [self showViewController:controller sender:self];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

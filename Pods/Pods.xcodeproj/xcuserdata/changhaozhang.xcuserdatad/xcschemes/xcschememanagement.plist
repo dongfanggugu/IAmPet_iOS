@@ -29,6 +29,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RSKImageCropper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TZImagePickerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>jastor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,6 +62,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>792D5E84C992FDC20F1741F46327928B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>904F4F27FD314010A3812EB2A9306183</key>
 		<dict>
 			<key>primary</key>
@@ -62,7 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AA89A95FED39B113272CE4293D32E0C3</key>
+		<key>D37D05D6F976EB26B62D993F6BA20AC5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F1E4E0F6BAE8EE13AAB4DA47C384DD3F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

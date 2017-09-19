@@ -186,4 +186,23 @@
     callback();
 }
 
+
+/**
+ *  跳转到应用的设置界面
+ */
+- (void)jumpToSettings
+{
+    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+    
+    if ([[UIApplication sharedApplication] canOpenURL:url])
+    {
+        [[UIApplication sharedApplication] openURL:url];
+    }
+}
+
+- (void)dealloc
+{
+    NSLog(@"dealloc: %@", [self class]);
+}
+
 @end
