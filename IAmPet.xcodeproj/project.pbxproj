@@ -40,6 +40,10 @@
 		657C74621F6786E8002BE2BA /* BaseNibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74611F6786E8002BE2BA /* BaseNibView.m */; };
 		657C74661F68C1AF002BE2BA /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74651F68C1AF002BE2BA /* SideMenuViewController.m */; };
 		657C746A1F68C1EE002BE2BA /* LeftSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74691F68C1EE002BE2BA /* LeftSideViewController.m */; };
+		65C1EEAB1F71620D004D464D /* WCLRecordEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1EEA71F71620D004D464D /* WCLRecordEncoder.m */; };
+		65C1EEAC1F71620D004D464D /* WCLRecordEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1EEAA1F71620D004D464D /* WCLRecordEngine.m */; };
+		65C1EEB11F716229004D464D /* VideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1EEAE1F716229004D464D /* VideoPlayerController.m */; };
+		65C1EEB21F716229004D464D /* VideoRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1EEB01F716229004D464D /* VideoRecordController.m */; };
 		65C2E2061F6FA3920043027A /* PersonCenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C2E2051F6FA3920043027A /* PersonCenterView.xib */; };
 		65C2E2081F6FA8450043027A /* icon_logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C2E2071F6FA8450043027A /* icon_logout.png */; };
 		65C2E20B1F6FA9C40043027A /* PersonCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C2E20A1F6FA9C40043027A /* PersonCenterView.m */; };
@@ -240,6 +244,14 @@
 		657C74651F68C1AF002BE2BA /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
 		657C74681F68C1EE002BE2BA /* LeftSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSideViewController.h; sourceTree = "<group>"; };
 		657C74691F68C1EE002BE2BA /* LeftSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSideViewController.m; sourceTree = "<group>"; };
+		65C1EEA61F71620D004D464D /* WCLRecordEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCLRecordEncoder.h; sourceTree = "<group>"; };
+		65C1EEA71F71620D004D464D /* WCLRecordEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCLRecordEncoder.m; sourceTree = "<group>"; };
+		65C1EEA91F71620D004D464D /* WCLRecordEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCLRecordEngine.h; sourceTree = "<group>"; };
+		65C1EEAA1F71620D004D464D /* WCLRecordEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCLRecordEngine.m; sourceTree = "<group>"; };
+		65C1EEAD1F716229004D464D /* VideoPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerController.h; sourceTree = "<group>"; };
+		65C1EEAE1F716229004D464D /* VideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerController.m; sourceTree = "<group>"; };
+		65C1EEAF1F716229004D464D /* VideoRecordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRecordController.h; sourceTree = "<group>"; };
+		65C1EEB01F716229004D464D /* VideoRecordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoRecordController.m; sourceTree = "<group>"; };
 		65C2E2051F6FA3920043027A /* PersonCenterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonCenterView.xib; sourceTree = "<group>"; };
 		65C2E2071F6FA8450043027A /* icon_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_logout.png; sourceTree = "<group>"; };
 		65C2E2091F6FA9C40043027A /* PersonCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterView.h; sourceTree = "<group>"; };
@@ -415,12 +427,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		654E4B0D1F7158FD0052F4A9 /* Vendor */ = {
+		654E4B0D1F7158FD0052F4A9 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				65C1EEA41F71620D004D464D /* WCLRecordVideo */,
 				654E4B0E1F71592D0052F4A9 /* lame */,
 			);
-			name = Vendor;
+			name = Vender;
 			sourceTree = "<group>";
 		};
 		654E4B0E1F71592D0052F4A9 /* lame */ = {
@@ -455,7 +468,7 @@
 		657C73F71F662C02002BE2BA /* IAmPet */ = {
 			isa = PBXGroup;
 			children = (
-				654E4B0D1F7158FD0052F4A9 /* Vendor */,
+				654E4B0D1F7158FD0052F4A9 /* Vender */,
 				657C74391F662E89002BE2BA /* NetUtils */,
 				657C74351F662D71002BE2BA /* Resources */,
 				657C74311F662D13002BE2BA /* Utils */,
@@ -511,6 +524,10 @@
 		657C74301F662D02002BE2BA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				65C1EEAD1F716229004D464D /* VideoPlayerController.h */,
+				65C1EEAE1F716229004D464D /* VideoPlayerController.m */,
+				65C1EEAF1F716229004D464D /* VideoRecordController.h */,
+				65C1EEB01F716229004D464D /* VideoRecordController.m */,
 				657C74671F68C1B9002BE2BA /* SideMenu */,
 				657C744F1F6657F6002BE2BA /* Base */,
 				657C74501F6658A7002BE2BA /* SectionManagerController.h */,
@@ -730,6 +747,33 @@
 				65C6E6701F6BCB300063F5A5 /* MainTabBarViewController.m */,
 			);
 			name = SideMenu;
+			sourceTree = "<group>";
+		};
+		65C1EEA41F71620D004D464D /* WCLRecordVideo */ = {
+			isa = PBXGroup;
+			children = (
+				65C1EEA51F71620D004D464D /* WCLRecordEncoder */,
+				65C1EEA81F71620D004D464D /* WCLRecordEngine */,
+			);
+			path = WCLRecordVideo;
+			sourceTree = "<group>";
+		};
+		65C1EEA51F71620D004D464D /* WCLRecordEncoder */ = {
+			isa = PBXGroup;
+			children = (
+				65C1EEA61F71620D004D464D /* WCLRecordEncoder.h */,
+				65C1EEA71F71620D004D464D /* WCLRecordEncoder.m */,
+			);
+			path = WCLRecordEncoder;
+			sourceTree = "<group>";
+		};
+		65C1EEA81F71620D004D464D /* WCLRecordEngine */ = {
+			isa = PBXGroup;
+			children = (
+				65C1EEA91F71620D004D464D /* WCLRecordEngine.h */,
+				65C1EEAA1F71620D004D464D /* WCLRecordEngine.m */,
+			);
+			path = WCLRecordEngine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1043,9 +1087,11 @@
 				657C74421F66300E002BE2BA /* Utils.m in Sources */,
 				65C6E66E1F6BCB160063F5A5 /* BaseTabBarController.m in Sources */,
 				65C6E6711F6BCB300063F5A5 /* MainTabBarViewController.m in Sources */,
+				65C1EEAC1F71620D004D464D /* WCLRecordEngine.m in Sources */,
 				656A2D811F70E49100E97F15 /* PhotoView.m in Sources */,
 				65C2E20B1F6FA9C40043027A /* PersonCenterView.m in Sources */,
 				65C6E7451F6BCD2B0063F5A5 /* AreaViewController.m in Sources */,
+				65C1EEB21F716229004D464D /* VideoRecordController.m in Sources */,
 				65C2E2101F6FAB200043027A /* BaseTableViewCell.m in Sources */,
 				657C74551F6658D2002BE2BA /* SectionInfo.m in Sources */,
 				6508B23D1F6BBA3700B0418F /* BaseTableViewController.m in Sources */,
@@ -1060,7 +1106,9 @@
 				657C73FA1F662C02002BE2BA /* main.m in Sources */,
 				656A2D8B1F710B5200E97F15 /* ImageUtils.m in Sources */,
 				657C74621F6786E8002BE2BA /* BaseNibView.m in Sources */,
+				65C1EEB11F716229004D464D /* VideoPlayerController.m in Sources */,
 				657C74061F662C02002BE2BA /* IAmPet.xcdatamodeld in Sources */,
+				65C1EEAB1F71620D004D464D /* WCLRecordEncoder.m in Sources */,
 				657C74521F6658A7002BE2BA /* SectionManagerController.m in Sources */,
 				65C6E7421F6BCD160063F5A5 /* HomeViewController.m in Sources */,
 				656A2D881F70EA6800E97F15 /* PhotosView.m in Sources */,

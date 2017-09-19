@@ -122,6 +122,9 @@
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <state key="normal" title="视频"/>
+                                    <connections>
+                                        <action selector="recordVideo:" destination="-1" eventType="touchUpInside" id="YBs-Px-t8O"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,20 +168,32 @@
                     <rect key="frame" x="16" y="197" width="343" height="40"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3S-Ku-e0S">
-                            <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
-                            <state key="normal" title="Button"/>
+                            <rect key="frame" x="0.0" y="0.0" width="171.5" height="40"/>
+                            <state key="normal" title="声音"/>
                             <connections>
                                 <action selector="playVoice:" destination="-1" eventType="touchUpInside" id="Hoi-qt-vv1"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fll-5k-RJn">
+                            <rect key="frame" x="171.5" y="0.0" width="171.5" height="40"/>
+                            <state key="normal" title="视频"/>
+                            <connections>
+                                <action selector="playVideo:" destination="-1" eventType="touchUpInside" id="5hU-Xq-4wB"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Fll-5k-RJn" secondAttribute="trailing" id="22Y-eC-Yaf"/>
                         <constraint firstItem="r3S-Ku-e0S" firstAttribute="leading" secondItem="hM5-89-ven" secondAttribute="leading" id="6kC-b6-hbF"/>
+                        <constraint firstItem="Fll-5k-RJn" firstAttribute="height" secondItem="r3S-Ku-e0S" secondAttribute="height" id="Da3-Xb-e1u"/>
+                        <constraint firstAttribute="bottom" secondItem="Fll-5k-RJn" secondAttribute="bottom" id="EaB-LV-kSD"/>
+                        <constraint firstItem="Fll-5k-RJn" firstAttribute="leading" secondItem="r3S-Ku-e0S" secondAttribute="trailing" id="Nyb-u6-oJj"/>
+                        <constraint firstItem="Fll-5k-RJn" firstAttribute="width" secondItem="r3S-Ku-e0S" secondAttribute="width" id="O0K-Cl-3SK"/>
                         <constraint firstAttribute="height" constant="40" id="RMW-sz-TFV"/>
+                        <constraint firstItem="Fll-5k-RJn" firstAttribute="top" secondItem="hM5-89-ven" secondAttribute="top" id="RQ6-D8-Jbk"/>
                         <constraint firstItem="r3S-Ku-e0S" firstAttribute="top" secondItem="hM5-89-ven" secondAttribute="top" id="SG1-on-Ugz"/>
                         <constraint firstAttribute="bottom" secondItem="r3S-Ku-e0S" secondAttribute="bottom" id="fRW-hj-ZCt"/>
-                        <constraint firstAttribute="trailing" secondItem="r3S-Ku-e0S" secondAttribute="trailing" id="lcA-a7-nvm"/>
                     </constraints>
                 </view>
             </subviews>

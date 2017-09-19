@@ -12,6 +12,8 @@
 #import <Photos/Photos.h>
 #import "PhotosView.h"
 #import "lame.h"
+#import "VideoRecordController.h"
+#import "VideoPlayerController.h"
 
 #define kSandboxPathStr [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
 
@@ -19,7 +21,18 @@
 
 #define kCafFileName @"myRecord.caf"
 
-@interface PublishViewController () <TZImagePickerControllerDelegate, PhotosViewDelegate, AVAudioRecorderDelegate>
+@interface PublishViewController () <TZImagePickerControllerDelegate, PhotosViewDelegate, AVAudioRecorderDelegate, VideoRecordControllerDelegate>
+
+
+- (IBAction)close:(id)sender;
+
+- (IBAction)showPhotoPicker:(id)sender;
+
+- (IBAction)playVoice:(id)sender;
+
+- (IBAction)recordVideo:(id)sender;
+
+- (IBAction)playVideo:(id)sender;
 
 @property (nonatomic, weak) IBOutlet UIButton *btnClose;
 
@@ -43,13 +56,10 @@
 
 @property (nonatomic, copy) NSString *mp3Path;
 
-@property (strong, nonatomic) AVAudioPlayer *player;
+@property (nonatomic, strong) AVAudioPlayer *player;
 
-- (IBAction)close:(id)sender;
+@property (nonatomic, copy) NSString *videoPath;
 
-- (IBAction)showPhotoPicker:(id)sender;
-
-- (IBAction)playVoice:(id)sender;
 
 @end
 
@@ -378,4 +388,39 @@
     return YES;
 }
 
+#pragma mark - 视频处理
+
+/**
+ *  录制视频
+ *
+ *  @param sender sender
+ */
+- (IBAction)recordVideo:(id)sender
+{
+    VideoRecordController *controller = [VideoRecordController new];
+    controller.delegate = self;
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+/**
+ *  录制视频回调
+ *
+ *  @param path path
+ */
+- (void)onRecordSuccess:(NSString *)path
+{
+    self.videoPath = path;
+}
+
+/**
+ *  播放视频
+ *
+ *  @param sender sender
+ */
+- (IBAction)playVideo:(id)sender
+{
+    VideoPlayerController *controller = [VideoPlayerController new];
+    controller.urlStr = self.videoPath;
+    [self presentViewController:controller animated:YES completion:nil];
+}
 @end
