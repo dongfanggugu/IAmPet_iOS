@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		277D0BC6D6FE3A20B29D38B3 /* libPods-IAmPet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF319E986DDE4BC068AC6EC /* libPods-IAmPet.a */; };
 		6508B23D1F6BBA3700B0418F /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */; };
+		654E4B111F71592D0052F4A9 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 654E4B101F71592D0052F4A9 /* libmp3lame.a */; };
 		656A2D771F70AD0800E97F15 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656A2D751F70AD0800E97F15 /* PublishViewController.m */; };
 		656A2D781F70AD0800E97F15 /* PublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656A2D761F70AD0800E97F15 /* PublishViewController.xib */; };
 		656A2D7E1F70E32D00E97F15 /* PhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656A2D7D1F70E32D00E97F15 /* PhotoView.xib */; };
@@ -178,6 +179,8 @@
 /* Begin PBXFileReference section */
 		6508B23B1F6BBA3700B0418F /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		654E4B0F1F71592D0052F4A9 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		654E4B101F71592D0052F4A9 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
 		656A2D741F70AD0800E97F15 /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishViewController.h; sourceTree = "<group>"; };
 		656A2D751F70AD0800E97F15 /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishViewController.m; sourceTree = "<group>"; };
 		656A2D761F70AD0800E97F15 /* PublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PublishViewController.xib; sourceTree = "<group>"; };
@@ -374,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				277D0BC6D6FE3A20B29D38B3 /* libPods-IAmPet.a in Frameworks */,
+				654E4B111F71592D0052F4A9 /* libmp3lame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +415,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		654E4B0D1F7158FD0052F4A9 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				654E4B0E1F71592D0052F4A9 /* lame */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		654E4B0E1F71592D0052F4A9 /* lame */ = {
+			isa = PBXGroup;
+			children = (
+				654E4B0F1F71592D0052F4A9 /* lame.h */,
+				654E4B101F71592D0052F4A9 /* libmp3lame.a */,
+			);
+			path = lame;
+			sourceTree = "<group>";
+		};
 		657C73EC1F662C01002BE2BA = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +455,7 @@
 		657C73F71F662C02002BE2BA /* IAmPet */ = {
 			isa = PBXGroup;
 			children = (
+				654E4B0D1F7158FD0052F4A9 /* Vendor */,
 				657C74391F662E89002BE2BA /* NetUtils */,
 				657C74351F662D71002BE2BA /* Resources */,
 				657C74311F662D13002BE2BA /* Utils */,
@@ -1190,11 +1212,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6LK27K74LE;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IAmPet/PrefixHeader.pch";
 				INFOPLIST_FILE = IAmPet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/IAmPet/lame",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhenhao.IAmPet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1206,11 +1233,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6LK27K74LE;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/IAmPet/PrefixHeader.pch";
 				INFOPLIST_FILE = IAmPet/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/IAmPet/lame",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhenhao.IAmPet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

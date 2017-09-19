@@ -78,8 +78,9 @@
             [self.arrayImage removeObjectsInRange:range];
         }
         
-        NSInteger width = self.frame.size.width / 3;
+        [self cleanSubViews];
         
+        NSInteger width = self.frame.size.width / 3;
         NSInteger rows = ceil((self.arrayImage.count + 1) / 3.0);
         
         if (self.arrayImage.count == self.max)
@@ -153,11 +154,6 @@
     NSLog(@"index: %ld", index);
     [self.arrayImage removeObjectAtIndex:index];
     
-    for (UIView *view in self.subviews)
-    {
-        [view removeFromSuperview];
-    }
-    
     [self showPhotos];
 }
 
@@ -185,7 +181,19 @@
     }
     
     [self.arrayImage addObject:image];
+    
     [self showPhotos];
+}
+
+/**
+ *  删除子view
+ */
+- (void)cleanSubViews
+{
+    for (UIView *view in self.subviews)
+    {
+        [view removeFromSuperview];
+    }
 }
 
 @end
