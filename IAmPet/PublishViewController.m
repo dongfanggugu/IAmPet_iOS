@@ -75,7 +75,6 @@
 {
     //录音按钮处理
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressed:)];
-    //longPress.delegate = self;
     longPress.minimumPressDuration = 0.5;
     [_btnVoice addGestureRecognizer:longPress];
 }

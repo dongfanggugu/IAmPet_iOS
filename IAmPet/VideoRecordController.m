@@ -109,7 +109,9 @@
     [self.recordEngine startCapture];
 }
 
-
+/**
+ *  停止录制
+ */
 - (void)stop
 {
     [self.recordEngine stopCaptureHandler:^(UIImage *movieImage)
