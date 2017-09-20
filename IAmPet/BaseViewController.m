@@ -10,6 +10,10 @@
 #import <objc/runtime.h>
 
 @interface BaseViewController ()
+{
+    CGRect _oldFrame;    //保存图片原来的大小
+    CGRect _largeFrame;
+}
 
 @end
 
@@ -203,6 +207,136 @@
 - (void)dealloc
 {
     NSLog(@"dealloc: %@", [self class]);
+}
+
+#pragma makr - 图片预览
+
+/**
+ *  显示预览图
+ *
+ *  @param image image
+ */
+- (void)showPreviewImage:(UIImage *)image
+{
+    UIWindow *window = [UIApplication sharedApplication].delegate.window;
+    
+    UIView *backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    
+//    _oldFrame = image.size;
+    
+    backgroundView.backgroundColor=[UIColor blackColor];
+    
+    backgroundView.alpha = 1;
+    
+    CGFloat oldWidth = image.size.width;
+    CGFloat oldHeight = image.size.height;
+    
+    CGFloat scaleW = (ScreenWidth - 32) / oldWidth;
+    CGFloat scaleH = (ScreenHeight - 64 -32) / oldHeight;
+    CGFloat scale = MIN(scaleW, scaleH);
+    
+    CGRect newFrame = CGRectMake(0, 0, oldWidth * scale, oldHeight * scale);
+    
+    UIImageView *ivNew =[[UIImageView alloc]initWithFrame:newFrame];
+    
+    ivNew.center = CGPointMake(ScreenWidth / 2, ScreenHeight / 2);
+    
+    ivNew.backgroundColor = [UIColor whiteColor];
+    
+    ivNew.image = image;
+    
+    ivNew.tag = 1;
+    
+    [backgroundView addSubview:ivNew];
+    
+    [window addSubview:backgroundView];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideImage:)];
+    
+    [backgroundView addGestureRecognizer:tap];
+    
+    ivNew.multipleTouchEnabled = YES;
+    
+    ivNew.userInteractionEnabled = YES;
+    
+    [self addGestureRecognizerToView:ivNew];
+}
+
+/**
+ *  隐藏预览
+ *
+ *  @param tap tap
+ */
+- (void)hideImage:(UITapGestureRecognizer*)tap
+{
+    UIView *backgroundView = tap.view;
+    [backgroundView removeFromSuperview];
+}
+
+/**
+ *  添加所有手势
+ *
+ *  @param view view
+ */
+- (void)addGestureRecognizerToView:(UIView *)view
+{
+    // 缩放手势
+    UIPinchGestureRecognizer *pinchGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchView:)];
+    [view addGestureRecognizer:pinchGestureRecognizer];
+    
+    //拖动手势
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panView:)];
+    [view addGestureRecognizer:panGestureRecognizer];
+}
+
+// 处理旋转手势
+- (void)rotateView:(UIRotationGestureRecognizer *)rotationGestureRecognizer
+{
+    UIView *view = rotationGestureRecognizer.view;
+    if (rotationGestureRecognizer.state == UIGestureRecognizerStateBegan || rotationGestureRecognizer.state == UIGestureRecognizerStateChanged)
+    {
+        view.transform = CGAffineTransformRotate(view.transform, rotationGestureRecognizer.rotation);
+        [rotationGestureRecognizer setRotation:0];
+    }
+}
+
+/**
+ *  处理缩放手势
+ *
+ *  @param pinchGestureRecognizer pinchGestureRecognizer
+ */
+- (void)pinchView:(UIPinchGestureRecognizer *)pinchGestureRecognizer
+{
+    UIView *view = pinchGestureRecognizer.view;
+    if (pinchGestureRecognizer.state == UIGestureRecognizerStateBegan || pinchGestureRecognizer.state == UIGestureRecognizerStateChanged)
+    {
+        view.transform = CGAffineTransformScale(view.transform, pinchGestureRecognizer.scale, pinchGestureRecognizer.scale);
+        
+        if (view.frame.size.width < _oldFrame.size.width)
+        {
+            NSInteger x = (NSInteger) (view.frame.origin.x / ScreenWidth);
+            
+            CGRect frame = CGRectMake(x * ScreenWidth, _oldFrame.origin.y, _oldFrame.size.width, _oldFrame.size.height);
+            view.frame = frame;
+        }
+        pinchGestureRecognizer.scale = 1;
+    }
+}
+
+/**
+ *  处理拖拉手势
+ *
+ *  @param panGestureRecognizer panGestureRecognizer
+ */
+- (void)panView:(UIPanGestureRecognizer *)panGestureRecognizer
+{
+    UIView *view = panGestureRecognizer.view;
+    if (panGestureRecognizer.state == UIGestureRecognizerStateBegan || panGestureRecognizer.state == UIGestureRecognizerStateChanged)
+    {
+        CGPoint translation = [panGestureRecognizer translationInView:view.superview];
+        [view setCenter:(CGPoint) {view.center.x + translation.x, view.center.y + translation.y}];
+        [panGestureRecognizer setTranslation:CGPointZero inView:view.superview];
+    }
 }
 
 @end

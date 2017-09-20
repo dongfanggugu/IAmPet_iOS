@@ -12,7 +12,7 @@
 
 + (instancetype)viewFromNib;
 
-@property (nonatomic, weak) UIImage *imgPhoto;
+@property (nonatomic, strong) UIImage *imgPhoto;
 
 @property (nonatomic, copy) NSMutableDictionary *userInfo;
 

@@ -17,6 +17,12 @@
 		656A2D831F70E58600E97F15 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 656A2D821F70E58600E97F15 /* close.png */; };
 		656A2D881F70EA6800E97F15 /* PhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 656A2D871F70EA6800E97F15 /* PhotosView.m */; };
 		656A2D8B1F710B5200E97F15 /* ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 656A2D8A1F710B5200E97F15 /* ImageUtils.m */; };
+		656A2D8D1F72451000E97F15 /* VoiceRecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656A2D8C1F72451000E97F15 /* VoiceRecordView.xib */; };
+		656A2D8F1F72456C00E97F15 /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 656A2D8E1F72456C00E97F15 /* microphone.png */; };
+		656A2D921F72482300E97F15 /* VoiceRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 656A2D911F72482300E97F15 /* VoiceRecordView.m */; };
+		656A2D941F72542600E97F15 /* icon_voice.png in Resources */ = {isa = PBXBuildFile; fileRef = 656A2D931F72542600E97F15 /* icon_voice.png */; };
+		656A2D961F725E0E00E97F15 /* VoicePlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656A2D951F725E0E00E97F15 /* VoicePlayView.xib */; };
+		656A2D991F725EDD00E97F15 /* VoicePlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 656A2D981F725EDD00E97F15 /* VoicePlayView.m */; };
 		657C73FA1F662C02002BE2BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C73F91F662C02002BE2BA /* main.m */; };
 		657C73FD1F662C02002BE2BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C73FC1F662C02002BE2BA /* AppDelegate.m */; };
 		657C74001F662C02002BE2BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C73FF1F662C02002BE2BA /* ViewController.m */; };
@@ -196,6 +202,14 @@
 		656A2D871F70EA6800E97F15 /* PhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosView.m; sourceTree = "<group>"; };
 		656A2D891F710B5200E97F15 /* ImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtils.h; sourceTree = "<group>"; };
 		656A2D8A1F710B5200E97F15 /* ImageUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUtils.m; sourceTree = "<group>"; };
+		656A2D8C1F72451000E97F15 /* VoiceRecordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoiceRecordView.xib; sourceTree = "<group>"; };
+		656A2D8E1F72456C00E97F15 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
+		656A2D901F72482300E97F15 /* VoiceRecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceRecordView.h; sourceTree = "<group>"; };
+		656A2D911F72482300E97F15 /* VoiceRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceRecordView.m; sourceTree = "<group>"; };
+		656A2D931F72542600E97F15 /* icon_voice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_voice.png; sourceTree = "<group>"; };
+		656A2D951F725E0E00E97F15 /* VoicePlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoicePlayView.xib; sourceTree = "<group>"; };
+		656A2D971F725EDD00E97F15 /* VoicePlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoicePlayView.h; sourceTree = "<group>"; };
+		656A2D981F725EDD00E97F15 /* VoicePlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoicePlayView.m; sourceTree = "<group>"; };
 		657C73F51F662C02002BE2BA /* IAmPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IAmPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		657C73F91F662C02002BE2BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		657C73FB1F662C02002BE2BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -568,6 +582,8 @@
 		657C74351F662D71002BE2BA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				656A2D931F72542600E97F15 /* icon_voice.png */,
+				656A2D8E1F72456C00E97F15 /* microphone.png */,
 				65C6E6721F6BCC780063F5A5 /* add_des_input@2x.png */,
 				65C6E6731F6BCC780063F5A5 /* arrow_down@2x.png */,
 				656A2D821F70E58600E97F15 /* close.png */,
@@ -711,6 +727,8 @@
 				65C2E20C1F6FAA460043027A /* PersonCenterCell.xib */,
 				65C2E2161F6FC3030043027A /* TalkCell.xib */,
 				656A2D7D1F70E32D00E97F15 /* PhotoView.xib */,
+				656A2D8C1F72451000E97F15 /* VoiceRecordView.xib */,
+				656A2D951F725E0E00E97F15 /* VoicePlayView.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -732,6 +750,10 @@
 				656A2D801F70E49100E97F15 /* PhotoView.m */,
 				656A2D861F70EA6800E97F15 /* PhotosView.h */,
 				656A2D871F70EA6800E97F15 /* PhotosView.m */,
+				656A2D901F72482300E97F15 /* VoiceRecordView.h */,
+				656A2D911F72482300E97F15 /* VoiceRecordView.m */,
+				656A2D971F725EDD00E97F15 /* VoicePlayView.h */,
+				656A2D981F725EDD00E97F15 /* VoicePlayView.m */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -891,7 +913,9 @@
 				65C6E6F21F6BCC790063F5A5 /* icon_login_weixin@2x.png in Resources */,
 				65C6E6DC1F6BCC790063F5A5 /* header_camera@2x.png in Resources */,
 				65C6E7191F6BCC790063F5A5 /* icon_message.png in Resources */,
+				656A2D941F72542600E97F15 /* icon_voice.png in Resources */,
 				65C6E70F1F6BCC790063F5A5 /* login_able@2x.png in Resources */,
+				656A2D8D1F72451000E97F15 /* VoiceRecordView.xib in Resources */,
 				65C6E7181F6BCC790063F5A5 /* money_type_sel@2x.png in Resources */,
 				65C6E71F1F6BCC790063F5A5 /* share_icon_qq@2x.png in Resources */,
 				65C6E6F91F6BCC790063F5A5 /* icon_person.png in Resources */,
@@ -953,6 +977,7 @@
 				65C6E7021F6BCC790063F5A5 /* icon_show_share@2x.png in Resources */,
 				65C6E6F81F6BCC790063F5A5 /* icon_person_hilighted.png in Resources */,
 				65C6E7061F6BCC790063F5A5 /* icon_want_person@2x.png in Resources */,
+				656A2D8F1F72456C00E97F15 /* microphone.png in Resources */,
 				65C6E7371F6BCC8B0063F5A5 /* icon_conment.png in Resources */,
 				65C2E20D1F6FAA460043027A /* PersonCenterCell.xib in Resources */,
 				65C6E6EC1F6BCC790063F5A5 /* icon_hide_menu@2x.png in Resources */,
@@ -971,6 +996,7 @@
 				65C6E6E11F6BCC790063F5A5 /* icon_add_concern@2x.png in Resources */,
 				65C6E7251F6BCC790063F5A5 /* share_qq.png in Resources */,
 				65C6E7051F6BCC790063F5A5 /* icon_want_normal.png in Resources */,
+				656A2D961F725E0E00E97F15 /* VoicePlayView.xib in Resources */,
 				65C6E7111F6BCC790063F5A5 /* login_empty@2x.png in Resources */,
 				65C6E7201F6BCC790063F5A5 /* share_icon_sinaweibo@2x.png in Resources */,
 				65C2E2081F6FA8450043027A /* icon_logout.png in Resources */,
@@ -1076,6 +1102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				657C74661F68C1AF002BE2BA /* SideMenuViewController.m in Sources */,
+				656A2D991F725EDD00E97F15 /* VoicePlayView.m in Sources */,
 				657C74481F6637E7002BE2BA /* User.m in Sources */,
 				65C2E2131F6FABE70043027A /* PersonCenterCell.m in Sources */,
 				657C743C1F662EA5002BE2BA /* HttpClient.m in Sources */,
@@ -1099,6 +1126,7 @@
 				657C743F1F662FE1002BE2BA /* LoginUtils.m in Sources */,
 				657C745F1F6786D2002BE2BA /* RegisterView.m in Sources */,
 				65C6E74B1F6BCD450063F5A5 /* ChatViewController.m in Sources */,
+				656A2D921F72482300E97F15 /* VoiceRecordView.m in Sources */,
 				657C744E1F6657F2002BE2BA /* BaseNavigationController.m in Sources */,
 				657C74581F6785F8002BE2BA /* RegisterViewController.m in Sources */,
 				657C73FD1F662C02002BE2BA /* AppDelegate.m in Sources */,

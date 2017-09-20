@@ -15,6 +15,8 @@
 
 - (void)addImage:(PhotosView *)photosView;
 
+- (void)previewImage:(UIImage *)image;
+
 @end
 
 

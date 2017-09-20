@@ -131,9 +131,6 @@
         
         for (int i = 0; i < self.arrayPhotoView.count; i++)
         {
-//            PhotoView *photoView = [PhotoView viewFromNib];
-//            photoView.imgPhoto = self.arrayImage[i];
-            
             PhotoView *photoView = self.arrayPhotoView[i];
             
             NSInteger row = i / 3;
@@ -143,15 +140,18 @@
             CGFloat y = 16 + width * row;
             
             photoView.frame = CGRectMake(x, y, width, width);
-//            photoView.userInfo[@"index"] = [NSNumber numberWithInt:i];
             
             __weak typeof (photoView) weakView = photoView;
+            
             photoView.delPhoto = ^{
                 [self imageDeleteListener:weakView];
             };
             
+            photoView.previewPhoto = ^(UIImage *image) {
+                [self imageTouchListener:image];
+            };
+            
             [self imageAddLongPress:photoView];
-//            [self.arrayPhotoView addObject:photoView];
             [self addSubview:photoView];
         }
         
@@ -189,9 +189,6 @@
 - (void)imageDeleteListener:(PhotoView *)photoView
 {
     [self.arrayPhotoView removeObject:photoView];
-//    NSInteger index = [photoView.userInfo[@"index"] integerValue];
-//    [self.arrayPhotoView removeObjectAtIndex:index];
-    
     [self showPhotos];
 }
 
@@ -203,6 +200,19 @@
     if (_delegate && [_delegate respondsToSelector:@selector(addImage:)])
     {
         [_delegate addImage:self];
+    }
+}
+
+/**
+ *  点击显示图片预览
+ *
+ *  @param image image
+ */
+- (void)imageTouchListener:(UIImage *)image
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(previewImage:)])
+    {
+        [_delegate previewImage:image];
     }
 }
 

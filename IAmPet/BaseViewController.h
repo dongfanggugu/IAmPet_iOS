@@ -53,6 +53,14 @@
  */
 - (void)setNavBarRight:(UIImage *)image click:(void(^)())clickRight;
 
+
+/**
+ *  显示预览图
+ *
+ *  @param image image
+ */
+- (void)showPreviewImage:(UIImage *)image;
+
 /**
  *  跳转到应用的设置界面
  */
