@@ -172,4 +172,34 @@
     return [self today:@"yyyy-MM-dd HH:mm:ss"];
 }
 
+/**
+ *  删除制定路径文件
+ *
+ *  @param path path
+ */
++ (void)delFile:(NSString *)path
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    BOOL blHave = [[NSFileManager defaultManager] fileExistsAtPath:path];
+    if (!blHave)
+    {
+        NSLog(@"不存在");
+        return;
+    }
+    else
+    {
+        NSLog(@"存在");
+        BOOL blDele = [fileManager removeItemAtPath:path error:nil];
+        if (blDele)
+        {
+            NSLog(@"删除成功");
+        }
+        else
+        {
+            NSLog(@"删除失败");
+        }
+    }
+}
+
 @end

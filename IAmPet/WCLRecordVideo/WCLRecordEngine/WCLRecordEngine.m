@@ -142,9 +142,9 @@
 - (void) stopCaptureHandler:(void (^)(UIImage *movieImage))handler {
     @synchronized(self) {
         if (self.isCapturing) {
-            NSString *path = self.recordEncoder.path;
+//            NSString *path = self.recordEncoder.path;
             
-            NSURL *url = [NSURL fileURLWithPath:path];
+//            NSURL *url = [NSURL fileURLWithPath:path];
             self.isCapturing = NO;
             dispatch_async(_captureQueue, ^{
                 [self.recordEncoder finishWithCompletionHandler:^{
@@ -212,8 +212,8 @@
         if ([_recordSession canAddOutput:self.videoOutput]) {
             [_recordSession addOutput:self.videoOutput];
             //设置视频的分辨率
-            _cx = 480;
-            _cy = 640;
+            _cx = self.videoWidth;
+            _cy = self.videoHeight;
         }
         //添加音频输出
         if ([_recordSession canAddOutput:self.audioOutput]) {
@@ -403,7 +403,7 @@
 {
     NSError *error;
     
-    CMTime frameDuration = CMTimeMake(1, 20);
+    CMTime frameDuration = CMTimeMake(1, (int)self.fps);
     
     NSArray *supportedFrameRateRanges = [videoDevice.activeFormat videoSupportedFrameRateRanges];
     
@@ -471,7 +471,6 @@
 
 #pragma mark - 写入数据
 - (void) captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
-    NSLog(@"changhao");
     BOOL isVideo = YES;
     @synchronized(self) {
         if (!self.isCapturing  || self.isPaused) {
@@ -484,8 +483,12 @@
         if ((self.recordEncoder == nil) && !isVideo) {
             CMFormatDescriptionRef fmt = CMSampleBufferGetFormatDescription(sampleBuffer);
             [self setAudioFormat:fmt];
-            NSString *videoName = [self getUploadFile_type:@"video" fileType:@"mp4"];
+//            NSString *videoName = [self getUploadFile_type:@"video" fileType:@"mp4"];
+            
+            //定义视频名称
+            NSString *videoName = @"video.mp4";
             self.videoPath = [[self getVideoCachePath] stringByAppendingPathComponent:videoName];
+            [self deleteExistVideo:self.videoPath];
             self.recordEncoder = [WCLRecordEncoder encoderForPath:self.videoPath Height:_cy width:_cx channels:_channels samples:_samplerate];
         }
         //判断是否中断录制过
@@ -578,6 +581,80 @@
     CMSampleBufferCreateCopyWithNewTiming(nil, sample, count, pInfo, &sout);
     free(pInfo);
     return sout;
+}
+
+/**
+ *  删除已经存在的视频文件
+ *
+ *  @param path path
+ */
+- (void)deleteExistVideo:(NSString *)path
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    BOOL blHave = [[NSFileManager defaultManager] fileExistsAtPath:path];
+    if (!blHave)
+    {
+        NSLog(@"不存在");
+        return;
+    }
+    else
+    {
+        NSLog(@"存在");
+        BOOL blDele = [fileManager removeItemAtPath:path error:nil];
+        if (blDele)
+        {
+            NSLog(@"删除成功");
+        }
+        else
+        {
+            NSLog(@"删除失败");
+        }
+    }
+}
+
+/**
+ *  取视频分辨率x，默认640
+ *
+ *  @return video width
+ */
+- (NSInteger)videoWidth
+{
+    if (0 == _videoWidth)
+    {
+        _videoWidth = 640;
+    }
+    
+    return _videoWidth;
+}
+
+/**
+ *  取视频分辨率Y，默认480
+ *
+ *  @return video height
+ */
+- (NSInteger)videoHeight
+{
+    if (0 == _videoHeight)
+    {
+        _videoHeight = 480;
+    }
+    return _videoHeight;
+}
+
+/**
+ *  取视频帧率，默认30
+ *
+ *  @return fps
+ */
+- (NSInteger)fps
+{
+    if (0 == _fps)
+    {
+        _fps = 30;
+    }
+    
+    return _fps;
 }
 
 @end

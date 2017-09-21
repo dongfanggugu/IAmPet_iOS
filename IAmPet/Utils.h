@@ -80,6 +80,13 @@
  */
 + (NSString *)getCurrentTime;
 
+/**
+ *  删除制定路径文件
+ *
+ *  @param path path
+ */
++ (void)delFile:(NSString *)path;
+
 @end
 
 

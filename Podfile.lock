@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - ALMoviePlayerController (0.3.0)
   - BaiduMapKit (3.3.2)
   - IQKeyboardManager (4.0.11)
   - jastor (0.2.1)
@@ -25,6 +26,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - ALMoviePlayerController (~> 0.3.0)
   - BaiduMapKit
   - IQKeyboardManager (~> 4.0.4)
   - jastor (~> 0.2.1)
@@ -36,6 +38,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  ALMoviePlayerController: caf8e2b455e576f704895882b7c1688686b40b0c
   BaiduMapKit: 5118390d63b375483bd64c963e8e32a40fd9ddb5
   IQKeyboardManager: 83eae5318483a34eb2069ef413d195b97605232e
   jastor: fe9ff71f4b683698253d6a0d9a2561987fd9aff3
@@ -45,6 +48,6 @@ SPEC CHECKSUMS:
   RSKImageCropper: 356e36fc58c57c371b5d8b23d603936d6a73df6c
   TZImagePickerController: 79fa5712237cf6bdc63311cf65d7e0aa369b2b0a
 
-PODFILE CHECKSUM: 89af0321af6fcfa21c63092be6f2f83b20eb4b5a
+PODFILE CHECKSUM: bf60abf0c93a7e516782b10973e5e0970a68bc9e
 
 COCOAPODS: 1.2.1

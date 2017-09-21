@@ -43,6 +43,10 @@
 @property (weak, nonatomic) id<WCLRecordEngineDelegate>delegate;
 @property (atomic, strong) NSString *videoPath;//视频路径
 
+@property (nonatomic, assign) NSInteger videoWidth; //视频分辨率X
+@property (nonatomic, assign) NSInteger videoHeight; //视频分辨率Y
+@property (nonatomic, assign) NSInteger fps;        //视频帧率
+
 //捕获到的视频呈现的layer
 - (AVCaptureVideoPreviewLayer *)previewLayer;
 //启动录制功能

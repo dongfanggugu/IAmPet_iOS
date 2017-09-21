@@ -15,6 +15,9 @@
 #import "VideoPlayerController.h"
 #import "VoiceRecordView.h"
 #import "VoicePlayView.h"
+#import <ALMoviePlayerController.h>
+#import <AVKit/AVKit.h>
+#import "VideoPlayView.h"
 
 
 @interface PublishViewController () <TZImagePickerControllerDelegate, PhotosViewDelegate, AVAudioRecorderDelegate, VideoRecordControllerDelegate, VoicePlayViewDelegate>
@@ -31,13 +34,15 @@
 
 @property (nonatomic, weak) IBOutlet UIButton *btnVoice;
 
+@property (nonatomic, weak) IBOutlet UIView *viewMyVoice;
+
+@property (nonatomic, weak) IBOutlet UIView *viewMyPhoto;
+
+@property (nonatomic, weak) IBOutlet UIView *viewMyVideo;
+
 @property (nonatomic, weak) IBOutlet UIView *viewPhoto;
 
-@property (nonatomic, weak) IBOutlet UIView *viewVoice;
-
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *photoHeight;
-
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *voiceHeight;
 
 @property (nonatomic, strong) PhotosView *photosView;
 
@@ -47,6 +52,9 @@
 
 //语音播放
 @property (nonatomic, strong) VoicePlayView *playView;
+
+//视频播放
+@property (nonatomic, strong) ALMoviePlayerController *playerController;
 
 @end
 
@@ -61,7 +69,6 @@
 - (void)initView
 {
     //初始化
-    _voiceHeight.constant = 0;
     _photoHeight.constant = 0;
     
     //录音按钮处理
@@ -92,15 +99,20 @@
         return;
     }
     
-    TZImagePickerController *controller = [[TZImagePickerController alloc] initWithMaxImagesCount:9 delegate:self];
+    TZImagePickerController *controller = [[TZImagePickerController alloc] initWithMaxImagesCount:3 delegate:self];
     [self presentViewController:controller animated:YES completion:nil];
     
     __weak typeof (self) weakSelf = self;
     [controller setDidFinishPickingPhotosHandle:^(NSArray *arrayImage, NSArray *array, BOOL isOrigin){
-        _photosView = [[PhotosView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth - 32, 0) imageArray:arrayImage max:9];
+        //清除之前加载的图片
+        [self cleanMediaView];
+        _photosView = [[PhotosView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth - 32, 0) imageArray:arrayImage max:3];
         _photosView.delegate = self;
         _photosView.viewUpdate = ^(PhotosView *view) {
-            weakSelf.photoHeight.constant = view.bounds.size.height;
+            [UIView animateWithDuration:0.5 animations:^{
+                weakSelf.photoHeight.constant = view.bounds.size.height;
+                [weakSelf.view layoutIfNeeded];
+            }];
         };
         [_photosView showPhotos];
         [_viewPhoto addSubview:_photosView];
@@ -172,9 +184,43 @@
  *
  *  @param path path
  */
-- (void)onRecordSuccess:(NSString *)path
+- (void)onRecordSuccess:(NSString *)path preview:(UIImage *)image
 {
-    self.videoPath = path;
+    [self cleanMediaView];
+    CGFloat width = _viewPhoto.frame.size.width;
+    CGFloat height = width;
+    
+    VideoPlayView *videoPlayView = [VideoPlayView viewFromNib];
+    videoPlayView.frame = CGRectMake(0, 0, width, height);
+    
+    videoPlayView.imageView.image = image;
+    videoPlayView.clickPlay = ^{
+        [self playVideo:path];
+    };
+    videoPlayView.clickDel = ^{
+        [Utils delFile:path];
+        [self cleanMediaView];
+    };
+    
+    [_viewPhoto addSubview:videoPlayView];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        _photoHeight.constant = height;
+        [self.view layoutIfNeeded];
+    }];
+    
+}
+
+/**
+ *  播放视频
+ *
+ *  @param path path
+ */
+- (void)playVideo:(NSString *)path
+{
+    VideoPlayerController *controller = [VideoPlayerController new];
+    controller.urlStr = path;
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 /**
@@ -184,23 +230,31 @@
  */
 - (void)prepareForPlayVoice:(NSString *)path
 {
-    if (!_playView)
-    {
-        _playView = [VoicePlayView viewFromNib];
-        _playView.delegate = self;
-    }
-    if (_playView.superview)
-    {
-        [_playView removeFromSuperview];
-    }
     
+    [self cleanMediaView];
+    _playView = [VoicePlayView viewFromNib];
+    _playView.delegate = self;
     _playView.voicePath = path;
     _playView.frame = CGRectMake(0, 0, ScreenWidth - 32, _playView.bounds.size.height);
-    _voiceHeight.constant = _playView.bounds.size.height;
-    _viewVoice.backgroundColor = [UIColor redColor];
     
-    NSLog(@"x: %.3lf", _playView.frame.origin.y);
-    [_viewVoice addSubview:_playView];
+    [_viewPhoto addSubview:_playView];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        _photoHeight.constant = _playView.bounds.size.height;
+        [self.view layoutIfNeeded];
+    }];
+}
+
+/**
+ *  清理多媒体view
+ */
+- (void)cleanMediaView
+{
+    for (UIView *view in _viewPhoto.subviews)
+    {
+        [view removeFromSuperview];
+        _photoHeight.constant = 0;
+    }
 }
 
 /**
@@ -210,19 +264,11 @@
  */
 - (void)closePlayView:(VoicePlayView *)playView
 {
-    _voiceHeight.constant = 0;
-}
-
-/**
- *  播放视频
- *
- *  @param sender sender
- */
-- (IBAction)playVideo:(id)sender
-{
-    VideoPlayerController *controller = [VideoPlayerController new];
-    controller.urlStr = self.videoPath;
-    [self presentViewController:controller animated:YES completion:nil];
+    [UIView animateWithDuration:0.5 animations:^{
+        [self cleanMediaView];
+        _photoHeight.constant = 0;
+        [self.view layoutIfNeeded];
+    }];
 }
 
 @end

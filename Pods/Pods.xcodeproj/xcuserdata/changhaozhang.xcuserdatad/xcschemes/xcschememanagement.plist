@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ALMoviePlayerController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,7 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>792D5E84C992FDC20F1741F46327928B</key>
+		<key>3A287398BB1DE3AE382467C3983B7BF4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,17 +77,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>963EA1602D41AD4B7E3EB123F56CF339</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9E033EDB5EC0819481B0546434FA577B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D37D05D6F976EB26B62D993F6BA20AC5</key>
+		<key>9FE6A6FC100707F0DAD434F64A356212</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F1E4E0F6BAE8EE13AAB4DA47C384DD3F</key>
+		<key>EEEB43AC192DBF7D98C2E17DF53AAD5D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

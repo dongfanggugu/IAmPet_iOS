@@ -14,13 +14,11 @@
 
 @protocol VideoRecordControllerDelegate <NSObject>
 
-- (void)onRecordSuccess:(NSString *)path;
+- (void)onRecordSuccess:(NSString *)path preview:(UIImage *)image;
 
 @end
 
 @interface VideoRecordController : BaseViewController
-
-@property (copy, nonatomic) NSString *alarmId;
 
 @property (weak, nonatomic) id<VideoRecordControllerDelegate> delegate;
 

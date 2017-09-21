@@ -23,7 +23,6 @@
     [self initView];
 }
 
-
 - (void)initView
 {
     UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
@@ -32,6 +31,24 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     [webView loadRequest:request];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    view.backgroundColor = [UIColor whiteColor];
+    view.layer.masksToBounds = YES;
+    view.layer.cornerRadius = 20;
+    view.center = CGPointMake(25, 42);
+    [self.view addSubview:view];
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [btn setImage:[UIImage imageNamed:@"btn_back1"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    btn.center = CGPointMake(20, 20);
+    [view addSubview:btn];
+}
+
+- (void)back
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
