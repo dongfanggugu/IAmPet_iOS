@@ -70,11 +70,23 @@
 {
     //初始化
     _photoHeight.constant = 0;
+    [self cornerView:_viewMyVoice];
+    [self cornerView:_viewMyVideo];
+    [self cornerView:_viewMyPhoto];
+    
     
     //录音按钮处理
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressed:)];
     longPress.minimumPressDuration = 0.5;
     [_btnVoice addGestureRecognizer:longPress];
+}
+
+- (void)cornerView:(UIView *)view
+{
+    view.layer.cornerRadius = 5;
+    view.layer.masksToBounds = YES;
+    view.layer.borderWidth = 1;
+    view.layer.borderColor = RGB(Color_Main1).CGColor;
 }
 
 /**
