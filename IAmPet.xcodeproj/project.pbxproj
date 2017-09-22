@@ -29,6 +29,10 @@
 		656A2DA61F73BB9400E97F15 /* icon_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 656A2DA51F73BB9400E97F15 /* icon_img.png */; };
 		656A2DA81F73BBC300E97F15 /* icon_video.png in Resources */ = {isa = PBXBuildFile; fileRef = 656A2DA71F73BBC300E97F15 /* icon_video.png */; };
 		656A2DAA1F73BC5D00E97F15 /* icon_voice2.png in Resources */ = {isa = PBXBuildFile; fileRef = 656A2DA91F73BC5D00E97F15 /* icon_voice2.png */; };
+		656A2DAF1F74D71600E97F15 /* HHUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A2DAE1F74D71600E97F15 /* HHUtils.swift */; };
+		656A2DB11F74F9F000E97F15 /* MyTalkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656A2DB01F74F9F000E97F15 /* MyTalkCell.xib */; };
+		656A2DB31F74FF7A00E97F15 /* MyTalkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A2DB21F74FF7A00E97F15 /* MyTalkCell.swift */; };
+		656A2DB51F7501B000E97F15 /* Nibloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A2DB41F7501B000E97F15 /* Nibloadable.swift */; };
 		657C73FA1F662C02002BE2BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C73F91F662C02002BE2BA /* main.m */; };
 		657C73FD1F662C02002BE2BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C73FC1F662C02002BE2BA /* AppDelegate.m */; };
 		657C74001F662C02002BE2BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C73FF1F662C02002BE2BA /* ViewController.m */; };
@@ -115,7 +119,7 @@
 		65C6E6FE1F6BCC790063F5A5 /* icon_shop.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6A01F6BCC780063F5A5 /* icon_shop.png */; };
 		65C6E6FF1F6BCC790063F5A5 /* icon_show_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6A11F6BCC780063F5A5 /* icon_show_menu@2x.png */; };
 		65C6E7001F6BCC790063F5A5 /* icon_show_msg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6A21F6BCC780063F5A5 /* icon_show_msg@2x.png */; };
-		65C6E7011F6BCC790063F5A5 /* icon_show_read@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6A31F6BCC780063F5A5 /* icon_show_read@2x.png */; };
+		65C6E7011F6BCC790063F5A5 /* icon_show_read.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6A31F6BCC780063F5A5 /* icon_show_read.png */; };
 		65C6E7021F6BCC790063F5A5 /* icon_show_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6A41F6BCC780063F5A5 /* icon_show_share@2x.png */; };
 		65C6E7031F6BCC790063F5A5 /* icon_show@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6A51F6BCC780063F5A5 /* icon_show@2x.png */; };
 		65C6E7041F6BCC790063F5A5 /* icon_submmit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6A61F6BCC780063F5A5 /* icon_submmit@2x.png */; };
@@ -222,6 +226,11 @@
 		656A2DA51F73BB9400E97F15 /* icon_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_img.png; sourceTree = "<group>"; };
 		656A2DA71F73BBC300E97F15 /* icon_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_video.png; sourceTree = "<group>"; };
 		656A2DA91F73BC5D00E97F15 /* icon_voice2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_voice2.png; sourceTree = "<group>"; };
+		656A2DAB1F749E7700E97F15 /* IAmPet-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IAmPet-Bridging-Header.h"; sourceTree = "<group>"; };
+		656A2DAE1F74D71600E97F15 /* HHUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHUtils.swift; sourceTree = "<group>"; };
+		656A2DB01F74F9F000E97F15 /* MyTalkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTalkCell.xib; sourceTree = "<group>"; };
+		656A2DB21F74FF7A00E97F15 /* MyTalkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTalkCell.swift; sourceTree = "<group>"; };
+		656A2DB41F7501B000E97F15 /* Nibloadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nibloadable.swift; sourceTree = "<group>"; };
 		657C73F51F662C02002BE2BA /* IAmPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IAmPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		657C73F91F662C02002BE2BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		657C73FB1F662C02002BE2BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -342,7 +351,7 @@
 		65C6E6A01F6BCC780063F5A5 /* icon_shop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_shop.png; sourceTree = "<group>"; };
 		65C6E6A11F6BCC780063F5A5 /* icon_show_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_show_menu@2x.png"; sourceTree = "<group>"; };
 		65C6E6A21F6BCC780063F5A5 /* icon_show_msg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_show_msg@2x.png"; sourceTree = "<group>"; };
-		65C6E6A31F6BCC780063F5A5 /* icon_show_read@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_show_read@2x.png"; sourceTree = "<group>"; };
+		65C6E6A31F6BCC780063F5A5 /* icon_show_read.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_show_read.png; sourceTree = "<group>"; };
 		65C6E6A41F6BCC780063F5A5 /* icon_show_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_show_share@2x.png"; sourceTree = "<group>"; };
 		65C6E6A51F6BCC780063F5A5 /* icon_show@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_show@2x.png"; sourceTree = "<group>"; };
 		65C6E6A61F6BCC780063F5A5 /* icon_submmit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_submmit@2x.png"; sourceTree = "<group>"; };
@@ -517,6 +526,7 @@
 		657C73F81F662C02002BE2BA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				656A2DAB1F749E7700E97F15 /* IAmPet-Bridging-Header.h */,
 				657C73F91F662C02002BE2BA /* main.m */,
 				657C74361F662DC1002BE2BA /* PrefixHeader.pch */,
 				657C74371F662E3C002BE2BA /* Colors.h */,
@@ -586,6 +596,8 @@
 				657C743E1F662FE1002BE2BA /* LoginUtils.m */,
 				657C74321F662D48002BE2BA /* NSArray+Log.h */,
 				657C74331F662D48002BE2BA /* NSArray+Log.m */,
+				656A2DAE1F74D71600E97F15 /* HHUtils.swift */,
+				656A2DB41F7501B000E97F15 /* Nibloadable.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -657,7 +669,7 @@
 				65C6E6A01F6BCC780063F5A5 /* icon_shop.png */,
 				65C6E6A11F6BCC780063F5A5 /* icon_show_menu@2x.png */,
 				65C6E6A21F6BCC780063F5A5 /* icon_show_msg@2x.png */,
-				65C6E6A31F6BCC780063F5A5 /* icon_show_read@2x.png */,
+				65C6E6A31F6BCC780063F5A5 /* icon_show_read.png */,
 				65C6E6A41F6BCC780063F5A5 /* icon_show_share@2x.png */,
 				65C6E6A51F6BCC780063F5A5 /* icon_show@2x.png */,
 				65C6E6A61F6BCC780063F5A5 /* icon_submmit@2x.png */,
@@ -744,6 +756,7 @@
 				656A2D8C1F72451000E97F15 /* VoiceRecordView.xib */,
 				656A2D951F725E0E00E97F15 /* VoicePlayView.xib */,
 				656A2D9A1F739B0800E97F15 /* VideoPlayView.xib */,
+				656A2DB01F74F9F000E97F15 /* MyTalkCell.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -771,6 +784,7 @@
 				656A2D981F725EDD00E97F15 /* VoicePlayView.m */,
 				656A2D9E1F739C9000E97F15 /* VideoPlayView.h */,
 				656A2D9F1F739C9000E97F15 /* VideoPlayView.m */,
+				656A2DB21F74FF7A00E97F15 /* MyTalkCell.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -886,6 +900,7 @@
 					657C73F41F662C02002BE2BA = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 6LK27K74LE;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					657C74101F662C02002BE2BA = {
@@ -979,7 +994,7 @@
 				65C6E7031F6BCC790063F5A5 /* icon_show@2x.png in Resources */,
 				657C74031F662C02002BE2BA /* Main.storyboard in Resources */,
 				65C6E6EE1F6BCC790063F5A5 /* icon_level@2x.png in Resources */,
-				65C6E7011F6BCC790063F5A5 /* icon_show_read@2x.png in Resources */,
+				65C6E7011F6BCC790063F5A5 /* icon_show_read.png in Resources */,
 				65C6E6E71F6BCC790063F5A5 /* icon_del@2x.png in Resources */,
 				65C6E6E61F6BCC790063F5A5 /* icon_concerned@2x.png in Resources */,
 				65C6E6ED1F6BCC790063F5A5 /* icon_level_bg@2x.png in Resources */,
@@ -1020,6 +1035,7 @@
 				656A2D961F725E0E00E97F15 /* VoicePlayView.xib in Resources */,
 				65C6E7111F6BCC790063F5A5 /* login_empty@2x.png in Resources */,
 				65C6E7201F6BCC790063F5A5 /* share_icon_sinaweibo@2x.png in Resources */,
+				656A2DB11F74F9F000E97F15 /* MyTalkCell.xib in Resources */,
 				65C2E2081F6FA8450043027A /* icon_logout.png in Resources */,
 				656A2D7E1F70E32D00E97F15 /* PhotoView.xib in Resources */,
 				65C6E7271F6BCC790063F5A5 /* share_weixin.png in Resources */,
@@ -1148,10 +1164,13 @@
 				657C745F1F6786D2002BE2BA /* RegisterView.m in Sources */,
 				65C6E74B1F6BCD450063F5A5 /* ChatViewController.m in Sources */,
 				656A2D921F72482300E97F15 /* VoiceRecordView.m in Sources */,
+				656A2DAF1F74D71600E97F15 /* HHUtils.swift in Sources */,
+				656A2DB51F7501B000E97F15 /* Nibloadable.swift in Sources */,
 				656A2DA01F739C9000E97F15 /* VideoPlayView.m in Sources */,
 				657C744E1F6657F2002BE2BA /* BaseNavigationController.m in Sources */,
 				657C74581F6785F8002BE2BA /* RegisterViewController.m in Sources */,
 				657C73FD1F662C02002BE2BA /* AppDelegate.m in Sources */,
+				656A2DB31F74FF7A00E97F15 /* MyTalkCell.swift in Sources */,
 				657C746A1F68C1EE002BE2BA /* LeftSideViewController.m in Sources */,
 				657C73FA1F662C02002BE2BA /* main.m in Sources */,
 				656A2D8B1F710B5200E97F15 /* ImageUtils.m in Sources */,
@@ -1309,6 +1328,7 @@
 			baseConfigurationReference = B97713CE8A912A9AE47273FC /* Pods-IAmPet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6LK27K74LE;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1322,6 +1342,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhenhao.IAmPet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "IAmPet/IAmPet-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1330,6 +1353,7 @@
 			baseConfigurationReference = E02BD6CDF676C152A6B1FCBF /* Pods-IAmPet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 6LK27K74LE;
 				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1343,12 +1367,15 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhenhao.IAmPet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "IAmPet/IAmPet-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		657C74291F662C02002BE2BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 6LK27K74LE;
 				INFOPLIST_FILE = IAmPetTests/Info.plist;
@@ -1362,6 +1389,7 @@
 		657C742A1F662C02002BE2BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 6LK27K74LE;
 				INFOPLIST_FILE = IAmPetTests/Info.plist;
@@ -1375,6 +1403,7 @@
 		657C742C1F662C02002BE2BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6LK27K74LE;
 				INFOPLIST_FILE = IAmPetUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1387,6 +1416,7 @@
 		657C742D1F662C02002BE2BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6LK27K74LE;
 				INFOPLIST_FILE = IAmPetUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

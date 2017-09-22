@@ -14,7 +14,9 @@
                 <outlet property="btnClose" destination="20p-CY-RHz" id="5h9-9F-4Y6"/>
                 <outlet property="btnPhoto" destination="O4G-dZ-cI1" id="rvv-Vc-kmi"/>
                 <outlet property="btnVoice" destination="C73-n5-N9g" id="Yt1-me-MfT"/>
+                <outlet property="lbStatistics" destination="crz-uN-9LO" id="bv0-ls-epv"/>
                 <outlet property="photoHeight" destination="Tcp-WR-q7Y" id="wde-TQ-jAs"/>
+                <outlet property="textView" destination="Wa6-A9-WI1" id="mzD-PX-hLr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewMyPhoto" destination="MYo-pv-iV9" id="kdW-1p-YPs"/>
                 <outlet property="viewMyVideo" destination="LHy-m5-FJt" id="kcj-Qk-Wej"/>
@@ -50,7 +52,7 @@
                         <action selector="close:" destination="-1" eventType="touchUpInside" id="4d7-n9-9H2"/>
                     </connections>
                 </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wa6-A9-WI1">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wa6-A9-WI1" customClass="IQTextView">
                     <rect key="frame" x="16" y="89" width="343" height="100"/>
                     <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>

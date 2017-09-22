@@ -168,7 +168,6 @@
          
          NSString *path = self.recordEngine.videoPath;
          [self recordSuccess:path preview:movieImage];
-         
      }];
     
     [_btnRecord setTitle:@"录制" forState:UIControlStateNormal];

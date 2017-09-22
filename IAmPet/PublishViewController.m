@@ -18,15 +18,22 @@
 #import <ALMoviePlayerController.h>
 #import <AVKit/AVKit.h>
 #import "VideoPlayView.h"
+#import <IQTextView.h>
+#import "IAmPet-Swift.h"
 
+#define MAX_LENGTH 300
 
-@interface PublishViewController () <TZImagePickerControllerDelegate, PhotosViewDelegate, AVAudioRecorderDelegate, VideoRecordControllerDelegate, VoicePlayViewDelegate>
+@interface PublishViewController () <TZImagePickerControllerDelegate, PhotosViewDelegate, AVAudioRecorderDelegate, VideoRecordControllerDelegate, VoicePlayViewDelegate, UITextViewDelegate>
 
 - (IBAction)close:(id)sender;
 
 - (IBAction)showPhotoPicker:(id)sender;
 
 - (IBAction)recordVideo:(id)sender;
+
+@property (nonatomic, weak) IBOutlet UILabel *lbStatistics;
+
+@property (nonatomic, weak) IBOutlet IQTextView *textView;
 
 @property (nonatomic, weak) IBOutlet UIButton *btnClose;
 
@@ -74,6 +81,10 @@
     [self cornerView:_viewMyVideo];
     [self cornerView:_viewMyPhoto];
     
+    _textView.placeholder = @"分享你的想法......";
+    _textView.delegate = self;
+    
+    _lbStatistics.text = [NSString stringWithFormat:@"%d/%d", MAX_LENGTH, MAX_LENGTH];
     
     //录音按钮处理
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressed:)];
@@ -81,6 +92,11 @@
     [_btnVoice addGestureRecognizer:longPress];
 }
 
+/**
+ *  图形圆角显示
+ *
+ *  @param view view
+ */
 - (void)cornerView:(UIView *)view
 {
     view.layer.cornerRadius = 5;
@@ -265,8 +281,8 @@
     for (UIView *view in _viewPhoto.subviews)
     {
         [view removeFromSuperview];
-        _photoHeight.constant = 0;
     }
+    _photoHeight.constant = 0;
 }
 
 /**
@@ -281,6 +297,18 @@
         _photoHeight.constant = 0;
         [self.view layoutIfNeeded];
     }];
+}
+
+#pragma mark - UITextViewDelegate
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    return [HHUtils textViewLimitOnInput:MAX_LENGTH textView:textView textRange:range text:text];
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    [HHUtils textViewLimitEndInput:MAX_LENGTH textView:textView label:_lbStatistics];
 }
 
 @end
