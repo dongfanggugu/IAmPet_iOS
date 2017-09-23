@@ -258,6 +258,10 @@
  */
 - (void)prepareForPlayVoice:(NSString *)path
 {
+    if (_delegate && [_delegate respondsToSelector:@selector(voiceRecordSuccess:)])
+    {
+        [_delegate voiceRecordSuccess:path];
+    }
     
     [self cleanMediaView];
     _playView = [VoicePlayView viewFromNib];

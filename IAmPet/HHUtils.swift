@@ -109,4 +109,45 @@ class HHUtils : NSObject
             label.text = String(format: "%i/%i", existTextNum, limit);
         }
     }
+    
+    /**
+     根据字体和宽度计算文本高度
+     
+     - parameter textStr: text string
+     - parameter font:    font
+     - parameter width:   width
+     
+     - returns: text height
+     */
+    class func getTextHeight(textStr: String, font: UIFont, width: CGFloat) -> CGFloat
+    {
+        let normalText = textStr;
+        let size = CGSize(width: width, height: 1000);
+        let dic = NSDictionary(object: font, forKey:NSFontAttributeName as NSString);
+        
+        let stringSize = normalText.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: dic as? [String : AnyObject], context:nil).size;
+    
+        return stringSize.height;
+    }
+    
+    /**
+     根据字体和高度计算文本宽度
+     
+     - parameter textStr: text string
+     - parameter font:    font
+     - parameter height:  height
+     
+     - returns: text width
+     */
+    class func getTextWidth(textStr: String, font: UIFont, height: CGFloat) -> CGFloat
+    {
+        let normalText = textStr;
+        let size = CGSize(width: 1000, height: height);
+        let dic = NSDictionary(object: font, forKey:NSFontAttributeName as NSString);
+        
+        let stringSize = normalText.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: dic as? [String : AnyObject], context:nil).size;
+    
+        return stringSize.width;
+        
+    }
 }

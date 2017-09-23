@@ -56,6 +56,9 @@
 		657C74621F6786E8002BE2BA /* BaseNibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74611F6786E8002BE2BA /* BaseNibView.m */; };
 		657C74661F68C1AF002BE2BA /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74651F68C1AF002BE2BA /* SideMenuViewController.m */; };
 		657C746A1F68C1EE002BE2BA /* LeftSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74691F68C1EE002BE2BA /* LeftSideViewController.m */; };
+		658CA83E1F760A140013DCA6 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658CA83D1F760A140013DCA6 /* Constant.swift */; };
+		658CA8401F7611DD0013DCA6 /* VoiceShowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658CA83F1F7611DD0013DCA6 /* VoiceShowView.xib */; };
+		658CA8421F7612430013DCA6 /* VoiceShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658CA8411F7612430013DCA6 /* VoiceShowView.swift */; };
 		65C1EEAB1F71620D004D464D /* WCLRecordEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1EEA71F71620D004D464D /* WCLRecordEncoder.m */; };
 		65C1EEAC1F71620D004D464D /* WCLRecordEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1EEAA1F71620D004D464D /* WCLRecordEngine.m */; };
 		65C1EEB11F716229004D464D /* VideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1EEAE1F716229004D464D /* VideoPlayerController.m */; };
@@ -279,6 +282,9 @@
 		657C74651F68C1AF002BE2BA /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
 		657C74681F68C1EE002BE2BA /* LeftSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSideViewController.h; sourceTree = "<group>"; };
 		657C74691F68C1EE002BE2BA /* LeftSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSideViewController.m; sourceTree = "<group>"; };
+		658CA83D1F760A140013DCA6 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		658CA83F1F7611DD0013DCA6 /* VoiceShowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoiceShowView.xib; sourceTree = "<group>"; };
+		658CA8411F7612430013DCA6 /* VoiceShowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceShowView.swift; sourceTree = "<group>"; };
 		65C1EEA61F71620D004D464D /* WCLRecordEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCLRecordEncoder.h; sourceTree = "<group>"; };
 		65C1EEA71F71620D004D464D /* WCLRecordEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCLRecordEncoder.m; sourceTree = "<group>"; };
 		65C1EEA91F71620D004D464D /* WCLRecordEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCLRecordEngine.h; sourceTree = "<group>"; };
@@ -532,6 +538,7 @@
 				657C74371F662E3C002BE2BA /* Colors.h */,
 				657C74381F662E4F002BE2BA /* Constant.h */,
 				657C74631F67AEEA002BE2BA /* NetConstant.h */,
+				658CA83D1F760A140013DCA6 /* Constant.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -757,6 +764,7 @@
 				656A2D951F725E0E00E97F15 /* VoicePlayView.xib */,
 				656A2D9A1F739B0800E97F15 /* VideoPlayView.xib */,
 				656A2DB01F74F9F000E97F15 /* MyTalkCell.xib */,
+				658CA83F1F7611DD0013DCA6 /* VoiceShowView.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -785,6 +793,7 @@
 				656A2D9E1F739C9000E97F15 /* VideoPlayView.h */,
 				656A2D9F1F739C9000E97F15 /* VideoPlayView.m */,
 				656A2DB21F74FF7A00E97F15 /* MyTalkCell.swift */,
+				658CA8411F7612430013DCA6 /* VoiceShowView.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -1022,6 +1031,7 @@
 				65C6E6F01F6BCC790063F5A5 /* icon_login_qq@2x.png in Resources */,
 				65C6E71E1F6BCC790063F5A5 /* share_friend.png in Resources */,
 				65C6E6E91F6BCC790063F5A5 /* icon_edit.png in Resources */,
+				658CA8401F7611DD0013DCA6 /* VoiceShowView.xib in Resources */,
 				656A2DAA1F73BC5D00E97F15 /* icon_voice2.png in Resources */,
 				65C6E6D21F6BCC790063F5A5 /* arrow_up@2x.png in Resources */,
 				65C6E7001F6BCC790063F5A5 /* icon_show_msg@2x.png in Resources */,
@@ -1157,7 +1167,9 @@
 				65C6E7451F6BCD2B0063F5A5 /* AreaViewController.m in Sources */,
 				65C1EEB21F716229004D464D /* VideoRecordController.m in Sources */,
 				65C2E2101F6FAB200043027A /* BaseTableViewCell.m in Sources */,
+				658CA83E1F760A140013DCA6 /* Constant.swift in Sources */,
 				657C74551F6658D2002BE2BA /* SectionInfo.m in Sources */,
+				658CA8421F7612430013DCA6 /* VoiceShowView.swift in Sources */,
 				6508B23D1F6BBA3700B0418F /* BaseTableViewController.m in Sources */,
 				65C6E7481F6BCD390063F5A5 /* SearchViewController.m in Sources */,
 				657C743F1F662FE1002BE2BA /* LoginUtils.m in Sources */,

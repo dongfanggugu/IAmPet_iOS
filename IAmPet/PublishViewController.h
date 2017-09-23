@@ -8,6 +8,14 @@
 
 #import "BaseViewController.h"
 
+@protocol PublishViewControllerDelegate <NSObject>
+
+- (void)voiceRecordSuccess:(NSString *)path;
+
+@end
+
 @interface PublishViewController : BaseViewController
+
+@property (nonatomic, weak) id<PublishViewControllerDelegate> delegate;
 
 @end

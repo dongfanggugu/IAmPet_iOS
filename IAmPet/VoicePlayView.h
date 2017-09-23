@@ -12,6 +12,7 @@
 
 @protocol VoicePlayViewDelegate <NSObject>
 
+@optional
 - (void)closePlayView:(VoicePlayView *)playView;
 
 @end
@@ -23,5 +24,7 @@
 @property (nonatomic, copy) NSString *voicePath;
 
 @property (nonatomic, weak) id<VoicePlayViewDelegate> delegate;
+
+@property (nonatomic, assign) BOOL showMode;
 
 @end
