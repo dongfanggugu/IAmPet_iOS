@@ -10,7 +10,6 @@ import Foundation
 
 class HHUtils : NSObject
 {
-    
     /**
      监听键盘输入时还没有完成时字符(输入中文)，限制最大输入
      

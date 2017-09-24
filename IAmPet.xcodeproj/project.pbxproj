@@ -179,6 +179,8 @@
 		65C6E7451F6BCD2B0063F5A5 /* AreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C6E7441F6BCD2B0063F5A5 /* AreaViewController.m */; };
 		65C6E7481F6BCD390063F5A5 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C6E7471F6BCD390063F5A5 /* SearchViewController.m */; };
 		65C6E74B1F6BCD450063F5A5 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C6E74A1F6BCD450063F5A5 /* ChatViewController.m */; };
+		65D3BB4E1F774868005A3B6E /* VideoShowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D3BB4D1F774868005A3B6E /* VideoShowView.xib */; };
+		65D3BB501F7748D1005A3B6E /* VideoShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D3BB4F1F7748D1005A3B6E /* VideoShowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -418,6 +420,8 @@
 		65C6E7471F6BCD390063F5A5 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		65C6E7491F6BCD450063F5A5 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		65C6E74A1F6BCD450063F5A5 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		65D3BB4D1F774868005A3B6E /* VideoShowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoShowView.xib; sourceTree = "<group>"; };
+		65D3BB4F1F7748D1005A3B6E /* VideoShowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoShowView.swift; sourceTree = "<group>"; };
 		B97713CE8A912A9AE47273FC /* Pods-IAmPet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IAmPet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IAmPet/Pods-IAmPet.debug.xcconfig"; sourceTree = "<group>"; };
 		CFF319E986DDE4BC068AC6EC /* libPods-IAmPet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IAmPet.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02BD6CDF676C152A6B1FCBF /* Pods-IAmPet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IAmPet.release.xcconfig"; path = "Pods/Target Support Files/Pods-IAmPet/Pods-IAmPet.release.xcconfig"; sourceTree = "<group>"; };
@@ -765,6 +769,7 @@
 				656A2D9A1F739B0800E97F15 /* VideoPlayView.xib */,
 				656A2DB01F74F9F000E97F15 /* MyTalkCell.xib */,
 				658CA83F1F7611DD0013DCA6 /* VoiceShowView.xib */,
+				65D3BB4D1F774868005A3B6E /* VideoShowView.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -794,6 +799,7 @@
 				656A2D9F1F739C9000E97F15 /* VideoPlayView.m */,
 				656A2DB21F74FF7A00E97F15 /* MyTalkCell.swift */,
 				658CA8411F7612430013DCA6 /* VoiceShowView.swift */,
+				65D3BB4F1F7748D1005A3B6E /* VideoShowView.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -960,6 +966,7 @@
 				65C6E7181F6BCC790063F5A5 /* money_type_sel@2x.png in Resources */,
 				65C6E71F1F6BCC790063F5A5 /* share_icon_qq@2x.png in Resources */,
 				65C6E6F91F6BCC790063F5A5 /* icon_person.png in Resources */,
+				65D3BB4E1F774868005A3B6E /* VideoShowView.xib in Resources */,
 				65C6E6D81F6BCC790063F5A5 /* crop_bg@2x.png in Resources */,
 				65C2E2061F6FA3920043027A /* PersonCenterView.xib in Resources */,
 				65C6E72C1F6BCC790063F5A5 /* wanted_pressed@2x.png in Resources */,
@@ -1185,6 +1192,7 @@
 				656A2DB31F74FF7A00E97F15 /* MyTalkCell.swift in Sources */,
 				657C746A1F68C1EE002BE2BA /* LeftSideViewController.m in Sources */,
 				657C73FA1F662C02002BE2BA /* main.m in Sources */,
+				65D3BB501F7748D1005A3B6E /* VideoShowView.swift in Sources */,
 				656A2D8B1F710B5200E97F15 /* ImageUtils.m in Sources */,
 				657C74621F6786E8002BE2BA /* BaseNibView.m in Sources */,
 				65C1EEB11F716229004D464D /* VideoPlayerController.m in Sources */,

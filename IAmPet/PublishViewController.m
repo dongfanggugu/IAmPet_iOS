@@ -214,6 +214,12 @@
  */
 - (void)onRecordSuccess:(NSString *)path preview:(UIImage *)image
 {
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(voiceRecordSuccess:)])
+    {
+        [_delegate voiceRecordSuccess:path];
+    }
+    
     [self cleanMediaView];
     CGFloat width = _viewPhoto.frame.size.width;
     CGFloat height = width;

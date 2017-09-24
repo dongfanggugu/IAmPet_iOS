@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="3ob-X6-V8e" customClass="VideoShowView" customModule="IAmPet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SQ5-NW-zJu">
+                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNL-il-Riu">
+                    <rect key="frame" x="70" y="70" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="4o2-eY-znD"/>
+                        <constraint firstAttribute="width" constant="60" id="aMf-kg-oin"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="icon_play.png"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="cNL-il-Riu" firstAttribute="centerY" secondItem="3ob-X6-V8e" secondAttribute="centerY" id="K1c-eb-tM0"/>
+                <constraint firstItem="SQ5-NW-zJu" firstAttribute="leading" secondItem="3ob-X6-V8e" secondAttribute="leading" id="MCg-MN-vTq"/>
+                <constraint firstItem="cNL-il-Riu" firstAttribute="centerX" secondItem="3ob-X6-V8e" secondAttribute="centerX" id="jsr-aj-Rcq"/>
+                <constraint firstAttribute="bottom" secondItem="SQ5-NW-zJu" secondAttribute="bottom" id="l11-lI-M89"/>
+                <constraint firstItem="SQ5-NW-zJu" firstAttribute="top" secondItem="3ob-X6-V8e" secondAttribute="top" id="luo-yd-4jd"/>
+                <constraint firstAttribute="trailing" secondItem="SQ5-NW-zJu" secondAttribute="trailing" id="xNT-19-XBL"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btnPlay" destination="cNL-il-Riu" id="t5A-y7-I4V"/>
+                <outlet property="ivImage" destination="SQ5-NW-zJu" id="bQy-AA-wal"/>
+            </connections>
+            <point key="canvasLocation" x="330" y="140"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_play.png" width="512" height="512"/>
+    </resources>
+</document>

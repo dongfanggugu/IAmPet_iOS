@@ -12,7 +12,7 @@ import AVFoundation
 class VoiceShowView: UIView, Nibloadable, AVAudioPlayerDelegate
 {
     @IBOutlet private weak var btnPlay: UIButton!;
-    
+
     @IBOutlet private weak var viewVoice1: UIButton!;
     @IBOutlet private weak var viewVoice2: UIButton!;
     @IBOutlet private weak var viewVoice3: UIButton!;

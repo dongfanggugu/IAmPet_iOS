@@ -138,9 +138,13 @@ class MyTalkCell : UITableViewCell, Nibloadable
     {
         var height: CGFloat?;
         let type = mediaContent?.type;
-        if (type == MediaContent.voice)
+        if (type! == MediaContent.voice)
         {
             height = addVoiceView();
+        }
+        else if (type! == MediaContent.video)
+        {
+            height = addVideoView();
         }
         
         resetMediaHeight(height: height!);
@@ -164,6 +168,25 @@ class MyTalkCell : UITableViewCell, Nibloadable
         
         return voiceView.frame.size.height;
     }
+    /**
+     添加视频view
+     
+     - returns: view height
+     */
+    private func addVideoView() -> CGFloat
+    {
+        
+        cleanMediaView();
+        let videoView = VideoShowView.loadNib();
+        videoView.videoUrl = mediaContent?.urls[0];
+        videoView.frame = CGRect(x: 0,
+                                 y: 0,
+                                 width: ScreenWidth - 32,
+                                 height: ScreenWidth - 32);
+        viewMedia.addSubview(videoView);
+        return ScreenWidth - 32;
+    }
+    
     
     /**
      清理media view

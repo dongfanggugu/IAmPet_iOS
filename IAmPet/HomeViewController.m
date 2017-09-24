@@ -102,11 +102,11 @@
     
     if (nil == self.voiceUrl)
     {
-        media = [[MediaContent alloc] initWithType:MediaContent.voice urls:@[@"http"]];
+        media = [[MediaContent alloc] initWithType:MediaContent.video urls:@[@"http"]];
     }
     else
     {
-        media = [[MediaContent alloc] initWithType:MediaContent.voice urls:@[self.voiceUrl]];
+        media = [[MediaContent alloc] initWithType:MediaContent.video urls:@[self.voiceUrl]];
     }
     cell.mediaContent = media;
     
