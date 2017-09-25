@@ -9,7 +9,7 @@
 import Foundation
 import AVFoundation
 
-class VoiceShowView: UIView, Nibloadable, AVAudioPlayerDelegate
+class VoiceShowView: UIView, Nibloadable
 {
     @IBOutlet private weak var btnPlay: UIButton!;
 
@@ -131,6 +131,17 @@ class VoiceShowView: UIView, Nibloadable, AVAudioPlayerDelegate
         }
     }
     
+    
+    deinit
+    {
+        print("voice show view deinit");
+    }
+    
+}
+
+extension VoiceShowView: AVAudioPlayerDelegate
+{
+    
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
     {
         stopTimer();
@@ -141,10 +152,5 @@ class VoiceShowView: UIView, Nibloadable, AVAudioPlayerDelegate
     {
         stopTimer();
     }
-    
-    deinit
-    {
-        print("voice show view deinit");
-    }
-    
 }
+

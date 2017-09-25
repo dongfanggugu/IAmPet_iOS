@@ -9,6 +9,8 @@
 import Foundation
 import AVFoundation
 
+typealias playBlock = (String) -> ()
+
 class VideoShowView: UIView, Nibloadable
 {
     @IBOutlet private weak var ivImage: UIImageView!;
@@ -22,21 +24,27 @@ class VideoShowView: UIView, Nibloadable
             ivImage.getNetWorkVideoImage(url: videoUrl!);
         }
     }
+    
+    var play: playBlock?
+    /**
+     播放视频
+     */
+    @IBAction private func clickPlay() -> ()
+    {
+        play?(videoUrl!);
+    }
 }
 
 extension UIImageView
 {
-    func getNetWorkVideoImage(url: String)
+    func getNetWorkVideoImage(url: String) -> ()
     {
         DispatchQueue.global().async {
-//            let asset = AVURLAsset(url:URL(string: url)!);
-            let asset = AVURLAsset(url: URL(fileURLWithPath: url));
-            let generator = AVAssetImageGenerator(asset: asset);
-            generator.appliesPreferredTrackTransform = true;
             
             let time = CMTimeMakeWithSeconds(0.0, 600);
             var actualTime = CMTimeMake(0, 0);
             var image: CGImage?;
+            let generator = self.imageGenerator(url: url);
             
             do
             {
@@ -47,6 +55,7 @@ extension UIImageView
             {
                 print(error);
             }
+            
             if (image != nil)
             {
             
@@ -55,5 +64,20 @@ extension UIImageView
                 }
             }
         };
+    }
+    
+    /**
+     生成image generator
+     
+     - parameter url: url
+     */
+    func imageGenerator(url: String) -> (AVAssetImageGenerator)
+    {
+        //            let asset = AVURLAsset(url:URL(string: url)!);
+        let asset = AVURLAsset(url: URL(fileURLWithPath: url));
+        let generator = AVAssetImageGenerator(asset: asset);
+        generator.appliesPreferredTrackTransform = true;
+        
+        return generator;
     }
 }

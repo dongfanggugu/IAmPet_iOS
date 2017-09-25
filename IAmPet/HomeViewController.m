@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "PublishViewController.h"
+#import "VideoPlayerController.h"
 #import "IAmPet-Swift.h"
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, PublishViewControllerDelegate>
@@ -70,9 +71,16 @@
     [self presentViewController:controller animated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning
+/**
+ *  进入播放视频界面
+ *
+ *  @param url url
+ */
+- (void)playVideo:(NSString *)url
 {
-    [super didReceiveMemoryWarning];
+    VideoPlayerController *controller = [VideoPlayerController new];
+    controller.urlStr = url;
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -98,17 +106,22 @@
     {
         cell.talkContent = @"是否顺风顺水方式方法";
     }
-    MediaContent *media = nil;
-    
-    if (nil == self.voiceUrl)
-    {
-        media = [[MediaContent alloc] initWithType:MediaContent.video urls:@[@"http"]];
-    }
-    else
-    {
-        media = [[MediaContent alloc] initWithType:MediaContent.video urls:@[self.voiceUrl]];
-    }
+    MediaContent *media = [[MediaContent alloc] initWithType:MediaContent.picture urls:@[@"http"]];
     cell.mediaContent = media;
+    
+//    if (nil == self.voiceUrl)
+//    {
+//        media = [[MediaContent alloc] initWithType:MediaContent.video urls:@[@"http"]];
+//    }
+//    else
+//    {
+//        media = [[MediaContent alloc] initWithType:MediaContent.video urls:@[self.voiceUrl]];
+//    }
+//    cell.mediaContent = media;
+    
+    cell.playVideo = ^(NSString *url) {
+        [self playVideo:url];
+    };
     
     return cell;
 }

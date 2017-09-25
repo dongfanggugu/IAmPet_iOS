@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		277D0BC6D6FE3A20B29D38B3 /* libPods-IAmPet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF319E986DDE4BC068AC6EC /* libPods-IAmPet.a */; };
 		6508B23D1F6BBA3700B0418F /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */; };
+		6535EFD71F78D71100B610D9 /* PhotosShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFD61F78D71100B610D9 /* PhotosShowView.swift */; };
 		654E4B111F71592D0052F4A9 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 654E4B101F71592D0052F4A9 /* libmp3lame.a */; };
 		656A2D771F70AD0800E97F15 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656A2D751F70AD0800E97F15 /* PublishViewController.m */; };
 		656A2D781F70AD0800E97F15 /* PublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656A2D761F70AD0800E97F15 /* PublishViewController.xib */; };
@@ -203,6 +204,7 @@
 /* Begin PBXFileReference section */
 		6508B23B1F6BBA3700B0418F /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		6535EFD61F78D71100B610D9 /* PhotosShowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosShowView.swift; sourceTree = "<group>"; };
 		654E4B0F1F71592D0052F4A9 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		654E4B101F71592D0052F4A9 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
 		656A2D741F70AD0800E97F15 /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishViewController.h; sourceTree = "<group>"; };
@@ -800,6 +802,7 @@
 				656A2DB21F74FF7A00E97F15 /* MyTalkCell.swift */,
 				658CA8411F7612430013DCA6 /* VoiceShowView.swift */,
 				65D3BB4F1F7748D1005A3B6E /* VideoShowView.swift */,
+				6535EFD61F78D71100B610D9 /* PhotosShowView.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -1189,6 +1192,7 @@
 				657C744E1F6657F2002BE2BA /* BaseNavigationController.m in Sources */,
 				657C74581F6785F8002BE2BA /* RegisterViewController.m in Sources */,
 				657C73FD1F662C02002BE2BA /* AppDelegate.m in Sources */,
+				6535EFD71F78D71100B610D9 /* PhotosShowView.swift in Sources */,
 				656A2DB31F74FF7A00E97F15 /* MyTalkCell.swift in Sources */,
 				657C746A1F68C1EE002BE2BA /* LeftSideViewController.m in Sources */,
 				657C73FA1F662C02002BE2BA /* main.m in Sources */,

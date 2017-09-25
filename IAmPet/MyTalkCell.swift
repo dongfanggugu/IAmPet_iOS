@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias playVideoBlock = (String) -> ();
+
 /**
  *  多媒体内容
  */
@@ -80,8 +82,9 @@ class MyTalkCell : UITableViewCell, Nibloadable
     //cell identifier
     static let identifier = "my_talk_cell";
     
-    //cell height
-    var cellHeight: Float = 120
+    var cellHeight: Float = 120;    //cellHeight
+    
+    var playVideo: playBlock?   //播放视频
     
     class func cellFromNib() -> MyTalkCell
     {
@@ -136,6 +139,7 @@ class MyTalkCell : UITableViewCell, Nibloadable
      */
     func addMediaView()
     {
+        cleanMediaView();
         var height: CGFloat?;
         let type = mediaContent?.type;
         if (type! == MediaContent.voice)
@@ -145,6 +149,10 @@ class MyTalkCell : UITableViewCell, Nibloadable
         else if (type! == MediaContent.video)
         {
             height = addVideoView();
+        }
+        else if (type! == MediaContent.picture)
+        {
+            height = addPhotosView();
         }
         
         resetMediaHeight(height: height!);
@@ -157,7 +165,6 @@ class MyTalkCell : UITableViewCell, Nibloadable
      */
     private func addVoiceView() -> CGFloat
     {
-        cleanMediaView();
         let voiceView = VoiceShowView.loadNib();
         voiceView.urlStr = mediaContent?.urls[0];
         voiceView.frame = CGRect(x: 0,
@@ -175,16 +182,39 @@ class MyTalkCell : UITableViewCell, Nibloadable
      */
     private func addVideoView() -> CGFloat
     {
-        
-        cleanMediaView();
         let videoView = VideoShowView.loadNib();
         videoView.videoUrl = mediaContent?.urls[0];
         videoView.frame = CGRect(x: 0,
                                  y: 0,
                                  width: ScreenWidth - 32,
                                  height: ScreenWidth - 32);
+        videoView.play = {(videoUrl) -> () in
+           self.playVideo?(videoUrl);
+        };
         viewMedia.addSubview(videoView);
         return ScreenWidth - 32;
+    }
+    
+    /**
+     添加图片View
+     
+     - returns: veiw height
+     */
+    private func addPhotosView() -> CGFloat
+    {
+        let frame = CGRect(x: 16,
+                           y: 0,
+                           width: ScreenWidth - 32,
+                           height: ScreenWidth - 32);
+        let urls = [
+            "https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=9cb489038bd4b31ce4319ce9e6bf4c1a/8c1001e93901213f6e57dc9c54e736d12f2e950e.jpg",
+            "http://image.tianjimedia.com/uploadImages/2016/336/11/265T705PHEN4.jpg",
+            "http://image.tianjimedia.com/uploadImages/2015/131/29/1OZRZ52WJ9T2.jpg",
+            "http://image.tianjimedia.com/uploadImages/2015/131/22/59SG53FU0160.jpg"
+            ];
+        let photosView = PhotosShowView(frame:frame, urls: urls);
+        viewMedia.addSubview(photosView);
+        return photosView.frame.size.height;
     }
     
     

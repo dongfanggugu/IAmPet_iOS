@@ -22,6 +22,8 @@
 #import "HUDClass.h"
 #import "HttpClient.h"
 #import "ImageUtils.h"
+#import <UIImageView+AFNetworking.h>
+#import <UIImage+AFNetworking.h>
 
 
 #ifdef DEBUG

@@ -149,4 +149,52 @@ class HHUtils : NSObject
         return stringSize.width;
         
     }
+    
+    /**
+     写入图片到本地沙盒
+     
+     - parameter image: image
+     - parameter name:  name
+     
+     - returns: image patjh
+     */
+    class func saveImage(image: UIImage?, name: String?) -> String?
+    {
+        if let imageData = UIImageJPEGRepresentation(image!, 100) as NSData?
+        {
+            let fullPath = NSHomeDirectory().appending("/tmp/").appending(name!);
+            imageData.write(toFile: fullPath, atomically: true);
+            
+            return fullPath;
+        }
+        
+        return nil;
+    }
+    
+    /**
+     判断图片文件是否存在
+     
+     - parameter name: name
+     
+     - returns: exisit
+     */
+    class func imageFileExist(name: String?) -> Bool
+    {
+        let fullPath = NSHomeDirectory().appending("/tmp/").appending(name!);
+        return fileExist(path:fullPath);
+    }
+    
+    /**
+     判断文件是否存在
+     
+     - parameter path: path
+     
+     - returns: result
+     */
+    class func fileExist(path: String?) -> Bool
+    {
+        let manager = FileManager.default;
+        return manager.fileExists(atPath: path!);
+    }
+    
 }
