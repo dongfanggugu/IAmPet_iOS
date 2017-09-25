@@ -95,6 +95,7 @@
     if (!cell)
     {
         cell = [MyTalkCell cellFromNib];
+        
     }
     _cell = cell;
     
@@ -106,18 +107,14 @@
     {
         cell.talkContent = @"是否顺风顺水方式方法";
     }
-    MediaContent *media = [[MediaContent alloc] initWithType:MediaContent.picture urls:@[@"http"]];
+    NSArray *urls = @[
+            @"https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=9cb489038bd4b31ce4319ce9e6bf4c1a/8c1001e93901213f6e57dc9c54e736d12f2e950e.jpg",
+            @"http://image.tianjimedia.com/uploadImages/2016/336/11/265T705PHEN4.jpg",
+            @"http://image.tianjimedia.com/uploadImages/2015/131/29/1OZRZ52WJ9T2.jpg",
+            @"http://image.tianjimedia.com/uploadImages/2015/131/22/59SG53FU0160.jpg"
+            ];
+    MediaContent *media = [[MediaContent alloc] initWithType:MediaContent.picture urls:urls];
     cell.mediaContent = media;
-    
-//    if (nil == self.voiceUrl)
-//    {
-//        media = [[MediaContent alloc] initWithType:MediaContent.video urls:@[@"http"]];
-//    }
-//    else
-//    {
-//        media = [[MediaContent alloc] initWithType:MediaContent.video urls:@[self.voiceUrl]];
-//    }
-//    cell.mediaContent = media;
     
     cell.playVideo = ^(NSString *url) {
         [self playVideo:url];

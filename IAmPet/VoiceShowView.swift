@@ -22,10 +22,7 @@ class VoiceShowView: UIView, Nibloadable
     
     private var arrayView: [UIView]
     {
-        get
-        {
-            return [viewVoice1, viewVoice2, viewVoice3, viewVoice4, viewVoice5, viewVoice6];
-        }
+        return [viewVoice1, viewVoice2, viewVoice3, viewVoice4, viewVoice5, viewVoice6];
     }
     
     var urlStr: String?;

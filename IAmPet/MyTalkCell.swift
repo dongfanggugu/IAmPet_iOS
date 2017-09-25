@@ -8,7 +8,6 @@
 
 import Foundation
 
-typealias playVideoBlock = (String) -> ();
 
 /**
  *  多媒体内容
@@ -34,6 +33,9 @@ class MediaContent: NSObject
 
 class MyTalkCell : UITableViewCell, Nibloadable
 {
+    
+    typealias playVideoBlock = (String) -> ();
+    typealias clickImage = (UIImage) -> Void;
     
     @IBOutlet weak var ivIcon: UIImageView!;
     
@@ -75,7 +77,15 @@ class MyTalkCell : UITableViewCell, Nibloadable
     {
         didSet
         {
-            addMediaView();
+//            if (oldValue?.type == mediaContent?.type)
+//            {
+//                updateMediaView();
+//            }
+//            else
+//            {
+//                addMediaView();
+//            }
+                addMediaView();
         }
     }
     
@@ -85,6 +95,8 @@ class MyTalkCell : UITableViewCell, Nibloadable
     var cellHeight: Float = 120;    //cellHeight
     
     var playVideo: playBlock?   //播放视频
+    
+    var showPhoto: clickImage?
     
     class func cellFromNib() -> MyTalkCell
     {
@@ -120,16 +132,62 @@ class MyTalkCell : UITableViewCell, Nibloadable
         heightContent.constant = height;
         cellHeight += Float(div);
     }
-    
     /**
      重新计算多媒体view的高度
      
      - parameter height: height
      */
-    func resetMediaHeight(height: CGFloat)
+    private func resetMediaHeight(height: CGFloat) -> Void
     {
+        let preHeight = heightMedia.constant;
         heightMedia.constant = height;
-        cellHeight += Float(height);
+        cellHeight += Float(height - preHeight);
+    }
+    
+    /**
+     更新多媒体View
+     */
+    private func updateMediaView() -> Void
+    {
+        let type = mediaContent!.type;
+        if (MediaContent.picture == type)
+        {
+            updatePhotosView();
+        }
+        else if (MediaContent.voice == type)
+        {
+        }
+        else if (MediaContent.video ==  type)
+        {
+        }
+    }
+    
+    /**
+     更新图片view
+     */
+    private func updatePhotosView() -> Void
+    {
+        let photosView = viewMedia.subviews[0] as? PhotosShowView;
+        photosView?.urlsImage = mediaContent?.urls;
+        resetMediaHeight(height: photosView!.frame.size.height);
+    }
+    
+    /**
+      更新语音view
+     */
+    private func updateVoiceView() -> Void
+    {
+        let voiceView = viewMedia.subviews[0] as? VoiceShowView;
+        voiceView?.urlStr = mediaContent?.urls[0];
+    }
+    
+    /**
+     更新视频view
+     */
+    private func updateVideoView() -> Void
+    {
+        let videoView = viewMedia.subviews[0] as? VideoShowView;
+        videoView?.videoUrl = mediaContent?.urls[0];
     }
     
     /**
@@ -137,7 +195,7 @@ class MyTalkCell : UITableViewCell, Nibloadable
      
      - parameter media: media
      */
-    func addMediaView()
+    private func addMediaView() -> Void
     {
         cleanMediaView();
         var height: CGFloat?;
@@ -169,7 +227,7 @@ class MyTalkCell : UITableViewCell, Nibloadable
         voiceView.urlStr = mediaContent?.urls[0];
         voiceView.frame = CGRect(x: 0,
                                  y: 0,
-                                 width: ScreenWidth - 32,
+                                 width: ScreenWidth - 16,
                                  height: voiceView.frame.size.height);
         viewMedia.addSubview(voiceView);
         
@@ -186,13 +244,13 @@ class MyTalkCell : UITableViewCell, Nibloadable
         videoView.videoUrl = mediaContent?.urls[0];
         videoView.frame = CGRect(x: 0,
                                  y: 0,
-                                 width: ScreenWidth - 32,
-                                 height: ScreenWidth - 32);
+                                 width: ScreenWidth - 16,
+                                 height: ScreenWidth - 16);
         videoView.play = {(videoUrl) -> () in
            self.playVideo?(videoUrl);
         };
         viewMedia.addSubview(videoView);
-        return ScreenWidth - 32;
+        return ScreenWidth - 16;
     }
     
     /**
@@ -202,17 +260,16 @@ class MyTalkCell : UITableViewCell, Nibloadable
      */
     private func addPhotosView() -> CGFloat
     {
-        let frame = CGRect(x: 16,
+        let frame = CGRect(x: 0,
                            y: 0,
-                           width: ScreenWidth - 32,
-                           height: ScreenWidth - 32);
-        let urls = [
-            "https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=9cb489038bd4b31ce4319ce9e6bf4c1a/8c1001e93901213f6e57dc9c54e736d12f2e950e.jpg",
-            "http://image.tianjimedia.com/uploadImages/2016/336/11/265T705PHEN4.jpg",
-            "http://image.tianjimedia.com/uploadImages/2015/131/29/1OZRZ52WJ9T2.jpg",
-            "http://image.tianjimedia.com/uploadImages/2015/131/22/59SG53FU0160.jpg"
-            ];
-        let photosView = PhotosShowView(frame:frame, urls: urls);
+                           width: ScreenWidth - 16,
+                           height: ScreenWidth - 16);
+        let photosView = PhotosShowView(frame:frame);
+        photosView.urlsImage = mediaContent?.urls;
+        photosView.clickImage = { (image) -> Void in
+//            clickImage?(image);
+            
+        };
         viewMedia.addSubview(photosView);
         return photosView.frame.size.height;
     }
