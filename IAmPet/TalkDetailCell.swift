@@ -1,65 +1,30 @@
 //
-//  MyTalkCell.swift
+//  TalkDetailCell.swift
 //  IAmPet
 //
-//  Created by changhaozhang on 2017/9/22.
+//  Created by changhaozhang on 2017/9/26.
 //  Copyright © 2017年 changhaozhang. All rights reserved.
 //
 
 import Foundation
 
-
-/**
- *  多媒体内容
- */
-class MediaContent: NSObject
-{
-    static let voice = 1;
-    
-    static let picture = 2;
-    
-    static let video = 3;
-    
-    private(set) var type: Int?
-    
-    private(set) var urls: [String]!;   //内容url
-    
-    init(type: Int, urls: [String])
-    {
-        self.type = type;
-        self.urls = urls;
-    }
-}
-
-class MyTalkCell : UITableViewCell, Nibloadable
+class TalkDetailCell : UITableViewCell, Nibloadable
 {
     
     typealias playVideoBlock = (String) -> ();
     typealias clickPhotos = (UIImage) -> Void;
     
-    @IBOutlet weak var ivIcon: UIImageView!;
+    @IBOutlet private weak var ivIcon: UIImageView!;
     
-    @IBOutlet weak var lbName: UILabel!;    //名字
+    @IBOutlet private weak var lbName: UILabel!;    //名字
     
-    @IBOutlet weak var lbTime: UILabel!;    //日期
+    @IBOutlet private weak var lbTime: UILabel!;    //日期
     
     @IBOutlet private weak var viewMedia: UIView!;  //多媒体view
     
-    @IBOutlet weak var heightContent: NSLayoutConstraint!;
+    @IBOutlet private weak var heightContent: NSLayoutConstraint!;
     
-    @IBOutlet weak var heightMedia: NSLayoutConstraint!;
-    
-    @IBOutlet weak var btnFavor: UIButton!;
-    
-    @IBOutlet weak var lbFavor: UILabel!;
-    
-    @IBOutlet weak var btnConment: UIButton!;
-    
-    @IBOutlet weak var lbConment: UILabel!;
-    
-    @IBOutlet weak var btnLikes: UIButton!;
-    
-    @IBOutlet weak var lbLikes: UILabel!;
+    @IBOutlet private weak var heightMedia: NSLayoutConstraint!;
     
     @IBOutlet private weak var lbContent: UILabel!;
     
@@ -89,17 +54,17 @@ class MyTalkCell : UITableViewCell, Nibloadable
     }
     
     //cell identifier
-    static let identifier = "my_talk_cell";
+    static let identifier = "TalkDetailCell";
     
-    var cellHeight: Float = 120;    //cellHeight
+    var cellHeight: Float = 92;    //cellHeight
     
     var playVideo: playBlock?   //播放视频
     
     var showPhoto: clickPhotos?
     
-    class func cellFromNib() -> MyTalkCell
+    class func cellFromNib() -> TalkDetailCell
     {
-        return MyTalkCell.loadNib();
+        return TalkDetailCell.loadNib();
     }
     
     override func awakeFromNib()
@@ -172,7 +137,7 @@ class MyTalkCell : UITableViewCell, Nibloadable
     }
     
     /**
-      更新语音view
+     更新语音view
      */
     private func updateVoiceView() -> Void
     {
@@ -248,7 +213,7 @@ class MyTalkCell : UITableViewCell, Nibloadable
                                  height: ScreenWidth - 16);
         weak var weakSelf = self;
         videoView.play = {(videoUrl) -> () in
-           weakSelf?.playVideo?(videoUrl);
+            weakSelf?.playVideo?(videoUrl);
         };
         viewMedia.addSubview(videoView);
         return ScreenWidth - 16;
@@ -293,6 +258,6 @@ class MyTalkCell : UITableViewCell, Nibloadable
     deinit
     {
         lbContent.removeObserver(self, forKeyPath: "text");
-        print("MyTalkCell deinit");
+        print("TalkDetailCell deinit");
     }
 }

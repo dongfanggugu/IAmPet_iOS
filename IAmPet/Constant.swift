@@ -11,3 +11,7 @@ import Foundation
 let ScreenWidth = UIScreen.main.bounds.width;
 
 let ScreenHeight = UIScreen.main.bounds.height;
+
+let Color_Gray_Font =  "#E1E1E1";
+
+let HeightBottomBar = 49;

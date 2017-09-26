@@ -61,25 +61,45 @@ class PhotosShowView: UIView
      */
     private func updateImageViews() -> Void
     {
-        print("updateviews")
-        bindImages();
+        updateImagesVisible();
     }
     
     /**
      设置显示的图片
      */
-    private func bindImages() -> Void
+    private func bindImage(index: Int) -> Void
     {
-        let end = min(MaxImage, urlsImage!.count);
-        for i in 0..<end
+        let imageView = imageViews![index];
+        imageView.bindUrlData(url: urlsImage?[index])
+        imageView.isHidden = false;
+        imageViewClickListener(imageView: imageView);
+        showImage(imageView: imageView);
+    }
+    
+    /**
+     更新图片的可见
+     */
+    private func updateImagesVisible() -> Void
+    {
+        for i in 0..<MaxImage
         {
-            let imageView = imageViews![i];
-            imageView.bindUrlData(url: urlsImage?[i])
-            imageView.isHidden = false;
-            imageViewClickListener(imageView: imageView);
-            showImage(imageView: imageView);
+            if (i < urlsImage!.count)
+            {
+                bindImage(index: i);
+            }
+            else
+            {
+                imageViews?[i].isHidden = true;
+            }
         }
-        
+        resetFrame();
+    }
+    
+    /**
+     重置frame
+     */
+    private func resetFrame() -> Void
+    {
         let frame = CGRect(x: self.frame.origin.x,
                            y: self.frame.origin.y,
                            width: self.frame.size.width,
@@ -103,9 +123,8 @@ class PhotosShowView: UIView
             imageViews?.append(imageView);
             addSubview(imageView);
         }
-        bindImages();
+        updateImagesVisible();
     }
-    
     
     /**
      获取图片宽度
@@ -177,7 +196,8 @@ class PhotosShowView: UIView
     {
         let url = imageView?.getUrlData();
         let fileName = self.getImageName(url: url!);
-        if (HHUtils.imageFileExist(name: fileName))
+        
+        guard (HHUtils.imageFileExist(name: fileName)) else
         {
             self.showExistImage(fileName: fileName!, imageView: imageView!);
             return;
@@ -224,6 +244,7 @@ class PhotosShowView: UIView
         DispatchQueue.global().async {
             let path = NSHomeDirectory().appending("/tmp/").appending(fileName);
             let image = UIImage(contentsOfFile: path);
+            imageView.bindSourceImage(source: path);
             let thumbnail = self.getThumbnail(image: image!);
             DispatchQueue.main.async {
                 imageView.image = thumbnail;
@@ -268,11 +289,17 @@ class PhotosShowView: UIView
      */
     func imageViewClickListener(imageView: UIImageView?) -> Void
     {
+        imageView?.isUserInteractionEnabled = true;
         let recognizer = UITapGestureRecognizer();
         recognizer.addTarget(self, action: #selector(clickImageView(sender:)));
         imageView?.addGestureRecognizer(recognizer);
     }
     
+    /**
+     点击图片回调，不希望暴露给其他类调用，@objc private
+     
+     - parameter sender: sender
+     */
     @objc private func clickImageView(sender: UIGestureRecognizer) -> Void
     {
         let imageView = sender.view as? UIImageView;
@@ -285,7 +312,6 @@ class PhotosShowView: UIView
 // MARK: - UIImageView添加动态绑定数据支持
 extension UIImageView
 {
-    
     /**
      给UIImageView绑定url数据
      
@@ -314,7 +340,7 @@ extension UIImageView
      */
     func bindSourceImage(source: String?) -> Void
     {
-        bindData(key: "sourceImage", data: source);
+        bindData(key: "sourceImage", data: source!);
     }
     
     /**

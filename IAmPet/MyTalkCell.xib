@@ -135,7 +135,7 @@
                                     <constraint firstAttribute="width" constant="25" id="DT3-Og-Gwp"/>
                                     <constraint firstAttribute="height" constant="25" id="jCI-Sr-BQo"/>
                                 </constraints>
-                                <state key="normal" image="icon_show_read.png"/>
+                                <state key="normal" image="icon_likes.png"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnx-aE-rLa">
                                 <rect key="frame" x="325" y="-4.5" width="42" height="21"/>
@@ -228,8 +228,8 @@
     </objects>
     <resources>
         <image name="icon_conment.png" width="33" height="33"/>
+        <image name="icon_likes.png" width="512" height="512"/>
         <image name="icon_person.png" width="44" height="44"/>
-        <image name="icon_show_read.png" width="28" height="28"/>
         <image name="icon_want_person.png" width="22" height="22"/>
     </resources>
 </document>

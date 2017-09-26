@@ -1,37 +1,14 @@
 //
-//  MyTalkCell.swift
+//  OtherTalkCell.swift
 //  IAmPet
 //
-//  Created by changhaozhang on 2017/9/22.
+//  Created by changhaozhang on 2017/9/26.
 //  Copyright © 2017年 changhaozhang. All rights reserved.
 //
 
 import Foundation
 
-
-/**
- *  多媒体内容
- */
-class MediaContent: NSObject
-{
-    static let voice = 1;
-    
-    static let picture = 2;
-    
-    static let video = 3;
-    
-    private(set) var type: Int?
-    
-    private(set) var urls: [String]!;   //内容url
-    
-    init(type: Int, urls: [String])
-    {
-        self.type = type;
-        self.urls = urls;
-    }
-}
-
-class MyTalkCell : UITableViewCell, Nibloadable
+class OtherTalkCell : UITableViewCell, Nibloadable
 {
     
     typealias playVideoBlock = (String) -> ();
@@ -89,7 +66,7 @@ class MyTalkCell : UITableViewCell, Nibloadable
     }
     
     //cell identifier
-    static let identifier = "my_talk_cell";
+    static let identifier = "other_talk_cell";
     
     var cellHeight: Float = 120;    //cellHeight
     
@@ -97,9 +74,9 @@ class MyTalkCell : UITableViewCell, Nibloadable
     
     var showPhoto: clickPhotos?
     
-    class func cellFromNib() -> MyTalkCell
+    class func cellFromNib() -> OtherTalkCell
     {
-        return MyTalkCell.loadNib();
+        return OtherTalkCell.loadNib();
     }
     
     override func awakeFromNib()
@@ -172,7 +149,7 @@ class MyTalkCell : UITableViewCell, Nibloadable
     }
     
     /**
-      更新语音view
+     更新语音view
      */
     private func updateVoiceView() -> Void
     {
@@ -248,7 +225,7 @@ class MyTalkCell : UITableViewCell, Nibloadable
                                  height: ScreenWidth - 16);
         weak var weakSelf = self;
         videoView.play = {(videoUrl) -> () in
-           weakSelf?.playVideo?(videoUrl);
+            weakSelf?.playVideo?(videoUrl);
         };
         viewMedia.addSubview(videoView);
         return ScreenWidth - 16;

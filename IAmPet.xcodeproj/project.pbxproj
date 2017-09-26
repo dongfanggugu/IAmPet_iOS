@@ -10,6 +10,19 @@
 		277D0BC6D6FE3A20B29D38B3 /* libPods-IAmPet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF319E986DDE4BC068AC6EC /* libPods-IAmPet.a */; };
 		6508B23D1F6BBA3700B0418F /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */; };
 		6535EFD71F78D71100B610D9 /* PhotosShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFD61F78D71100B610D9 /* PhotosShowView.swift */; };
+		6535EFD91F79F1D900B610D9 /* OtherTalkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6535EFD81F79F1D900B610D9 /* OtherTalkCell.xib */; };
+		6535EFDD1F79F3FB00B610D9 /* icon_likes.png in Resources */ = {isa = PBXBuildFile; fileRef = 6535EFDC1F79F3FB00B610D9 /* icon_likes.png */; };
+		6535EFDF1F79F4A800B610D9 /* OtherTalkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFDE1F79F4A800B610D9 /* OtherTalkCell.swift */; };
+		6535EFE11F79F76200B610D9 /* TalkDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6535EFE01F79F76200B610D9 /* TalkDetailCell.xib */; };
+		6535EFE31F79F78200B610D9 /* TalkDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFE21F79F78200B610D9 /* TalkDetailCell.swift */; };
+		6535EFE51F7A1C6900B610D9 /* TalkOperationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6535EFE41F7A1C6900B610D9 /* TalkOperationCell.xib */; };
+		6535EFE71F7A1D7B00B610D9 /* TalkOperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFE61F7A1D7B00B610D9 /* TalkOperationCell.swift */; };
+		6535EFE91F7A272C00B610D9 /* TalkFavorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6535EFE81F7A272C00B610D9 /* TalkFavorCell.xib */; };
+		6535EFEB1F7A28E000B610D9 /* TalkFavorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFEA1F7A28E000B610D9 /* TalkFavorCell.swift */; };
+		6535EFED1F7A2DF400B610D9 /* TalkCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6535EFEC1F7A2DF400B610D9 /* TalkCommentCell.xib */; };
+		6535EFEF1F7A2F1100B610D9 /* TalkCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFEE1F7A2F1100B610D9 /* TalkCommentCell.swift */; };
+		6535EFF11F7A352100B610D9 /* TalkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFF01F7A352100B610D9 /* TalkDetailViewController.swift */; };
+		6535EFF31F7A360800B610D9 /* SBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFF21F7A360800B610D9 /* SBaseViewController.swift */; };
 		654E4B111F71592D0052F4A9 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 654E4B101F71592D0052F4A9 /* libmp3lame.a */; };
 		656A2D771F70AD0800E97F15 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656A2D751F70AD0800E97F15 /* PublishViewController.m */; };
 		656A2D781F70AD0800E97F15 /* PublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656A2D761F70AD0800E97F15 /* PublishViewController.xib */; };
@@ -205,6 +218,19 @@
 		6508B23B1F6BBA3700B0418F /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		6535EFD61F78D71100B610D9 /* PhotosShowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosShowView.swift; sourceTree = "<group>"; };
+		6535EFD81F79F1D900B610D9 /* OtherTalkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OtherTalkCell.xib; sourceTree = "<group>"; };
+		6535EFDC1F79F3FB00B610D9 /* icon_likes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_likes.png; sourceTree = "<group>"; };
+		6535EFDE1F79F4A800B610D9 /* OtherTalkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherTalkCell.swift; sourceTree = "<group>"; };
+		6535EFE01F79F76200B610D9 /* TalkDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkDetailCell.xib; sourceTree = "<group>"; };
+		6535EFE21F79F78200B610D9 /* TalkDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkDetailCell.swift; sourceTree = "<group>"; };
+		6535EFE41F7A1C6900B610D9 /* TalkOperationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkOperationCell.xib; sourceTree = "<group>"; };
+		6535EFE61F7A1D7B00B610D9 /* TalkOperationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkOperationCell.swift; sourceTree = "<group>"; };
+		6535EFE81F7A272C00B610D9 /* TalkFavorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkFavorCell.xib; sourceTree = "<group>"; };
+		6535EFEA1F7A28E000B610D9 /* TalkFavorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkFavorCell.swift; sourceTree = "<group>"; };
+		6535EFEC1F7A2DF400B610D9 /* TalkCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TalkCommentCell.xib; sourceTree = "<group>"; };
+		6535EFEE1F7A2F1100B610D9 /* TalkCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkCommentCell.swift; sourceTree = "<group>"; };
+		6535EFF01F7A352100B610D9 /* TalkDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkDetailViewController.swift; sourceTree = "<group>"; };
+		6535EFF21F7A360800B610D9 /* SBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBaseViewController.swift; sourceTree = "<group>"; };
 		654E4B0F1F71592D0052F4A9 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		654E4B101F71592D0052F4A9 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
 		656A2D741F70AD0800E97F15 /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishViewController.h; sourceTree = "<group>"; };
@@ -573,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				65C1EEAD1F716229004D464D /* VideoPlayerController.h */,
+				6535EFF01F7A352100B610D9 /* TalkDetailViewController.swift */,
 				65C1EEAE1F716229004D464D /* VideoPlayerController.m */,
 				65C1EEAF1F716229004D464D /* VideoRecordController.h */,
 				65C1EEB01F716229004D464D /* VideoRecordController.m */,
@@ -618,6 +645,7 @@
 		657C74351F662D71002BE2BA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6535EFDC1F79F3FB00B610D9 /* icon_likes.png */,
 				65C6E6721F6BCC780063F5A5 /* add_des_input@2x.png */,
 				656A2DA71F73BBC300E97F15 /* icon_video.png */,
 				65C6E6731F6BCC780063F5A5 /* arrow_down@2x.png */,
@@ -753,6 +781,7 @@
 				6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */,
 				65C6E66C1F6BCB160063F5A5 /* BaseTabBarController.h */,
 				65C6E66D1F6BCB160063F5A5 /* BaseTabBarController.m */,
+				6535EFF21F7A360800B610D9 /* SBaseViewController.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -772,6 +801,11 @@
 				656A2DB01F74F9F000E97F15 /* MyTalkCell.xib */,
 				658CA83F1F7611DD0013DCA6 /* VoiceShowView.xib */,
 				65D3BB4D1F774868005A3B6E /* VideoShowView.xib */,
+				6535EFD81F79F1D900B610D9 /* OtherTalkCell.xib */,
+				6535EFE01F79F76200B610D9 /* TalkDetailCell.xib */,
+				6535EFE41F7A1C6900B610D9 /* TalkOperationCell.xib */,
+				6535EFE81F7A272C00B610D9 /* TalkFavorCell.xib */,
+				6535EFEC1F7A2DF400B610D9 /* TalkCommentCell.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -803,6 +837,11 @@
 				658CA8411F7612430013DCA6 /* VoiceShowView.swift */,
 				65D3BB4F1F7748D1005A3B6E /* VideoShowView.swift */,
 				6535EFD61F78D71100B610D9 /* PhotosShowView.swift */,
+				6535EFDE1F79F4A800B610D9 /* OtherTalkCell.swift */,
+				6535EFE21F79F78200B610D9 /* TalkDetailCell.swift */,
+				6535EFE61F7A1D7B00B610D9 /* TalkOperationCell.swift */,
+				6535EFEA1F7A28E000B610D9 /* TalkFavorCell.swift */,
+				6535EFEE1F7A2F1100B610D9 /* TalkCommentCell.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -1005,6 +1044,7 @@
 				65C6E73A1F6BCC8B0063F5A5 /* icon_icon.png in Resources */,
 				65C6E73F1F6BCC8B0063F5A5 /* inactive.png in Resources */,
 				65C6E6D01F6BCC790063F5A5 /* add_des_input@2x.png in Resources */,
+				6535EFDD1F79F3FB00B610D9 /* icon_likes.png in Resources */,
 				65C6E6FE1F6BCC790063F5A5 /* icon_shop.png in Resources */,
 				65C6E7381F6BCC8B0063F5A5 /* icon_discovery.png in Resources */,
 				65C6E7071F6BCC790063F5A5 /* icon_want_sel@2x.png in Resources */,
@@ -1012,6 +1052,7 @@
 				65C6E6D11F6BCC790063F5A5 /* arrow_down@2x.png in Resources */,
 				65C6E7031F6BCC790063F5A5 /* icon_show@2x.png in Resources */,
 				657C74031F662C02002BE2BA /* Main.storyboard in Resources */,
+				6535EFD91F79F1D900B610D9 /* OtherTalkCell.xib in Resources */,
 				65C6E6EE1F6BCC790063F5A5 /* icon_level@2x.png in Resources */,
 				65C6E7011F6BCC790063F5A5 /* icon_show_read.png in Resources */,
 				65C6E6E71F6BCC790063F5A5 /* icon_del@2x.png in Resources */,
@@ -1033,6 +1074,7 @@
 				656A2D8F1F72456C00E97F15 /* microphone.png in Resources */,
 				65C6E7371F6BCC8B0063F5A5 /* icon_conment.png in Resources */,
 				65C2E20D1F6FAA460043027A /* PersonCenterCell.xib in Resources */,
+				6535EFE91F7A272C00B610D9 /* TalkFavorCell.xib in Resources */,
 				65C6E6EC1F6BCC790063F5A5 /* icon_hide_menu@2x.png in Resources */,
 				65C6E7221F6BCC790063F5A5 /* share_icon_wechatfriends@2x.png in Resources */,
 				65C2E2151F6FBFDC0043027A /* icon_person_center.png in Resources */,
@@ -1048,6 +1090,7 @@
 				65C6E73E1F6BCC8B0063F5A5 /* icon_query.png in Resources */,
 				65C6E6F71F6BCC790063F5A5 /* icon_msg_person@2x.png in Resources */,
 				656A2D9B1F739B0800E97F15 /* VideoPlayView.xib in Resources */,
+				6535EFED1F7A2DF400B610D9 /* TalkCommentCell.xib in Resources */,
 				65C6E70E1F6BCC790063F5A5 /* location@2x.png in Resources */,
 				65C6E6E11F6BCC790063F5A5 /* icon_add_concern@2x.png in Resources */,
 				65C6E7251F6BCC790063F5A5 /* share_qq.png in Resources */,
@@ -1061,6 +1104,7 @@
 				65C6E7271F6BCC790063F5A5 /* share_weixin.png in Resources */,
 				65C6E6FA1F6BCC790063F5A5 /* icon_price@2x.png in Resources */,
 				65C6E6DB1F6BCC790063F5A5 /* follow@2x.png in Resources */,
+				6535EFE51F7A1C6900B610D9 /* TalkOperationCell.xib in Resources */,
 				65C6E7171F6BCC790063F5A5 /* message.png in Resources */,
 				65C6E7101F6BCC790063F5A5 /* login_bg@2x.jpg in Resources */,
 				65C6E6DE1F6BCC790063F5A5 /* header_fmale2.png in Resources */,
@@ -1069,6 +1113,7 @@
 				65C6E7211F6BCC790063F5A5 /* share_icon_wechat@2x.png in Resources */,
 				65C6E7091F6BCC790063F5A5 /* icon_zoon_in@2x.png in Resources */,
 				65C6E73D1F6BCC8B0063F5A5 /* icon_location_new.png in Resources */,
+				6535EFE11F79F76200B610D9 /* TalkDetailCell.xib in Resources */,
 				65C6E6FF1F6BCC790063F5A5 /* icon_show_menu@2x.png in Resources */,
 				65C6E6D51F6BCC790063F5A5 /* bg_myinfo.png in Resources */,
 				65C6E7231F6BCC790063F5A5 /* share_mainpage@2x.png in Resources */,
@@ -1163,6 +1208,7 @@
 				657C74481F6637E7002BE2BA /* User.m in Sources */,
 				65C2E2131F6FABE70043027A /* PersonCenterCell.m in Sources */,
 				657C743C1F662EA5002BE2BA /* HttpClient.m in Sources */,
+				6535EFF31F7A360800B610D9 /* SBaseViewController.swift in Sources */,
 				657C744B1F6655F7002BE2BA /* BaseViewController.m in Sources */,
 				657C74341F662D48002BE2BA /* NSArray+Log.m in Sources */,
 				657C74451F663494002BE2BA /* HUDClass.m in Sources */,
@@ -1170,19 +1216,24 @@
 				656A2D771F70AD0800E97F15 /* PublishViewController.m in Sources */,
 				657C74421F66300E002BE2BA /* Utils.m in Sources */,
 				65C6E66E1F6BCB160063F5A5 /* BaseTabBarController.m in Sources */,
+				6535EFDF1F79F4A800B610D9 /* OtherTalkCell.swift in Sources */,
+				6535EFE71F7A1D7B00B610D9 /* TalkOperationCell.swift in Sources */,
 				65C6E6711F6BCB300063F5A5 /* MainTabBarViewController.m in Sources */,
 				65C1EEAC1F71620D004D464D /* WCLRecordEngine.m in Sources */,
 				656A2D811F70E49100E97F15 /* PhotoView.m in Sources */,
 				65C2E20B1F6FA9C40043027A /* PersonCenterView.m in Sources */,
 				65C6E7451F6BCD2B0063F5A5 /* AreaViewController.m in Sources */,
 				65C1EEB21F716229004D464D /* VideoRecordController.m in Sources */,
+				6535EFE31F79F78200B610D9 /* TalkDetailCell.swift in Sources */,
 				65C2E2101F6FAB200043027A /* BaseTableViewCell.m in Sources */,
 				658CA83E1F760A140013DCA6 /* Constant.swift in Sources */,
 				657C74551F6658D2002BE2BA /* SectionInfo.m in Sources */,
 				658CA8421F7612430013DCA6 /* VoiceShowView.swift in Sources */,
 				6508B23D1F6BBA3700B0418F /* BaseTableViewController.m in Sources */,
 				65C6E7481F6BCD390063F5A5 /* SearchViewController.m in Sources */,
+				6535EFEF1F7A2F1100B610D9 /* TalkCommentCell.swift in Sources */,
 				657C743F1F662FE1002BE2BA /* LoginUtils.m in Sources */,
+				6535EFEB1F7A28E000B610D9 /* TalkFavorCell.swift in Sources */,
 				657C745F1F6786D2002BE2BA /* RegisterView.m in Sources */,
 				65C6E74B1F6BCD450063F5A5 /* ChatViewController.m in Sources */,
 				656A2D921F72482300E97F15 /* VoiceRecordView.m in Sources */,
@@ -1192,6 +1243,7 @@
 				657C744E1F6657F2002BE2BA /* BaseNavigationController.m in Sources */,
 				657C74581F6785F8002BE2BA /* RegisterViewController.m in Sources */,
 				657C73FD1F662C02002BE2BA /* AppDelegate.m in Sources */,
+				6535EFF11F7A352100B610D9 /* TalkDetailViewController.swift in Sources */,
 				6535EFD71F78D71100B610D9 /* PhotosShowView.swift in Sources */,
 				656A2DB31F74FF7A00E97F15 /* MyTalkCell.swift in Sources */,
 				657C746A1F68C1EE002BE2BA /* LeftSideViewController.m in Sources */,

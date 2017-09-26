@@ -24,6 +24,7 @@
 #import "ImageUtils.h"
 #import <UIImageView+AFNetworking.h>
 #import <UIImage+AFNetworking.h>
+#import <MJRefresh.h>
 
 
 #ifdef DEBUG
