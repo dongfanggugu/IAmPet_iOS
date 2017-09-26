@@ -114,7 +114,6 @@ class PhotosShowView: UIView
      */
     private func addImageViews() -> Void
     {
-        print("addviews")
         for i in 0..<MaxImage
         {
             let frame = calImageViewFrame(index: i);

@@ -292,7 +292,6 @@ class MyTalkCell : UITableViewCell, Nibloadable
     
     deinit
     {
-        lbContent.removeObserver(self, forKeyPath: "text");
         print("MyTalkCell deinit");
     }
 }

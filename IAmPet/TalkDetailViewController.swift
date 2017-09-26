@@ -18,6 +18,12 @@ class TalkDetailViewController: SBaseViewController
     
     private var tableView: UITableView?
     
+    weak var tempCell: UITableViewCell?;    //临时cell，用来计算高度使用
+    
+    var detailCell: TalkDetailCell?;
+    
+    var operationCell: TalkOperationCell?;
+    
     var opState: OperationState! = .Comment   //操作状态
     {
         didSet
@@ -26,7 +32,7 @@ class TalkDetailViewController: SBaseViewController
         }
     }
     
-    var itemCount: Int? //item 数量
+    var itemCount: Int? = 0; //item 数量
     
     override func viewDidLoad()
     {
@@ -44,7 +50,19 @@ class TalkDetailViewController: SBaseViewController
         
         tableView?.delegate = self as UITableViewDelegate;
         tableView?.dataSource = self as UITableViewDataSource;
+        tableView?.tableFooterView = UIView(frame: CGRect.zero);
         self.view.addSubview(tableView!);
+    }
+    
+    /**
+     回调，view显示
+     
+     - parameter animated: animated
+     */
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated);
+        opState = .Comment;
     }
     
     /**
@@ -54,18 +72,19 @@ class TalkDetailViewController: SBaseViewController
     {
         if (opState! == .Favor)
         {
-            itemCount = 10;
+            itemCount = 2;
         }
         else if (opState! == .Comment)
         {
-            itemCount = 15;
+            itemCount = 2;
         }
         else if (opState! == .Likes)
         {
-            itemCount = 8;
+            itemCount = 2;
         }
+        
         let indexSet = IndexSet(integer: 2);
-        tableView?.reloadSections(indexSet, with: UITableViewRowAnimation.automatic);
+        tableView?.reloadSections(indexSet, with: .none);
     }
 }
 
@@ -93,6 +112,7 @@ extension TalkDetailViewController: UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = getCell(tableView: tableView, indexPath: indexPath);
+        tempCell = cell;
         return cell!;
     }
     
@@ -133,7 +153,13 @@ extension TalkDetailViewController: UITableViewDataSource
      */
     private func genTalkDetailCell() -> TalkDetailCell
     {
+        if let dCell = detailCell
+        {
+            return dCell;
+        }
+        
         let cell = TalkDetailCell.cellFromNib();
+        detailCell = cell;
         cell.talkContent = "爽肤水放松放松爽肤水放松放松放松放松放松放松法爽肤水放松放松方式发送方舒服舒服";
         let urls = [
             "https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=9cb489038bd4b31ce4319ce9e6bf4c1a/8c1001e93901213f6e57dc9c54e736d12f2e950e.jpg",
@@ -143,6 +169,14 @@ extension TalkDetailViewController: UITableViewDataSource
         ];
         let media = MediaContent(type: MediaContent.picture, urls:urls);
         cell.mediaContent = media;
+        
+        weak var weakSelf = self;
+        
+        //显示预览图
+        cell.showPhoto = {
+            (image: UIImage) -> Void in
+            weakSelf?.showPreviewImage(image);
+        };
         
         return cell;
     }
@@ -154,7 +188,13 @@ extension TalkDetailViewController: UITableViewDataSource
      */
     private func genTalkOperationCell() -> TalkOperationCell
     {
+        if let oCell = operationCell
+        {
+            return oCell;
+        }
+        
         let cell = TalkOperationCell.cellFromNib();
+        operationCell = cell;
         cell.delegate = self as TalkOperationCellDelegate;
         return cell;
     }
@@ -183,7 +223,7 @@ extension TalkDetailViewController: UITableViewDataSource
     private func genTalkCommentCell(tableView: UITableView) -> TalkCommentCell
     {
         var cell = tableView.dequeueReusableCell(withIdentifier: TalkCommentCell.identifier) as? TalkCommentCell;
-        if (nil ==  cell)
+        if (nil == cell)
         {
             cell = TalkCommentCell.loadNib();
         }
@@ -203,15 +243,19 @@ extension TalkDetailViewController: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return getCellHeight(tableView:tableView, indexPath:indexPath);
+        return getCellHeight(indexPath:indexPath);
     }
     
-    private func getCellHeight(tableView: UITableView, indexPath: IndexPath) -> CGFloat
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
-        let cell = tableView.cellForRow(at: indexPath);
+        return 20;
+    }
+    
+    private func getCellHeight(indexPath: IndexPath) -> CGFloat
+    {
         if (0 == indexPath.section)
         {
-            return getTalkDetailCellHeight(cell: cell!);
+            return getTalkDetailCellHeight();
         }
         else if (1 == indexPath.section)
         {
@@ -221,7 +265,7 @@ extension TalkDetailViewController: UITableViewDelegate
         {
             if (opState! == .Comment)
             {
-                return getTalkCommentCellHeight(cell: cell!);
+                return getTalkCommentCellHeight(cell: tempCell!);
             }
             else
             {
@@ -237,15 +281,14 @@ extension TalkDetailViewController: UITableViewDelegate
      
      - returns: CGFloat
      */
-    private func getTalkDetailCellHeight(cell: UITableViewCell) -> CGFloat
+    private func getTalkDetailCellHeight() -> CGFloat
     {
-        guard let cell = cell as? TalkDetailCell else
+        if let dCell = detailCell
         {
-            return 0;
+            return CGFloat(dCell.cellHeight);
         }
         
-        return CGFloat(cell.cellHeight);
-        
+        return 66;
     }
     
     /**

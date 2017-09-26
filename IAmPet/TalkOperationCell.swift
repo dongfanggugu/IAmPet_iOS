@@ -65,6 +65,7 @@ class TalkOperationCell: UITableViewCell, Nibloadable
     override func awakeFromNib()
     {
         super.awakeFromNib();
+        self.selectionStyle = .none;
         resetBtn();
         btnConment.setTitleColor(UIColor.black, for: UIControlState.normal);
     }
@@ -88,10 +89,7 @@ class TalkOperationCell: UITableViewCell, Nibloadable
     {
         resetBtn();
         btnFavor.setTitleColor(UIColor.black, for: UIControlState.normal);
-        if (delegate != nil)
-        {
-            delegate?.clickFavor();
-        }
+        delegate?.clickFavor();
     }
     
     /**
@@ -103,10 +101,7 @@ class TalkOperationCell: UITableViewCell, Nibloadable
     {
         resetBtn();
         btnConment.setTitleColor(UIColor.black, for: UIControlState.normal);
-        if (delegate != nil)
-        {
-            delegate?.clickConment();
-        }
+        delegate?.clickConment();
     }
     
     /**
@@ -118,9 +113,6 @@ class TalkOperationCell: UITableViewCell, Nibloadable
     {
         resetBtn();
         btnLikes.setTitleColor(UIColor.black, for: UIControlState.normal);
-        if (delegate != nil)
-        {
-            delegate?.clickLikes();
-        }
+        delegate?.clickLikes();
     }
 }

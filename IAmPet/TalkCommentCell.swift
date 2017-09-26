@@ -62,7 +62,6 @@ class TalkCommentCell: UITableViewCell, Nibloadable
         
         let font = UIFont.systemFont(ofSize: 14);
         let width = lbContent.frame.size.width;
-        print("width: \(width)");
         let height = HHUtils.getTextHeight(textStr: content, font: font, width: width);
         let div = height - heightContent.constant;
         heightContent.constant = height;
