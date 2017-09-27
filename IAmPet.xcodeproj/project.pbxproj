@@ -23,6 +23,13 @@
 		6535EFEF1F7A2F1100B610D9 /* TalkCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFEE1F7A2F1100B610D9 /* TalkCommentCell.swift */; };
 		6535EFF11F7A352100B610D9 /* TalkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFF01F7A352100B610D9 /* TalkDetailViewController.swift */; };
 		6535EFF31F7A360800B610D9 /* SBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFF21F7A360800B610D9 /* SBaseViewController.swift */; };
+		6535EFF51F7B32B300B610D9 /* CommentPublishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6535EFF41F7B32B300B610D9 /* CommentPublishView.xib */; };
+		6535EFF71F7B34D800B610D9 /* CommentPublishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFF61F7B34D800B610D9 /* CommentPublishView.swift */; };
+		6535EFFB1F7B3F2A00B610D9 /* DetailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFFA1F7B3F2A00B610D9 /* DetailBottomView.swift */; };
+		6535EFFD1F7B526600B610D9 /* DetailBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6535EFFC1F7B526600B610D9 /* DetailBottomView.xib */; };
+		6535EFFF1F7B925700B610D9 /* AreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFFE1F7B925700B610D9 /* AreaViewController.swift */; };
+		6535F0011F7B971E00B610D9 /* AreaHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6535F0001F7B971E00B610D9 /* AreaHeaderView.xib */; };
+		6535F0031F7B984500B610D9 /* AreaHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535F0021F7B984500B610D9 /* AreaHeaderView.swift */; };
 		654E4B111F71592D0052F4A9 /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 654E4B101F71592D0052F4A9 /* libmp3lame.a */; };
 		656A2D771F70AD0800E97F15 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656A2D751F70AD0800E97F15 /* PublishViewController.m */; };
 		656A2D781F70AD0800E97F15 /* PublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656A2D761F70AD0800E97F15 /* PublishViewController.xib */; };
@@ -190,7 +197,6 @@
 		65C6E73E1F6BCC8B0063F5A5 /* icon_query.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E7351F6BCC8B0063F5A5 /* icon_query.png */; };
 		65C6E73F1F6BCC8B0063F5A5 /* inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E7361F6BCC8B0063F5A5 /* inactive.png */; };
 		65C6E7421F6BCD160063F5A5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C6E7411F6BCD160063F5A5 /* HomeViewController.m */; };
-		65C6E7451F6BCD2B0063F5A5 /* AreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C6E7441F6BCD2B0063F5A5 /* AreaViewController.m */; };
 		65C6E7481F6BCD390063F5A5 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C6E7471F6BCD390063F5A5 /* SearchViewController.m */; };
 		65C6E74B1F6BCD450063F5A5 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C6E74A1F6BCD450063F5A5 /* ChatViewController.m */; };
 		65D3BB4E1F774868005A3B6E /* VideoShowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D3BB4D1F774868005A3B6E /* VideoShowView.xib */; };
@@ -231,6 +237,13 @@
 		6535EFEE1F7A2F1100B610D9 /* TalkCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkCommentCell.swift; sourceTree = "<group>"; };
 		6535EFF01F7A352100B610D9 /* TalkDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkDetailViewController.swift; sourceTree = "<group>"; };
 		6535EFF21F7A360800B610D9 /* SBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBaseViewController.swift; sourceTree = "<group>"; };
+		6535EFF41F7B32B300B610D9 /* CommentPublishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentPublishView.xib; sourceTree = "<group>"; };
+		6535EFF61F7B34D800B610D9 /* CommentPublishView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentPublishView.swift; sourceTree = "<group>"; };
+		6535EFFA1F7B3F2A00B610D9 /* DetailBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailBottomView.swift; sourceTree = "<group>"; };
+		6535EFFC1F7B526600B610D9 /* DetailBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailBottomView.xib; sourceTree = "<group>"; };
+		6535EFFE1F7B925700B610D9 /* AreaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaViewController.swift; sourceTree = "<group>"; };
+		6535F0001F7B971E00B610D9 /* AreaHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaHeaderView.xib; sourceTree = "<group>"; };
+		6535F0021F7B984500B610D9 /* AreaHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaHeaderView.swift; sourceTree = "<group>"; };
 		654E4B0F1F71592D0052F4A9 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
 		654E4B101F71592D0052F4A9 /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
 		656A2D741F70AD0800E97F15 /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishViewController.h; sourceTree = "<group>"; };
@@ -442,8 +455,6 @@
 		65C6E7361F6BCC8B0063F5A5 /* inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inactive.png; sourceTree = "<group>"; };
 		65C6E7401F6BCD160063F5A5 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		65C6E7411F6BCD160063F5A5 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		65C6E7431F6BCD2B0063F5A5 /* AreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaViewController.h; sourceTree = "<group>"; };
-		65C6E7441F6BCD2B0063F5A5 /* AreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaViewController.m; sourceTree = "<group>"; };
 		65C6E7461F6BCD390063F5A5 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		65C6E7471F6BCD390063F5A5 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		65C6E7491F6BCD450063F5A5 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
@@ -611,14 +622,13 @@
 				657C74571F6785F8002BE2BA /* RegisterViewController.m */,
 				65C6E7401F6BCD160063F5A5 /* HomeViewController.h */,
 				65C6E7411F6BCD160063F5A5 /* HomeViewController.m */,
-				65C6E7431F6BCD2B0063F5A5 /* AreaViewController.h */,
-				65C6E7441F6BCD2B0063F5A5 /* AreaViewController.m */,
 				65C6E7461F6BCD390063F5A5 /* SearchViewController.h */,
 				65C6E7471F6BCD390063F5A5 /* SearchViewController.m */,
 				65C6E7491F6BCD450063F5A5 /* ChatViewController.h */,
 				65C6E74A1F6BCD450063F5A5 /* ChatViewController.m */,
 				656A2D741F70AD0800E97F15 /* PublishViewController.h */,
 				656A2D751F70AD0800E97F15 /* PublishViewController.m */,
+				6535EFFE1F7B925700B610D9 /* AreaViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -806,6 +816,9 @@
 				6535EFE41F7A1C6900B610D9 /* TalkOperationCell.xib */,
 				6535EFE81F7A272C00B610D9 /* TalkFavorCell.xib */,
 				6535EFEC1F7A2DF400B610D9 /* TalkCommentCell.xib */,
+				6535EFF41F7B32B300B610D9 /* CommentPublishView.xib */,
+				6535EFFC1F7B526600B610D9 /* DetailBottomView.xib */,
+				6535F0001F7B971E00B610D9 /* AreaHeaderView.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -842,6 +855,9 @@
 				6535EFE61F7A1D7B00B610D9 /* TalkOperationCell.swift */,
 				6535EFEA1F7A28E000B610D9 /* TalkFavorCell.swift */,
 				6535EFEE1F7A2F1100B610D9 /* TalkCommentCell.swift */,
+				6535EFF61F7B34D800B610D9 /* CommentPublishView.swift */,
+				6535EFFA1F7B3F2A00B610D9 /* DetailBottomView.swift */,
+				6535F0021F7B984500B610D9 /* AreaHeaderView.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -1009,6 +1025,7 @@
 				65C6E71F1F6BCC790063F5A5 /* share_icon_qq@2x.png in Resources */,
 				65C6E6F91F6BCC790063F5A5 /* icon_person.png in Resources */,
 				65D3BB4E1F774868005A3B6E /* VideoShowView.xib in Resources */,
+				6535F0011F7B971E00B610D9 /* AreaHeaderView.xib in Resources */,
 				65C6E6D81F6BCC790063F5A5 /* crop_bg@2x.png in Resources */,
 				65C2E2061F6FA3920043027A /* PersonCenterView.xib in Resources */,
 				65C6E72C1F6BCC790063F5A5 /* wanted_pressed@2x.png in Resources */,
@@ -1019,6 +1036,7 @@
 				657C745C1F678627002BE2BA /* RegisterView.xib in Resources */,
 				65C6E6F41F6BCC790063F5A5 /* icon_main_page_hilighted@2x.png in Resources */,
 				65C6E6EA1F6BCC790063F5A5 /* icon_fans@2x.png in Resources */,
+				6535EFF51F7B32B300B610D9 /* CommentPublishView.xib in Resources */,
 				65C6E6E41F6BCC790063F5A5 /* icon_change_header@2x.png in Resources */,
 				65C6E7121F6BCC790063F5A5 /* login_qq@2x.png in Resources */,
 				65C6E6F11F6BCC790063F5A5 /* icon_login_weibo@2x.png in Resources */,
@@ -1130,6 +1148,7 @@
 				65C6E7161F6BCC790063F5A5 /* male@2x.png in Resources */,
 				65C6E7131F6BCC790063F5A5 /* login_weibo@2x.png in Resources */,
 				65C6E6F31F6BCC790063F5A5 /* icon_logo@2x.png in Resources */,
+				6535EFFD1F7B526600B610D9 /* DetailBottomView.xib in Resources */,
 				65C6E6E81F6BCC790063F5A5 /* icon_des_add@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1211,6 +1230,7 @@
 				6535EFF31F7A360800B610D9 /* SBaseViewController.swift in Sources */,
 				657C744B1F6655F7002BE2BA /* BaseViewController.m in Sources */,
 				657C74341F662D48002BE2BA /* NSArray+Log.m in Sources */,
+				6535EFF71F7B34D800B610D9 /* CommentPublishView.swift in Sources */,
 				657C74451F663494002BE2BA /* HUDClass.m in Sources */,
 				657C74001F662C02002BE2BA /* ViewController.m in Sources */,
 				656A2D771F70AD0800E97F15 /* PublishViewController.m in Sources */,
@@ -1222,7 +1242,7 @@
 				65C1EEAC1F71620D004D464D /* WCLRecordEngine.m in Sources */,
 				656A2D811F70E49100E97F15 /* PhotoView.m in Sources */,
 				65C2E20B1F6FA9C40043027A /* PersonCenterView.m in Sources */,
-				65C6E7451F6BCD2B0063F5A5 /* AreaViewController.m in Sources */,
+				6535EFFB1F7B3F2A00B610D9 /* DetailBottomView.swift in Sources */,
 				65C1EEB21F716229004D464D /* VideoRecordController.m in Sources */,
 				6535EFE31F79F78200B610D9 /* TalkDetailCell.swift in Sources */,
 				65C2E2101F6FAB200043027A /* BaseTableViewCell.m in Sources */,
@@ -1238,6 +1258,7 @@
 				65C6E74B1F6BCD450063F5A5 /* ChatViewController.m in Sources */,
 				656A2D921F72482300E97F15 /* VoiceRecordView.m in Sources */,
 				656A2DAF1F74D71600E97F15 /* HHUtils.swift in Sources */,
+				6535EFFF1F7B925700B610D9 /* AreaViewController.swift in Sources */,
 				656A2DB51F7501B000E97F15 /* Nibloadable.swift in Sources */,
 				656A2DA01F739C9000E97F15 /* VideoPlayView.m in Sources */,
 				657C744E1F6657F2002BE2BA /* BaseNavigationController.m in Sources */,
@@ -1255,6 +1276,7 @@
 				657C74061F662C02002BE2BA /* IAmPet.xcdatamodeld in Sources */,
 				65C1EEAB1F71620D004D464D /* WCLRecordEncoder.m in Sources */,
 				657C74521F6658A7002BE2BA /* SectionManagerController.m in Sources */,
+				6535F0031F7B984500B610D9 /* AreaHeaderView.swift in Sources */,
 				65C6E7421F6BCD160063F5A5 /* HomeViewController.m in Sources */,
 				656A2D881F70EA6800E97F15 /* PhotosView.m in Sources */,
 			);

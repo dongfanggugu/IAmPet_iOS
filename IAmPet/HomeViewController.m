@@ -13,7 +13,7 @@
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, PublishViewControllerDelegate>
 
-@property (nonatomic, weak) TalkCommentCell *cell;
+@property (nonatomic, weak) MyTalkCell *cell;
 
 @property (nonatomic, copy) NSString *voiceUrl;
 
@@ -97,52 +97,43 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TalkCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:[TalkCommentCell identifier]];
+    MyTalkCell *cell = [tableView dequeueReusableCellWithIdentifier:[MyTalkCell identifier]];
     
     if (!cell)
     {
-        cell = [TalkCommentCell cellFromNib];
+        cell = [MyTalkCell cellFromNib];
         
     }
     _cell = cell;
     
-    if (0 == indexPath.section % 2)
+     
+    if (0 == indexPath.section)
     {
-        cell.commentContent = @"师傅师傅师傅师傅师傅师傅师傅师傅师傅师傅师傅师傅师傅师傅师傅师傅师傅师傅省份省份双氯芬酸分手就分手师傅师傅师傅师傅说";
+        NSArray *urls = @[
+                          @"https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=9cb489038bd4b31ce4319ce9e6bf4c1a/8c1001e93901213f6e57dc9c54e736d12f2e950e.jpg",
+                          @"http://image.tianjimedia.com/uploadImages/2015/131/29/1OZRZ52WJ9T2.jpg",
+                          @"http://image.tianjimedia.com/uploadImages/2015/131/22/59SG53FU0160.jpg"
+                          ];
+        MediaContent *media = [[MediaContent alloc] initWithType:MediaContent.picture urls:urls];
+        cell.mediaContent = media;
     }
     else
     {
-        cell.commentContent = @"是否顺风顺水方式方法";
+        
+        NSArray *urls = @[
+                          @"http://image.tianjimedia.com/uploadImages/2015/131/22/59SG53FU0160.jpg"
+                          ];
+        MediaContent *media = [[MediaContent alloc] initWithType:MediaContent.picture urls:urls];
+        cell.mediaContent = media;
     }
     
-//    if (0 == indexPath.section)
-//    {
-//        NSArray *urls = @[
-//                          @"https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=9cb489038bd4b31ce4319ce9e6bf4c1a/8c1001e93901213f6e57dc9c54e736d12f2e950e.jpg",
-//                          @"http://image.tianjimedia.com/uploadImages/2016/336/11/265T705PHEN4.jpg",
-//                          @"http://image.tianjimedia.com/uploadImages/2015/131/29/1OZRZ52WJ9T2.jpg",
-//                          @"http://image.tianjimedia.com/uploadImages/2015/131/22/59SG53FU0160.jpg"
-//                          ];
-//        MediaContent *media = [[MediaContent alloc] initWithType:MediaContent.picture urls:urls];
-//        cell.mediaContent = media;
-//    }
-//    else
-//    {
-//        
-//    NSArray *urls = @[
-//            @"http://image.tianjimedia.com/uploadImages/2015/131/22/59SG53FU0160.jpg"
-//            ];
-//        MediaContent *media = [[MediaContent alloc] initWithType:MediaContent.picture urls:urls];
-//        cell.mediaContent = media;
-//    }
-//    
-//    cell.playVideo = ^(NSString *url) {
-//        [self playVideo:url];
-//    };
-//    
-//    cell.showPhoto = ^(UIImage *image) {
-//        [self showPreviewImage:image];
-//    };
+    cell.playVideo = ^(NSString *url) {
+        [self playVideo:url];
+    };
+    
+    cell.showPhoto = ^(UIImage *image) {
+        [self showPreviewImage:image];
+    };
     
     return cell;
 }

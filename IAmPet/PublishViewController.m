@@ -35,6 +35,8 @@
 
 @property (nonatomic, weak) IBOutlet IQTextView *textView;
 
+@property (nonatomic, weak) IBOutlet UIButton *btnPublish;
+
 @property (nonatomic, weak) IBOutlet UIButton *btnClose;
 
 @property (nonatomic, weak) IBOutlet UIButton *btnPhoto;
@@ -77,19 +79,30 @@
 {
     //初始化
     _photoHeight.constant = 0;
-    [self cornerView:_viewMyVoice];
-    [self cornerView:_viewMyVideo];
-    [self cornerView:_viewMyPhoto];
+    [self initStyle];
     
     _textView.placeholder = @"分享你的想法......";
     _textView.delegate = self;
     
-    _lbStatistics.text = [NSString stringWithFormat:@"%d/%d", MAX_LENGTH, MAX_LENGTH];
+    _lbStatistics.text = [NSString stringWithFormat:@"0/%d", MAX_LENGTH];
     
     //录音按钮处理
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressed:)];
     longPress.minimumPressDuration = 0.5;
     [_btnVoice addGestureRecognizer:longPress];
+}
+
+/**
+ *  设置控件的风格
+ */
+- (void)initStyle
+{
+    _btnPublish.backgroundColor = RGB(Color_Main);
+    _lbStatistics.textColor = [UIColor lightGrayColor];
+    
+    [self cornerView:_viewMyVoice];
+    [self cornerView:_viewMyVideo];
+    [self cornerView:_viewMyPhoto];
 }
 
 /**
@@ -102,7 +115,7 @@
     view.layer.cornerRadius = 5;
     view.layer.masksToBounds = YES;
     view.layer.borderWidth = 1;
-    view.layer.borderColor = RGB(Color_Main1).CGColor;
+    view.layer.borderColor = RGB(Color_Main).CGColor;
 }
 
 /**

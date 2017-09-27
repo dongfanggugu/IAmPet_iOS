@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CommentPublishView" customModule="IAmPet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAX-3F-rlX">
+                    <rect key="frame" x="16" y="16" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="8xo-tc-mGa"/>
+                        <constraint firstAttribute="width" constant="25" id="fNU-H3-MEI"/>
+                    </constraints>
+                    <state key="normal" image="close.png"/>
+                    <connections>
+                        <action selector="clickCloseWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="8Sx-U3-xzl"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGH-Ak-VcM">
+                    <rect key="frame" x="299" y="15" width="60" height="26"/>
+                    <color key="backgroundColor" red="0.24313725489999999" green="0.32156862749999998" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="NN0-l0-3Jl"/>
+                        <constraint firstAttribute="height" constant="26" id="plm-u1-pI0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="评论">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="clickPublishWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="4e6-BG-12L"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yTM-Sy-7sb" customClass="IQTextView">
+                    <rect key="frame" x="16" y="82" width="343" height="100"/>
+                    <color key="backgroundColor" red="0.88235294119999996" green="0.88235294119999996" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="FTv-RC-9pT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/300" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYs-kh-6pi">
+                    <rect key="frame" x="299" y="57" width="60" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="edh-TB-4Yg"/>
+                        <constraint firstAttribute="height" constant="21" id="g7Z-f4-XMA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.054901960780000002" green="0.21960784310000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pjg-VC-7mY">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Dmr-3a-lLE"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="uGH-Ak-VcM" secondAttribute="trailing" constant="16" id="2EH-2G-63Y"/>
+                <constraint firstItem="pjg-VC-7mY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4Of-tZ-lOd"/>
+                <constraint firstItem="yTM-Sy-7sb" firstAttribute="top" secondItem="jYs-kh-6pi" secondAttribute="bottom" constant="4" id="9YP-W4-rfi"/>
+                <constraint firstAttribute="trailing" secondItem="pjg-VC-7mY" secondAttribute="trailing" id="BHV-ZZ-Wkh"/>
+                <constraint firstItem="yTM-Sy-7sb" firstAttribute="top" secondItem="jYs-kh-6pi" secondAttribute="bottom" constant="4" id="HKW-Xz-HS8"/>
+                <constraint firstItem="yTM-Sy-7sb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Uqs-4K-ZE1"/>
+                <constraint firstItem="jYs-kh-6pi" firstAttribute="top" secondItem="uGH-Ak-VcM" secondAttribute="bottom" constant="16" id="V2I-IP-6za"/>
+                <constraint firstItem="hAX-3F-rlX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="WXf-Tn-IMq"/>
+                <constraint firstItem="uGH-Ak-VcM" firstAttribute="centerY" secondItem="hAX-3F-rlX" secondAttribute="centerY" id="XkV-Gw-48a"/>
+                <constraint firstAttribute="trailing" secondItem="jYs-kh-6pi" secondAttribute="trailing" constant="16" id="bkh-je-4oI"/>
+                <constraint firstAttribute="trailing" secondItem="yTM-Sy-7sb" secondAttribute="trailing" constant="16" id="m6Y-cf-Ycz"/>
+                <constraint firstItem="hAX-3F-rlX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="nfK-r2-KpJ"/>
+                <constraint firstItem="pjg-VC-7mY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="oRh-XT-RsI"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btnClose" destination="hAX-3F-rlX" id="edB-rv-lPk"/>
+                <outlet property="btnPublish" destination="uGH-Ak-VcM" id="NH5-Y7-0JR"/>
+                <outlet property="lbStatistics" destination="jYs-kh-6pi" id="egl-TD-5lk"/>
+                <outlet property="tvComment" destination="yTM-Sy-7sb" id="jeZ-aQ-pe0"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="53"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="close.png" width="256" height="256"/>
+    </resources>
+</document>

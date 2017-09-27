@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="btnClose" destination="20p-CY-RHz" id="5h9-9F-4Y6"/>
                 <outlet property="btnPhoto" destination="O4G-dZ-cI1" id="rvv-Vc-kmi"/>
+                <outlet property="btnPublish" destination="LIE-he-xvN" id="8c0-Bh-b6b"/>
                 <outlet property="btnVoice" destination="C73-n5-N9g" id="Yt1-me-MfT"/>
                 <outlet property="lbStatistics" destination="crz-uN-9LO" id="bv0-ls-epv"/>
                 <outlet property="photoHeight" destination="Tcp-WR-q7Y" id="wde-TQ-jAs"/>
@@ -31,7 +32,7 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIE-he-xvN">
                     <rect key="frame" x="16" y="28" width="80" height="28"/>
-                    <color key="backgroundColor" red="0.054901960780000002" green="0.21960784310000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="CnG-ik-YQz"/>
                         <constraint firstAttribute="width" constant="80" id="bJ5-Tv-taF"/>

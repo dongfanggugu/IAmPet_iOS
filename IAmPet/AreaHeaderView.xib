@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ght-1I-TUv" customClass="AreaHeaderView" customModule="IAmPet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuS-bF-c3q">
+                    <rect key="frame" x="0.0" y="0.0" width="94" height="49"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="实时"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqi-27-lbl">
+                    <rect key="frame" x="94" y="0.0" width="93.5" height="49"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="关注"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ioq-Cb-p9i">
+                    <rect key="frame" x="187.5" y="0.0" width="94" height="49"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="当日热门"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Egi-Pr-6vo">
+                    <rect key="frame" x="281.5" y="0.0" width="93.5" height="49"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="本周热门"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Egi-Pr-6vo" firstAttribute="height" secondItem="tuS-bF-c3q" secondAttribute="height" id="0H5-IG-bmh"/>
+                <constraint firstItem="Vqi-27-lbl" firstAttribute="width" secondItem="tuS-bF-c3q" secondAttribute="width" id="4q4-KL-Pun"/>
+                <constraint firstItem="Ioq-Cb-p9i" firstAttribute="height" secondItem="tuS-bF-c3q" secondAttribute="height" id="7Dc-0r-ykg"/>
+                <constraint firstItem="tuS-bF-c3q" firstAttribute="leading" secondItem="ght-1I-TUv" secondAttribute="leading" id="Ans-Ht-C6g"/>
+                <constraint firstAttribute="bottom" secondItem="tuS-bF-c3q" secondAttribute="bottom" id="C9E-Ey-p3H"/>
+                <constraint firstItem="Vqi-27-lbl" firstAttribute="leading" secondItem="tuS-bF-c3q" secondAttribute="trailing" id="D90-UR-66B"/>
+                <constraint firstItem="Ioq-Cb-p9i" firstAttribute="width" secondItem="tuS-bF-c3q" secondAttribute="width" id="DDu-oH-tcI"/>
+                <constraint firstItem="Egi-Pr-6vo" firstAttribute="leading" secondItem="Ioq-Cb-p9i" secondAttribute="trailing" id="H6S-YJ-yYC"/>
+                <constraint firstItem="Egi-Pr-6vo" firstAttribute="width" secondItem="tuS-bF-c3q" secondAttribute="width" id="Hgz-kE-Jhm"/>
+                <constraint firstItem="Vqi-27-lbl" firstAttribute="top" secondItem="ght-1I-TUv" secondAttribute="top" id="Jt8-3f-oJA"/>
+                <constraint firstAttribute="bottom" secondItem="Egi-Pr-6vo" secondAttribute="bottom" id="MHv-eT-AyL"/>
+                <constraint firstItem="Vqi-27-lbl" firstAttribute="height" secondItem="tuS-bF-c3q" secondAttribute="height" id="NKq-he-vNf"/>
+                <constraint firstItem="Ioq-Cb-p9i" firstAttribute="leading" secondItem="Vqi-27-lbl" secondAttribute="trailing" id="Nze-dp-SEx"/>
+                <constraint firstItem="Ioq-Cb-p9i" firstAttribute="top" secondItem="ght-1I-TUv" secondAttribute="top" id="afU-aI-0pl"/>
+                <constraint firstAttribute="bottom" secondItem="Vqi-27-lbl" secondAttribute="bottom" id="iNQ-gX-VsI"/>
+                <constraint firstItem="Egi-Pr-6vo" firstAttribute="top" secondItem="ght-1I-TUv" secondAttribute="top" id="jAM-4m-Xvb"/>
+                <constraint firstAttribute="bottom" secondItem="Ioq-Cb-p9i" secondAttribute="bottom" id="lcJ-V6-4ta"/>
+                <constraint firstAttribute="trailing" secondItem="Egi-Pr-6vo" secondAttribute="trailing" id="m5s-vJ-oqv"/>
+                <constraint firstItem="tuS-bF-c3q" firstAttribute="top" secondItem="ght-1I-TUv" secondAttribute="top" id="n2e-6X-Fnp"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btnConcern" destination="Vqi-27-lbl" id="4nu-yO-bHe"/>
+                <outlet property="btnCur" destination="tuS-bF-c3q" id="HoK-hs-xxV"/>
+                <outlet property="btnDayHot" destination="Ioq-Cb-p9i" id="LCN-dS-dFp"/>
+                <outlet property="btnWeekHot" destination="Egi-Pr-6vo" id="ihR-Vq-2IK"/>
+            </connections>
+            <point key="canvasLocation" x="-119.5" y="37.5"/>
+        </view>
+    </objects>
+</document>

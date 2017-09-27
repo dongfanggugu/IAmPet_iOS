@@ -196,7 +196,7 @@ class PhotosShowView: UIView
         let url = imageView?.getUrlData();
         let fileName = self.getImageName(url: url!);
         
-        guard (HHUtils.imageFileExist(name: fileName)) else
+        if (HHUtils.imageFileExist(name: fileName))
         {
             self.showExistImage(fileName: fileName!, imageView: imageView!);
             return;
@@ -242,9 +242,13 @@ class PhotosShowView: UIView
     {
         DispatchQueue.global().async {
             let path = NSHomeDirectory().appending("/tmp/").appending(fileName);
-            let image = UIImage(contentsOfFile: path);
+            
+            guard let image = UIImage(contentsOfFile: path) else
+            {
+                return
+            }
             imageView.bindSourceImage(source: path);
-            let thumbnail = self.getThumbnail(image: image!);
+            let thumbnail = self.getThumbnail(image: image);
             DispatchQueue.main.async {
                 imageView.image = thumbnail;
             }

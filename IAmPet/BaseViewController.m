@@ -128,14 +128,16 @@
         return;
     }
     
-    self.navigationController.navigationBar.translucent = NO;
-    CAGradientLayer  *layer = [CAGradientLayer layer];
-    layer.colors = @[(__bridge id)RGB(Color_Main2).CGColor, (__bridge id)RGB(Color_Main3).CGColor, (__bridge id)RGB(Color_Main1).CGColor];
-    layer.locations = @[@0.2, @0.6];
-    layer.startPoint = CGPointMake(0, 0);
-    layer.endPoint = CGPointMake(1, 1);
-    layer.frame = CGRectMake(0, 0, ScreenWidth, 64);
-    [self.navigationController.navigationBar.subviews[0].layer addSublayer:layer];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
+    self.navigationController.navigationBar.barTintColor = RGB(Color_Main);
+//    CAGradientLayer  *layer = [CAGradientLayer layer];
+//    layer.colors = @[(__bridge id)RGB(Color_Main2).CGColor, (__bridge id)RGB(Color_Main3).CGColor, (__bridge id)RGB(Color_Main1).CGColor];
+//    layer.locations = @[@0.2, @0.6];
+//    layer.startPoint = CGPointMake(0, 0);
+//    layer.endPoint = CGPointMake(1, 1);
+//    layer.frame = CGRectMake(0, 0, ScreenWidth, 64);
+//    [self.navigationController.navigationBar.subviews[0].layer addSublayer:layer];
 }
 
 /**

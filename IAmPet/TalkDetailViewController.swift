@@ -11,6 +11,15 @@ import Foundation
 
 class TalkDetailViewController: SBaseViewController
 {
+    let ViewHeight = ScreenHeight - 64;
+    
+    /**
+     操作状态
+     
+     - Favor:   收藏
+     - Comment: 评价
+     - Likes:   点赞
+     */
     enum OperationState
     {
         case Favor, Comment, Likes;
@@ -31,7 +40,6 @@ class TalkDetailViewController: SBaseViewController
             switchOperation();
         }
     }
-    
     var itemCount: Int? = 0; //item 数量
     
     override func viewDidLoad()
@@ -40,18 +48,31 @@ class TalkDetailViewController: SBaseViewController
         initView();
     }
     
-    func initView() -> Void
+    /**
+     初始化view
+     */
+    func initView()
     {
+        self.automaticallyAdjustsScrollViewInsets = false;
         tableView = UITableView(frame: CGRect(x: 0,
-                                              y: 0,
+                                              y: 64,
                                               width:ScreenWidth,
-                                              height:ScreenHeight - CGFloat(HeightBottomBar)),
-                                style: UITableViewStyle.plain);
+                                              height:ScreenHeight - 49 - 64),
+                                style: UITableViewStyle.grouped);
         
         tableView?.delegate = self as UITableViewDelegate;
         tableView?.dataSource = self as UITableViewDataSource;
         tableView?.tableFooterView = UIView(frame: CGRect.zero);
         self.view.addSubview(tableView!);
+
+        //添加底部
+        let bottomView = DetailBottomView.loadNib();
+        bottomView.delegate = self as DetailBottomViewDelegate;
+        bottomView.frame = CGRect(x: 0,
+                                  y: ScreenHeight - 49,
+                                  width: ScreenWidth,
+                                  height: 49);
+        self.view.addSubview(bottomView);
     }
     
     /**
@@ -68,19 +89,19 @@ class TalkDetailViewController: SBaseViewController
     /**
      切换收藏、评论、点赞
      */
-    private func switchOperation() -> Void
+    private func switchOperation()
     {
         if (opState! == .Favor)
         {
-            itemCount = 2;
+            itemCount = 20;
         }
         else if (opState! == .Comment)
         {
-            itemCount = 2;
+            itemCount = 20;
         }
         else if (opState! == .Likes)
         {
-            itemCount = 2;
+            itemCount = 20;
         }
         
         let indexSet = IndexSet(integer: 2);
@@ -163,7 +184,6 @@ extension TalkDetailViewController: UITableViewDataSource
         cell.talkContent = "爽肤水放松放松爽肤水放松放松放松放松放松放松法爽肤水放松放松方式发送方舒服舒服";
         let urls = [
             "https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=9cb489038bd4b31ce4319ce9e6bf4c1a/8c1001e93901213f6e57dc9c54e736d12f2e950e.jpg",
-            "http://image.tianjimedia.com/uploadImages/2016/336/11/265T705PHEN4.jpg",
             "http://image.tianjimedia.com/uploadImages/2015/131/29/1OZRZ52WJ9T2.jpg",
             "http://image.tianjimedia.com/uploadImages/2015/131/22/59SG53FU0160.jpg"
         ];
@@ -248,7 +268,16 @@ extension TalkDetailViewController: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
-        return 20;
+        return 0.1;
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat
+    {
+        if (2 == section)
+        {
+            return 1;
+        }
+        return 5;
     }
     
     private func getCellHeight(indexPath: IndexPath) -> CGFloat
@@ -329,6 +358,8 @@ extension TalkDetailViewController: UITableViewDelegate
     }
 }
 
+//MARK: - TalkOperationCellDelegate
+
 extension TalkDetailViewController: TalkOperationCellDelegate
 {
     func clickFavor() -> Void
@@ -353,5 +384,77 @@ extension TalkDetailViewController: TalkOperationCellDelegate
         {
             opState = .Likes;
         }
+    }
+}
+
+//MARK: - DetailBottomViewDelegate
+
+extension TalkDetailViewController: DetailBottomViewDelegate
+{
+    func favorClickView(_ view: DetailBottomView)
+    {
+        print("favor");
+    }
+    
+    func commentClickView(_ view: DetailBottomView)
+    {
+        print("comment");
+        showCommentEdit();
+    }
+    
+    func likesClickView(_ view: DetailBottomView)
+    {
+        print("likes");
+    }
+    
+    /**
+     显示评论编辑界面
+     */
+    private func showCommentEdit()
+    {
+        let viewComment = CommentPublishView.loadNib();
+        viewComment.frame = CGRect(x: 0,
+                                   y: ScreenHeight,
+                                   width: ScreenWidth,
+                                   height: viewComment.frame.size.height);
+        
+        viewComment.delegate = self as CommentPublishViewDelegate;
+        
+        self.view.addSubview(viewComment);
+        
+//        UIView.transition(with: self.view, duration: 1, options: .curveEaseIn, animations: {
+//
+//        }, completion: nil);
+        
+        UIView.animate(withDuration: 0.2) {
+            viewComment.center = CGPoint(x: ScreenWidth / 2, y: ScreenHeight - viewComment.bounds.size.height / 2);
+        }
+    }
+}
+
+
+extension TalkDetailViewController: CommentPublishViewDelegate
+{
+    func closeView(_ view: CommentPublishView)
+    {
+        UIView.animate(withDuration: 0.2, animations: {
+            view.center = CGPoint(x: ScreenWidth / 2, y: ScreenHeight + view.bounds.size.height / 2);
+        }) { (complete) in
+            view.dismiss();
+        };
+    }
+    
+    func publishView(_ view: CommentPublishView, content: String?)
+    {
+        if let content = content
+        {
+            print(content);
+        }
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            view.center = CGPoint(x: ScreenWidth / 2, y: ScreenHeight + view.bounds.size.height / 2);
+        }) { (complete) in
+            view.dismiss();
+        };
     }
 }

@@ -82,16 +82,22 @@
 
 - (void)showLeft
 {
-    _middleViewController.view.transform = CGAffineTransformTranslate(_middleViewController.view.transform, ScreenWidth * 0.6, 0);
-    _leftViewController.view.transform = CGAffineTransformTranslate(_leftViewController.view.transform, ScreenWidth * 0.6, 0);
-    self.leftHidden = NO;
+    __weak typeof (self) weakSelf = self;
+    [UIView animateWithDuration:0.5 animations:^{
+        _middleViewController.view.transform = CGAffineTransformTranslate(_middleViewController.view.transform, ScreenWidth * 0.6, 0);
+        _leftViewController.view.transform = CGAffineTransformTranslate(_leftViewController.view.transform, ScreenWidth * 0.6, 0);
+        weakSelf.leftHidden = NO;
+    }];
 }
 
 - (void)hideLeft
 {
-    _middleViewController.view.transform = CGAffineTransformTranslate(_middleViewController.view.transform, - ScreenWidth * 0.6, 0);
-    _leftViewController.view.transform = CGAffineTransformTranslate(_leftViewController.view.transform, - ScreenWidth * 0.6, 0);
-    self.leftHidden = YES;
+    __weak typeof (self) weakSelf = self;
+    [UIView animateWithDuration:0.5 animations:^{
+        _middleViewController.view.transform = CGAffineTransformTranslate(_middleViewController.view.transform, - ScreenWidth * 0.6, 0);
+        _leftViewController.view.transform = CGAffineTransformTranslate(_leftViewController.view.transform, - ScreenWidth * 0.6, 0);
+        weakSelf.leftHidden = YES;
+    } completion:nil];
 }
 
 #pragma mark - MainTabBarViewControllerDelegate
