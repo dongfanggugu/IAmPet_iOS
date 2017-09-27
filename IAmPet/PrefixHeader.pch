@@ -25,7 +25,6 @@
 #import <UIImageView+AFNetworking.h>
 #import <UIImage+AFNetworking.h>
 #import <IQTextView.h>
-//#import <MJRefresh.h>
 
 
 #ifdef DEBUG

@@ -44,7 +44,7 @@ class PhotosShowView: UIView
     /**
      更新view
      */
-    private func updateViews() -> Void
+    private func updateViews() 
     {
         if (MaxImage == imageViews!.count)
         {
@@ -59,7 +59,7 @@ class PhotosShowView: UIView
     /**
      更新图片
      */
-    private func updateImageViews() -> Void
+    private func updateImageViews() 
     {
         updateImagesVisible();
     }
@@ -67,7 +67,7 @@ class PhotosShowView: UIView
     /**
      设置显示的图片
      */
-    private func bindImage(index: Int) -> Void
+    private func bindImage(index: Int) 
     {
         let imageView = imageViews![index];
         imageView.bindUrlData(url: urlsImage?[index])
@@ -79,7 +79,7 @@ class PhotosShowView: UIView
     /**
      更新图片的可见
      */
-    private func updateImagesVisible() -> Void
+    private func updateImagesVisible() 
     {
         for i in 0..<MaxImage
         {
@@ -98,7 +98,7 @@ class PhotosShowView: UIView
     /**
      重置frame
      */
-    private func resetFrame() -> Void
+    private func resetFrame() 
     {
         let frame = CGRect(x: self.frame.origin.x,
                            y: self.frame.origin.y,
@@ -112,7 +112,7 @@ class PhotosShowView: UIView
      
      - parameter urls: urls
      */
-    private func addImageViews() -> Void
+    private func addImageViews() 
     {
         for i in 0..<MaxImage
         {
@@ -179,7 +179,7 @@ class PhotosShowView: UIView
     /**
      显示所有图片
      */
-    private func showImages() -> Void
+    private func showImages() 
     {
         let end = min(urlsImage!.count, MaxImage);
         for i in 0..<end
@@ -191,7 +191,7 @@ class PhotosShowView: UIView
     /**
      显示图片
      */
-    private func showImage(imageView: UIImageView?) -> Void
+    private func showImage(imageView: UIImageView?) 
     {
         let url = imageView?.getUrlData();
         let fileName = self.getImageName(url: url!);
@@ -219,7 +219,7 @@ class PhotosShowView: UIView
      - parameter imageView: imageView
      - parameter image:     image
      */
-    private func imageCache(imageView: UIImageView, image: UIImage) -> Void
+    private func imageCache(imageView: UIImageView, image: UIImage) 
     {
         DispatchQueue.global().async {
             let url = imageView.getUrlData();
@@ -238,7 +238,7 @@ class PhotosShowView: UIView
      
      - parameter imageView: imageView
      */
-    private func showExistImage(fileName: String, imageView: UIImageView) -> Void
+    private func showExistImage(fileName: String, imageView: UIImageView) 
     {
         DispatchQueue.global().async {
             let path = NSHomeDirectory().appending("/tmp/").appending(fileName);
@@ -290,7 +290,7 @@ class PhotosShowView: UIView
 
      - parameter imageView: imageView
      */
-    func imageViewClickListener(imageView: UIImageView?) -> Void
+    func imageViewClickListener(imageView: UIImageView?) 
     {
         imageView?.isUserInteractionEnabled = true;
         let recognizer = UITapGestureRecognizer();
@@ -303,12 +303,14 @@ class PhotosShowView: UIView
      
      - parameter sender: sender
      */
-    @objc private func clickImageView(sender: UIGestureRecognizer) -> Void
+    @objc private func clickImageView(sender: UIGestureRecognizer) 
     {
         let imageView = sender.view as? UIImageView;
         let filePath = imageView?.getSourceImage();
-        let image = UIImage(contentsOfFile: filePath!);
-        clickImage?(image!);
+        if let image = UIImage(contentsOfFile: filePath!)
+        {
+            clickImage?(image);
+        }
     }
 }
 

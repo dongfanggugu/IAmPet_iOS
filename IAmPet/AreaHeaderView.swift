@@ -62,7 +62,6 @@ class AreaHeaderView: UIView, Nibloadable
     {
         super.awakeFromNib();
         initStyle();
-        initState();
         addClickLister();
     }
     
@@ -116,5 +115,10 @@ class AreaHeaderView: UIView, Nibloadable
         sender.setTitleColor(UIColor.black, for: .normal);
         let category = dicBtn?[sender];
         delegate?.chooseView(self, category: category!);
+    }
+    
+    func initView()
+    {
+        initState();
     }
 }

@@ -362,7 +362,7 @@ extension TalkDetailViewController: UITableViewDelegate
 
 extension TalkDetailViewController: TalkOperationCellDelegate
 {
-    func clickFavor() -> Void
+    func clickFavor() 
     {
         if (opState != .Favor)
         {
@@ -370,7 +370,7 @@ extension TalkDetailViewController: TalkOperationCellDelegate
         }
     }
     
-    func clickConment() -> Void
+    func clickConment() 
     {
         if (opState != .Comment)
         {
@@ -378,7 +378,7 @@ extension TalkDetailViewController: TalkOperationCellDelegate
         }
     }
     
-    func clickLikes() -> Void
+    func clickLikes() 
     {
         if (opState != .Likes)
         {

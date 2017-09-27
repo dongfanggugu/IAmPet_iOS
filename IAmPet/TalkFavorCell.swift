@@ -34,7 +34,7 @@ class TalkFavorCell: UITableViewCell, Nibloadable
         }
     }
     
-    override func awakeFromNib() -> Void
+    override func awakeFromNib() 
     {
         super.awakeFromNib();
         self.selectionStyle = UITableViewCellSelectionStyle.none;
@@ -45,7 +45,7 @@ class TalkFavorCell: UITableViewCell, Nibloadable
      
      - parameter urlStr: urlStr
      */
-    private func loadHeadImage(urlStr: String?) -> Void
+    private func loadHeadImage(urlStr: String?) 
     {
         guard let urlStr = urlStr else
         {

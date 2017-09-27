@@ -53,7 +53,7 @@ class TalkCommentCell: UITableViewCell, Nibloadable
      
      - parameter content: content
      */
-    private func resetContentHeight(content: String?) -> Void
+    private func resetContentHeight(content: String?) 
     {
         guard let content = content else
         {

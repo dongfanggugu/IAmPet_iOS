@@ -113,7 +113,7 @@ class OtherTalkCell : UITableViewCell, Nibloadable
      
      - parameter height: height
      */
-    private func resetMediaHeight(height: CGFloat) -> Void
+    private func resetMediaHeight(height: CGFloat) 
     {
         let preHeight = heightMedia.constant;
         heightMedia.constant = height;
@@ -123,7 +123,7 @@ class OtherTalkCell : UITableViewCell, Nibloadable
     /**
      更新多媒体View
      */
-    private func updateMediaView() -> Void
+    private func updateMediaView() 
     {
         let type = mediaContent!.type;
         if (MediaContent.picture == type)
@@ -141,7 +141,7 @@ class OtherTalkCell : UITableViewCell, Nibloadable
     /**
      更新图片view
      */
-    private func updatePhotosView() -> Void
+    private func updatePhotosView() 
     {
         let photosView = viewMedia.subviews[0] as? PhotosShowView;
         photosView?.urlsImage = mediaContent?.urls;
@@ -151,7 +151,7 @@ class OtherTalkCell : UITableViewCell, Nibloadable
     /**
      更新语音view
      */
-    private func updateVoiceView() -> Void
+    private func updateVoiceView() 
     {
         let voiceView = viewMedia.subviews[0] as? VoiceShowView;
         voiceView?.urlStr = mediaContent?.urls[0];
@@ -160,7 +160,7 @@ class OtherTalkCell : UITableViewCell, Nibloadable
     /**
      更新视频view
      */
-    private func updateVideoView() -> Void
+    private func updateVideoView() 
     {
         let videoView = viewMedia.subviews[0] as? VideoShowView;
         videoView?.videoUrl = mediaContent?.urls[0];
@@ -171,7 +171,7 @@ class OtherTalkCell : UITableViewCell, Nibloadable
      
      - parameter media: media
      */
-    private func addMediaView() -> Void
+    private func addMediaView() 
     {
         cleanMediaView();
         var height: CGFloat?;
@@ -246,7 +246,8 @@ class OtherTalkCell : UITableViewCell, Nibloadable
         photosView.urlsImage = mediaContent?.urls;
         
         weak var weakSelf = self;
-        photosView.clickImage = { (image: UIImage) -> Void in
+        photosView.clickImage = {
+            (image: UIImage) -> Void in
             weakSelf?.showPhoto?(image);
         };
         viewMedia.addSubview(photosView);

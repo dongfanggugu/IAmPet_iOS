@@ -73,7 +73,7 @@ class TalkOperationCell: UITableViewCell, Nibloadable
     /**
      重置按钮状态
      */
-    private func resetBtn() -> Void
+    private func resetBtn() 
     {
         btnFavor.setTitleColor(Utils.getColorByRGB(Color_Gray_Font), for: UIControlState.normal);
         btnConment.setTitleColor(Utils.getColorByRGB(Color_Gray_Font), for: UIControlState.normal);
@@ -85,7 +85,7 @@ class TalkOperationCell: UITableViewCell, Nibloadable
      
      - parameter sender: sender
      */
-    @IBAction private func clickFavor(sender: UIButton) -> Void
+    @IBAction private func clickFavor(sender: UIButton) 
     {
         resetBtn();
         btnFavor.setTitleColor(UIColor.black, for: UIControlState.normal);
@@ -97,7 +97,7 @@ class TalkOperationCell: UITableViewCell, Nibloadable
      
      - parameter sender: sender
      */
-    @IBAction private func clickComent(sender: UIButton) -> Void
+    @IBAction private func clickComent(sender: UIButton) 
     {
         resetBtn();
         btnConment.setTitleColor(UIColor.black, for: UIControlState.normal);
@@ -109,7 +109,7 @@ class TalkOperationCell: UITableViewCell, Nibloadable
      
      - parameter sender: sender
      */
-    @IBAction private func clickLikes(sender: UIButton) -> Void
+    @IBAction private func clickLikes(sender: UIButton) 
     {
         resetBtn();
         btnLikes.setTitleColor(UIColor.black, for: UIControlState.normal);
