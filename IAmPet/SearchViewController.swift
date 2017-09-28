@@ -28,14 +28,6 @@ class SearchViewController: SBaseViewController
         }
     };
     
-//    override func loadView()
-//    {
-//        self.view = UIScrollView(frame: CGRect(x: 0,
-//                                               y: 0,
-//                                               width: ScreenWidth,
-//                                               height: ScreenHeight));
-//    }
-    
     override func viewDidLoad()
     {
         super.viewDidLoad();
@@ -49,12 +41,26 @@ class SearchViewController: SBaseViewController
         initView();
     }
     
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated);
+        addSearchBar();
+    }
+    
+    /**
+     初始化视图
+     
+     - returns: Void
+     */
     private func initView()
     {
         self.automaticallyAdjustsScrollViewInsets = false;
         addTableView();
     }
     
+    /**
+     添加UITableView
+     */
     private func addTableView()
     {
         tableView = UITableView(frame: CGRect(x: 0,
@@ -66,38 +72,29 @@ class SearchViewController: SBaseViewController
         tableView?.dataSource = self as UITableViewDataSource;
         tableView?.tableFooterView = UIView(frame: CGRect.zero);
         view.addSubview(tableView!);
-        
-        addSearchView();
     }
     
-    private func addSearchView()
+    /**
+     添加搜索bar
+     */
+    private func addSearchBar()
     {
         searchBar = UISearchBar(frame: CGRect(x: 0,
-                                              y: 64,
-                                              width: ScreenWidth,
+                                              y: 0,
+                                              width: ScreenWidth - 16 - 40,
                                               height: 44));
         searchBar?.delegate = self as UISearchBarDelegate;
-        view.addSubview(searchBar!);
-//        searchController = UISearchController(searchResultsController: nil);
-//        
-//        searchController?.searchResultsUpdater = self as UISearchResultsUpdating;
-//        tableView?.tableHeaderView = searchController?.searchBar;
-//        searchController?.dimsBackgroundDuringPresentation = false;
-//        searchController?.delegate = self as UISearchControllerDelegate;
-//        searchController?.hidesNavigationBarDuringPresentation = false;
-//        definesPresentationContext = true;
-//        
-//        searchController?.searchBar.delegate = self as UISearchBarDelegate;
+        searchBar?.backgroundColor(Utils.getColorByRGB(Color_Main), height: 44);
+        let titleView = UIView(frame: CGRect(x: 0,
+                                             y: 0,
+                                             width: ScreenWidth - 16 - 40,
+                                             height: 44));
+//        titleView.layer.masksToBounds = true;
+        titleView.addSubview(searchBar!);
+        
+        self.navigationItem.titleView = titleView;
     }
-}
-
-extension SearchViewController: UISearchResultsUpdating
-{
-    func updateSearchResults(for searchController: UISearchController)
-    {
-//        let text = searchController.searchBar.text;
-//        dataCount = text?.characters.count;
-    }
+    
 }
 
 //MARK: - UITableViewDataSource
@@ -179,11 +176,48 @@ extension SearchViewController: UISearchControllerDelegate
     }
 }
 
+//MARK: - UISearchBarDelegate
+
 extension SearchViewController: UISearchBarDelegate
 {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
     {
         print(#function);
         dataCount = 20;
+    }
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool
+    {
+        let controller = SearchDisplayViewController();
+        let nav = UINavigationController(rootViewController: controller);
+//        controller.hidesBottomBarWhenPushed = true;
+//        navigationController?.pushViewController(controller, animated: true);
+        self.present(nav, animated: true, completion: nil);
+        
+        return true;
+    }
+}
+
+extension UISearchBar
+{
+    private func getImageWithColor(_ color: UIColor, height: CGFloat) -> UIImage
+    {
+        let r = CGRect(x: 0,
+                       y: 0,
+                       width: 1,
+                       height: height);
+        UIGraphicsBeginImageContext(r.size);
+        let context = UIGraphicsGetCurrentContext();
+        context!.setFillColor(color.cgColor);
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return image!;
+    }
+    
+    func backgroundColor(_ color: UIColor, height:CGFloat)
+    {
+        let image = getImageWithColor(color, height: height);
+        self.setBackgroundImage(image, for: .top, barMetrics: .default);
+//        self.setSearchFieldBackgroundImage(image, for: .normal);
     }
 }
