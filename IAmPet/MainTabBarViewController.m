@@ -9,11 +9,10 @@
 #import "MainTabBarViewController.h"
 #import "BaseNavigationController.h"
 #import "HomeViewController.h"
-#import "SearchViewController.h"
 #import "ChatViewController.h"
 #import "IAmPet-Swift.h"
 
-@interface MainTabBarViewController () <HomeViewControllerDelegate, AreaViewControllerDelegate, SearchViewControllerDelegate, ChatViewControllerDelegate>
+@interface MainTabBarViewController () <MainTabBarViewControllerDelegate>
 
 @end
 

@@ -7,15 +7,10 @@
 //
 
 #import "BaseViewController.h"
-
-@protocol HomeViewControllerDelegate <NSObject>
-
-- (void)clickNavLeft;
-
-@end
+#import "MainTabBarViewController.h"
 
 @interface HomeViewController : BaseViewController
 
-@property (nonatomic, weak) id<HomeViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<MainTabBarViewControllerDelegate> delegate;
 
 @end

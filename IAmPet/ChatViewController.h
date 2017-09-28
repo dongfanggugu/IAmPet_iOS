@@ -7,15 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "MainTabBarViewController.h"
 
-@protocol ChatViewControllerDelegate <NSObject>
-
-- (void)clickNavLeft;
-
-@end
 
 @interface ChatViewController : BaseViewController
 
-@property (nonatomic, weak) id<ChatViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<MainTabBarViewControllerDelegate> delegate;
 
 @end

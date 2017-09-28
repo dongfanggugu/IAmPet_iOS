@@ -8,14 +8,10 @@
 
 import Foundation
 
-@objc protocol AreaViewControllerDelegate
-{
-    func clickNavLeft();
-}
 
 class AreaViewController: BaseViewController
 {
-    var delegate: AreaViewControllerDelegate?;
+    var delegate: MainTabBarViewControllerDelegate?;
     
     var tableView: UITableView?
     
@@ -109,6 +105,8 @@ class AreaViewController: BaseViewController
     
 }
 
+//MARK: - AreaHeaderViewDelegate
+
 extension AreaViewController: AreaHeaderViewDelegate
 {
     func initChooseView(_ view: AreaHeaderView, category: AreaHeaderCategory)
@@ -124,7 +122,7 @@ extension AreaViewController: AreaHeaderViewDelegate
             dataCount = 5;
             
         case .Concern:
-            dataCount = 10;
+            dataCount = 3;
             
         case .DayHot:
             dataCount = 15;
@@ -161,6 +159,8 @@ extension AreaViewController: UITableViewDataSource
         return cell!;
     }
 }
+
+// MARK: - UITableViewDelegate
 
 extension AreaViewController: UITableViewDelegate
 {

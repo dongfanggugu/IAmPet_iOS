@@ -6,3 +6,4 @@
 #import "VideoPlayerController.h"
 #import "BaseViewController.h"
 #import <MJRefresh.h>
+#import "MainTabBarViewController.h"
