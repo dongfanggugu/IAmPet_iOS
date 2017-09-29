@@ -14,13 +14,9 @@ class SearchViewController: SBaseViewController
     
     var tableView: UITableView?
     
-    var headerView: AreaHeaderView?
-    
-    var searchBar: UISearchBar?
-    
     weak var tempCell: OtherTalkCell?
     
-    var dataCount: Int? = 0
+    var dataCount: Int? = 5
     {
         didSet
         {
@@ -31,8 +27,8 @@ class SearchViewController: SBaseViewController
     override func viewDidLoad()
     {
         super.viewDidLoad();
-        self.setNavTitle("搜索");
         
+        addTitleView();
         weak var weakSelf = self;
         self.setNavBarLeft(UIImage(named: "icon_person")!) {
             weakSelf?.delegate?.clickNavLeft();
@@ -44,7 +40,6 @@ class SearchViewController: SBaseViewController
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated);
-        addSearchBar();
     }
     
     /**
@@ -64,9 +59,9 @@ class SearchViewController: SBaseViewController
     private func addTableView()
     {
         tableView = UITableView(frame: CGRect(x: 0,
-                                              y: 64 + 44,
+                                              y: 64,
                                               width: ScreenWidth,
-                                              height: ScreenHeight - 64 - 49 - 44),
+                                              height: ScreenHeight - 64),
                                 style: .plain);
         tableView?.delegate = self as UITableViewDelegate;
         tableView?.dataSource = self as UITableViewDataSource;
@@ -75,26 +70,35 @@ class SearchViewController: SBaseViewController
     }
     
     /**
-     添加搜索bar
+     添加导航栏标题View
      */
-    private func addSearchBar()
+    private func addTitleView()
     {
-        searchBar = UISearchBar(frame: CGRect(x: 0,
-                                              y: 0,
-                                              width: ScreenWidth - 16 - 40,
-                                              height: 44));
-        searchBar?.delegate = self as UISearchBarDelegate;
-        searchBar?.backgroundColor(Utils.getColorByRGB(Color_Main), height: 44);
+        let searchBar = genSearchbBar();
         let titleView = UIView(frame: CGRect(x: 0,
                                              y: 0,
                                              width: ScreenWidth - 16 - 40,
                                              height: 44));
-//        titleView.layer.masksToBounds = true;
         titleView.addSubview(searchBar!);
-        
         self.navigationItem.titleView = titleView;
     }
     
+    /**
+     生成UISearchBar
+     
+     - returns: UISearchBar
+     */
+    private func genSearchbBar() -> UISearchBar?
+    {
+        let searchBar = UISearchBar(frame: CGRect(x: 0,
+                                                  y: 0,
+                                                  width: ScreenWidth - 16 - 40,
+                                                  height: 44));
+        searchBar.delegate = self as UISearchBarDelegate;
+        searchBar.backgroundColor(Utils.getColorByRGB(Color_Main), height: 44);
+        searchBar.placeholder = "搜索热门";
+        return searchBar;
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -188,13 +192,13 @@ extension SearchViewController: UISearchBarDelegate
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool
     {
+        searchBar.resignFirstResponder();
         let controller = SearchDisplayViewController();
         let nav = UINavigationController(rootViewController: controller);
-//        controller.hidesBottomBarWhenPushed = true;
-//        navigationController?.pushViewController(controller, animated: true);
+        nav.modalTransitionStyle = .crossDissolve;
         self.present(nav, animated: true, completion: nil);
         
-        return true;
+        return false;
     }
 }
 

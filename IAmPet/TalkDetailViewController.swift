@@ -11,8 +11,6 @@ import Foundation
 
 class TalkDetailViewController: SBaseViewController
 {
-    let ViewHeight = ScreenHeight - 64;
-    
     /**
      操作状态
      
@@ -54,6 +52,7 @@ class TalkDetailViewController: SBaseViewController
     func initView()
     {
         self.automaticallyAdjustsScrollViewInsets = false;
+        
         tableView = UITableView(frame: CGRect(x: 0,
                                               y: 64,
                                               width:ScreenWidth,

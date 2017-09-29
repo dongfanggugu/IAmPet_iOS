@@ -19,7 +19,7 @@ class AreaViewController: BaseViewController
     
     weak var tempCell: OtherTalkCell?
     
-    var dataCount: Int? = 0
+    var dataCount: Int? = 5
     {
         didSet
         {
@@ -43,7 +43,7 @@ class AreaViewController: BaseViewController
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated);
-        headerView?.initView();
+//        headerView?.initView();
     }
     
     /**
@@ -177,5 +177,12 @@ extension AreaViewController: UITableViewDelegate
         }
         
         return 0;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let controller = TalkDetailViewController();
+        controller.hidesBottomBarWhenPushed = true;
+        self.navigationController?.pushViewController(controller, animated: true);
     }
 }

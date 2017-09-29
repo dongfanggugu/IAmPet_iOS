@@ -131,13 +131,20 @@
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBar.tintColor = UIColor.whiteColor;
     self.navigationController.navigationBar.barTintColor = RGB(Color_Main);
-//    CAGradientLayer  *layer = [CAGradientLayer layer];
-//    layer.colors = @[(__bridge id)RGB(Color_Main2).CGColor, (__bridge id)RGB(Color_Main3).CGColor, (__bridge id)RGB(Color_Main1).CGColor];
-//    layer.locations = @[@0.2, @0.6];
-//    layer.startPoint = CGPointMake(0, 0);
-//    layer.endPoint = CGPointMake(1, 1);
-//    layer.frame = CGRectMake(0, 0, ScreenWidth, 64);
-//    [self.navigationController.navigationBar.subviews[0].layer addSublayer:layer];
+    
+    //去掉后退箭头后面的文字
+    NSArray *array = self.navigationController.viewControllers;
+    NSInteger index = [array indexOfObject:self];
+    
+    if (index > 0)
+    {
+        [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60) forBarMetrics:UIBarMetricsDefault];
+//        
+//        UIImage *image = [UIImage imageNamed:@"back_normal"];
+//        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//        self.navigationController.navigationBar.backIndicatorImage = image;
+//        self.navigationController.navigationBar.backIndicatorTransitionMaskImage = image;
+    }
 }
 
 /**

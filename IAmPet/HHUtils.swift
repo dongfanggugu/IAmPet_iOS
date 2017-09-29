@@ -20,7 +20,7 @@ class HHUtils : NSObject
      
      - returns: bool
      */
-    class func textViewLimitOnInput(_ limt: Int, textView: UITextView, textRange:  NSRange, text: String) -> Bool
+    class func textViewLimitOnInput(_ limt: Int, textView: UITextView, textRange: NSRange, text: String) -> Bool
     {
         let selectedRange: UITextRange? = textView.markedTextRange;
         

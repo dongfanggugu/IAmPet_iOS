@@ -10,30 +10,73 @@ import Foundation
 
 class SearchDisplayViewController: SBaseViewController
 {
-    var searchBar: UISearchBar?
+    var searchBar: UISearchBar?;
     
-    var tempCell: OtherTalkCell?
+    var tempCell: OtherTalkCell?;
+    
+    var tableView: UITableView?;
+    
+    var dataCount: Int? = 0
+    {
+        didSet
+        {
+            tableView?.reloadData();
+        }
+    }
     
     override func viewDidLoad()
     {
         super.viewDidLoad();
-        addSearchBar();
+        addTitleView();
         initView();
     }
     
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated);
+        searchBar?.becomeFirstResponder();
     }
     
-    private func addSearchBar()
+    /**
+     导航栏添加TitleView
+     */
+    private func addTitleView()
     {
-        searchBar = UISearchBar(frame: CGRect(x: 0,
-                                              y: 0,
-                                              width: ScreenWidth - 16 - 40,
-                                              height: 44));
-        searchBar?.backgroundColor(Utils.getColorByRGB(Color_Main), height: 44);
-        
+        let titleView = UIView(frame: CGRect(x: 0,
+                                             y: 0,
+                                             width: ScreenWidth - 16,
+                                             height: 44));
+        searchBar = genSearchBar();
+        let btn = genTitleViewBtn();
+        titleView.addSubview(searchBar!);
+        titleView.addSubview(btn);
+        self.navigationItem.titleView = titleView;
+    }
+    
+    /**
+     生成UISearchBar
+     
+     - returns: UISearchBar instance
+     */
+    private func genSearchBar() -> UISearchBar
+    {
+        let searchBar = UISearchBar(frame: CGRect(x: 0,
+                                                  y: 0,
+                                                  width: ScreenWidth - 16 - 40,
+                                                  height: 44));
+        searchBar.backgroundColor(Utils.getColorByRGB(Color_Main), height: 44);
+        searchBar.delegate = self as UISearchBarDelegate;
+        searchBar.tintColor = UIColor.blue;
+        return searchBar
+    }
+    
+    /**
+    generation title view button
+     
+     - returns: UIButton
+     */
+    private func genTitleViewBtn() -> UIButton
+    {
         let btn = UIButton(frame: CGRect(x: ScreenWidth - 16 - 40,
                                          y: 0,
                                          width: 40,
@@ -41,35 +84,46 @@ class SearchDisplayViewController: SBaseViewController
         btn.setTitle("取消", for: .normal);
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 13);
         btn.addTarget(self, action: #selector(pop), for: .touchUpInside);
-        
-        let titleView = UIView(frame: CGRect(x: 0,
-                                             y: 0,
-                                             width: ScreenWidth - 16,
-                                             height: 44));
-        //        titleView.layer.masksToBounds = true;
-        titleView.addSubview(searchBar!);
-        titleView.addSubview(btn);
-        
-        self.navigationItem.titleView = titleView;
+        return btn;
     }
     
+    
+    /**
+     back to previous
+     */
     @objc private func pop()
     {
         self.dismiss(animated: true, completion: nil);
     }
     
+    /**
+     initial the view
+     
+     - returns: Void
+     */
     private func initView()
     {
         self.automaticallyAdjustsScrollViewInsets = false;
+        tableView = genTableView();
+        view.addSubview(tableView!);
+    }
+    
+    /**
+    generater UITableView
+     
+     - returns: UITableView
+     */
+    private func genTableView() -> UITableView
+    {
         let tableView = UITableView(frame: CGRect(x: 0,
-                                              y: 64,
-                                              width: ScreenWidth,
-                                              height: ScreenHeight - 64),
-                                style: .plain);
+                                                  y: 64,
+                                                  width: ScreenWidth,
+                                                  height: ScreenHeight - 64),
+                                    style: .plain);
         tableView.delegate = self as UITableViewDelegate;
         tableView.dataSource = self as UITableViewDataSource;
         tableView.tableFooterView = UIView(frame: CGRect.zero);
-        view.addSubview(tableView);
+        return tableView;
     }
 }
 
@@ -84,7 +138,7 @@ extension SearchDisplayViewController: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 5;
+        return dataCount!;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -115,31 +169,66 @@ extension SearchDisplayViewController: UITableViewDelegate
         {
             return CGFloat(tempCell.cellHeight);
         }
-        
         return 0;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
     }
 }
 
-//extension UISearchBar
-//{
-//    private func getImageWithColor(_ color: UIColor, height: CGFloat) -> UIImage
-//    {
-//        let r = CGRect(x: 0,
-//                       y: 0,
-//                       width: 1,
-//                       height: height);
-//        UIGraphicsBeginImageContext(r.size);
-//        let context = UIGraphicsGetCurrentContext();
-//        context!.setFillColor(color.cgColor);
-//        let image = UIGraphicsGetImageFromCurrentImageContext();
-//        UIGraphicsEndImageContext();
-//        return image!;
-//    }
-//    
-//    func backgroundColor(_ color: UIColor, height:CGFloat)
-//    {
-//        let image = getImageWithColor(color, height: height);
-//        self.setBackgroundImage(image, for: .top, barMetrics: .default);
-//    }
-//}
+//MARK: - UISearchBarDelegate
 
+extension SearchDisplayViewController: UISearchBarDelegate
+{
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
+    {
+        let origin = searchBar.text as NSString?;
+        let result = origin?.replacingCharacters(in: range, with: text);
+        let input = removeInputHightLightSpace(result!);
+        
+        print("intput:", input);
+        dataCount = input.characters.count;
+        return true;
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar)
+    {
+        let text = searchBar.text;
+        dataCount = text!.characters.count;
+        jumpToResult(text!);
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
+    {
+        searchBar.resignFirstResponder();
+    }
+    
+    /**
+     去除空白字符,包含空格和unicode8198的空白
+     
+     - parameter text: text
+     
+     - returns: text
+     */
+    private func removeInputHightLightSpace(_ text: String) -> String
+    {
+        let strNoWhiteSpace = text.removeAllSpace;
+        
+        //Unicode 8198
+        let str8198 = " ";
+        return strNoWhiteSpace.replacingOccurrences(of: str8198, with: "");
+    }
+    
+    /**
+     跳转到结果页面
+     
+     - parameter text: Void
+     */
+    private func jumpToResult(_ text: String)
+    {
+        let controller = SearchResultViewController();
+        controller.searchText = text;
+        self.navigationController?.pushViewController(controller, animated: true);
+    }
+}

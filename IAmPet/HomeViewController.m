@@ -46,7 +46,27 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
+    UIView *bannerView = [self genBannerView];
+    _tableView.tableHeaderView = bannerView;
+    
     [self.view addSubview:_tableView];
+}
+
+- (UIView *)genBannerView
+{
+    UIView *bannerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenWidth / 2)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:bannerView.frame];
+    imageView.image = [self getBannerImage:bannerView.frame];
+    [bannerView addSubview:imageView];
+    return bannerView;
+}
+
+- (UIImage *)getBannerImage:(CGRect)frame
+{
+    UIImage *image = [UIImage imageNamed:@"icon_icon.jpg"];
+    image = [ImageUtils imageWithImage:image scaledToSize:frame.size];
+    
+    return image;
 }
 
 /**
