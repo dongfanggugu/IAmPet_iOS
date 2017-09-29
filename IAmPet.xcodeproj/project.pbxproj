@@ -1202,13 +1202,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IAmPet-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E374B1DD151FFFF917B488ED /* [CP] Copy Pods Resources */ = {
@@ -1217,9 +1220,32 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-IAmPet/Pods-IAmPet-resources.sh",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieBackward.png",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieBackward@2x.png",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieBackwardSelected.png",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieBackwardSelected@2x.png",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieEndFullscreen.png",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieEndFullscreen@2x.png",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieForward.png",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieForward@2x.png",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieForwardSelected.png",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieForwardSelected@2x.png",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieFullscreen.png",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieFullscreen@2x.png",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/moviePause.png",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/moviePause@2x.png",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/moviePlay.png",
+				"${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/moviePlay@2x.png",
+				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
+				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

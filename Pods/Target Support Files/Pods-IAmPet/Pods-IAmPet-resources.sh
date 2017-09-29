@@ -8,6 +8,10 @@ RESOURCES_TO_COPY=${PODS_ROOT}/resources-to-copy-${TARGETNAME}.txt
 
 XCASSET_FILES=()
 
+# This protects against multiple targets copying the same framework dependency at the same time. The solution
+# was originally proposed here: https://lists.samba.org/archive/rsync/2008-February/020158.html
+RSYNC_PROTECT_TMP_FILES=(--filter "P .*.??????")
+
 case "${TARGETED_DEVICE_FAMILY}" in
   1,2)
     TARGET_DEVICE_ARGS="--target-device ipad --target-device iphone"
@@ -44,29 +48,29 @@ EOM
   fi
   case $RESOURCE_PATH in
     *.storyboard)
-      echo "ibtool --reference-external-strings-file --errors --warnings --notices --minimum-deployment-target ${!DEPLOYMENT_TARGET_SETTING_NAME} --output-format human-readable-text --compile ${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename \"$RESOURCE_PATH\" .storyboard`.storyboardc $RESOURCE_PATH --sdk ${SDKROOT} ${TARGET_DEVICE_ARGS}"
+      echo "ibtool --reference-external-strings-file --errors --warnings --notices --minimum-deployment-target ${!DEPLOYMENT_TARGET_SETTING_NAME} --output-format human-readable-text --compile ${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename \"$RESOURCE_PATH\" .storyboard`.storyboardc $RESOURCE_PATH --sdk ${SDKROOT} ${TARGET_DEVICE_ARGS}" || true
       ibtool --reference-external-strings-file --errors --warnings --notices --minimum-deployment-target ${!DEPLOYMENT_TARGET_SETTING_NAME} --output-format human-readable-text --compile "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename \"$RESOURCE_PATH\" .storyboard`.storyboardc" "$RESOURCE_PATH" --sdk "${SDKROOT}" ${TARGET_DEVICE_ARGS}
       ;;
     *.xib)
-      echo "ibtool --reference-external-strings-file --errors --warnings --notices --minimum-deployment-target ${!DEPLOYMENT_TARGET_SETTING_NAME} --output-format human-readable-text --compile ${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename \"$RESOURCE_PATH\" .xib`.nib $RESOURCE_PATH --sdk ${SDKROOT} ${TARGET_DEVICE_ARGS}"
+      echo "ibtool --reference-external-strings-file --errors --warnings --notices --minimum-deployment-target ${!DEPLOYMENT_TARGET_SETTING_NAME} --output-format human-readable-text --compile ${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename \"$RESOURCE_PATH\" .xib`.nib $RESOURCE_PATH --sdk ${SDKROOT} ${TARGET_DEVICE_ARGS}" || true
       ibtool --reference-external-strings-file --errors --warnings --notices --minimum-deployment-target ${!DEPLOYMENT_TARGET_SETTING_NAME} --output-format human-readable-text --compile "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename \"$RESOURCE_PATH\" .xib`.nib" "$RESOURCE_PATH" --sdk "${SDKROOT}" ${TARGET_DEVICE_ARGS}
       ;;
     *.framework)
-      echo "mkdir -p ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
+      echo "mkdir -p ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}" || true
       mkdir -p "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
-      echo "rsync -av $RESOURCE_PATH ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
-      rsync -av "$RESOURCE_PATH" "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
+      echo "rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" $RESOURCE_PATH ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}" || true
+      rsync --delete -av "${RSYNC_PROTECT_TMP_FILES[@]}" "$RESOURCE_PATH" "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
       ;;
     *.xcdatamodel)
-      echo "xcrun momc \"$RESOURCE_PATH\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename "$RESOURCE_PATH"`.mom\""
+      echo "xcrun momc \"$RESOURCE_PATH\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename "$RESOURCE_PATH"`.mom\"" || true
       xcrun momc "$RESOURCE_PATH" "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename "$RESOURCE_PATH" .xcdatamodel`.mom"
       ;;
     *.xcdatamodeld)
-      echo "xcrun momc \"$RESOURCE_PATH\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename "$RESOURCE_PATH" .xcdatamodeld`.momd\""
+      echo "xcrun momc \"$RESOURCE_PATH\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename "$RESOURCE_PATH" .xcdatamodeld`.momd\"" || true
       xcrun momc "$RESOURCE_PATH" "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename "$RESOURCE_PATH" .xcdatamodeld`.momd"
       ;;
     *.xcmappingmodel)
-      echo "xcrun mapc \"$RESOURCE_PATH\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename "$RESOURCE_PATH" .xcmappingmodel`.cdm\""
+      echo "xcrun mapc \"$RESOURCE_PATH\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename "$RESOURCE_PATH" .xcmappingmodel`.cdm\"" || true
       xcrun mapc "$RESOURCE_PATH" "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/`basename "$RESOURCE_PATH" .xcmappingmodel`.cdm"
       ;;
     *.xcassets)
@@ -74,56 +78,56 @@ EOM
       XCASSET_FILES+=("$ABSOLUTE_XCASSET_FILE")
       ;;
     *)
-      echo "$RESOURCE_PATH"
+      echo "$RESOURCE_PATH" || true
       echo "$RESOURCE_PATH" >> "$RESOURCES_TO_COPY"
       ;;
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieBackward.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieBackward@2x.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieBackwardSelected.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieBackwardSelected@2x.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieEndFullscreen.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieEndFullscreen@2x.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieForward.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieForward@2x.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieForwardSelected.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieForwardSelected@2x.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieFullscreen.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieFullscreen@2x.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/moviePause.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/moviePause@2x.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/moviePlay.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/moviePlay@2x.png"
-  install_resource "BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle"
-  install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
-  install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
-  install_resource "RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle"
-  install_resource "TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieBackward.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieBackward@2x.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieBackwardSelected.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieBackwardSelected@2x.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieEndFullscreen.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieEndFullscreen@2x.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieForward.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieForward@2x.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieForwardSelected.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieForwardSelected@2x.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieFullscreen.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieFullscreen@2x.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/moviePause.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/moviePause@2x.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/moviePlay.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/moviePlay@2x.png"
+  install_resource "${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle"
+  install_resource "${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
+  install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle"
+  install_resource "${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieBackward.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieBackward@2x.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieBackwardSelected.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieBackwardSelected@2x.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieEndFullscreen.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieEndFullscreen@2x.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieForward.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieForward@2x.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieForwardSelected.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieForwardSelected@2x.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieFullscreen.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/movieFullscreen@2x.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/moviePause.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/moviePause@2x.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/moviePlay.png"
-  install_resource "ALMoviePlayerController/ALMoviePlayerController/Images/moviePlay@2x.png"
-  install_resource "BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle"
-  install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
-  install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
-  install_resource "RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle"
-  install_resource "TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieBackward.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieBackward@2x.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieBackwardSelected.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieBackwardSelected@2x.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieEndFullscreen.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieEndFullscreen@2x.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieForward.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieForward@2x.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieForwardSelected.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieForwardSelected@2x.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieFullscreen.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/movieFullscreen@2x.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/moviePause.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/moviePause@2x.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/moviePlay.png"
+  install_resource "${PODS_ROOT}/ALMoviePlayerController/ALMoviePlayerController/Images/moviePlay@2x.png"
+  install_resource "${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle"
+  install_resource "${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
+  install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle"
+  install_resource "${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

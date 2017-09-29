@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol AreaHeaderViewDelegate
+protocol AreaHeaderViewDelegate: class
 {
     func initChooseView(_ view: AreaHeaderView, category: AreaHeaderCategory);
     
@@ -56,7 +56,7 @@ class AreaHeaderView: UIView, Nibloadable
         ];
     };
     
-    var delegate: AreaHeaderViewDelegate?
+    weak var delegate: AreaHeaderViewDelegate?
     
     override func awakeFromNib()
     {

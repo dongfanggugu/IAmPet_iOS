@@ -10,7 +10,7 @@ import Foundation
 
 class SearchViewController: SBaseViewController
 {
-    var delegate: MainTabBarViewControllerDelegate?;
+    weak var delegate: MainTabBarViewControllerDelegate?;
     
     var tableView: UITableView?
     

@@ -10,7 +10,7 @@ import Foundation
 
 //MARK: - DetailBottomViewDelegate
 
-protocol DetailBottomViewDelegate
+protocol DetailBottomViewDelegate: class
 {
     func favorClickView(_ view: DetailBottomView);
     
@@ -31,7 +31,7 @@ class DetailBottomView: UIView, Nibloadable
     @IBOutlet private weak var lbComment: UILabel!;
     @IBOutlet private weak var lbLikes: UILabel!;
     
-    var delegate: DetailBottomViewDelegate?;
+    weak var delegate: DetailBottomViewDelegate?;
     
     override func awakeFromNib()
     {

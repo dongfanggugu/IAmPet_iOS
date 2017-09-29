@@ -25,6 +25,7 @@
 #import <UIImageView+AFNetworking.h>
 #import <UIImage+AFNetworking.h>
 #import <IQTextView.h>
+#import <IQKeyboardManager.h>
 
 
 #ifdef DEBUG

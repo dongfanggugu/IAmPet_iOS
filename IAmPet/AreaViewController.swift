@@ -11,7 +11,7 @@ import Foundation
 
 class AreaViewController: BaseViewController
 {
-    var delegate: MainTabBarViewControllerDelegate?;
+    weak var delegate: MainTabBarViewControllerDelegate?;
     
     var tableView: UITableView?
     

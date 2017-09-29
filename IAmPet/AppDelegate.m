@@ -120,7 +120,9 @@
 {
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
     manager.enable = YES;
+    manager.enableAutoToolbar = NO;
     manager.shouldResignOnTouchOutside = YES;
+    [manager setToolbarManageBehaviour:IQAutoToolbarByPosition];
 }
 
 @end

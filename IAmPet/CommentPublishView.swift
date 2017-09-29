@@ -10,7 +10,7 @@ import Foundation
 
 //MARK: - CommentPublishViewDelegate
 
-protocol CommentPublishViewDelegate
+protocol CommentPublishViewDelegate: class
 {
     func closeView(_ view: CommentPublishView);
     
@@ -27,9 +27,9 @@ class CommentPublishView: UIView, Nibloadable
     
     @IBOutlet weak var lbStatistics: UILabel!;
     
-    @IBOutlet private weak var tvComment: IQTextView!;
+    @IBOutlet weak var tvComment: IQTextView!;
     
-    var delegate: CommentPublishViewDelegate?;
+    weak var delegate: CommentPublishViewDelegate?;
     
     override func awakeFromNib()
     {

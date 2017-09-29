@@ -31,6 +31,8 @@ class TalkDetailViewController: SBaseViewController
     
     var operationCell: TalkOperationCell?;
     
+    var commentEditView: CommentPublishView?;   //评论view
+    
     var opState: OperationState! = .Comment   //操作状态
     {
         didSet
@@ -40,9 +42,20 @@ class TalkDetailViewController: SBaseViewController
     }
     var itemCount: Int? = 0; //item 数量
     
+    override func loadView()
+    {
+    
+        let scrollView = UIScrollView(frame: CGRect(x: 0,
+                                                    y: 0,
+                                                    width: ScreenWidth,
+                                                    height: ScreenHeight));
+        self.view = scrollView;
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad();
+        addKeyboardObserver();
         initView();
     }
     
@@ -55,8 +68,8 @@ class TalkDetailViewController: SBaseViewController
         
         tableView = UITableView(frame: CGRect(x: 0,
                                               y: 64,
-                                              width:ScreenWidth,
-                                              height:ScreenHeight - 49 - 64),
+                                              width: ScreenWidth,
+                                              height: ScreenHeight - 49 - 64),
                                 style: UITableViewStyle.grouped);
         
         tableView?.delegate = self as UITableViewDelegate;
@@ -86,6 +99,48 @@ class TalkDetailViewController: SBaseViewController
     }
     
     /**
+     添加键盘出现消失监听
+     */
+    private func addKeyboardObserver()
+    {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notify:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHidden(notify:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil);
+    }
+    
+    /**
+     键盘显示时
+     
+     - parameter notify: notify
+     */
+    @objc private func keyboardWillShow(notify: Notification)
+    {
+        let userInfo = notify.userInfo; let aValue = userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue;
+        let kbRect = aValue.cgRectValue;
+        let changeY = kbRect.origin.y;
+        let duration = userInfo?[UIKeyboardAnimationDurationUserInfoKey] as! Double;
+        
+        var frame = commentEditView?.frame;
+        frame?.origin.y = changeY - frame!.size.height;
+        
+        weak var weakSelf = self;
+        UIView.animate(withDuration: duration, animations: {
+            weakSelf?.commentEditView?.frame = frame!;
+        }, completion: nil);
+    }
+    
+    /**
+     键盘消失时
+     
+     - parameter notify: notify
+     */
+    @objc private func keyboardWillHidden(notify: Notification)
+    {
+        var frame = commentEditView?.frame;
+        frame?.origin.y = ScreenHeight - frame!.size.height;
+        commentEditView?.frame = frame!;
+    }
+    
+    /**
      切换收藏、评论、点赞
      */
     private func switchOperation()
@@ -105,6 +160,12 @@ class TalkDetailViewController: SBaseViewController
         
         let indexSet = IndexSet(integer: 2);
         tableView?.reloadSections(indexSet, with: .none);
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self);
+        print("\(self) deinit");
     }
 }
 
@@ -411,23 +472,16 @@ extension TalkDetailViewController: DetailBottomViewDelegate
      */
     private func showCommentEdit()
     {
-        let viewComment = CommentPublishView.loadNib();
-        viewComment.frame = CGRect(x: 0,
-                                   y: ScreenHeight,
+        commentEditView = CommentPublishView.loadNib();
+        commentEditView!.frame = CGRect(x: 0,
+                                   y: ScreenHeight - commentEditView!.frame.size.height,
                                    width: ScreenWidth,
-                                   height: viewComment.frame.size.height);
+                                   height: commentEditView!.frame.size.height);
         
-        viewComment.delegate = self as CommentPublishViewDelegate;
+        commentEditView!.delegate = self as CommentPublishViewDelegate;
         
-        self.view.addSubview(viewComment);
-        
-//        UIView.transition(with: self.view, duration: 1, options: .curveEaseIn, animations: {
-//
-//        }, completion: nil);
-        
-        UIView.animate(withDuration: 0.2) {
-            viewComment.center = CGPoint(x: ScreenWidth / 2, y: ScreenHeight - viewComment.bounds.size.height / 2);
-        }
+        self.view.addSubview(commentEditView!);
+        commentEditView!.tvComment.becomeFirstResponder();
     }
 }
 
@@ -436,10 +490,13 @@ extension TalkDetailViewController: CommentPublishViewDelegate
 {
     func closeView(_ view: CommentPublishView)
     {
+        weak var weakSelf = self;
         UIView.animate(withDuration: 0.2, animations: {
             view.center = CGPoint(x: ScreenWidth / 2, y: ScreenHeight + view.bounds.size.height / 2);
-        }) { (complete) in
+        }) {
+            (complete) in
             view.dismiss();
+            weakSelf?.commentEditView = nil;
         };
     }
     
@@ -450,10 +507,13 @@ extension TalkDetailViewController: CommentPublishViewDelegate
             print(content);
         }
         
+        weak var weakSelf = self;
         UIView.animate(withDuration: 0.2, animations: {
             view.center = CGPoint(x: ScreenWidth / 2, y: ScreenHeight + view.bounds.size.height / 2);
-        }) { (complete) in
+        }) {
+            (complete) in
             view.dismiss();
+            weakSelf?.commentEditView = nil;
         };
     }
 }
