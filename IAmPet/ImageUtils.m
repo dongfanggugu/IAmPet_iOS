@@ -53,6 +53,49 @@
     return newImage;
 }
 
+/**
+ *  裁剪图片
+ *
+ *  @param image       image
+ *  @param borderWidth 边框
+ *  @param borderColor 边框颜色
+ *
+ *  @return new image
+ */
++ (UIImage *)circleImage:(UIImage *)image borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor
+{
+    CGFloat imageW = image.size.width + 2 * borderWidth;
+    CGFloat imageH = image.size.height + 2 * borderWidth;
+    CGSize imageSize = CGSizeMake(imageW, imageH);
+    
+    CGFloat scale = [[UIScreen mainScreen] scale];
+    
+    UIGraphicsBeginImageContextWithOptions(imageSize, NO, scale);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+    //大圆
+    [borderColor set];
+    CGFloat bigRadius = imageW * 0.5;   //大圆半径
+    CGFloat centerX = bigRadius;    //圆心
+    CGFloat centerY = bigRadius;
+    
+    CGContextAddArc(ctx, centerX, centerY, bigRadius, 0, M_PI *2, 0);
+    CGContextFillPath(ctx);
+    
+    //小圆
+    CGFloat smallRadius = bigRadius - borderWidth;
+    CGContextAddArc(ctx, centerX, centerY, smallRadius, 0, M_PI * 2, 0);
+    CGContextClip(ctx);
+    
+    //画图
+    [image drawInRect:CGRectMake(borderWidth, borderWidth, image.size.width, image.size.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    //结束上下文
+    return  newImage;
+}
 
 /**
  *  图片转换为BASE64

@@ -7,3 +7,4 @@
 #import "BaseViewController.h"
 #import <MJRefresh.h>
 #import "MainTabBarViewController.h"
+#import "ChatViewController.h"

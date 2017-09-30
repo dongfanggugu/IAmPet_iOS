@@ -38,7 +38,7 @@
     SearchViewController *search = [SearchViewController new];
     search.delegate = self;
     
-    ChatViewController *chat = [ChatViewController new];
+    ChatListViewController *chat = [ChatListViewController new];
     chat.delegate = self;
     
     self.viewControllers = @[[self getNavigationController:home],

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FA2B66C8B7ADD22235E9DFFD5A13371B1EEDD493",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "84531867786028116B6D2D77343D51BB7B4A9B11" : 9223372036854775807,
+    "FA2B66C8B7ADD22235E9DFFD5A13371B1EEDD493" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "70F05E9B-D801-4CB7-89FA-F69DE5191757",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "84531867786028116B6D2D77343D51BB7B4A9B11" : "UUChatTableView\/",
+    "FA2B66C8B7ADD22235E9DFFD5A13371B1EEDD493" : "IAmPet\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "IAmPet",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "IAmPet.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ZhipingYang\/UUChatTableView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "84531867786028116B6D2D77343D51BB7B4A9B11"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:dongfanggugu\/IAmPet_iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FA2B66C8B7ADD22235E9DFFD5A13371B1EEDD493"
+    }
+  ]
+}

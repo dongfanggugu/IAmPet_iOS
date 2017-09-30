@@ -185,7 +185,7 @@ extension SearchDisplayViewController: UISearchBarDelegate
     {
         let origin = searchBar.text as NSString?;
         let result = origin?.replacingCharacters(in: range, with: text);
-        let input = removeInputHightLightSpace(result!);
+        let input = result!.removeInputHightLightSpace;
         
         print("intput:", input);
         dataCount = input.characters.count;
@@ -202,22 +202,6 @@ extension SearchDisplayViewController: UISearchBarDelegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
     {
         searchBar.resignFirstResponder();
-    }
-    
-    /**
-     去除空白字符,包含空格和unicode8198的空白
-     
-     - parameter text: text
-     
-     - returns: text
-     */
-    private func removeInputHightLightSpace(_ text: String) -> String
-    {
-        let strNoWhiteSpace = text.removeAllSpace;
-        
-        //Unicode 8198
-        let str8198 = " ";
-        return strNoWhiteSpace.replacingOccurrences(of: str8198, with: "");
     }
     
     /**

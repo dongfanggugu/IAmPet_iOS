@@ -12,6 +12,8 @@
 
 @interface ChatViewController : BaseViewController
 
+@property (nonatomic, copy) NSString *chatName;
+
 @property (nonatomic, weak) id<MainTabBarViewControllerDelegate> delegate;
 
 @end
