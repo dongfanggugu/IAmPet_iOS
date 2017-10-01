@@ -156,7 +156,22 @@ extension AreaViewController: UITableViewDataSource
         }
         tempCell = cell;
         cell?.talkContent = "哎呀，这里非常好看啊，我想在这里歇着睡觉！";
+        weak var weakSelf = self;
+        cell?.showPerson = {
+            weakSelf?.showPersonInfo();
+        };
         return cell!;
+    }
+    
+    /**
+     显示个人信息
+     */
+    private func showPersonInfo()
+    {
+        let controller = PersonHomeViewController();
+        controller.personName = "天空的鱼";
+        controller.hidesBottomBarWhenPushed = true;
+        self.navigationController?.pushViewController(controller, animated: true);
     }
 }
 

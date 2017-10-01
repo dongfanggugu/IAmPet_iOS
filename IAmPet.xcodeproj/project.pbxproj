@@ -206,6 +206,8 @@
 		65C6E74B1F6BCD450063F5A5 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C6E74A1F6BCD450063F5A5 /* ChatViewController.m */; };
 		65C7C7B81F7DEB4100A44BE5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7C7B71F7DEB4100A44BE5 /* StringExtension.swift */; };
 		65C7C7BA1F7E2B3B00A44BE5 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C7C7B91F7E2B3B00A44BE5 /* SearchResultViewController.swift */; };
+		65CCE8EF1F81503500072D01 /* PersonHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CCE8EE1F81503500072D01 /* PersonHomeViewController.swift */; };
+		65CCE8F11F81566E00072D01 /* concern.png in Resources */ = {isa = PBXBuildFile; fileRef = 65CCE8F01F81566E00072D01 /* concern.png */; };
 		65D3BB4E1F774868005A3B6E /* VideoShowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D3BB4D1F774868005A3B6E /* VideoShowView.xib */; };
 		65D3BB501F7748D1005A3B6E /* VideoShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D3BB4F1F7748D1005A3B6E /* VideoShowView.swift */; };
 		65F1526E1F7FFC4C0004D679 /* ChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F1526D1F7FFC4C0004D679 /* ChatModel.m */; };
@@ -503,6 +505,8 @@
 		65C6E74A1F6BCD450063F5A5 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		65C7C7B71F7DEB4100A44BE5 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		65C7C7B91F7E2B3B00A44BE5 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		65CCE8EE1F81503500072D01 /* PersonHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonHomeViewController.swift; sourceTree = "<group>"; };
+		65CCE8F01F81566E00072D01 /* concern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = concern.png; sourceTree = "<group>"; };
 		65D3BB4D1F774868005A3B6E /* VideoShowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoShowView.xib; sourceTree = "<group>"; };
 		65D3BB4F1F7748D1005A3B6E /* VideoShowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoShowView.swift; sourceTree = "<group>"; };
 		65F1526C1F7FFC4C0004D679 /* ChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatModel.h; sourceTree = "<group>"; };
@@ -723,6 +727,7 @@
 				653FEDA31F7D444D003B417C /* SearchDispayViewController.swift */,
 				65C7C7B91F7E2B3B00A44BE5 /* SearchResultViewController.swift */,
 				6544BEA51F7F41850034E042 /* ChatListViewController.swift */,
+				65CCE8EE1F81503500072D01 /* PersonHomeViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -750,6 +755,7 @@
 		657C74351F662D71002BE2BA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				65CCE8F01F81566E00072D01 /* concern.png */,
 				65C6E6721F6BCC780063F5A5 /* add_des_input@2x.png */,
 				65F152B91F7FFD6D0004D679 /* pic */,
 				65C6E6731F6BCC780063F5A5 /* arrow_down@2x.png */,
@@ -1202,6 +1208,7 @@
 				6535F0011F7B971E00B610D9 /* AreaHeaderView.xib in Resources */,
 				65C6E6D81F6BCC790063F5A5 /* crop_bg@2x.png in Resources */,
 				65A2614B1F7F65B6003C28C0 /* ChatCell.xib in Resources */,
+				65CCE8F11F81566E00072D01 /* concern.png in Resources */,
 				65C2E2061F6FA3920043027A /* PersonCenterView.xib in Resources */,
 				65C6E72C1F6BCC790063F5A5 /* wanted_pressed@2x.png in Resources */,
 				65C6E70C1F6BCC790063F5A5 /* introduce_bg@2x.png in Resources */,
@@ -1496,6 +1503,7 @@
 				6535EFF11F7A352100B610D9 /* TalkDetailViewController.swift in Sources */,
 				65F152B51F7FFD530004D679 /* UUMessageFrame.m in Sources */,
 				6535EFD71F78D71100B610D9 /* PhotosShowView.swift in Sources */,
+				65CCE8EF1F81503500072D01 /* PersonHomeViewController.swift in Sources */,
 				656A2DB31F74FF7A00E97F15 /* MyTalkCell.swift in Sources */,
 				65F152B21F7FFD530004D679 /* UUMessage.m in Sources */,
 				657C746A1F68C1EE002BE2BA /* LeftSideViewController.m in Sources */,

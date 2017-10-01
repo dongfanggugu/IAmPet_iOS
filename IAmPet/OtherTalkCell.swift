@@ -11,8 +11,9 @@ import Foundation
 class OtherTalkCell : UITableViewCell, Nibloadable
 {
     
-    typealias playVideoBlock = (String) -> ();
+    typealias playVideoBlock = (String) -> Void;
     typealias clickPhotos = (UIImage) -> Void;
+    typealias clickPerson = () -> Void;
     
     @IBOutlet weak var ivIcon: UIImageView!;
     
@@ -39,6 +40,8 @@ class OtherTalkCell : UITableViewCell, Nibloadable
     @IBOutlet weak var lbLikes: UILabel!;
     
     @IBOutlet private weak var lbContent: UILabel!;
+    
+    @IBOutlet private weak var viewPerson: UIView!;
     
     //说说内容
     var talkContent: String?
@@ -70,9 +73,11 @@ class OtherTalkCell : UITableViewCell, Nibloadable
     
     var cellHeight: Float = 120;    //cellHeight
     
-    var playVideo: playBlock?   //播放视频
+    var playVideo: playBlock?;   //播放视频
     
-    var showPhoto: clickPhotos?
+    var showPhoto: clickPhotos?;
+    
+    var showPerson: clickPerson?;
     
     class func cellFromNib() -> OtherTalkCell
     {
@@ -86,11 +91,31 @@ class OtherTalkCell : UITableViewCell, Nibloadable
         
         lbContent.numberOfLines = 0;
         lbContent.lineBreakMode = .byWordWrapping;
+        
+        addPersonListener();
     }
     
     override func layoutSubviews()
     {
         super.layoutSubviews();
+    }
+    
+    /**
+     添加点击个人信息的
+     */
+    private func addPersonListener()
+    {
+        viewPerson.isUserInteractionEnabled = true;
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(touchPersonView));
+        viewPerson.addGestureRecognizer(gesture);
+    }
+    
+    /**
+     点击person view
+     */
+    @objc private func touchPersonView()
+    {
+        showPerson?();
     }
     
     /**

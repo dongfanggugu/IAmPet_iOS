@@ -8,7 +8,6 @@
 
 #import "SideMenuViewController.h"
 #import "LeftSideViewController.h"
-//#import "MiddleSideViewController.h"
 #import "MainTabBarViewController.h"
 #import "BaseNavigationController.h"
 #import "RegisterViewController.h"
@@ -18,13 +17,16 @@
         CGPoint _start, _last;
 }
 
-@property (nonatomic, strong) LeftSideViewController *leftViewController;
+//@property (nonatomic, strong) LeftSideViewController *leftViewController;
+@property (nonatomic, strong) UINavigationController *leftViewController;
 
 @property (nonatomic, strong) MainTabBarViewController *middleViewController;
 
 @property (nonatomic, strong) BaseNavigationController *naviMiddle;
 
 @property (nonatomic, assign) BOOL leftHidden;
+
+@property (nonatomic, strong) UIView *viewSurface;
 
 @end
 
@@ -61,11 +63,13 @@
  */
 - (void)loadLeftViewController
 {
-    _leftViewController = [[LeftSideViewController alloc] init];
+    LeftSideViewController  *controller = [LeftSideViewController new];
+     _leftViewController = [[UINavigationController alloc] initWithRootViewController:controller];
+    
+    CGRect frame = _leftViewController.view.frame;
     _leftViewController.view.frame = CGRectMake(- ScreenWidth , 0, ScreenWidth, ScreenHeight);
     
     [self.view addSubview:_leftViewController.view];
-    [self addChildViewController:_leftViewController];
 }
 
 /**
@@ -97,6 +101,7 @@
         _middleViewController.view.transform = CGAffineTransformTranslate(_middleViewController.view.transform, - ScreenWidth * 0.6, 0);
         _leftViewController.view.transform = CGAffineTransformTranslate(_leftViewController.view.transform, - ScreenWidth * 0.6, 0);
         weakSelf.leftHidden = YES;
+         [self removeSurface];
     } completion:nil];
 }
 
@@ -107,11 +112,38 @@
     if (self.leftHidden)
     {
         [self showLeft];
+        [self addSurface];
     }
     else
     {
         [self hideLeft];
     }
+}
+
+- (UIView *)viewSurface
+{
+    if (!_viewSurface)
+    {
+        _viewSurface = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
+        _viewSurface.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2];
+    }
+    
+    return _viewSurface;
+}
+
+- (void)removeSurface
+{
+    if (self.viewSurface.superview)
+    {
+        [self.viewSurface removeFromSuperview];
+    }
+}
+
+- (void)addSurface
+{
+    [self.middleViewController.view addSubview:self.viewSurface];
+    self.viewSurface.userInteractionEnabled = YES;
+    [self.viewSurface addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideLeft)]];
 }
 
 @end

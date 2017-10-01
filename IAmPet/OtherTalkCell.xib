@@ -222,6 +222,7 @@
                 <outlet property="lbName" destination="upw-kl-6GI" id="csL-YG-0OG"/>
                 <outlet property="lbTime" destination="i1N-8e-AUY" id="G4S-ep-M5P"/>
                 <outlet property="viewMedia" destination="mjw-EC-yX6" id="FWz-uu-hJg"/>
+                <outlet property="viewPerson" destination="a5s-cd-5I5" id="2FW-Ln-lKN"/>
             </connections>
             <point key="canvasLocation" x="115.5" y="-156.5"/>
         </tableViewCell>

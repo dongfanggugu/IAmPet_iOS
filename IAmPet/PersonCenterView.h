@@ -8,6 +8,14 @@
 
 #import "BaseNibView.h"
 
+@class PersonCenterView;
+
+@protocol PersonCenterViewDelegate <NSObject>
+
+- (void)clickView:(PersonCenterView *)view indexPath:(NSIndexPath *)indexPath;
+
+@end
+
 @interface PersonCenterView : BaseNibView
 
 + (instancetype)viewFromNib;
@@ -21,5 +29,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *lbFans;
 
 @property (nonatomic, weak) IBOutlet UILabel *lbFollow;
+
+@property (nonatomic, weak) id<PersonCenterViewDelegate> delegate;
 
 @end

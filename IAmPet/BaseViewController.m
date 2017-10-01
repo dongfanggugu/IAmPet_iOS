@@ -240,7 +240,7 @@
     CGFloat oldWidth = image.size.width;
     CGFloat oldHeight = image.size.height;
     
-    CGFloat scaleW = (ScreenWidth - 32) / oldWidth;
+    CGFloat scaleW = ScreenWidth / oldWidth;
     CGFloat scaleH = (ScreenHeight - 64 -32) / oldHeight;
     CGFloat scale = MIN(scaleW, scaleH);
     
@@ -295,7 +295,7 @@
     
     //拖动手势
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panView:)];
-    [view addGestureRecognizer:panGestureRecognizer];
+//    [view addGestureRecognizer:panGestureRecognizer];
 }
 
 // 处理旋转手势

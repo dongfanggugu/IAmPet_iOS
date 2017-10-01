@@ -17,9 +17,11 @@
 @interface ChatViewController () <UUMessageCellDelegate, UUInputFunctionViewDelegate>
 
 @property (strong, nonatomic) MJRefreshHeader *head;
+
 @property (strong, nonatomic) ChatModel *chatModel;
 
 @property (weak, nonatomic) IBOutlet UITableView *chatTableView;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
 
 @end
@@ -32,7 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setNavTitle:@"私信"];
+    [self setNavTitle:_chatName];
     
 //    [self initBar];
     [self addRefreshViews];
@@ -96,7 +98,8 @@
         
         [weakSelf.chatModel addRandomItemsToDataSource:pageNum];
         
-        if (weakSelf.chatModel.dataSource.count > pageNum) {
+        if (weakSelf.chatModel.dataSource.count > pageNum)
+        {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:pageNum inSection:0];
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -107,7 +110,6 @@
         [weakSelf.head endRefreshing];
     }];
     self.chatTableView.mj_header = _head;
-//    _head.beginRefreshingBlock
 }
 
 - (void)loadBaseViewsAndData

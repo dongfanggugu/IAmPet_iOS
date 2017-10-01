@@ -8,8 +8,9 @@
 
 #import "LeftSideViewController.h"
 #import "PersonCenterView.h"
+#import "IAmPet-Swift.h"
 
-@interface LeftSideViewController ()
+@interface LeftSideViewController () <PersonCenterViewDelegate>
 
 @end
 
@@ -18,19 +19,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    self.navigationController.navigationBar.hidden = YES;
     [self initView];
 }
 
 - (void)initView
 {
-//    [self setGradientLayer];
     PersonCenterView *view = [PersonCenterView viewFromNib];
+    view.delegate = self;
     view.frame = CGRectMake(ScreenWidth * 0.4, 0, ScreenWidth * 0.6, ScreenHeight);
     [self.view addSubview:view];
 }
 
 
+#pragma mark - PersonCenterViewDelegate
 
+- (void)clickView:(PersonCenterView *)view indexPath:(NSIndexPath *)indexPath
+{
+    PersonHomeViewController *controller = [PersonHomeViewController new];
+    controller.personName = @"天空的鱼";
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 @end

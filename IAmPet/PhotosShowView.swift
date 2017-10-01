@@ -17,7 +17,7 @@ class PhotosShowView: UIView
     
     let PhotoColumn = 3;    //每行图片数量
     
-    let WidthHeightScale = 1;   //图片宽高比
+    let WidthHeightScale = 1.3;   //图片宽高比
     
     var urlsImage: [String]?
     {

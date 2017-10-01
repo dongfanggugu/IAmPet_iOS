@@ -148,6 +148,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(clickView:indexPath:)])
+    {
+        [_delegate clickView:self indexPath:indexPath];
+    }
 }
 
 

@@ -90,6 +90,8 @@
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressed:)];
     longPress.minimumPressDuration = 0.5;
     [_btnVoice addGestureRecognizer:longPress];
+    
+    [_textView becomeFirstResponder];
 }
 
 /**
