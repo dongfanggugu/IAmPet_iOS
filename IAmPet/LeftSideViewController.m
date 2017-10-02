@@ -12,7 +12,6 @@
 
 @interface LeftSideViewController () <PersonCenterViewDelegate>
 
-
 @end
 
 @implementation LeftSideViewController
@@ -38,6 +37,19 @@
 {
     PersonHomeViewController *controller = [PersonHomeViewController new];
     controller.personName = @"天空的鱼";
+    if (_delegate && [_delegate respondsToSelector:@selector(enterViewController:)])
+    {
+        [_delegate enterViewController:controller];
+    }
+}
+
+- (void)clickFollow:(PersonCenterView *)view
+{
+}
+
+- (void)clickFans:(PersonCenterView *)view
+{
+    FansViewController *controller = [FansViewController new];
     if (_delegate && [_delegate respondsToSelector:@selector(enterViewController:)])
     {
         [_delegate enterViewController:controller];

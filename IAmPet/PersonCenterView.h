@@ -14,6 +14,10 @@
 
 - (void)clickView:(PersonCenterView *)view indexPath:(NSIndexPath *)indexPath;
 
+- (void)clickFans:(PersonCenterView *)view;
+
+- (void)clickFollow:(PersonCenterView *)view;
+
 @end
 
 @interface PersonCenterView : BaseNibView

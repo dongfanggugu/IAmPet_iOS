@@ -15,6 +15,10 @@
 
 @property (nonatomic, weak) IBOutlet UIButton *btnLogout;
 
+@property (nonatomic, weak) IBOutlet UILabel *lbFansTag;
+
+@property (nonatomic, weak) IBOutlet UILabel *lbFollowTag;
+
 @end
 
 @implementation PersonCenterView
@@ -37,6 +41,48 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self addTouchListener];
+}
+
+/**
+ *   add UIControl's tap gesture
+ */
+- (void)addTouchListener
+{
+    _lbFans.userInteractionEnabled = YES;
+    [_lbFans addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickFans)]];
+    
+    _lbFansTag.userInteractionEnabled = YES;
+    [_lbFansTag addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickFans)]];
+    
+    _lbFollow.userInteractionEnabled = YES;
+    [_lbFollow addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickFollow)]];
+    
+    _lbFollowTag.userInteractionEnabled = YES;
+    [_lbFollowTag addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickFollow)]];
+}
+
+/**
+ *  click fans view
+ */
+- (void)clickFans
+{
+   if (_delegate && [_delegate respondsToSelector:@selector(clickFans:)])
+   {
+       [_delegate clickFans:self];
+   }
+}
+
+/**
+ *  click follow view
+ */
+- (void)clickFollow
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(clickFollow:)])
+    {
+        [_delegate clickFollow:self];
+    }
 }
 
 /**

@@ -45,10 +45,8 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在关注" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylu-Mj-245">
                     <rect key="frame" x="157" y="56" width="60" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="MyR-5u-rvh"/>
                         <constraint firstAttribute="height" constant="21" id="UIr-tP-zYQ"/>
                         <constraint firstAttribute="width" constant="60" id="Z3Y-L4-dgo"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="hdH-GJ-g0k"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,10 +55,8 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关注者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4J-yJ-noE">
                     <rect key="frame" x="157" y="81" width="60" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="2uM-Mn-mbS"/>
                         <constraint firstAttribute="height" constant="21" id="FtK-9N-ZeR"/>
                         <constraint firstAttribute="width" constant="60" id="JGK-tm-h3n"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="ylE-bC-FpW"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -145,7 +141,9 @@
                 <outlet property="ivPerson" destination="zKU-ZC-yjt" id="Q8x-NF-tUU"/>
                 <outlet property="lbAccount" destination="8XE-fA-TGb" id="klt-2X-7b5"/>
                 <outlet property="lbFans" destination="AFx-dU-dvl" id="GIh-fA-BO0"/>
+                <outlet property="lbFansTag" destination="a4J-yJ-noE" id="enO-Yx-RiG"/>
                 <outlet property="lbFollow" destination="qR0-qo-uN8" id="IPx-aW-E7J"/>
+                <outlet property="lbFollowTag" destination="Ylu-Mj-245" id="12t-Ly-PJM"/>
                 <outlet property="lbNickName" destination="XaR-EA-sue" id="zqc-aD-FyH"/>
                 <outlet property="tableView" destination="YDp-GA-l03" id="gJT-87-dh7"/>
             </connections>

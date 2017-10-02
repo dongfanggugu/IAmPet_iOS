@@ -92,8 +92,9 @@
  */
 - (void)enterViewController:(UIViewController *)controller
 {
+    controller.hidesBottomBarWhenPushed = true;
     UINavigationController *nav = self.selectedViewController;
-    [nav pushViewController:controller animated:NO];
+    [nav pushViewController:controller animated:YES];
 }
 
 @end

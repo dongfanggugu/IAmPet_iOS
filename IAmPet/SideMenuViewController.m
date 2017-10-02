@@ -91,7 +91,7 @@
     }];
 }
 
-- (void)hideLeft:(void(^)())complete
+- (void)hideLeft
 {
     __weak typeof (self) weakSelf = self;
     [UIView animateWithDuration:0.5 animations:^{
@@ -99,21 +99,19 @@
         _leftViewController.view.transform = CGAffineTransformTranslate(_leftViewController.view.transform, - ScreenWidth * 0.6, 0);
         weakSelf.leftHidden = YES;
          [self removeSurface];
-    } completion:^(BOOL finished){
-        if (finished && complete)
-        {
-            complete();
-        }
-    }];
+    } completion:nil];
 }
 
 /**
  *  隐藏左侧
  */
-- (void)hideLeft
-{
-    [self hideLeft:nil];
-}
+//- (void)hideLeftNoAnimated
+//{
+//    _middleViewController.view.transform = CGAffineTransformTranslate(_middleViewController.view.transform, - ScreenWidth * 0.6, 0);
+//    _leftViewController.view.transform = CGAffineTransformTranslate(_leftViewController.view.transform, - ScreenWidth * 0.6, 0);
+//    self.leftHidden = YES;
+//    [self removeSurface];
+//}
 
 #pragma mark - MainTabBarViewControllerDelegate
 
@@ -126,7 +124,7 @@
     }
     else
     {
-        [self hideLeft:nil];
+        [self hideLeft];
     }
 }
 
@@ -159,13 +157,12 @@
 {
     [self.middleViewController.view addSubview:self.viewSurface];
     self.viewSurface.userInteractionEnabled = YES;
-    [self.viewSurface addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideLeft:)]];
+    [self.viewSurface addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideLeft)]];
 }
 
 - (void)enterViewController:(UIViewController *)viewController
 {
-    [self hideLeft:^{
-    }];
+    [self hideLeft];
     [_middleViewController enterViewController:viewController];
 }
 
