@@ -16,6 +16,8 @@
 
 @interface MainTabBarViewController : BaseTabBarController
 
+- (void)enterViewController:(UIViewController *)controller;
+
 @property (nonatomic, weak) id<MainTabBarViewControllerDelegate> mainDelegate;
 
 @end

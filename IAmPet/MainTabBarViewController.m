@@ -85,9 +85,15 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
+/**
+ *  显示viewcontroller
+ *
+ *  @param controller controller
+ */
+- (void)enterViewController:(UIViewController *)controller
 {
-    [super didReceiveMemoryWarning];
+    UINavigationController *nav = self.selectedViewController;
+    [nav pushViewController:controller animated:NO];
 }
 
 @end

@@ -12,6 +12,7 @@
 
 @interface LeftSideViewController () <PersonCenterViewDelegate>
 
+
 @end
 
 @implementation LeftSideViewController
@@ -37,7 +38,10 @@
 {
     PersonHomeViewController *controller = [PersonHomeViewController new];
     controller.personName = @"天空的鱼";
-    [self.navigationController pushViewController:controller animated:YES];
+    if (_delegate && [_delegate respondsToSelector:@selector(enterViewController:)])
+    {
+        [_delegate enterViewController:controller];
+    }
 }
 
 @end

@@ -8,6 +8,14 @@
 
 #import "BaseViewController.h"
 
+@protocol LeftSideViewControllerDelegate <NSObject>
+
+- (void)enterViewController:(UIViewController *)viewController;
+
+@end
+
 @interface LeftSideViewController : BaseViewController
+
+@property (nonatomic, weak) id<LeftSideViewControllerDelegate> delegate;
 
 @end

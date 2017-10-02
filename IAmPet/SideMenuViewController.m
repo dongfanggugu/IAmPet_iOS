@@ -12,13 +12,13 @@
 #import "BaseNavigationController.h"
 #import "RegisterViewController.h"
 
-@interface SideMenuViewController() <MainTabBarViewControllerDelegate>
+@interface SideMenuViewController() <MainTabBarViewControllerDelegate, LeftSideViewControllerDelegate>
 {
         CGPoint _start, _last;
 }
 
 //@property (nonatomic, strong) LeftSideViewController *leftViewController;
-@property (nonatomic, strong) UINavigationController *leftViewController;
+@property (nonatomic, strong) LeftSideViewController *leftViewController;
 
 @property (nonatomic, strong) MainTabBarViewController *middleViewController;
 
@@ -63,12 +63,9 @@
  */
 - (void)loadLeftViewController
 {
-    LeftSideViewController  *controller = [LeftSideViewController new];
-     _leftViewController = [[UINavigationController alloc] initWithRootViewController:controller];
-    
-    CGRect frame = _leftViewController.view.frame;
+    _leftViewController = [LeftSideViewController new];
+    _leftViewController.delegate = self;
     _leftViewController.view.frame = CGRectMake(- ScreenWidth , 0, ScreenWidth, ScreenHeight);
-    
     [self.view addSubview:_leftViewController.view];
 }
 
@@ -94,7 +91,7 @@
     }];
 }
 
-- (void)hideLeft
+- (void)hideLeft:(void(^)())complete
 {
     __weak typeof (self) weakSelf = self;
     [UIView animateWithDuration:0.5 animations:^{
@@ -102,7 +99,20 @@
         _leftViewController.view.transform = CGAffineTransformTranslate(_leftViewController.view.transform, - ScreenWidth * 0.6, 0);
         weakSelf.leftHidden = YES;
          [self removeSurface];
-    } completion:nil];
+    } completion:^(BOOL finished){
+        if (finished && complete)
+        {
+            complete();
+        }
+    }];
+}
+
+/**
+ *  隐藏左侧
+ */
+- (void)hideLeft
+{
+    [self hideLeft:nil];
 }
 
 #pragma mark - MainTabBarViewControllerDelegate
@@ -116,7 +126,7 @@
     }
     else
     {
-        [self hideLeft];
+        [self hideLeft:nil];
     }
 }
 
@@ -131,6 +141,9 @@
     return _viewSurface;
 }
 
+/**
+ *  去除蒙版
+ */
 - (void)removeSurface
 {
     if (self.viewSurface.superview)
@@ -139,11 +152,21 @@
     }
 }
 
+/**
+ *  添加蒙版
+ */
 - (void)addSurface
 {
     [self.middleViewController.view addSubview:self.viewSurface];
     self.viewSurface.userInteractionEnabled = YES;
-    [self.viewSurface addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideLeft)]];
+    [self.viewSurface addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideLeft:)]];
+}
+
+- (void)enterViewController:(UIViewController *)viewController
+{
+    [self hideLeft:^{
+    }];
+    [_middleViewController enterViewController:viewController];
 }
 
 @end
