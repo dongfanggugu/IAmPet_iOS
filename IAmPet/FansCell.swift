@@ -10,6 +10,8 @@ import Foundation
 
 class FansCell: UITableViewCell, Nibloadable
 {
+    typealias changeConcern = (Bool) -> Void;
+    
     @IBOutlet private weak var ivHead: UIImageView!;
     
     @IBOutlet private weak var lbName: UILabel!;
@@ -50,6 +52,8 @@ class FansCell: UITableViewCell, Nibloadable
         }
     }
     
+    var changeConcerned: changeConcern?;
+    
     static let identifier = "fans_cell";   //cell reuse identifier
     
     static let cellHeight: CGFloat = 66;   //cell height
@@ -74,16 +78,32 @@ class FansCell: UITableViewCell, Nibloadable
         super.awakeFromNib();
         
         self.selectionStyle = .none;
-        cornerButton();
+        cornerIvHead();
+        addConcernedBtnListener();
     }
     
     /**
-     make concern button corner radius
+     add concern button listener
      */
-    private func cornerButton()
+    private func addConcernedBtnListener()
+    {
+        btnConcern.addTarget(self, action: #selector(clickConcerned), for: .touchUpInside);
+    }
+    
+    /**
+     click concern button
+     */
+    @objc private func clickConcerned()
+    {
+        changeConcerned?(isConcerned!);
+    }
+    
+    /**
+     make concern ivHead corner radius
+     */
+    private func cornerIvHead()
     {
         ivHead.layer.masksToBounds = true;
         ivHead.layer.cornerRadius = 25;
     }
-    
 }

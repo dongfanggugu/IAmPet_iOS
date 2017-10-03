@@ -45,6 +45,11 @@
 
 - (void)clickFollow:(PersonCenterView *)view
 {
+    FollowsViewController *controller = [FollowsViewController new];
+    if (_delegate && [_delegate respondsToSelector:@selector(enterViewController:)])
+    {
+        [_delegate enterViewController:controller];
+    }
 }
 
 - (void)clickFans:(PersonCenterView *)view

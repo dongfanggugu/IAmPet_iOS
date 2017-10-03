@@ -1,5 +1,5 @@
 //
-//  FansViewController.swift
+//  FollowsViewController.swift
 //  IAmPet
 //
 //  Created by 长浩 张 on 2017/10/3.
@@ -8,16 +8,18 @@
 
 import Foundation
 
-class FansViewController: SBaseViewController
+class FollowsViewController: SBaseViewController
 {
     var tableView: UITableView?;
     
     override func viewDidLoad()
     {
         super.viewDidLoad();
-        setNavTitle("关注者")
+        setNavTitle("正在关注")
         initView();
     }
+    
+    var dataCount: Int? = 5;
     
     /**
      init view
@@ -49,7 +51,7 @@ class FansViewController: SBaseViewController
 
 //MARK: - UITableViewDataSource
 
-extension FansViewController: UITableViewDataSource
+extension FollowsViewController: UITableViewDataSource
 {
     func numberOfSections(in tableView: UITableView) -> Int
     {
@@ -58,42 +60,26 @@ extension FansViewController: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 20;
+        return dataCount!;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        var cell = tableView.dequeueReusableCell(withIdentifier: FansCell.identifier) as? FansCell;
+        var cell = tableView.dequeueReusableCell(withIdentifier: FansCell.identifier) as? FollowsCell;
         if (nil == cell)
         {
-            cell = FansCell.loadNib();
+            cell = FollowsCell.loadNib();
         }
         
         cell?.imgHead = UIImage(named: "icon_icon.jpg");
         cell?.nickName = "不吃鱼的喵";
-        cell?.introduce = "本喵是个素食主义喵";
+        cell?.talk = "今天再次去钓鱼了";
         
-        weak var weakCell = cell;
-        cell?.changeConcerned = {
-            (isConcerned: Bool) -> Void in
-            if (isConcerned)
-            {
-                weakCell?.isConcerned = false;
-            }
-            else
-            {
-                weakCell?.isConcerned = true;
-            }
+        weak var weakSelf = self;
+        cell?.changeConcern = {
+//            weakSelf?.dataCount! -= 1;
+//            weakSelf?.tableView?.deleteRows(at: [indexPath], with: .automatic);
         };
-        
-        if (0 == indexPath.row % 2)
-        {
-            cell?.isConcerned = true;
-        }
-        else
-        {
-            cell?.isConcerned = false;
-        }
         
         return cell!;
     }
@@ -101,11 +87,11 @@ extension FansViewController: UITableViewDataSource
 
 //MARK: - UITableViewDelegate
 
-extension FansViewController: UITableViewDelegate
+extension FollowsViewController: UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return FansCell.cellHeight;
+        return FollowsCell.cellHeight;
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
