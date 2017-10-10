@@ -35,11 +35,23 @@
 
 - (void)clickView:(PersonCenterView *)view indexPath:(NSIndexPath *)indexPath
 {
-    PersonHomeViewController *controller = [PersonHomeViewController new];
-    controller.personName = @"天空的鱼";
-    if (_delegate && [_delegate respondsToSelector:@selector(enterViewController:)])
+    if (2 == indexPath.row)
     {
-        [_delegate enterViewController:controller];
+        CommentsViewController *controller = [CommentsViewController new];
+        controller.hidesBottomBarWhenPushed = YES;
+        if (_delegate && [_delegate respondsToSelector:@selector(enterViewController:)])
+        {
+            [_delegate enterViewController:controller];
+        }
+    }
+    else if (1 == indexPath.row)
+    {
+        FavorViewController *controller = [FavorViewController new];
+        controller.hidesBottomBarWhenPushed = YES;
+        if (_delegate && [_delegate respondsToSelector:@selector(enterViewController:)])
+        {
+            [_delegate enterViewController:controller];
+        }
     }
 }
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		277D0BC6D6FE3A20B29D38B3 /* libPods-IAmPet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF319E986DDE4BC068AC6EC /* libPods-IAmPet.a */; };
+		65021D311F8C998D009A0AF0 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65021D301F8C998D009A0AF0 /* CommentsViewController.swift */; };
+		65021D331F8CC68B009A0AF0 /* FavorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65021D321F8CC68B009A0AF0 /* FavorViewController.swift */; };
 		6508B23D1F6BBA3700B0418F /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */; };
 		6535EFD71F78D71100B610D9 /* PhotosShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFD61F78D71100B610D9 /* PhotosShowView.swift */; };
 		6535EFD91F79F1D900B610D9 /* OtherTalkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6535EFD81F79F1D900B610D9 /* OtherTalkCell.xib */; };
@@ -154,8 +156,8 @@
 		65C6E7031F6BCC790063F5A5 /* icon_show@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6A51F6BCC780063F5A5 /* icon_show@2x.png */; };
 		65C6E7041F6BCC790063F5A5 /* icon_submmit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6A61F6BCC780063F5A5 /* icon_submmit@2x.png */; };
 		65C6E7051F6BCC790063F5A5 /* icon_want_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6A71F6BCC780063F5A5 /* icon_want_normal.png */; };
-		65C6E7061F6BCC790063F5A5 /* icon_want_person@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6A81F6BCC780063F5A5 /* icon_want_person@2x.png */; };
-		65C6E7071F6BCC790063F5A5 /* icon_want_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6A91F6BCC780063F5A5 /* icon_want_sel@2x.png */; };
+		65C6E7061F6BCC790063F5A5 /* icon_want_person.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6A81F6BCC780063F5A5 /* icon_want_person.png */; };
+		65C6E7071F6BCC790063F5A5 /* icon_want_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6A91F6BCC780063F5A5 /* icon_want_sel.png */; };
 		65C6E7081F6BCC790063F5A5 /* icon_want@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6AA1F6BCC780063F5A5 /* icon_want@2x.png */; };
 		65C6E7091F6BCC790063F5A5 /* icon_zoon_in@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6AB1F6BCC780063F5A5 /* icon_zoon_in@2x.png */; };
 		65C6E70A1F6BCC790063F5A5 /* icon_zoon_out@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6AC1F6BCC780063F5A5 /* icon_zoon_out@2x.png */; };
@@ -267,6 +269,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		65021D301F8C998D009A0AF0 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		65021D321F8CC68B009A0AF0 /* FavorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavorViewController.swift; sourceTree = "<group>"; };
 		6508B23B1F6BBA3700B0418F /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		6535EFD61F78D71100B610D9 /* PhotosShowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosShowView.swift; sourceTree = "<group>"; };
@@ -457,8 +461,8 @@
 		65C6E6A51F6BCC780063F5A5 /* icon_show@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_show@2x.png"; sourceTree = "<group>"; };
 		65C6E6A61F6BCC780063F5A5 /* icon_submmit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_submmit@2x.png"; sourceTree = "<group>"; };
 		65C6E6A71F6BCC780063F5A5 /* icon_want_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_want_normal.png; sourceTree = "<group>"; };
-		65C6E6A81F6BCC780063F5A5 /* icon_want_person@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_want_person@2x.png"; sourceTree = "<group>"; };
-		65C6E6A91F6BCC780063F5A5 /* icon_want_sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_want_sel@2x.png"; sourceTree = "<group>"; };
+		65C6E6A81F6BCC780063F5A5 /* icon_want_person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_want_person.png; sourceTree = "<group>"; };
+		65C6E6A91F6BCC780063F5A5 /* icon_want_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_want_sel.png; sourceTree = "<group>"; };
 		65C6E6AA1F6BCC780063F5A5 /* icon_want@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_want@2x.png"; sourceTree = "<group>"; };
 		65C6E6AB1F6BCC780063F5A5 /* icon_zoon_in@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_zoon_in@2x.png"; sourceTree = "<group>"; };
 		65C6E6AC1F6BCC780063F5A5 /* icon_zoon_out@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_zoon_out@2x.png"; sourceTree = "<group>"; };
@@ -742,6 +746,8 @@
 				65CCE8EE1F81503500072D01 /* PersonHomeViewController.swift */,
 				65CCE8F61F82A1ED00072D01 /* FansViewController.swift */,
 				65CCE8FC1F8331E200072D01 /* FollowsViewController.swift */,
+				65021D301F8C998D009A0AF0 /* CommentsViewController.swift */,
+				65021D321F8CC68B009A0AF0 /* FavorViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -842,8 +848,8 @@
 				656A2D931F72542600E97F15 /* icon_voice.png */,
 				656A2DA91F73BC5D00E97F15 /* icon_voice2.png */,
 				65C6E6A71F6BCC780063F5A5 /* icon_want_normal.png */,
-				65C6E6A81F6BCC780063F5A5 /* icon_want_person@2x.png */,
-				65C6E6A91F6BCC780063F5A5 /* icon_want_sel@2x.png */,
+				65C6E6A81F6BCC780063F5A5 /* icon_want_person.png */,
+				65C6E6A91F6BCC780063F5A5 /* icon_want_sel.png */,
 				65C6E6AA1F6BCC780063F5A5 /* icon_want@2x.png */,
 				65C6E6AB1F6BCC780063F5A5 /* icon_zoon_in@2x.png */,
 				65C6E6AC1F6BCC780063F5A5 /* icon_zoon_out@2x.png */,
@@ -1271,7 +1277,7 @@
 				65C6E6FE1F6BCC790063F5A5 /* icon_shop.png in Resources */,
 				65F152DA1F7FFD6D0004D679 /* chatfrom_doctor_icon.png in Resources */,
 				65C6E7381F6BCC8B0063F5A5 /* icon_discovery.png in Resources */,
-				65C6E7071F6BCC790063F5A5 /* icon_want_sel@2x.png in Resources */,
+				65C6E7071F6BCC790063F5A5 /* icon_want_sel.png in Resources */,
 				65C6E70D1F6BCC790063F5A5 /* item@2x.png in Resources */,
 				65C6E6D11F6BCC790063F5A5 /* arrow_down@2x.png in Resources */,
 				65C6E7031F6BCC790063F5A5 /* icon_show@2x.png in Resources */,
@@ -1298,7 +1304,7 @@
 				65C6E7021F6BCC790063F5A5 /* icon_show_share@2x.png in Resources */,
 				65C6E6F81F6BCC790063F5A5 /* icon_person_hilighted.png in Resources */,
 				656A2DA61F73BB9400E97F15 /* icon_img.png in Resources */,
-				65C6E7061F6BCC790063F5A5 /* icon_want_person@2x.png in Resources */,
+				65C6E7061F6BCC790063F5A5 /* icon_want_person.png in Resources */,
 				656A2D8F1F72456C00E97F15 /* microphone.png in Resources */,
 				65C6E7371F6BCC8B0063F5A5 /* icon_conment.png in Resources */,
 				65C2E20D1F6FAA460043027A /* PersonCenterCell.xib in Resources */,
@@ -1500,6 +1506,7 @@
 				6535EFE31F79F78200B610D9 /* TalkDetailCell.swift in Sources */,
 				65C2E2101F6FAB200043027A /* BaseTableViewCell.m in Sources */,
 				658CA83E1F760A140013DCA6 /* Constant.swift in Sources */,
+				65021D331F8CC68B009A0AF0 /* FavorViewController.swift in Sources */,
 				657C74551F6658D2002BE2BA /* SectionInfo.m in Sources */,
 				653FEDA41F7D444D003B417C /* SearchDispayViewController.swift in Sources */,
 				65CCE8FD1F8331E200072D01 /* FollowsViewController.swift in Sources */,
@@ -1525,6 +1532,7 @@
 				657C74581F6785F8002BE2BA /* RegisterViewController.m in Sources */,
 				657C73FD1F662C02002BE2BA /* AppDelegate.m in Sources */,
 				6535EFF11F7A352100B610D9 /* TalkDetailViewController.swift in Sources */,
+				65021D311F8C998D009A0AF0 /* CommentsViewController.swift in Sources */,
 				65F152B51F7FFD530004D679 /* UUMessageFrame.m in Sources */,
 				6535EFD71F78D71100B610D9 /* PhotosShowView.swift in Sources */,
 				65CCE8EF1F81503500072D01 /* PersonHomeViewController.swift in Sources */,

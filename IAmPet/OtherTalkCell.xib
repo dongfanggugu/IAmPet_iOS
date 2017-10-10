@@ -24,7 +24,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bio-st-Brp">
                                 <rect key="frame" x="0.0" y="24.5" width="375" height="1"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="HG1-m9-Dsu"/>
                                 </constraints>
@@ -99,14 +98,12 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tvZ-hq-oeU">
                                 <rect key="frame" x="0.0" y="5.5" width="375" height="1"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="0bt-xd-hhp"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x52-19-Fvh">
                                 <rect key="frame" x="187" y="0.0" width="1" height="11.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="htd-fB-FT3"/>
                                 </constraints>
@@ -119,7 +116,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="icon_conment.png"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGN-AC-gdg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGN-AC-gdg">
                                 <rect key="frame" x="187" y="-4.5" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="4Ac-FD-OdZ"/>
@@ -137,7 +134,7 @@
                                 </constraints>
                                 <state key="normal" image="icon_likes.png"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点赞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxQ-5A-J6Q">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxQ-5A-J6Q">
                                 <rect key="frame" x="325" y="-4.5" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="7ZP-Vd-GMB"/>
@@ -153,9 +150,9 @@
                                     <constraint firstAttribute="width" constant="25" id="AO0-65-IrC"/>
                                     <constraint firstAttribute="height" constant="25" id="Nfc-8r-5xQ"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="icon_want_person.png"/>
+                                <state key="normal" image="icon_want_person.png"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q67-kb-pXR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q67-kb-pXR">
                                 <rect key="frame" x="33" y="-5" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="fBO-cf-Kj4"/>
@@ -231,6 +228,6 @@
         <image name="icon_conment.png" width="33" height="33"/>
         <image name="icon_likes.png" width="512" height="512"/>
         <image name="icon_person.png" width="44" height="44"/>
-        <image name="icon_want_person.png" width="22" height="22"/>
+        <image name="icon_want_person.png" width="44" height="44"/>
     </resources>
 </document>

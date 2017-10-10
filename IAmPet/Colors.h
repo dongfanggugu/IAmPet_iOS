@@ -25,6 +25,9 @@
 //主色调 橘黄色 3
 #define Color_Main3 @"#D94323"
 
+//淡灰色
+#define Color_Light_Gray @"#EEEEEE"
+
 #define RGB(rgbValue) [Utils getColorByRGB:rgbValue]
 
 #endif /* Colors_h */
