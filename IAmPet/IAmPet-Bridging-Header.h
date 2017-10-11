@@ -9,3 +9,4 @@
 #import "MainTabBarViewController.h"
 #import "ChatViewController.h"
 #import "HomeViewController.h"
+#import "SideMenuViewController.h"

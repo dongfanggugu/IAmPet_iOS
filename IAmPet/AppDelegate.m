@@ -13,6 +13,7 @@
 #import "NSArray+Log.h"
 #import "SideMenuViewController.h"
 #import "BaseTableViewController.h"
+#import "IAmPet-Swift.h"
 
 @interface AppDelegate ()
 
@@ -30,7 +31,8 @@
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, screen.bounds.size.width, screen.bounds.size.height)];
     self.window.backgroundColor = RGB(Color_Window);
     
-    UIViewController *controller = [SideMenuViewController new];
+//    UIViewController *controller = [SideMenuViewController new];
+    UIViewController *controller = [LoginViewController new];
     self.window.rootViewController = controller;
     
     [self.window makeKeyAndVisible];

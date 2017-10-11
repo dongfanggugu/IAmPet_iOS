@@ -10,6 +10,10 @@
 		277D0BC6D6FE3A20B29D38B3 /* libPods-IAmPet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF319E986DDE4BC068AC6EC /* libPods-IAmPet.a */; };
 		65021D311F8C998D009A0AF0 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65021D301F8C998D009A0AF0 /* CommentsViewController.swift */; };
 		65021D331F8CC68B009A0AF0 /* FavorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65021D321F8CC68B009A0AF0 /* FavorViewController.swift */; };
+		65021D351F8DB52E009A0AF0 /* PersonInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65021D341F8DB52E009A0AF0 /* PersonInfoViewController.swift */; };
+		65021D371F8DB56E009A0AF0 /* PersonInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65021D361F8DB56E009A0AF0 /* PersonInfoViewController.xib */; };
+		65021D391F8DE2EB009A0AF0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65021D381F8DE2EB009A0AF0 /* LoginViewController.swift */; };
+		65021D3B1F8DE326009A0AF0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65021D3A1F8DE326009A0AF0 /* LoginViewController.xib */; };
 		6508B23D1F6BBA3700B0418F /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */; };
 		6535EFD71F78D71100B610D9 /* PhotosShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6535EFD61F78D71100B610D9 /* PhotosShowView.swift */; };
 		6535EFD91F79F1D900B610D9 /* OtherTalkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6535EFD81F79F1D900B610D9 /* OtherTalkCell.xib */; };
@@ -182,7 +186,7 @@
 		65C6E71D1F6BCC790063F5A5 /* setting_confirm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6BF1F6BCC790063F5A5 /* setting_confirm@2x.png */; };
 		65C6E71E1F6BCC790063F5A5 /* share_friend.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6C01F6BCC790063F5A5 /* share_friend.png */; };
 		65C6E71F1F6BCC790063F5A5 /* share_icon_qq@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6C11F6BCC790063F5A5 /* share_icon_qq@2x.png */; };
-		65C6E7201F6BCC790063F5A5 /* share_icon_sinaweibo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6C21F6BCC790063F5A5 /* share_icon_sinaweibo@2x.png */; };
+		65C6E7201F6BCC790063F5A5 /* share_icon_sinaweibo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6C21F6BCC790063F5A5 /* share_icon_sinaweibo.png */; };
 		65C6E7211F6BCC790063F5A5 /* share_icon_wechat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6C31F6BCC790063F5A5 /* share_icon_wechat@2x.png */; };
 		65C6E7221F6BCC790063F5A5 /* share_icon_wechatfriends@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6C41F6BCC790063F5A5 /* share_icon_wechatfriends@2x.png */; };
 		65C6E7231F6BCC790063F5A5 /* share_mainpage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6C51F6BCC790063F5A5 /* share_mainpage@2x.png */; };
@@ -271,6 +275,10 @@
 /* Begin PBXFileReference section */
 		65021D301F8C998D009A0AF0 /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		65021D321F8CC68B009A0AF0 /* FavorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavorViewController.swift; sourceTree = "<group>"; };
+		65021D341F8DB52E009A0AF0 /* PersonInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonInfoViewController.swift; sourceTree = "<group>"; };
+		65021D361F8DB56E009A0AF0 /* PersonInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonInfoViewController.xib; sourceTree = "<group>"; };
+		65021D381F8DE2EB009A0AF0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		65021D3A1F8DE326009A0AF0 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		6508B23B1F6BBA3700B0418F /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		6535EFD61F78D71100B610D9 /* PhotosShowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosShowView.swift; sourceTree = "<group>"; };
@@ -487,7 +495,7 @@
 		65C6E6BF1F6BCC790063F5A5 /* setting_confirm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setting_confirm@2x.png"; sourceTree = "<group>"; };
 		65C6E6C01F6BCC790063F5A5 /* share_friend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_friend.png; sourceTree = "<group>"; };
 		65C6E6C11F6BCC790063F5A5 /* share_icon_qq@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_icon_qq@2x.png"; sourceTree = "<group>"; };
-		65C6E6C21F6BCC790063F5A5 /* share_icon_sinaweibo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_icon_sinaweibo@2x.png"; sourceTree = "<group>"; };
+		65C6E6C21F6BCC790063F5A5 /* share_icon_sinaweibo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_icon_sinaweibo.png; sourceTree = "<group>"; };
 		65C6E6C31F6BCC790063F5A5 /* share_icon_wechat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_icon_wechat@2x.png"; sourceTree = "<group>"; };
 		65C6E6C41F6BCC790063F5A5 /* share_icon_wechatfriends@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_icon_wechatfriends@2x.png"; sourceTree = "<group>"; };
 		65C6E6C51F6BCC790063F5A5 /* share_mainpage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_mainpage@2x.png"; sourceTree = "<group>"; };
@@ -748,6 +756,8 @@
 				65CCE8FC1F8331E200072D01 /* FollowsViewController.swift */,
 				65021D301F8C998D009A0AF0 /* CommentsViewController.swift */,
 				65021D321F8CC68B009A0AF0 /* FavorViewController.swift */,
+				65021D341F8DB52E009A0AF0 /* PersonInfoViewController.swift */,
+				65021D381F8DE2EB009A0AF0 /* LoginViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -876,7 +886,7 @@
 				65C6E6BF1F6BCC790063F5A5 /* setting_confirm@2x.png */,
 				65C6E6C01F6BCC790063F5A5 /* share_friend.png */,
 				65C6E6C11F6BCC790063F5A5 /* share_icon_qq@2x.png */,
-				65C6E6C21F6BCC790063F5A5 /* share_icon_sinaweibo@2x.png */,
+				65C6E6C21F6BCC790063F5A5 /* share_icon_sinaweibo.png */,
 				65C6E6C31F6BCC790063F5A5 /* share_icon_wechat@2x.png */,
 				65C6E6C41F6BCC790063F5A5 /* share_icon_wechatfriends@2x.png */,
 				65C6E6C51F6BCC790063F5A5 /* share_mainpage@2x.png */,
@@ -946,6 +956,8 @@
 				65A2614A1F7F65B6003C28C0 /* ChatCell.xib */,
 				65CCE8F21F829BCA00072D01 /* FansCell.xib */,
 				65CCE8F81F832A5500072D01 /* FollowsCell.xib */,
+				65021D361F8DB56E009A0AF0 /* PersonInfoViewController.xib */,
+				65021D3A1F8DE326009A0AF0 /* LoginViewController.xib */,
 			);
 			name = xib;
 			sourceTree = "<group>";
@@ -1263,6 +1275,7 @@
 				656A2DA81F73BBC300E97F15 /* icon_video.png in Resources */,
 				65C6E72B1F6BCC790063F5A5 /* wanted_normal@2x.png in Resources */,
 				65C6E6D91F6BCC790063F5A5 /* fmale_white@2x.png in Resources */,
+				65021D371F8DB56E009A0AF0 /* PersonInfoViewController.xib in Resources */,
 				65C6E6FD1F6BCC790063F5A5 /* icon_setting@2x.png in Resources */,
 				65C6E71A1F6BCC790063F5A5 /* new_msg@2x.png in Resources */,
 				65F152D21F7FFD6D0004D679 /* chat_animation_white3.png in Resources */,
@@ -1276,6 +1289,7 @@
 				6535EFDD1F79F3FB00B610D9 /* icon_likes.png in Resources */,
 				65C6E6FE1F6BCC790063F5A5 /* icon_shop.png in Resources */,
 				65F152DA1F7FFD6D0004D679 /* chatfrom_doctor_icon.png in Resources */,
+				65021D3B1F8DE326009A0AF0 /* LoginViewController.xib in Resources */,
 				65C6E7381F6BCC8B0063F5A5 /* icon_discovery.png in Resources */,
 				65C6E7071F6BCC790063F5A5 /* icon_want_sel.png in Resources */,
 				65C6E70D1F6BCC790063F5A5 /* item@2x.png in Resources */,
@@ -1335,7 +1349,7 @@
 				656A2D961F725E0E00E97F15 /* VoicePlayView.xib in Resources */,
 				65F152CE1F7FFD6D0004D679 /* chat_animation2.png in Resources */,
 				65C6E7111F6BCC790063F5A5 /* login_empty@2x.png in Resources */,
-				65C6E7201F6BCC790063F5A5 /* share_icon_sinaweibo@2x.png in Resources */,
+				65C6E7201F6BCC790063F5A5 /* share_icon_sinaweibo.png in Resources */,
 				656A2DB11F74F9F000E97F15 /* MyTalkCell.xib in Resources */,
 				65F152CF1F7FFD6D0004D679 /* chat_animation3.png in Resources */,
 				65C2E2081F6FA8450043027A /* icon_logout.png in Resources */,
@@ -1475,6 +1489,7 @@
 			files = (
 				657C74661F68C1AF002BE2BA /* SideMenuViewController.m in Sources */,
 				65F152B01F7FFD530004D679 /* UUImageAvatarBrowser.m in Sources */,
+				65021D391F8DE2EB009A0AF0 /* LoginViewController.swift in Sources */,
 				656A2D991F725EDD00E97F15 /* VoicePlayView.m in Sources */,
 				657C74481F6637E7002BE2BA /* User.m in Sources */,
 				65C2E2131F6FABE70043027A /* PersonCenterCell.m in Sources */,
@@ -1531,6 +1546,7 @@
 				657C744E1F6657F2002BE2BA /* BaseNavigationController.m in Sources */,
 				657C74581F6785F8002BE2BA /* RegisterViewController.m in Sources */,
 				657C73FD1F662C02002BE2BA /* AppDelegate.m in Sources */,
+				65021D351F8DB52E009A0AF0 /* PersonInfoViewController.swift in Sources */,
 				6535EFF11F7A352100B610D9 /* TalkDetailViewController.swift in Sources */,
 				65021D311F8C998D009A0AF0 /* CommentsViewController.swift in Sources */,
 				65F152B51F7FFD530004D679 /* UUMessageFrame.m in Sources */,

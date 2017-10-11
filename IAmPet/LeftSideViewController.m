@@ -35,10 +35,9 @@
 
 - (void)clickView:(PersonCenterView *)view indexPath:(NSIndexPath *)indexPath
 {
-    if (2 == indexPath.row)
+    if (0 == indexPath.row)
     {
-        CommentsViewController *controller = [CommentsViewController new];
-        controller.hidesBottomBarWhenPushed = YES;
+        PersonInfoViewController *controller = [PersonInfoViewController new];
         if (_delegate && [_delegate respondsToSelector:@selector(enterViewController:)])
         {
             [_delegate enterViewController:controller];
@@ -47,6 +46,15 @@
     else if (1 == indexPath.row)
     {
         FavorViewController *controller = [FavorViewController new];
+        controller.hidesBottomBarWhenPushed = YES;
+        if (_delegate && [_delegate respondsToSelector:@selector(enterViewController:)])
+        {
+            [_delegate enterViewController:controller];
+        }
+    }
+    else if (2 == indexPath.row)
+    {
+        CommentsViewController *controller = [CommentsViewController new];
         controller.hidesBottomBarWhenPushed = YES;
         if (_delegate && [_delegate respondsToSelector:@selector(enterViewController:)])
         {
