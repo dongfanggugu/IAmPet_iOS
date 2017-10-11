@@ -117,6 +117,9 @@
                     <state key="normal" title="注册">
                         <color key="titleColor" red="0.93725490199999995" green="0.66274509800000003" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="clickRegisterBtn" destination="-1" eventType="touchUpInside" id="J2U-tG-P8K"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

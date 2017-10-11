@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "SectionManagerController.h"
-#import "RegisterViewController.h"
 
 @interface ViewController ()
 
@@ -58,8 +57,8 @@
  */
 - (void)userRegister
 {
-    RegisterViewController *controller = [[RegisterViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+//    RegisterViewController *controller = [[RegisterViewController alloc] init];
+//    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

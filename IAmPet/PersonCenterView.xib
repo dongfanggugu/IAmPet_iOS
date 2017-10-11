@@ -87,6 +87,9 @@
                         <constraint firstAttribute="width" constant="20" id="k5V-0s-Q3G"/>
                     </constraints>
                     <state key="normal" image="icon_logout.png"/>
+                    <connections>
+                        <action selector="clickLogout" destination="iN0-l3-epB" eventType="touchUpInside" id="9WL-a3-jdp"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6KY-ii-6Gh">
                     <rect key="frame" x="155" y="633" width="62" height="26"/>
@@ -98,6 +101,9 @@
                     <state key="normal" title="退出登录">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="clickLogout" destination="iN0-l3-epB" eventType="touchUpInside" id="Qho-Er-ppu"/>
+                    </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YDp-GA-l03">
                     <rect key="frame" x="0.0" y="180" width="225" height="413"/>

@@ -10,7 +10,6 @@
 #import "LeftSideViewController.h"
 #import "MainTabBarViewController.h"
 #import "BaseNavigationController.h"
-#import "RegisterViewController.h"
 
 @interface SideMenuViewController() <MainTabBarViewControllerDelegate, LeftSideViewControllerDelegate>
 {

@@ -100,6 +100,17 @@
     [self.layer insertSublayer:layer atIndex:0];
 }
 
+/**
+ *  click logout button
+ */
+- (IBAction)clickLogout
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(clickLogout:)])
+    {
+        [_delegate clickLogout:self];
+    }
+}
+
 #pragma mark - UITableViewDelegate & UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

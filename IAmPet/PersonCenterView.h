@@ -18,6 +18,8 @@
 
 - (void)clickFollow:(PersonCenterView *)view;
 
+- (void)clickLogout:(PersonCenterView *)view;
+
 @end
 
 @interface PersonCenterView : BaseNibView

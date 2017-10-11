@@ -15,3 +15,9 @@ let ScreenHeight = UIScreen.main.bounds.height;
 let Color_Gray_Font = "#E1E1E1";
 
 let HeightBottomBar = 49;
+
+let NameMaxLenght = 30;    //用户名最大长度
+
+let PwdMaxLenght = 30;    //密码最大长度
+
+let PwdMinLenght = 6;    //密码最小长度

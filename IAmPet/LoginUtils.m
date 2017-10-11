@@ -7,6 +7,7 @@
 //
 
 #import "LoginUtils.h"
+#import "IAmPet-Swift.h"
 
 @implementation LoginUtils
 
@@ -34,6 +35,8 @@
  */
 + (void)logoutBackTosignIn
 {
+    UIViewController *controller = [LoginViewController new];
+    [UIApplication sharedApplication].delegate.window.rootViewController = controller;
 }
 
 /**
@@ -41,6 +44,7 @@
  */
 + (void)logout
 {
+    [self logoutBackTosignIn];
 }
 
 - (void)dealloc

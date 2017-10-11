@@ -126,7 +126,6 @@
     }
     _cell = cell;
     
-     
     if (0 == indexPath.section)
     {
         NSArray *urls = @[
@@ -147,12 +146,13 @@
         cell.mediaContent = media;
     }
     
+    __weak typeof(self) weakSelf = self;
     cell.playVideo = ^(NSString *url) {
-        [self playVideo:url];
+        [weakSelf playVideo:url];
     };
     
     cell.showPhoto = ^(UIImage *image) {
-        [self showPreviewImage:image];
+        [weakSelf showPreviewImage:image];
     };
     
     return cell;

@@ -97,4 +97,9 @@
     [nav pushViewController:controller animated:YES];
 }
 
+- (void)dealloc
+{
+    NSLog(@"dealloc: %@", [self class]);
+}
+
 @end

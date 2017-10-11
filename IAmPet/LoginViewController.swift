@@ -23,7 +23,6 @@ class LoginViewController: SBaseViewController
             if (pwdVisible!)
             {
                 tfPwd.isSecureTextEntry = false;
-                tfPwd.keyboardType = .alphabet;
                 btnVisible.setImage(UIImage(named: "close"), for: .normal);
             }
             else
@@ -48,6 +47,7 @@ class LoginViewController: SBaseViewController
     private func initView()
     {
         self.view.backgroundColor = UIColor.white;
+        tfPwd.keyboardType = .alphabet;
         pwdVisible = false;
         
         btnLogin.layer.masksToBounds = true;
@@ -85,4 +85,22 @@ class LoginViewController: SBaseViewController
         let controller = SideMenuViewController();
         UIApplication.shared.delegate?.window??.rootViewController = controller;
     }
+    
+    /**
+     click regsiter button
+     */
+    @IBAction private func clickRegisterBtn()
+    {
+        register();
+    }
+    
+    /**
+     register
+     */
+    private func register()
+    {
+        let controller = RegisterViewController();
+        self.present(controller, animated: true, completion: nil);
+    }
+    
 }

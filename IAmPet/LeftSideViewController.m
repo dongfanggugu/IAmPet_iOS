@@ -9,6 +9,7 @@
 #import "LeftSideViewController.h"
 #import "PersonCenterView.h"
 #import "IAmPet-Swift.h"
+#import "LoginUtils.h"
 
 @interface LeftSideViewController () <PersonCenterViewDelegate>
 
@@ -79,6 +80,16 @@
     {
         [_delegate enterViewController:controller];
     }
+}
+
+/**
+ *  click logout button
+ *
+ *  @param view PersonCenterView
+ */
+- (void)clickLogout:(PersonCenterView *)view
+{
+    [LoginUtils logout];
 }
 
 @end
