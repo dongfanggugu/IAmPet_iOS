@@ -116,7 +116,7 @@
         }
         
         NSDictionary *head = responseObject[@"head"];
-        NSInteger rspCode = [head[@"code"] integerValue];
+        NSInteger rspCode = [head[@"rspCode"] integerValue];
         NSString *rspMsg = head[@"msg"];
         
         NSLog(@"response: %@", responseObject);
@@ -129,7 +129,10 @@
         else
         {
             NSError *error = [NSError errorWithDomain:rspMsg code:rspCode userInfo:nil];
-            failure(task, error);
+            if (failure)
+            {
+                failure(task, error);
+            }
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

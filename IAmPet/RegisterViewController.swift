@@ -108,7 +108,14 @@ class RegisterViewController: SBaseViewController
      */
     private func register(name: String, pwd: String)
     {
-        print(#function);
+        var params = [String: Any]();
+        params["userName"] = name;
+        params["password"] = Utils.md5(pwd);
+        
+        HttpClient.share().fgPost(URL_REGISTER, parameters: params, success: { (task, responseObject) in
+        }) { (task, error) in
+            self.showAlertMsg((error as NSError?)?.domain, dismiss: nil);
+        }
     }
     
     /**

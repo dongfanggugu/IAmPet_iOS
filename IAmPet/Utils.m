@@ -30,7 +30,7 @@
 + (NSString *)getIp
 {
 //    return @"http://www.chorstar.com:8081/";
-    return @"http://10.10.4.22:3000/";
+    return @"http://10.10.4.9:3000/";
 }
 
 /**
