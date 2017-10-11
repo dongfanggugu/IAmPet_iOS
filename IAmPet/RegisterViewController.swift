@@ -114,7 +114,8 @@ class RegisterViewController: SBaseViewController
         
         HttpClient.share().fgPost(URL_REGISTER, parameters: params, success: { (task, responseObject) in
         }) { (task, error) in
-            self.showAlertMsg((error as NSError?)?.domain, dismiss: nil);
+            let err = error as NSError?;
+            self.showAlertMsg(err?.domain, dismiss: nil);
         }
     }
     
