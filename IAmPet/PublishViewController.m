@@ -20,6 +20,7 @@
 #import "VideoPlayView.h"
 #import <IQTextView.h>
 #import "IAmPet-Swift.h"
+#import "PhotoView.h"
 
 #define MAX_LENGTH 300
 
@@ -118,6 +119,35 @@
     view.layer.masksToBounds = YES;
     view.layer.borderWidth = 1;
     view.layer.borderColor = RGB(Color_Main).CGColor;
+}
+
+- (IBAction)publish
+{
+    PhotoView *photoView = (PhotoView *) [_photosView.arrayPhotoView firstObject];
+    UIImage *image = photoView.imgPhoto;
+    
+    NSData *data = UIImagePNGRepresentation(image);
+    [self uploadFile:data name:@"aaaa" url:@"image_upload"];
+}
+
+- (void)uploadFile:(NSData *)data name:(NSString *)fileName url:(NSString *)url
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/json"];
+//    [manager.requestSerializer setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [manager POST:@"http://10.10.4.9:3000/mobile/image_upload" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:@"image/jpg"];
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSLog(@"success");
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@", error);
+    }];
 }
 
 /**

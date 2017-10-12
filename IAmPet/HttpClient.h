@@ -39,6 +39,8 @@
         success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
         failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
+- (void)uploadFile:(NSData *)data name:(NSString *)fileName url:(NSString *)url;
+
 @end
 
 #endif /* HttpClient_h */

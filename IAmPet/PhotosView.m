@@ -20,7 +20,7 @@
 
 //@property (nonatomic, copy) NSMutableArray *arrayImage;
 
-@property (nonatomic, copy) NSMutableArray *arrayPhotoView;
+
 
 @property (nonatomic, assign) NSInteger max;
 

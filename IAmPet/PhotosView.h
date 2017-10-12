@@ -34,4 +34,6 @@
 
 @property (nonatomic, weak) id<PhotosViewDelegate> delegate;
 
+@property (nonatomic, copy) NSMutableArray *arrayPhotoView;
+
 @end

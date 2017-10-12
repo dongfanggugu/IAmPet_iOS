@@ -41,6 +41,9 @@
                     <state key="normal" title="发布">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="publish" destination="-1" eventType="touchUpInside" id="I3B-NQ-fzJ"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20p-CY-RHz">
                     <rect key="frame" x="329" y="27" width="30" height="30"/>
