@@ -22,7 +22,15 @@
 #import "IAmPet-Swift.h"
 #import "PhotoView.h"
 
-#define MAX_LENGTH 300
+typedef NS_ENUM(NSInteger, MediaType)
+{
+    MediaNone,
+    MediaPhoto,
+    MediaAudio,
+    MediaVideo
+};
+
+#define MAX_LENGTH 150
 
 @interface PublishViewController () <TZImagePickerControllerDelegate, PhotosViewDelegate, AVAudioRecorderDelegate, VideoRecordControllerDelegate, VoicePlayViewDelegate, UITextViewDelegate>
 
@@ -60,11 +68,18 @@
 
 @property (nonatomic, copy) NSString *videoPath;
 
+@property (nonatomic, copy) NSString *audioPath;
+
 //语音播放
 @property (nonatomic, strong) VoicePlayView *playView;
 
 //视频播放
 @property (nonatomic, strong) ALMoviePlayerController *playerController;
+
+//多媒体类型
+@property (nonatomic, assign) MediaType mediaType;
+
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
 
@@ -74,6 +89,7 @@
 {
     [super viewDidLoad];
     [self initView];
+    _mediaType = MediaNone;
 }
 
 - (void)initView
@@ -123,31 +139,97 @@
 
 - (IBAction)publish
 {
-    PhotoView *photoView = (PhotoView *) [_photosView.arrayPhotoView firstObject];
-    UIImage *image = photoView.imgPhoto;
-    
-    NSData *data = UIImagePNGRepresentation(image);
-    [self uploadFile:data name:@"aaaa" url:@"image_upload"];
+    if (_mediaType == MediaPhoto)
+    {
+        [self uploadImages];
+    }
+    else if (_mediaType == MediaAudio)
+    {
+        [self uploadAudio];
+    }
+    else if (_mediaType == MediaVideo)
+    {
+        [self uploadVideo];
+    }
 }
 
-- (void)uploadFile:(NSData *)data name:(NSString *)fileName url:(NSString *)url
+/**
+ *  upload audio
+ */
+- (void)uploadAudio
 {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/json"];
-//    [manager.requestSerializer setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    [manager POST:@"http://10.10.4.9:3000/mobile/image_upload" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        
-        [formData appendPartWithFileData:data name:@"file" fileName:fileName mimeType:@"image/jpg"];
-    } progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSLog(@"success");
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@", error);
+    [self showHub];
+    NSData *data = [NSData dataWithContentsOfFile:_audioPath];
+    [[HttpClient shareClient] uploadAudio:data url:@"fileUpload" success:^(NSURLSessionDataTask *task, id responseObject) {
+        [HUDClass hideLoadingHUD:_hud];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [HUDClass hideLoadingHUD:_hud];
     }];
+}
+
+/**
+ *  upload video
+ */
+- (void)uploadVideo
+{
+    [self showHub];
+    NSData *data = [NSData dataWithContentsOfFile:_videoPath];
+    [[HttpClient shareClient] uploadVideo:data url:@"fileUpload" success:^(NSURLSessionDataTask *task, id responseObject) {
+        [HUDClass hideLoadingHUD:_hud];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [HUDClass hideLoadingHUD:_hud];
+    }];
+}
+
+/**
+ *  upload the images
+ */
+- (void)uploadImages
+{
+    [self showHub];
+    NSMutableArray *array = [NSMutableArray array];
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    for (NSInteger i = 0; i < _photosView.arrayPhotoView.count; i++)
+    {
+        //初始化一下，保证不越界
+        [array insertObject:@"" atIndex:i];
+        PhotoView *photoView = (PhotoView *)_photosView.arrayPhotoView[i];
+        UIImage *image = photoView.imgPhoto;
+        NSData *data = UIImageJPEGRepresentation(image, 1.0);
+        dispatch_group_async(group, queue, ^{
+            dispatch_group_enter(group);
+            [[HttpClient shareClient] uploadImage:data url:URL_UPLOAD success:^(NSURLSessionDataTask *task, id responseObject) {
+                dispatch_group_leave(group);
+                NSString *url = responseObject[@"body"][@"url"];
+                array[i] = url;
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                dispatch_group_leave(group);
+            }];
+        });
+    }
+    
+    dispatch_group_notify(group, queue, ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [HUDClass hideLoadingHUD:_hud];
+            NSLog(@"%@", array);
+        });
+    });
+}
+
+/**
+ *  show hud progress
+ */
+- (void)showHub
+{
+    if (_hud)
+    {
+        [HUDClass hideLoadingHUD:_hud];
+        _hud = nil;
+    }
+    
+    _hud = [HUDClass showLoadingHUD];
 }
 
 /**
@@ -189,6 +271,7 @@
         };
         [_photosView showPhotos];
         [_viewPhoto addSubview:_photosView];
+        _mediaType = MediaPhoto;
     }];
 }
 
@@ -259,11 +342,12 @@
  */
 - (void)onRecordSuccess:(NSString *)path preview:(UIImage *)image
 {
-    
     if (_delegate && [_delegate respondsToSelector:@selector(voiceRecordSuccess:)])
     {
         [_delegate voiceRecordSuccess:path];
     }
+    
+    _videoPath = path;
     
     [self cleanMediaView];
     CGFloat width = _viewPhoto.frame.size.width;
@@ -279,6 +363,7 @@
     videoPlayView.clickDel = ^{
         [Utils delFile:path];
         [self cleanMediaView];
+        _mediaType = MediaNone;
     };
     
     [_viewPhoto addSubview:videoPlayView];
@@ -313,6 +398,9 @@
     {
         [_delegate voiceRecordSuccess:path];
     }
+    
+    _audioPath = path;
+    _mediaType = MediaAudio;
     
     [self cleanMediaView];
     _playView = [VoicePlayView viewFromNib];
@@ -349,6 +437,7 @@
 {
     [UIView animateWithDuration:0.5 animations:^{
         [self cleanMediaView];
+        _mediaType = MediaNone;
         _photoHeight.constant = 0;
         [self.view layoutIfNeeded];
     }];

@@ -39,7 +39,14 @@
         success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
         failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
-- (void)uploadFile:(NSData *)data name:(NSString *)fileName url:(NSString *)url;
+- (void)uploadImage:(NSData *)data url:(NSString *)url success:(void(^)(NSURLSessionDataTask *task, id responseObject))success
+           failure:(void(^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+- (void)uploadAudio:(NSData *)data url:(NSString *)url success:(void(^)(NSURLSessionDataTask *task, id responseObject))success
+            failure:(void(^)(NSURLSessionDataTask *task, NSError *error))failure;
+
+- (void)uploadVideo:(NSData *)data url:(NSString *)url success:(void(^)(NSURLSessionDataTask *task, id responseObject))success
+            failure:(void(^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 @end
 

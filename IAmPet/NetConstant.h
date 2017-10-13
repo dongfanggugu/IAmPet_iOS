@@ -15,4 +15,6 @@
 
 #define URL_LOGOUT @"logout"        //用户注销
 
+#define URL_UPLOAD @"fileUpload"    //上传文件
+
 #endif /* NetConstant_h */

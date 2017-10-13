@@ -149,4 +149,47 @@
     }];
 }
 
+- (void)uploadImage:(NSData *)data url:(NSString *)url success:(void(^)(NSURLSessionDataTask *task, id responseObject))success
+           failure:(void(^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+    [self uploadFile:data mimeType:@"image/jpg" url:url success:success failure:failure];
+}
+
+- (void)uploadAudio:(NSData *)data url:(NSString *)url success:(void(^)(NSURLSessionDataTask *task, id responseObject))success
+            failure:(void(^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+    [self uploadFile:data mimeType:@"audio/mpeg" url:url success:success failure:failure];
+}
+
+- (void)uploadVideo:(NSData *)data url:(NSString *)url success:(void(^)(NSURLSessionDataTask *task, id responseObject))success
+            failure:(void(^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+    [self uploadFile:data mimeType:@"video/mpeg" url:url success:success failure:failure];
+}
+
+- (void)uploadFile:(NSData *)data mimeType:(NSString *)mimeType url:(NSString *)url success:(void(^)(NSURLSessionDataTask *task, id responseObject))success
+           failure:(void(^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+    //AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [self POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        [formData appendPartWithFileData:data name:@"file" fileName:@"fileName" mimeType:mimeType];
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        CGFloat progress = uploadProgress.completedUnitCount / uploadProgress.totalUnitCount;
+        NSLog(@"%.2lf", progress);
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"%@", responseObject);
+        if (success)
+        {
+            success(task, responseObject);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@", error);
+        if (failure)
+        {
+            failure(task, error);
+        }
+    }];
+}
 @end
