@@ -49,7 +49,8 @@
      failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
     NSMutableDictionary *head = [NSMutableDictionary dictionary];
-    head[@"userId"] = [User shareConfig].userId;
+//    head[@"userId"] = [User shareConfig].userId;
+    head[@"userId"] = @"8afbe900-ae93-11e7-8893-37ba8c9451b9";
     [self background:NO post:url head:head body:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         success(task, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -116,8 +117,8 @@
         }
         
         NSDictionary *head = responseObject[@"head"];
-        NSInteger rspCode = [head[@"rspCode"] integerValue];
-        NSString *rspMsg = head[@"rspMsg"];
+        NSInteger rspCode = [head[@"code"] integerValue];
+        NSString *rspMsg = head[@"msg"];
         
         NSLog(@"response: %@", responseObject);
         

@@ -139,6 +139,12 @@ typedef NS_ENUM(NSInteger, MediaType)
 
 - (IBAction)publish
 {
+    NSString *content = _textView.text;
+    if (0 == content.length)
+    {
+        [self showAlertMsg:@"您需要填写内容" dismiss:nil];
+        return;
+    }
     if (_mediaType == MediaPhoto)
     {
         [self uploadImages];
@@ -151,8 +157,40 @@ typedef NS_ENUM(NSInteger, MediaType)
     {
         [self uploadVideo];
     }
+    else
+    {
+        [self uploadTalk:@"talk" url:@""];
+    }
 }
 
+/**
+ *  upload the talk
+ *
+ *  @param media  media type
+ *  @param urlStr url string
+ */
+- (void)uploadTalk:(NSString *)media url:(NSString *)urlStr
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[media] = urlStr;
+    params[@"content"] = _textView.text;
+    
+    [[HttpClient shareClient] fgPost:URL_PUBLISH parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        [self publishSuccess];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
+
+/**
+ *  after publish
+ */
+- (void)publishSuccess
+{
+    [self showAlertMsg:@"您已经成功发布说说!" dismiss:^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+}
 /**
  *  upload audio
  */
@@ -213,9 +251,39 @@ typedef NS_ENUM(NSInteger, MediaType)
     dispatch_group_notify(group, queue, ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             [HUDClass hideLoadingHUD:_hud];
-            NSLog(@"%@", array);
+            [self afterUploadImage:array];
         });
     });
+}
+
+/**
+ *  after upload image to deal with the urls
+ *
+ *  @param array array
+ */
+- (void)afterUploadImage:(NSArray *)array
+{
+    NSString *urls = [self agglutinateArray:array];
+    [self uploadTalk:@"pictures" url:urls];
+}
+
+/**
+ *  agglutinate the array's value
+ *
+ *  @param array array
+ *
+ *  @return string
+ */
+- (NSString *)agglutinateArray:(NSArray *)array
+{
+    NSString *result = @"";
+    for (id url in array)
+    {
+        result = [NSString stringWithFormat:@"%@,%@", result, url];
+    }
+    
+    NSRange range = NSMakeRange(0, 1);
+    return [result stringByReplacingCharactersInRange:range withString:@""];
 }
 
 /**

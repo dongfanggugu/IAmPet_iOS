@@ -17,4 +17,6 @@
 
 #define URL_UPLOAD @"fileUpload"    //上传文件
 
+#define URL_PUBLISH @"publish"      //发布说说
+
 #endif /* NetConstant_h */
