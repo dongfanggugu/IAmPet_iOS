@@ -19,4 +19,6 @@
 
 #define URL_PUBLISH @"publish"      //发布说说
 
+#define URL_TALK_USER @"talksWithUserId"    //根据用户获取说说
+
 #endif /* NetConstant_h */

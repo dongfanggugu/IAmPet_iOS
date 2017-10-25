@@ -73,8 +73,8 @@ extension UIImageView
      */
     func imageGenerator(url: String) -> (AVAssetImageGenerator)
     {
-        //            let asset = AVURLAsset(url:URL(string: url)!);
-        let asset = AVURLAsset(url: URL(fileURLWithPath: url));
+        let asset = AVURLAsset(url:URL(string: url)!);
+//        let asset = AVURLAsset(url: URL(fileURLWithPath: url));
         let generator = AVAssetImageGenerator(asset: asset);
         generator.appliesPreferredTrackTransform = true;
         

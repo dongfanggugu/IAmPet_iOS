@@ -77,6 +77,10 @@ class MyTalkCell : UITableViewCell, Nibloadable
     {
         didSet
         {
+            if (nil == mediaContent)
+            {
+                return;
+            }
             if (oldValue?.type == mediaContent?.type)
             {
                 updateMediaView();
@@ -148,7 +152,7 @@ class MyTalkCell : UITableViewCell, Nibloadable
      */
     private func updateMediaView()
     {
-        let type = mediaContent!.type;
+        let type = mediaContent?.type;
         if (MediaContent.picture == type)
         {
             updatePhotosView();
@@ -244,14 +248,14 @@ class MyTalkCell : UITableViewCell, Nibloadable
         videoView.videoUrl = mediaContent?.urls[0];
         videoView.frame = CGRect(x: 0,
                                  y: 0,
-                                 width: ScreenWidth - 16,
-                                 height: ScreenWidth - 16);
+                                 width: 120,
+                                 height: 120);
         weak var weakSelf = self;
         videoView.play = {(videoUrl) -> () in
            weakSelf?.playVideo?(videoUrl);
         };
         viewMedia.addSubview(videoView);
-        return ScreenWidth - 16;
+        return 120;
     }
     
     /**

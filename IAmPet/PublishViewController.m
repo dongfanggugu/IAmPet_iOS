@@ -200,6 +200,8 @@ typedef NS_ENUM(NSInteger, MediaType)
     NSData *data = [NSData dataWithContentsOfFile:_audioPath];
     [[HttpClient shareClient] uploadAudio:data url:@"fileUpload" success:^(NSURLSessionDataTask *task, id responseObject) {
         [HUDClass hideLoadingHUD:_hud];
+        NSString *url = responseObject[@"body"][@"url"];
+        [self afterUploadVoice:url];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [HUDClass hideLoadingHUD:_hud];
     }];
@@ -214,9 +216,31 @@ typedef NS_ENUM(NSInteger, MediaType)
     NSData *data = [NSData dataWithContentsOfFile:_videoPath];
     [[HttpClient shareClient] uploadVideo:data url:@"fileUpload" success:^(NSURLSessionDataTask *task, id responseObject) {
         [HUDClass hideLoadingHUD:_hud];
+        NSString *url = responseObject[@"body"][@"url"];
+        [self afterUploadVideo:url];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [HUDClass hideLoadingHUD:_hud];
     }];
+}
+
+/**
+ *  after upload voice
+ *
+ *  @param url voice url
+ */
+- (void)afterUploadVoice:(NSString *)url
+{
+    [self uploadTalk:@"voice" url:url];
+}
+
+/**
+ *  after upload video
+ *
+ *  @param url video url
+ */
+- (void)afterUploadVideo:(NSString *)url
+{
+    [self uploadTalk:@"video" url:url];
 }
 
 /**
@@ -266,6 +290,7 @@ typedef NS_ENUM(NSInteger, MediaType)
     NSString *urls = [self agglutinateArray:array];
     [self uploadTalk:@"pictures" url:urls];
 }
+
 
 /**
  *  agglutinate the array's value
@@ -416,6 +441,7 @@ typedef NS_ENUM(NSInteger, MediaType)
     }
     
     _videoPath = path;
+    _mediaType = MediaVideo;
     
     [self cleanMediaView];
     CGFloat width = _viewPhoto.frame.size.width;

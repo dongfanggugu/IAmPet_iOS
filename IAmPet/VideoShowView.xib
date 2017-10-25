@@ -12,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="3ob-X6-V8e" customClass="VideoShowView" customModule="IAmPet" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SQ5-NW-zJu">
-                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNL-il-Riu">
-                    <rect key="frame" x="70" y="70" width="60" height="60"/>
+                    <rect key="frame" x="30" y="30" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="4o2-eY-znD"/>
                         <constraint firstAttribute="width" constant="60" id="aMf-kg-oin"/>

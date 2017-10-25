@@ -65,6 +65,7 @@
 		656A2DB11F74F9F000E97F15 /* MyTalkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 656A2DB01F74F9F000E97F15 /* MyTalkCell.xib */; };
 		656A2DB31F74FF7A00E97F15 /* MyTalkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A2DB21F74FF7A00E97F15 /* MyTalkCell.swift */; };
 		656A2DB51F7501B000E97F15 /* Nibloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A2DB41F7501B000E97F15 /* Nibloadable.swift */; };
+		656F9DC71FA038AE005A1586 /* TalkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656F9DC61FA038AE005A1586 /* TalkInfo.swift */; };
 		657C73FA1F662C02002BE2BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C73F91F662C02002BE2BA /* main.m */; };
 		657C73FD1F662C02002BE2BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C73FC1F662C02002BE2BA /* AppDelegate.m */; };
 		657C74001F662C02002BE2BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C73FF1F662C02002BE2BA /* ViewController.m */; };
@@ -341,6 +342,7 @@
 		656A2DB01F74F9F000E97F15 /* MyTalkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyTalkCell.xib; sourceTree = "<group>"; };
 		656A2DB21F74FF7A00E97F15 /* MyTalkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTalkCell.swift; sourceTree = "<group>"; };
 		656A2DB41F7501B000E97F15 /* Nibloadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nibloadable.swift; sourceTree = "<group>"; };
+		656F9DC61FA038AE005A1586 /* TalkInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TalkInfo.swift; sourceTree = "<group>"; };
 		657C73F51F662C02002BE2BA /* IAmPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IAmPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		657C73F91F662C02002BE2BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		657C73FB1F662C02002BE2BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -723,6 +725,7 @@
 				657C74471F6637E7002BE2BA /* User.m */,
 				657C74531F6658D2002BE2BA /* SectionInfo.h */,
 				657C74541F6658D2002BE2BA /* SectionInfo.m */,
+				656F9DC61FA038AE005A1586 /* TalkInfo.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1529,6 +1532,7 @@
 				653FEDA41F7D444D003B417C /* SearchDispayViewController.swift in Sources */,
 				65CCE8FD1F8331E200072D01 /* FollowsViewController.swift in Sources */,
 				658CA8421F7612430013DCA6 /* VoiceShowView.swift in Sources */,
+				656F9DC71FA038AE005A1586 /* TalkInfo.swift in Sources */,
 				6508B23D1F6BBA3700B0418F /* BaseTableViewController.m in Sources */,
 				6535F00E1F7CCD9E00B610D9 /* SearchViewController.swift in Sources */,
 				6535EFEF1F7A2F1100B610D9 /* TalkCommentCell.swift in Sources */,

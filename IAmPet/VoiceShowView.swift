@@ -51,7 +51,8 @@ class VoiceShowView: UIView, Nibloadable
         {
             do
             {
-                player = try AVAudioPlayer(contentsOf:url!);
+                let audioData = try Data(contentsOf: url!);
+                player = try AVAudioPlayer(data: audioData);
                 player?.isMeteringEnabled = true;
                 player?.delegate = self;
             }

@@ -28,4 +28,13 @@
     return user;
 }
 
+- (NSString *)userId
+{
+    if (!_userId)
+    {
+        return @"";
+    }
+    return _userId;
+}
+
 @end

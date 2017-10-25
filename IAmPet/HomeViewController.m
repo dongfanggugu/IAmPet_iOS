@@ -19,6 +19,8 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
+@property (nonatomic, strong) NSMutableArray *arrayData;
+
 @end
 
 @implementation HomeViewController
@@ -40,6 +42,12 @@
     [self initView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self getTalks];
+}
+
 - (void)initView
 {
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
@@ -48,6 +56,7 @@
     
     UIView *bannerView = [self genBannerView];
     _tableView.tableHeaderView = bannerView;
+    _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     [self.view addSubview:_tableView];
 }
@@ -70,6 +79,24 @@
 }
 
 /**
+ *  get talks from server
+ */
+- (void)getTalks
+{
+    [[HttpClient shareClient] fgPost:URL_TALK_USER parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [self addTalks:responseObject];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    }];
+}
+
+- (void)addTalks:(id)response
+{
+    [self.arrayData removeAllObjects];
+    [self.arrayData addObjectsFromArray:response[@"body"]];
+    [_tableView reloadData];
+}
+
+/**
  *  点击导航栏左侧按钮
  */
 - (void)clickNavLeft
@@ -81,13 +108,27 @@
 }
 
 /**
+ *  initial arrayData
+ *
+ *  @return arrayData
+ */
+- (NSMutableArray *)arrayData
+{
+    if (!_arrayData)
+    {
+        _arrayData = [NSMutableArray array];
+    }
+    
+    return _arrayData;
+}
+
+/**
  *  显示发布页面
  */
 - (void)showPulishPage
 {
     PublishViewController *controller = [PublishViewController new];
     controller.delegate = self;
-//    [self showViewController:controller sender:self];
     [self presentViewController:controller animated:YES completion:nil];
 }
 
@@ -107,7 +148,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 20;
+    return self.arrayData.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -126,26 +167,17 @@
     }
     _cell = cell;
     
-    if (0 == indexPath.section)
-    {
-        NSArray *urls = @[
-                          @"https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=9cb489038bd4b31ce4319ce9e6bf4c1a/8c1001e93901213f6e57dc9c54e736d12f2e950e.jpg",
-                          @"http://image.tianjimedia.com/uploadImages/2015/131/29/1OZRZ52WJ9T2.jpg",
-                          @"http://image.tianjimedia.com/uploadImages/2015/131/22/59SG53FU0160.jpg"
-                          ];
-        MediaContent *media = [[MediaContent alloc] initWithType:MediaContent.picture urls:urls];
-        cell.mediaContent = media;
-    }
-    else
-    {
-        
-        NSArray *urls = @[
-                          @"http://image.tianjimedia.com/uploadImages/2015/131/22/59SG53FU0160.jpg"
-                          ];
-        MediaContent *media = [[MediaContent alloc] initWithType:MediaContent.picture urls:urls];
-        cell.mediaContent = media;
-    }
+    id talkInfo = [[TalkInfo alloc] initWithDictionary:self.arrayData[indexPath.section]];
+    [self assignMyTalkCell:cell talk:talkInfo];
     
+    
+    return cell;
+}
+
+- (void)assignMyTalkCell:(MyTalkCell *)cell talk:(TalkInfo *)talk
+{
+    cell.talkContent = talk.content;
+    cell.mediaContent = talk.mediaContent;
     __weak typeof(self) weakSelf = self;
     cell.playVideo = ^(NSString *url) {
         [weakSelf playVideo:url];
@@ -154,8 +186,6 @@
     cell.showPhoto = ^(UIImage *image) {
         [weakSelf showPreviewImage:image];
     };
-    
-    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath

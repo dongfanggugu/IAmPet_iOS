@@ -97,6 +97,7 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="btnPlay" destination="p0E-2k-H2N" id="eha-8E-GSg"/>
                 <outlet property="viewVoice1" destination="kL6-yJ-mVa" id="mXS-vn-32T"/>
                 <outlet property="viewVoice2" destination="yEN-tg-wvw" id="YEb-FN-bWx"/>
                 <outlet property="viewVoice3" destination="6ow-Vm-n8p" id="ebL-Ya-Z31"/>

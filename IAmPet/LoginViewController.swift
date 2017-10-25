@@ -10,6 +10,8 @@ import Foundation
 
 class LoginViewController: SBaseViewController
 {
+    @IBOutlet private var tfUser: UITextField!;
+    
     @IBOutlet private var tfPwd: UITextField!;
     
     @IBOutlet private var btnVisible: UIButton!;
@@ -71,7 +73,14 @@ class LoginViewController: SBaseViewController
     
     @IBAction func clickLoginBtn()
     {
-        login(userName: "", pwd: "");
+        let user = tfUser.text?.trimmingCharacters(in: .whitespacesAndNewlines);
+        if ((user?.isEmpty)!)
+        {
+            showAlertMsg("请输入您的用户名", dismiss: nil);
+        }
+        let pwd = tfPwd.text;
+        
+        login(userName: user!, pwd: pwd!);
     }
     
     /**
@@ -81,6 +90,36 @@ class LoginViewController: SBaseViewController
      - parameter pwd:      password
      */
     private func login(userName: String, pwd: String)
+    {
+        var params = [String: String]();
+        params["userName"] = userName;
+        params["password"] = Utils.md5(pwd);
+        
+        HttpClient.share().fgPost(URL_LOGIN, parameters: params, success: { (task, responseObject) in
+            self.storeParams(responseObject as! [String: Any]);
+            self.jumpMainpage();
+        }) { (task, error) in
+            let err = error as NSError?;
+            self.showAlertMsg((err?.domain)!, dismiss: nil);
+        };
+    }
+    
+    /**
+     store the params
+     
+     - parameter params: params
+     */
+    private func storeParams(_ params: [String: Any])
+    {
+        let body = params["body"] as! [String: Any];
+        User.shareConfig().userId = body["id"] as! String;
+        User.shareConfig().accessToken = body["token"] as! String;
+    }
+    
+    /**
+     jump to the main page
+     */
+    private func jumpMainpage()
     {
         let controller = SideMenuViewController();
         UIApplication.shared.delegate?.window??.rootViewController = controller;

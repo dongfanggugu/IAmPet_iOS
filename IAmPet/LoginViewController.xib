@@ -14,6 +14,7 @@
                 <outlet property="btnLogin" destination="LMt-03-6Uy" id="s7P-Yb-DH1"/>
                 <outlet property="btnVisible" destination="Xvs-vI-2lC" id="Lnr-pC-DLd"/>
                 <outlet property="tfPwd" destination="Eqd-0s-5Wl" id="u6h-7a-zbU"/>
+                <outlet property="tfUser" destination="bDa-GB-dM2" id="H2z-1N-siv"/>
                 <outlet property="view" destination="iN0-l3-epB" id="eef-fn-MsX"/>
             </connections>
         </placeholder>
