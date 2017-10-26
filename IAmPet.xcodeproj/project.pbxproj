@@ -94,6 +94,7 @@
 		659178111F7E3C5A00778372 /* back_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 659178101F7E3C5A00778372 /* back_normal.png */; };
 		65A2614B1F7F65B6003C28C0 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65A2614A1F7F65B6003C28C0 /* ChatCell.xib */; };
 		65A2614D1F7F6BF3003C28C0 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2614C1F7F6BF3003C28C0 /* ChatCell.swift */; };
+		65BD39B21FA1DA3500762FA5 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BD39B11FA1DA3500762FA5 /* ArrayExtension.swift */; };
 		65C1EEAB1F71620D004D464D /* WCLRecordEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1EEA71F71620D004D464D /* WCLRecordEncoder.m */; };
 		65C1EEAC1F71620D004D464D /* WCLRecordEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1EEAA1F71620D004D464D /* WCLRecordEngine.m */; };
 		65C1EEB11F716229004D464D /* VideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C1EEAE1F716229004D464D /* VideoPlayerController.m */; };
@@ -395,6 +396,7 @@
 		659178101F7E3C5A00778372 /* back_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_normal.png; sourceTree = "<group>"; };
 		65A2614A1F7F65B6003C28C0 /* ChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		65A2614C1F7F6BF3003C28C0 /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		65BD39B11FA1DA3500762FA5 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		65C1EEA61F71620D004D464D /* WCLRecordEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCLRecordEncoder.h; sourceTree = "<group>"; };
 		65C1EEA71F71620D004D464D /* WCLRecordEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCLRecordEncoder.m; sourceTree = "<group>"; };
 		65C1EEA91F71620D004D464D /* WCLRecordEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCLRecordEngine.h; sourceTree = "<group>"; };
@@ -781,6 +783,7 @@
 				656A2DAE1F74D71600E97F15 /* HHUtils.swift */,
 				656A2DB41F7501B000E97F15 /* Nibloadable.swift */,
 				65C7C7B71F7DEB4100A44BE5 /* StringExtension.swift */,
+				65BD39B11FA1DA3500762FA5 /* ArrayExtension.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1507,6 +1510,7 @@
 				6535EFF71F7B34D800B610D9 /* CommentPublishView.swift in Sources */,
 				657C74451F663494002BE2BA /* HUDClass.m in Sources */,
 				657C74001F662C02002BE2BA /* ViewController.m in Sources */,
+				65BD39B21FA1DA3500762FA5 /* ArrayExtension.swift in Sources */,
 				656A2D771F70AD0800E97F15 /* PublishViewController.m in Sources */,
 				657C74421F66300E002BE2BA /* Utils.m in Sources */,
 				65C6E66E1F6BCB160063F5A5 /* BaseTabBarController.m in Sources */,

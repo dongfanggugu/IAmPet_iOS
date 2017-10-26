@@ -19,6 +19,8 @@ class AreaViewController: BaseViewController
     
     weak var tempCell: OtherTalkCell?
     
+    var arrayData: [Any] = [Any]();
+    
     var dataCount: Int? = 5
     {
         didSet
@@ -38,6 +40,7 @@ class AreaViewController: BaseViewController
         };
         
         initView();
+        getTalks();
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -103,6 +106,31 @@ class AreaViewController: BaseViewController
         tableView?.mj_footer = footer;
     }
     
+    private func getTalks()
+    {
+        HttpClient.share().fgPost(URL_TALK_USER, parameters: nil, success: { (task, responseObject) in
+            let body = (responseObject as? [String: Any])?["body"] as! [Any];
+            self.refreshTalk(body);
+        }) { (task, error) in
+        }
+    }
+    
+    /**
+     after get talks 
+     
+     - parameter talks: talks
+     */
+    private func refreshTalk(_ talks: [Any])
+    {
+        if ((tableView?.mj_header?.isRefreshing())!)
+        {
+            tableView?.mj_header.endRefreshing();
+        }
+        arrayData.removeAll();
+        arrayData.addElementFrom(array: talks);
+        tableView?.reloadData();
+    }
+    
 }
 
 //MARK: - AreaHeaderViewDelegate
@@ -144,7 +172,7 @@ extension AreaViewController: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return dataCount!;
+        return arrayData.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -155,12 +183,50 @@ extension AreaViewController: UITableViewDataSource
             cell = OtherTalkCell.loadNib();
         }
         tempCell = cell;
-        cell?.talkContent = "哎呀，这里非常好看啊，我想在这里歇着睡觉！";
-        weak var weakSelf = self;
-        cell?.showPerson = {
-            weakSelf?.showPersonInfo();
-        };
+        let dicTalk = arrayData[indexPath.row] as? [String: Any];
+        let talkInfo = TalkInfo(dictionary: dicTalk!);
+        
+        assignOtherTalkCell(cell!, talk: talkInfo!);
         return cell!;
+    }
+    
+    /**
+     generator OtherTalkCell
+     
+     - parameter talk: talkInfo
+     
+     - parameter cell: OtherTalkCell
+     
+     - returns: OtherTalkCell
+     */
+    private func assignOtherTalkCell(_ cell: OtherTalkCell, talk: TalkInfo)
+    {
+        cell.talkContent = talk.content;
+        cell.mediaContent = talk.mediaContent;
+        
+        weak var weakSelf = self;
+        cell.playVideo = {
+            (url) in
+            weakSelf?.playVideo(url);
+        };
+        
+        cell.showPhoto = {
+            (image) in
+            weakSelf?.showPreviewImage(image);
+        };
+    }
+    
+    /**
+     play video
+     
+     - parameter url: video url
+     */
+    private func playVideo(_ url: String)
+    {
+        let controller = VideoPlayerController();
+        controller.hidesBottomBarWhenPushed = true;
+        controller.urlStr = url;
+        self.navigationController?.pushViewController(controller, animated: true);
     }
     
     /**
@@ -181,7 +247,7 @@ extension AreaViewController: UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 10;
+        return 250;
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat

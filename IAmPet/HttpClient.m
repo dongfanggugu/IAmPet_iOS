@@ -118,7 +118,8 @@
         
         NSDictionary *head = responseObject[@"head"];
         NSInteger rspCode = [head[@"code"] integerValue];
-        NSString *rspMsg = head[@"msg"];
+        NSLog(@"err: %@", head[@"msg"]);
+        NSString *rspMsg = @"error";
         
         NSLog(@"response: %@", responseObject);
         

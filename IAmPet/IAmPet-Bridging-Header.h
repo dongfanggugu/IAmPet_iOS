@@ -11,3 +11,4 @@
 #import "HomeViewController.h"
 #import "SideMenuViewController.h"
 #import <Jastor.h>
+#import "VideoPlayerController.h"

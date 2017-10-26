@@ -10,6 +10,7 @@
 #import "PublishViewController.h"
 #import "VideoPlayerController.h"
 #import "IAmPet-Swift.h"
+#import <MJRefresh.h>
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource, PublishViewControllerDelegate>
 
@@ -40,17 +41,18 @@
     }];
     
     [self initView];
+    [self getTalks];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self getTalks];
 }
 
 - (void)initView
 {
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64 - 49) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
@@ -58,7 +60,32 @@
     _tableView.tableHeaderView = bannerView;
     _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
+    [self addMJHeader];
+    [self addMJFooter];
+    
     [self.view addSubview:_tableView];
+}
+
+/**
+ *  add mjheader
+ */
+- (void)addMJHeader
+{
+    __weak typeof(self) weakSelf = self;
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf getTalks];
+    }];
+}
+
+/**
+ *  add mjfooter
+ */
+- (void)addMJFooter
+{
+    __weak typeof(self) weakSelf = self;
+    _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf getMoreTalks];
+    }];
 }
 
 - (UIView *)genBannerView
@@ -84,16 +111,74 @@
 - (void)getTalks
 {
     [[HttpClient shareClient] fgPost:URL_TALK_USER parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        [self addTalks:responseObject];
+        [self refreshTalks:responseObject];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
     }];
 }
 
-- (void)addTalks:(id)response
+/**
+ *  get more talks
+ */
+- (void)getMoreTalks
 {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"createTime"] = [_arrayData lastObject][@"createTime"];
+    [[HttpClient shareClient] fgPost:URL_TALK_USER parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        [self loadMoreTalks:responseObject];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    }];
+}
+
+/**
+ *  refresh the talks
+ *
+ *  @param response response
+ */
+- (void)refreshTalks:(id)response
+{
+    if (_tableView.mj_header.isRefreshing)
+    {
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+    }
     [self.arrayData removeAllObjects];
     [self.arrayData addObjectsFromArray:response[@"body"]];
     [_tableView reloadData];
+}
+
+/**
+ *  load more talks
+ *
+ *  @param response response
+ */
+- (void)loadMoreTalks:(id)response
+{
+    NSArray *array = response[@"body"];
+    if (_tableView.mj_footer.isRefreshing)
+    {
+        if (0 == array.count)
+        {
+            [_tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+        else
+        {
+            [_tableView.mj_footer endRefreshing];
+        }
+    }
+    [self.arrayData addObjectsFromArray:array];
+    [_tableView reloadData];
+}
+
+- (void)afterRefresh
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 刷新表格
+        [_tableView reloadData];
+        
+        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
+        [_tableView.mj_header endRefreshing];
+        [_tableView.mj_footer endRefreshing];
+    });
 }
 
 /**
@@ -148,12 +233,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.arrayData.count;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return self.arrayData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -167,9 +252,8 @@
     }
     _cell = cell;
     
-    id talkInfo = [[TalkInfo alloc] initWithDictionary:self.arrayData[indexPath.section]];
+    id talkInfo = [[TalkInfo alloc] initWithDictionary:self.arrayData[indexPath.row]];
     [self assignMyTalkCell:cell talk:talkInfo];
-    
     
     return cell;
 }
@@ -190,7 +274,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 10;
+    return 250;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
