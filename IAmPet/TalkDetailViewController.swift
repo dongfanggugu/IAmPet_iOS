@@ -23,6 +23,8 @@ class TalkDetailViewController: SBaseViewController
         case Favor, Comment, Likes;
     }
     
+    var talkInfo: TalkInfo?
+    
     private var tableView: UITableView?
     
     weak var tempCell: UITableViewCell?;    //临时cell，用来计算高度使用
@@ -241,21 +243,13 @@ extension TalkDetailViewController: UITableViewDataSource
         
         let cell = TalkDetailCell.cellFromNib();
         detailCell = cell;
-        cell.talkContent = "爽肤水放松放松爽肤水放松放松放松放松放松放松法爽肤水放松放松方式发送方舒服舒服";
-        let urls = [
-            "https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=9cb489038bd4b31ce4319ce9e6bf4c1a/8c1001e93901213f6e57dc9c54e736d12f2e950e.jpg",
-            "http://image.tianjimedia.com/uploadImages/2015/131/29/1OZRZ52WJ9T2.jpg",
-            "http://image.tianjimedia.com/uploadImages/2015/131/22/59SG53FU0160.jpg"
-        ];
-        let media = MediaContent(type: MediaContent.picture, urls:urls);
-        cell.mediaContent = media;
-        
-        weak var weakSelf = self;
+        cell.talkContent = talkInfo?.content;
+        cell.mediaContent = talkInfo?.mediaContent;
         
         //显示预览图
         cell.showPhoto = {
-            (image: UIImage) -> Void in
-            weakSelf?.showPreviewImage(image);
+            [weak self] (image: UIImage) in
+            self?.showPreviewImage(image);
         };
         
         return cell;

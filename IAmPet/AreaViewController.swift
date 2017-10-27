@@ -21,14 +21,6 @@ class AreaViewController: BaseViewController
     
     var arrayData: [Any] = [Any]();
     
-    var dataCount: Int? = 5
-    {
-        didSet
-        {
-            tableView?.reloadData();
-        }
-    };
-    
     override func viewDidLoad()
     {
         super.viewDidLoad();
@@ -40,13 +32,11 @@ class AreaViewController: BaseViewController
         };
         
         initView();
-        getTalks();
     }
     
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated);
-//        headerView?.initView();
     }
     
     /**
@@ -57,8 +47,8 @@ class AreaViewController: BaseViewController
     private func initView()
     {
         self.automaticallyAdjustsScrollViewInsets = false;
-        addHeaderView();
         addTableView();
+        addHeaderView();
     }
     
     /**
@@ -90,27 +80,178 @@ class AreaViewController: BaseViewController
         tableView?.tableFooterView = UIView(frame: CGRect.zero);
         view.addSubview(tableView!);
         
-        weak var weakSelf = self;
         let header = MJRefreshNormalHeader {
-            weakSelf?.dataCount = 2;
-            weakSelf?.tableView?.reloadData();
-            weakSelf?.tableView?.mj_header.endRefreshing();
+           [weak self] in
+            self?.getTalks();
         };
         
         let footer = MJRefreshBackNormalFooter {
-            weakSelf?.dataCount = (weakSelf?.dataCount)! + 5;
-            weakSelf?.tableView?.reloadData();
-            weakSelf?.tableView?.mj_footer.endRefreshing();
+            [weak self] in
+            self?.getMoreTalks();
         };
         tableView?.mj_header = header;
         tableView?.mj_footer = footer;
+        
     }
     
-    private func getTalks()
+    /**
+     get talks
+     */
+    func getTalks()
+    {
+        let category = headerView?.category;
+        
+        switch category!
+        {
+        case .Latest:
+            getCurTalks();
+            
+        case .Concern:
+            getConcernTalks();
+            
+        case .DayHot:
+            getDayHotTalks();
+            
+        case .WeekHot:
+            getWeekHotTalks();
+        } 
+    }
+    
+    /**
+     get more talks
+     */
+    func getMoreTalks()
+    {
+        let category = headerView?.category;
+        
+        switch category!
+        {
+        case .Latest:
+            getMoreCurTalks();
+            
+        case .Concern:
+            getMoreConcernTalks();
+            
+        case .DayHot:
+            getMoreDayHotTalks();
+            
+        case .WeekHot:
+            getMoreWeekHotTalks();
+        } 
+    }
+}
+
+//MARK: - AreaHeaderViewDelegate
+
+extension AreaViewController: AreaHeaderViewDelegate
+{
+    func initChooseView(_ view: AreaHeaderView, category: AreaHeaderCategory)
+    {
+        getCurTalks();
+    }
+    
+    func chooseView(_ view: AreaHeaderView, category: AreaHeaderCategory)
+    {
+        getTalks();
+    }
+    /**
+     get current talks from server
+     */
+    func getCurTalks()
     {
         HttpClient.share().fgPost(URL_TALK_USER, parameters: nil, success: { (task, responseObject) in
             let body = (responseObject as? [String: Any])?["body"] as! [Any];
-            self.refreshTalk(body);
+            self.refreshTalks(body);
+        }) { (task, error) in
+        }
+    }
+    
+    /**
+     get More current talks
+     */
+    func getMoreCurTalks()
+    {
+        var params = [String: Any]();
+        params["createTime"] = ((arrayData.last as? [String: Any])?["createTime"])!;
+        HttpClient.share().fgPost(URL_TALK_USER, parameters: params, success: { (task, responseObject) in
+            let body = (responseObject as? [String: Any])?["body"] as! [Any];
+            self.loadMoreTalks(body);
+        }) { (task, error) in
+        }
+    }
+    
+    /**
+     get concern talks
+     */
+    func getConcernTalks()
+    {
+        HttpClient.share().fgPost(URL_TALK_USER, parameters: nil, success: { (task, responseObject) in
+            let body = (responseObject as? [String: Any])?["body"] as! [Any];
+            self.refreshTalks(body);
+        }) { (task, error) in
+        }
+    }
+    
+    /**
+     get more concern talks
+     */
+    func getMoreConcernTalks()
+    {
+        var params = [String: Any]();
+        params["createTime"] = ((arrayData.last as? [String: Any])?["createTime"])!;
+        HttpClient.share().fgPost(URL_TALK_USER, parameters: params, success: { (task, responseObject) in
+            let body = (responseObject as? [String: Any])?["body"] as! [Any];
+            self.loadMoreTalks(body);
+        }) { (task, error) in
+        }
+    }
+    /**
+     get day hot talks
+     */
+    func getDayHotTalks()
+    {
+        HttpClient.share().fgPost(URL_TALK_USER, parameters: nil, success: { (task, responseObject) in
+            let body = (responseObject as? [String: Any])?["body"] as! [Any];
+            self.refreshTalks(body);
+        }) { (task, error) in
+        }
+    }
+    
+    /**
+     get more day hot talks
+     */
+    func getMoreDayHotTalks()
+    {
+        var params = [String: Any]();
+        params["createTime"] = ((arrayData.last as? [String: Any])?["createTime"])!;
+        HttpClient.share().fgPost(URL_TALK_USER, parameters: params, success: { (task, responseObject) in
+            let body = (responseObject as? [String: Any])?["body"] as! [Any];
+            self.loadMoreTalks(body);
+        }) { (task, error) in
+        }
+    }
+    /**
+     get week hot talks
+     */
+    func getWeekHotTalks()
+    {
+        HttpClient.share().fgPost(URL_TALK_USER, parameters: nil, success: { (task, responseObject) in
+            let body = (responseObject as? [String: Any])?["body"] as! [Any];
+            self.refreshTalks(body);
+        }) { (task, error) in
+        }
+    }
+    
+    /**
+     get more week hot talks
+     */
+    func getMoreWeekHotTalks()
+    {
+        var params = [String: Any]();
+        params["createTime"] = ((arrayData.last as? [String: Any])?["createTime"])!;
+        HttpClient.share().fgPost(URL_TALK_USER, parameters: params, success: { (task, responseObject) in
+            let body = (responseObject as? [String: Any])?["body"] as! [Any];
+            self.loadMoreTalks(body);
         }) { (task, error) in
         }
     }
@@ -120,44 +261,38 @@ class AreaViewController: BaseViewController
      
      - parameter talks: talks
      */
-    private func refreshTalk(_ talks: [Any])
+    private func refreshTalks(_ talks: [Any])
     {
         if ((tableView?.mj_header?.isRefreshing())!)
         {
-            tableView?.mj_header.endRefreshing();
+            tableView?.mj_header?.endRefreshing();
+            tableView?.mj_footer?.endRefreshing();
         }
         arrayData.removeAll();
-        arrayData.addElementFrom(array: talks);
+        arrayData.append(contentsOf: talks);
         tableView?.reloadData();
     }
     
-}
-
-//MARK: - AreaHeaderViewDelegate
-
-extension AreaViewController: AreaHeaderViewDelegate
-{
-    func initChooseView(_ view: AreaHeaderView, category: AreaHeaderCategory)
+    /**
+     load more talks
+     
+     - parameter talks: talk
+     */
+    private func loadMoreTalks(_ talks: [Any])
     {
-        dataCount = 100;
-    }
-    
-    func chooseView(_ view: AreaHeaderView, category: AreaHeaderCategory)
-    {
-        switch category
+        if ((tableView?.mj_footer?.isRefreshing())!)
         {
-        case .Latest:
-            dataCount = 5;
-            
-        case .Concern:
-            dataCount = 3;
-            
-        case .DayHot:
-            dataCount = 15;
-            
-        case .WeekHot:
-            dataCount = 20;
+            if (0 == talks.count)
+            {
+                tableView?.mj_footer?.endRefreshingWithNoMoreData();
+            }
+            else
+            {
+                tableView?.mj_footer?.endRefreshing();
+            }
         }
+        arrayData.append(contentsOf: talks);
+        tableView?.reloadData();
     }
 }
 

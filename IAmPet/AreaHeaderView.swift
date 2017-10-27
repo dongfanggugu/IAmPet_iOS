@@ -40,6 +40,8 @@ class AreaHeaderView: UIView, Nibloadable
     
     @IBOutlet private weak var btnWeekHot: UIButton!;
     
+    var category: AreaHeaderCategory = .Latest;
+    
     private var arrayBtn: [UIButton]?
     {
         return [btnCur, btnConcern, btnDayHot, btnWeekHot];
@@ -72,7 +74,7 @@ class AreaHeaderView: UIView, Nibloadable
      */
     private func initStyle()
     {
-        resetState();
+        initState();
     }
     
     /**
@@ -84,6 +86,11 @@ class AreaHeaderView: UIView, Nibloadable
     {
         resetState();
         btnCur.setTitleColor(UIColor.black, for: .normal);
+    }
+    
+    override func layoutSubviews()
+    {
+        super.layoutSubviews();
         delegate?.initChooseView(self, category: .Latest);
     }
     
@@ -113,12 +120,12 @@ class AreaHeaderView: UIView, Nibloadable
     {
         resetState();
         sender.setTitleColor(UIColor.black, for: .normal);
-        let category = dicBtn?[sender];
-        delegate?.chooseView(self, category: category!);
+        category = (dicBtn?[sender])!;
+        delegate?.chooseView(self, category: category);
     }
     
-    func initView()
-    {
-        initState();
-    }
+//    func initView()
+//    {
+//        initState();
+//    }
 }

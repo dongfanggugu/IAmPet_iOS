@@ -291,6 +291,8 @@
 {
     TalkDetailViewController *controller = [TalkDetailViewController new];
     controller.hidesBottomBarWhenPushed = YES;
+    id talkInfo = [[TalkInfo alloc] initWithDictionary:self.arrayData[indexPath.row]];
+    controller.talkInfo = talkInfo;
     
     [self.navigationController pushViewController:controller animated:YES];
 }
