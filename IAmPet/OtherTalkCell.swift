@@ -8,12 +8,21 @@
 
 import Foundation
 
+
 class OtherTalkCell : UITableViewCell, Nibloadable
 {
     
-    typealias playVideoBlock = (String) -> Void;
-    typealias clickPhotos = (UIImage) -> Void;
-    typealias clickPerson = () -> Void;
+    //点击播放视频
+    typealias PlayVideoBlock = (String) -> Void;
+    
+    //点击图片
+    typealias ClickPhotos = (UIImage) -> Void;
+    
+    //点击头像
+    typealias ClickPerson = () -> Void;
+    
+    //favor
+    typealias ClickFavor = () -> Void;
     
     @IBOutlet weak var ivIcon: UIImageView!;
     
@@ -42,6 +51,14 @@ class OtherTalkCell : UITableViewCell, Nibloadable
     @IBOutlet private weak var lbContent: UILabel!;
     
     @IBOutlet private weak var viewPerson: UIView!;
+    
+    var favorCount: Int? = -1
+    {
+        didSet
+        {
+            lbFavor.text = "\(favorCount!)";
+        }
+    }
     
     //说说内容
     var talkContent: String?
@@ -80,9 +97,11 @@ class OtherTalkCell : UITableViewCell, Nibloadable
     
     var playVideo: playBlock?;   //播放视频
     
-    var showPhoto: clickPhotos?;
+    var showPhoto: ClickPhotos?;
     
-    var showPerson: clickPerson?;
+    var showPerson: ClickPerson?;
+    
+    var addFavor: ClickFavor?;
     
     class func cellFromNib() -> OtherTalkCell
     {
@@ -98,12 +117,34 @@ class OtherTalkCell : UITableViewCell, Nibloadable
         lbContent.lineBreakMode = .byWordWrapping;
         
         addPersonListener();
+        addFavorListener();
     }
     
     override func layoutSubviews()
     {
         super.layoutSubviews();
     }
+    
+    /**
+     add favor click listener
+     */
+    private func addFavorListener()
+    {
+        btnFavor.addTarget(self, action: #selector(clickFavor), for: .touchUpInside);
+        lbFavor.isUserInteractionEnabled = true;
+        let gesture = UITapGestureRecognizer();
+        gesture.addTarget(self, action: #selector(clickFavor));
+        lbFavor.addGestureRecognizer(gesture);
+    }
+    
+    /**
+     click favor click callback
+     */
+    @objc private func clickFavor()
+    {
+        favor();
+    }
+    
     
     /**
      添加点击个人信息的
@@ -162,9 +203,11 @@ class OtherTalkCell : UITableViewCell, Nibloadable
         }
         else if (MediaContent.voice == type)
         {
+            updateVoiceView();
         }
         else if (MediaContent.video ==  type)
         {
+            updateVideoView();
         }
     }
     
@@ -296,6 +339,14 @@ class OtherTalkCell : UITableViewCell, Nibloadable
         }
         cellHeight -= Float(heightMedia.constant);
         heightMedia.constant = 0;
+    }
+    
+    /**
+     favor
+     */
+    private func favor()
+    {
+        addFavor?();
     }
     
     deinit

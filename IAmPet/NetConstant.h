@@ -21,4 +21,8 @@
 
 #define URL_TALK_USER @"talksWithUserId"    //根据用户获取说说
 
+#define URL_TALK_FAVOR @"favor"     //收藏
+
+#define URL_FAVOR_COUNT @"favorCount"   //收藏数量
+
 #endif /* NetConstant_h */

@@ -159,9 +159,11 @@ class MyTalkCell : UITableViewCell, Nibloadable
         }
         else if (MediaContent.voice == type)
         {
+            updateVoiceView();
         }
         else if (MediaContent.video ==  type)
         {
+            updateVideoView();
         }
     }
     

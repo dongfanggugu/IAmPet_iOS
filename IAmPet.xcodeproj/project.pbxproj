@@ -88,6 +88,7 @@
 		657C74621F6786E8002BE2BA /* BaseNibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74611F6786E8002BE2BA /* BaseNibView.m */; };
 		657C74661F68C1AF002BE2BA /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74651F68C1AF002BE2BA /* SideMenuViewController.m */; };
 		657C746A1F68C1EE002BE2BA /* LeftSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657C74691F68C1EE002BE2BA /* LeftSideViewController.m */; };
+		65872BE51FAB16DC00238159 /* NetConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65872BE41FAB16DC00238159 /* NetConstant.swift */; };
 		658CA83E1F760A140013DCA6 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658CA83D1F760A140013DCA6 /* Constant.swift */; };
 		658CA8401F7611DD0013DCA6 /* VoiceShowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658CA83F1F7611DD0013DCA6 /* VoiceShowView.xib */; };
 		658CA8421F7612430013DCA6 /* VoiceShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658CA8411F7612430013DCA6 /* VoiceShowView.swift */; };
@@ -390,6 +391,7 @@
 		657C74651F68C1AF002BE2BA /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
 		657C74681F68C1EE002BE2BA /* LeftSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSideViewController.h; sourceTree = "<group>"; };
 		657C74691F68C1EE002BE2BA /* LeftSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSideViewController.m; sourceTree = "<group>"; };
+		65872BE41FAB16DC00238159 /* NetConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetConstant.swift; sourceTree = "<group>"; };
 		658CA83D1F760A140013DCA6 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		658CA83F1F7611DD0013DCA6 /* VoiceShowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoiceShowView.xib; sourceTree = "<group>"; };
 		658CA8411F7612430013DCA6 /* VoiceShowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceShowView.swift; sourceTree = "<group>"; };
@@ -705,6 +707,7 @@
 				657C74381F662E4F002BE2BA /* Constant.h */,
 				657C74631F67AEEA002BE2BA /* NetConstant.h */,
 				658CA83D1F760A140013DCA6 /* Constant.swift */,
+				65872BE41FAB16DC00238159 /* NetConstant.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1513,6 +1516,7 @@
 				65BD39B21FA1DA3500762FA5 /* ArrayExtension.swift in Sources */,
 				656A2D771F70AD0800E97F15 /* PublishViewController.m in Sources */,
 				657C74421F66300E002BE2BA /* Utils.m in Sources */,
+				65872BE51FAB16DC00238159 /* NetConstant.swift in Sources */,
 				65C6E66E1F6BCB160063F5A5 /* BaseTabBarController.m in Sources */,
 				6535EFDF1F79F4A800B610D9 /* OtherTalkCell.swift in Sources */,
 				6535EFE71F7A1D7B00B610D9 /* TalkOperationCell.swift in Sources */,

@@ -159,7 +159,7 @@ extension AreaViewController: AreaHeaderViewDelegate
      */
     func getCurTalks()
     {
-        HttpClient.share().fgPost(URL_TALK_USER, parameters: nil, success: { (task, responseObject) in
+        HttpClient.share().fgPost(URL_TALKS_ALL, parameters: nil, success: { (task, responseObject) in
             let body = (responseObject as? [String: Any])?["body"] as! [Any];
             self.refreshTalks(body);
         }) { (task, error) in
@@ -173,7 +173,7 @@ extension AreaViewController: AreaHeaderViewDelegate
     {
         var params = [String: Any]();
         params["createTime"] = ((arrayData.last as? [String: Any])?["createTime"])!;
-        HttpClient.share().fgPost(URL_TALK_USER, parameters: params, success: { (task, responseObject) in
+        HttpClient.share().fgPost(URL_TALKS_ALL, parameters: params, success: { (task, responseObject) in
             let body = (responseObject as? [String: Any])?["body"] as! [Any];
             self.loadMoreTalks(body);
         }) { (task, error) in
@@ -185,7 +185,7 @@ extension AreaViewController: AreaHeaderViewDelegate
      */
     func getConcernTalks()
     {
-        HttpClient.share().fgPost(URL_TALK_USER, parameters: nil, success: { (task, responseObject) in
+        HttpClient.share().fgPost(URL_TALKS_ALL, parameters: nil, success: { (task, responseObject) in
             let body = (responseObject as? [String: Any])?["body"] as! [Any];
             self.refreshTalks(body);
         }) { (task, error) in
@@ -199,7 +199,7 @@ extension AreaViewController: AreaHeaderViewDelegate
     {
         var params = [String: Any]();
         params["createTime"] = ((arrayData.last as? [String: Any])?["createTime"])!;
-        HttpClient.share().fgPost(URL_TALK_USER, parameters: params, success: { (task, responseObject) in
+        HttpClient.share().fgPost(URL_TALKS_ALL, parameters: params, success: { (task, responseObject) in
             let body = (responseObject as? [String: Any])?["body"] as! [Any];
             self.loadMoreTalks(body);
         }) { (task, error) in
@@ -210,7 +210,7 @@ extension AreaViewController: AreaHeaderViewDelegate
      */
     func getDayHotTalks()
     {
-        HttpClient.share().fgPost(URL_TALK_USER, parameters: nil, success: { (task, responseObject) in
+        HttpClient.share().fgPost(URL_TALKS_ALL, parameters: nil, success: { (task, responseObject) in
             let body = (responseObject as? [String: Any])?["body"] as! [Any];
             self.refreshTalks(body);
         }) { (task, error) in
@@ -224,7 +224,7 @@ extension AreaViewController: AreaHeaderViewDelegate
     {
         var params = [String: Any]();
         params["createTime"] = ((arrayData.last as? [String: Any])?["createTime"])!;
-        HttpClient.share().fgPost(URL_TALK_USER, parameters: params, success: { (task, responseObject) in
+        HttpClient.share().fgPost(URL_TALKS_ALL, parameters: params, success: { (task, responseObject) in
             let body = (responseObject as? [String: Any])?["body"] as! [Any];
             self.loadMoreTalks(body);
         }) { (task, error) in
@@ -235,7 +235,7 @@ extension AreaViewController: AreaHeaderViewDelegate
      */
     func getWeekHotTalks()
     {
-        HttpClient.share().fgPost(URL_TALK_USER, parameters: nil, success: { (task, responseObject) in
+        HttpClient.share().fgPost(URL_TALKS_ALL, parameters: nil, success: { (task, responseObject) in
             let body = (responseObject as? [String: Any])?["body"] as! [Any];
             self.refreshTalks(body);
         }) { (task, error) in
@@ -249,7 +249,7 @@ extension AreaViewController: AreaHeaderViewDelegate
     {
         var params = [String: Any]();
         params["createTime"] = ((arrayData.last as? [String: Any])?["createTime"])!;
-        HttpClient.share().fgPost(URL_TALK_USER, parameters: params, success: { (task, responseObject) in
+        HttpClient.share().fgPost(URL_TALKS_ALL, parameters: params, success: { (task, responseObject) in
             let body = (responseObject as? [String: Any])?["body"] as! [Any];
             self.loadMoreTalks(body);
         }) { (task, error) in
@@ -339,15 +339,66 @@ extension AreaViewController: UITableViewDataSource
         cell.talkContent = talk.content;
         cell.mediaContent = talk.mediaContent;
         
-        weak var weakSelf = self;
         cell.playVideo = {
-            (url) in
-            weakSelf?.playVideo(url);
+            [weak self] (url) in
+            self?.playVideo(url);
         };
         
         cell.showPhoto = {
-            (image) in
-            weakSelf?.showPreviewImage(image);
+            [weak self] (image) in
+            self?.showPreviewImage(image);
+        };
+        
+        cell.addFavor = {
+            [weak self] in
+            self?.addFavor(talk.id);
+        }
+        getFavorCount(cell: cell, talk: talk);
+    }
+    
+    /**
+     get talk favor count
+     
+     - parameter cell: cell
+     - parameter talk: talk info
+     */
+    private func getFavorCount(cell: OtherTalkCell, talk: TalkInfo)
+    {
+        var params = [String: Any]();
+        params["talkId"] = talk.id;
+        HttpClient.share().bgPost(URL_FAVOR_COUNT, parameters: params, success: { (task, responseObject) in
+            let body = ((responseObject as! [String: Any])["body"] as! [Any])[0] as! [String: Any];
+            self.showFavorCount(cell: cell, count: body["favorCount"] as! Int);
+        }) { (task, error) in
+            
+        };
+    }
+    
+    /**
+     show favor count
+     
+     - parameter cell:  cell
+     - parameter count: count
+     */
+    private func showFavorCount(cell: OtherTalkCell, count: Int)
+    {
+        cell.favorCount = count;
+    }
+    
+    /**
+     add favor
+     
+     - parameter talkId: talk id
+     */
+    private func addFavor(_ talkId: String)
+    {
+        var params = [String: Any]();
+        params["talkId"] = talkId;
+        
+        HttpClient.share().bgPost(URL_TALK_FAVOR, parameters: params, success: { (task, responseObject) in
+            self.showAlertMsg("收藏成功", dismiss: nil);
+        }) { (task, error) in
+            
         };
     }
     
@@ -397,7 +448,11 @@ extension AreaViewController: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        let dicTalk = arrayData[indexPath.row] as? [String: Any];
+        let talkInfo = TalkInfo(dictionary: dicTalk!);
+        
         let controller = TalkDetailViewController();
+        controller.talkInfo = talkInfo!;
         controller.hidesBottomBarWhenPushed = true;
         self.navigationController?.pushViewController(controller, animated: true);
     }
