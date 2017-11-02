@@ -92,6 +92,14 @@ class MyTalkCell : UITableViewCell, Nibloadable
         }
     }
     
+    var favorCount: String?
+    {
+        didSet
+        {
+            lbFavor.text = favorCount;
+        }
+    }
+    
     //cell identifier
     static let identifier = "my_talk_cell";
     

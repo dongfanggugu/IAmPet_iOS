@@ -258,6 +258,12 @@
     return cell;
 }
 
+/**
+ *  assign the cell with talkInfo
+ *
+ *  @param cell cell
+ *  @param talk talk info
+ */
 - (void)assignMyTalkCell:(MyTalkCell *)cell talk:(TalkInfo *)talk
 {
     cell.talkContent = talk.content;
@@ -270,6 +276,32 @@
     cell.showPhoto = ^(UIImage *image) {
         [weakSelf showPreviewImage:image];
     };
+    
+    [self getFavorCount:cell talk:talk];
+}
+
+- (void)getFavorCount:(MyTalkCell *)cell talk:(TalkInfo *)talk
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"talkId"] = talk.id;
+    
+    [[HttpClient shareClient] bgPost:URL_FAVOR_COUNT parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSInteger favorCount = [responseObject[@"body"][@"favorCount"] integerValue];
+        [self showFavorCount:cell count:favorCount];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
+
+/**
+ *  show favor count in the cell
+ *
+ *  @param cell  cell
+ *  @param count count
+ */
+- (void)showFavorCount:(MyTalkCell *)cell count:(NSInteger)count
+{
+    cell.favorCount = [NSString stringWithFormat:@"%ld", count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
