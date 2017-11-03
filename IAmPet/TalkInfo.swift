@@ -18,6 +18,9 @@ class TalkInfo: Jastor
     var voice = "";
     var video = "";
     var arrayPic: [String] = [String]();
+    var favorCount = 0;
+    var likesCount = 0;
+    var commentCount = 0;
     
     override init?(dictionary: [AnyHashable: Any])
     {

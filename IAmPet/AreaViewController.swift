@@ -353,26 +353,9 @@ extension AreaViewController: UITableViewDataSource
             [weak self] in
             self?.addFavor(talk.id);
         }
-        getFavorCount(cell: cell, talk: talk);
+        showFavorCount(cell: cell, count: talk.favorCount);
     }
-    
-    /**
-     get talk favor count
-     
-     - parameter cell: cell
-     - parameter talk: talk info
-     */
-    private func getFavorCount(cell: OtherTalkCell, talk: TalkInfo)
-    {
-        var params = [String: Any]();
-        params["talkId"] = talk.id;
-        HttpClient.share().bgPost(URL_FAVOR_COUNT, parameters: params, success: { (task, responseObject) in
-            let body = ((responseObject as! [String: Any])["body"] as! [Any])[0] as! [String: Any];
-            self.showFavorCount(cell: cell, count: body["favorCount"] as! Int);
-        }) { (task, error) in
-            
-        };
-    }
+   
     
     /**
      show favor count

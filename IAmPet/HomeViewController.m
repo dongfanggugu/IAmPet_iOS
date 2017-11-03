@@ -277,21 +277,9 @@
         [weakSelf showPreviewImage:image];
     };
     
-    [self getFavorCount:cell talk:talk];
+    [self showFavorCount:cell count:talk.favorCount];
 }
 
-- (void)getFavorCount:(MyTalkCell *)cell talk:(TalkInfo *)talk
-{
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"talkId"] = talk.id;
-    
-    [[HttpClient shareClient] bgPost:URL_FAVOR_COUNT parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSInteger favorCount = [responseObject[@"body"][@"favorCount"] integerValue];
-        [self showFavorCount:cell count:favorCount];
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-    }];
-}
 
 /**
  *  show favor count in the cell
