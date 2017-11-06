@@ -321,7 +321,7 @@ extension AreaViewController: UITableViewDataSource
         let dicTalk = arrayData[indexPath.row] as? [String: Any];
         let talkInfo = TalkInfo(dictionary: dicTalk!);
         
-        assignOtherTalkCell(cell!, talk: talkInfo!);
+        assignOtherTalkCell(cell!, talk: talkInfo!, index: indexPath.row);
         return cell!;
     }
     
@@ -334,7 +334,7 @@ extension AreaViewController: UITableViewDataSource
      
      - returns: OtherTalkCell
      */
-    private func assignOtherTalkCell(_ cell: OtherTalkCell, talk: TalkInfo)
+    private func assignOtherTalkCell(_ cell: OtherTalkCell, talk: TalkInfo, index: Int)
     {
         cell.talkContent = talk.content;
         cell.mediaContent = talk.mediaContent;
@@ -350,9 +350,10 @@ extension AreaViewController: UITableViewDataSource
         };
         
         cell.addFavor = {
-            [weak self] in
-            self?.addFavor(talk.id);
+            [weak self, weak cell] in
+            self?.addFavor(talk: talk, cell: cell!, index: index);
         }
+        cell.favor = talk.favor;
         showFavorCount(cell: cell, count: talk.favorCount);
     }
    
@@ -373,16 +374,35 @@ extension AreaViewController: UITableViewDataSource
      
      - parameter talkId: talk id
      */
-    private func addFavor(_ talkId: String)
+    private func addFavor(talk: TalkInfo, cell: OtherTalkCell, index: Int)
     {
         var params = [String: Any]();
-        params["talkId"] = talkId;
+        params["talkId"] = talk.id;
         
         HttpClient.share().bgPost(URL_TALK_FAVOR, parameters: params, success: { (task, responseObject) in
             self.showAlertMsg("收藏成功", dismiss: nil);
+            self.updateFavorCount(cell: cell, index: index);
         }) { (task, error) in
-            
+            let code = (error! as NSError).code;
+            if (11 == code)
+            {
+                self.showAlertMsg("您已经收藏过", dismiss: nil);
+            }
         };
+    }
+    
+    /**
+     update the favor count of the cell
+     
+     - parameter _index: index
+     */
+    private func updateFavorCount(cell: OtherTalkCell, index: Int)
+    {
+        cell.favorCount =  cell.favorCount! + 1;
+        cell.favor = 1;
+        var dic = arrayData[index] as! [String: Any];
+        dic["favorCount"] = cell.favorCount!;
+        dic["favor"] = 1;
     }
     
     /**

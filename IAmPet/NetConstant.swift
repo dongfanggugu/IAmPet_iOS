@@ -9,3 +9,5 @@
 import Foundation
 
 let URL_TALKS_ALL = "getTalks";
+
+let URL_ADD_COMMENT = "addComment";

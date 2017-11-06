@@ -52,11 +52,34 @@ class OtherTalkCell : UITableViewCell, Nibloadable
     
     @IBOutlet private weak var viewPerson: UIView!;
     
+    private var imgFavor: UIImage?
+    {
+        didSet
+        {
+            btnFavor.setBackgroundImage(imgFavor!, for: .normal);
+        }
+    }
+    
     var favorCount: Int? = -1
     {
         didSet
         {
             lbFavor.text = "\(favorCount!)";
+        }
+    }
+    
+    var favor: Int? //favor tag
+    {
+        didSet
+        {
+            if (1 == favor!)
+            {
+                imgFavor = UIImage(named: "icon_want_sel");
+            }
+            else
+            {
+                imgFavor = UIImage(named: "icon_want_normal");
+            }
         }
     }
     
@@ -142,7 +165,7 @@ class OtherTalkCell : UITableViewCell, Nibloadable
      */
     @objc private func clickFavor()
     {
-        favor();
+        getFavor();
     }
     
     
@@ -344,7 +367,7 @@ class OtherTalkCell : UITableViewCell, Nibloadable
     /**
      favor
      */
-    private func favor()
+    private func getFavor()
     {
         addFavor?();
     }

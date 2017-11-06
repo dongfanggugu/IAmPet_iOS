@@ -494,20 +494,51 @@ extension TalkDetailViewController: CommentPublishViewDelegate
         };
     }
     
+    
     func publishView(_ view: CommentPublishView, content: String?)
     {
         if let content = content
         {
-            print(content);
+            if (content.isEmpty)
+            {
+                showAlertMsg("请填写您的评论", dismiss: nil);
+                return;
+            }
+            publishComment(view: view, content: content);
         }
+    }
+    
+    /**
+     publish the comment to the server
+     
+     - parameter content: content
+     */
+    private func publishComment(view: CommentPublishView, content: String)
+    {
+        var params = [String: Any]();
+        params["talkId"] = talkInfo!.id;
+        params["content"] = content;
         
-        weak var weakSelf = self;
+        HttpClient.share().fgPost(URL_ADD_COMMENT, parameters: params, success: { (task, responseObject) in
+            self.hidePublishView(view);
+        }) { (task, error) in
+            
+        };
+    }
+    
+    /**
+     hide the publish view
+     
+     - parameter view: CommentPublishView
+     */
+    private func hidePublishView(_ view: CommentPublishView)
+    {
         UIView.animate(withDuration: 0.2, animations: {
             view.center = CGPoint(x: ScreenWidth / 2, y: ScreenHeight + view.bounds.size.height / 2);
         }) {
-            (complete) in
+            [weak self] (complete) in
             view.dismiss();
-            weakSelf?.commentEditView = nil;
+            self?.commentEditView = nil;
         };
     }
 }

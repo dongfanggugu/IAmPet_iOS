@@ -95,11 +95,11 @@ extension CommentPublishView: UITextViewDelegate
 {
     func textViewDidChange(_ textView: UITextView)
     {
-        HHUtils.textViewLimitEndInput(300, textView: textView, label: lbStatistics);
+        HHUtils.textViewLimitEndInput(100, textView: textView, label: lbStatistics);
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
     {
-        return HHUtils.textViewLimitOnInput(300, textView: textView, textRange: range, text: text);
+        return HHUtils.textViewLimitOnInput(100, textView: textView, textRange: range, text: text);
     }
 }
