@@ -35,6 +35,12 @@ class TalkDetailViewController: SBaseViewController
     
     var commentEditView: CommentPublishView?;   //评论view
     
+    var arrayComment = [Any]();
+    
+    var arrayFavor = [Any]();
+    
+    var arrayLikes = [Any]();
+    
     var opState: OperationState! = .Comment   //操作状态
     {
         didSet
@@ -149,19 +155,36 @@ class TalkDetailViewController: SBaseViewController
     {
         if (opState! == .Favor)
         {
-            itemCount = 20;
+            itemCount = talkInfo!.favorCount;
+            getComments();
         }
         else if (opState! == .Comment)
         {
-            itemCount = 20;
+            itemCount = talkInfo!.commentCount;
         }
         else if (opState! == .Likes)
         {
-            itemCount = 20;
+            itemCount = talkInfo!.likesCount;
         }
         
         let indexSet = IndexSet(integer: 2);
         tableView?.reloadSections(indexSet, with: .none);
+    }
+    
+    /**
+     get comments
+     */
+    private func getComments()
+    {
+        var params = [String: Any]();
+        params["talkId"] = talkInfo!.id;
+        params["createTime"] = (arrayComment.last as? [String: Any])?["createTime"];
+        
+        HttpClient.share().fgPost(URL_TALK_COMMENTS, parameters: params, success: { (task, responseObject) in
+            
+        }) { (task, errer) in
+            
+        };
     }
     
     deinit

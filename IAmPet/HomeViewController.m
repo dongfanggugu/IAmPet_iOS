@@ -278,6 +278,8 @@
     };
     
     [self showFavorCount:cell count:talk.favorCount];
+    [self showCommentCount:cell count:talk.commentCount];
+    [self showLikesCount:cell count:talk.likesCount];
 }
 
 
@@ -290,6 +292,16 @@
 - (void)showFavorCount:(MyTalkCell *)cell count:(NSInteger)count
 {
     cell.favorCount = [NSString stringWithFormat:@"%ld", count];
+}
+
+- (void)showLikesCount:(MyTalkCell *)cell count:(NSInteger)count
+{
+    cell.likesCount = [NSString stringWithFormat:@"%ld", count];
+}
+
+- (void)showCommentCount:(MyTalkCell *)cell count:(NSInteger)count
+{
+    cell.commentCount = [NSString stringWithFormat:@"%ld", count]; 
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath

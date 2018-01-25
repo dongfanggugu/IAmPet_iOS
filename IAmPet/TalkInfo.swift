@@ -22,6 +22,7 @@ class TalkInfo: Jastor
     var likesCount = 0;
     var commentCount = 0;
     var favor = 0;
+    var likes = 0;
     
     override init?(dictionary: [AnyHashable: Any])
     {

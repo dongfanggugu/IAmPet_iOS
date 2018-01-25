@@ -24,6 +24,8 @@ class OtherTalkCell : UITableViewCell, Nibloadable
     //favor
     typealias ClickFavor = () -> Void;
     
+    typealias ClikcLikes = () -> ();
+    
     @IBOutlet weak var ivIcon: UIImageView!;
     
     @IBOutlet weak var lbName: UILabel!;    //名字
@@ -68,6 +70,22 @@ class OtherTalkCell : UITableViewCell, Nibloadable
         }
     }
     
+    var commentCount: Int?
+    {
+        didSet
+        {
+            lbConment.text = "\(commentCount!)";
+        }
+    }
+    
+    var likesCount: Int?
+    {
+        didSet
+        {
+            lbLikes.text = "\(likesCount!)";
+        }
+    }
+    
     var favor: Int? //favor tag
     {
         didSet
@@ -82,6 +100,8 @@ class OtherTalkCell : UITableViewCell, Nibloadable
             }
         }
     }
+    
+    var likes: Int? //likes tag
     
     //说说内容
     var talkContent: String?
@@ -126,6 +146,8 @@ class OtherTalkCell : UITableViewCell, Nibloadable
     
     var addFavor: ClickFavor?;
     
+    var addLikes: ClikcLikes?;
+    
     class func cellFromNib() -> OtherTalkCell
     {
         return OtherTalkCell.loadNib();
@@ -141,6 +163,7 @@ class OtherTalkCell : UITableViewCell, Nibloadable
         
         addPersonListener();
         addFavorListener();
+        addLikesListener();
     }
     
     override func layoutSubviews()
@@ -165,7 +188,27 @@ class OtherTalkCell : UITableViewCell, Nibloadable
      */
     @objc private func clickFavor()
     {
-        getFavor();
+        addFavor?();
+    }
+    
+    /**
+     add click likes listener
+     */
+    private func addLikesListener()
+    {
+        btnLikes.addTarget(self, action: #selector(clickLikes), for: .touchUpInside);
+        lbFavor.isUserInteractionEnabled = true;
+        let gesture = UITapGestureRecognizer();
+        gesture.addTarget(self, action: #selector(clickLikes));
+        lbFavor.addGestureRecognizer(gesture);
+    }
+    
+    /**
+     click likes callback
+     */
+    @objc private func clickLikes()
+    {
+        addLikes?();
     }
     
     
@@ -364,13 +407,13 @@ class OtherTalkCell : UITableViewCell, Nibloadable
         heightMedia.constant = 0;
     }
     
-    /**
-     favor
-     */
-    private func getFavor()
-    {
-        addFavor?();
-    }
+//    /**
+//     favor
+//     */
+//    private func getFavor()
+//    {
+//        addFavor?();
+//    }
     
     deinit
     {

@@ -353,8 +353,17 @@ extension AreaViewController: UITableViewDataSource
             [weak self, weak cell] in
             self?.addFavor(talk: talk, cell: cell!, index: index);
         }
+        
+        cell.addLikes = {
+            [weak self, weak cell] in
+            self?.addLikes(talk: talk, cell: cell!, index: index);
+        }
+        
         cell.favor = talk.favor;
+        cell.likes = talk.likes;
         showFavorCount(cell: cell, count: talk.favorCount);
+        showCommentCount(cell: cell, count: talk.commentCount);
+        showLikesCount(cell: cell, count: talk.likesCount);
     }
    
     
@@ -369,6 +378,16 @@ extension AreaViewController: UITableViewDataSource
         cell.favorCount = count;
     }
     
+    private func showCommentCount(cell: OtherTalkCell, count: Int)
+    {
+        cell.commentCount = count;
+    }
+    
+    private func showLikesCount(cell: OtherTalkCell, count: Int)
+    {
+        cell.likesCount = count;
+    }
+    
     /**
      add favor
      
@@ -376,6 +395,11 @@ extension AreaViewController: UITableViewDataSource
      */
     private func addFavor(talk: TalkInfo, cell: OtherTalkCell, index: Int)
     {
+        if (1 == cell.favor!)
+        {
+            self.showAlertMsg("您已经收藏过", dismiss: nil);
+            return;
+        }
         var params = [String: Any]();
         params["talkId"] = talk.id;
         
@@ -403,6 +427,50 @@ extension AreaViewController: UITableViewDataSource
         var dic = arrayData[index] as! [String: Any];
         dic["favorCount"] = cell.favorCount!;
         dic["favor"] = 1;
+    }
+    
+    /**
+     add likes
+     
+     - parameter talk:  talk id
+     - parameter cell:  cell
+     - parameter index: index
+     */
+    private func addLikes(talk: TalkInfo, cell: OtherTalkCell, index: Int)
+    {
+        if (1 == cell.likes!)
+        {
+            self.showAlertMsg("您已经点赞过", dismiss: nil);
+            return;
+        }
+        var params = [String: Any]();
+        params["talkId"] = talk.id;
+        
+        HttpClient.share().bgPost(URL_ADD_LIKES, parameters: params, success: { (task, responseObject) in
+            self.showAlertMsg("点赞成功", dismiss: nil);
+            self.updateLikesCount(cell: cell, index: index);
+        }) { (task, error) in
+            let code = (error! as NSError).code;
+            if (12 == code)
+            {
+                self.showAlertMsg("您已经点赞过", dismiss: nil);
+            }
+        }
+    }
+    
+    /**
+     update the likes count
+     
+     - parameter cell:  cell
+     - parameter index: index
+     */
+    private func updateLikesCount(cell: OtherTalkCell, index: Int)
+    {
+        cell.likesCount = cell.likesCount! + 1;
+        cell.likes = 1;
+        var dic = arrayData[index] as! [String: Any];
+        dic["likesCount"] = cell.favorCount!;
+        dic["likes"] = 1;
     }
     
     /**

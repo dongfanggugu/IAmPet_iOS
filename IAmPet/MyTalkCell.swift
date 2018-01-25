@@ -100,6 +100,22 @@ class MyTalkCell : UITableViewCell, Nibloadable
         }
     }
     
+    var commentCount: String?
+    {
+        didSet
+        {
+            lbConment.text = commentCount;
+        }
+    }
+    
+    var likesCount: String?
+    {
+        didSet
+        {
+            lbLikes.text = likesCount;
+        }
+    }
+    
     //cell identifier
     static let identifier = "my_talk_cell";
     
