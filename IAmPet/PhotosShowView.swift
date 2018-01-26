@@ -306,10 +306,12 @@ class PhotosShowView: UIView
     @objc private func clickImageView(sender: UIGestureRecognizer) 
     {
         let imageView = sender.view as? UIImageView;
-        let filePath = imageView?.getSourceImage();
-        if let image = UIImage(contentsOfFile: filePath!)
+        if let filePath = imageView?.getSourceImage()
         {
-            clickImage?(image);
+            if let image = UIImage(contentsOfFile: filePath)
+            {
+                clickImage?(image);
+            }
         }
     }
 }

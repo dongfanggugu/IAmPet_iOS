@@ -68,8 +68,11 @@ class MyTalkCell : UITableViewCell, Nibloadable
     {
         didSet
         {
-            lbContent.text = talkContent;
-            resetContentHeight(content: talkContent!);
+            if let content = talkContent
+            {
+                lbContent.text = content;
+                resetContentHeight(content: content);
+            }
         }
     }
     //多媒体内容
@@ -77,17 +80,20 @@ class MyTalkCell : UITableViewCell, Nibloadable
     {
         didSet
         {
-            if (nil == mediaContent)
+            if let mediaContent = mediaContent, let oldValue = oldValue
             {
-                return;
-            }
-            if (oldValue?.type == mediaContent?.type)
-            {
-                updateMediaView();
+                if (oldValue.type == mediaContent.type)
+                {
+                    updateMediaView(mediaContent);
+                }
+                else
+                {
+                    addMediaView();
+                }
             }
             else
             {
-                addMediaView();
+                cleanMediaView();
             }
         }
     }
@@ -154,7 +160,6 @@ class MyTalkCell : UITableViewCell, Nibloadable
         let font = UIFont.systemFont(ofSize: 14);
         let width = lbContent.frame.size.width;
         let height = HHUtils.getTextHeight(textStr: content, font: font, width: width);
-        
         let div = height - heightContent.constant;
         heightContent.constant = height;
         cellHeight += Float(div);
@@ -174,9 +179,9 @@ class MyTalkCell : UITableViewCell, Nibloadable
     /**
      更新多媒体View
      */
-    private func updateMediaView()
+    private func updateMediaView(_ mediaContent: MediaContent)
     {
-        let type = mediaContent?.type;
+        let type = mediaContent.type;
         if (MediaContent.picture == type)
         {
             updatePhotosView();
@@ -196,6 +201,10 @@ class MyTalkCell : UITableViewCell, Nibloadable
      */
     private func updatePhotosView()
     {
+        if (0 == viewMedia.subviews.count)
+        {
+            return;
+        }
         let photosView = viewMedia.subviews[0] as? PhotosShowView;
         photosView?.urlsImage = mediaContent?.urls;
         resetMediaHeight(height: photosView!.frame.size.height);
@@ -206,6 +215,10 @@ class MyTalkCell : UITableViewCell, Nibloadable
      */
     private func updateVoiceView()
     {
+        if (0 == viewMedia.subviews.count)
+        {
+            return;
+        }
         let voiceView = viewMedia.subviews[0] as? VoiceShowView;
         voiceView?.urlStr = mediaContent?.urls[0];
     }
@@ -215,6 +228,10 @@ class MyTalkCell : UITableViewCell, Nibloadable
      */
     private func updateVideoView()
     {
+        if (0 == viewMedia.subviews.count)
+        {
+            return;
+        }
         let videoView = viewMedia.subviews[0] as? VideoShowView;
         videoView?.videoUrl = mediaContent?.urls[0];
     }

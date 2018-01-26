@@ -101,7 +101,6 @@
 {
     UIImage *image = [UIImage imageNamed:@"icon_icon.jpg"];
     image = [ImageUtils imageWithImage:image scaledToSize:frame.size];
-    
     return image;
 }
 
@@ -244,17 +243,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MyTalkCell *cell = [tableView dequeueReusableCellWithIdentifier:[MyTalkCell identifier]];
-    
     if (!cell)
     {
         cell = [MyTalkCell cellFromNib];
-        
     }
     _cell = cell;
-    
     id talkInfo = [[TalkInfo alloc] initWithDictionary:self.arrayData[indexPath.row]];
     [self assignMyTalkCell:cell talk:talkInfo];
-    
     return cell;
 }
 
