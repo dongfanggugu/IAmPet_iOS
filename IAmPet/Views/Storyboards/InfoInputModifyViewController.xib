@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InfoInputModifyViewController" customModule="IAmPet" customModuleProvider="target">
+            <connections>
+                <outlet property="btnSubmit" destination="Jbf-SN-qdV" id="gdx-XO-ZgT"/>
+                <outlet property="tfValue" destination="CcF-te-qTZ" id="EXk-AZ-t50"/>
+                <outlet property="view" destination="0sN-Nx-J51" id="mWM-i2-vW4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="0sN-Nx-J51">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CcF-te-qTZ">
+                    <rect key="frame" x="16" y="72" width="343" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="T03-dD-sfp"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbf-SN-qdV">
+                    <rect key="frame" x="107.5" y="198" width="160" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="GfM-kV-IVy"/>
+                        <constraint firstAttribute="width" constant="160" id="oBp-hV-Yut"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="提交"/>
+                    <connections>
+                        <action selector="submit" destination="-1" eventType="touchUpInside" id="Mb9-As-nUe"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Jbf-SN-qdV" firstAttribute="centerX" secondItem="0sN-Nx-J51" secondAttribute="centerX" id="fRd-OC-5lx"/>
+                <constraint firstItem="Jbf-SN-qdV" firstAttribute="top" secondItem="CcF-te-qTZ" secondAttribute="bottom" constant="96" id="mUh-OG-XZa"/>
+                <constraint firstItem="CcF-te-qTZ" firstAttribute="top" secondItem="0sN-Nx-J51" secondAttribute="top" constant="72" id="qRq-X4-cv5"/>
+                <constraint firstAttribute="trailing" secondItem="CcF-te-qTZ" secondAttribute="trailing" constant="16" id="xp5-yw-Dxa"/>
+                <constraint firstItem="CcF-te-qTZ" firstAttribute="leading" secondItem="0sN-Nx-J51" secondAttribute="leading" constant="16" id="yjQ-Ki-pqh"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-152" y="139"/>
+        </view>
+    </objects>
+</document>

@@ -96,7 +96,7 @@ class LoginViewController: SBaseViewController
         params["password"] = Utils.md5(pwd);
         
         HttpClient.share().fgPost(URL_LOGIN, parameters: params, success: { (task, responseObject) in
-            self.storeParams(responseObject as! [String: Any]);
+            self.storeParams(responseObject as? [String: Any]);
             self.jumpMainpage();
         }) { (task, error) in
             let err = error as NSError?;
@@ -109,11 +109,63 @@ class LoginViewController: SBaseViewController
      
      - parameter params: params
      */
-    private func storeParams(_ params: [String: Any])
+    private func storeParams(_ response: [String: Any]?)
     {
-        let body = params["body"] as! [String: Any];
-        User.shareConfig().userId = body["id"] as! String;
-        User.shareConfig().accessToken = body["token"] as! String;
+        if let body = response?["body"] as? [String: Any]
+        {
+            User.shareConfig().userId = body["id"] as! String;
+            User.shareConfig().accessToken = body["token"] as! String;
+            User.shareConfig().userName = body["userName"] as! String;
+            if let petsName = body["petsName"] as? String
+            {
+                User.shareConfig().petsName = petsName;
+            }
+            
+            if let birthday = body["birthday"] as? String
+            {
+                User.shareConfig().birthday = birthday;
+            }
+            
+            if let ownerName = body["ownerName"] as? String
+            {
+                User.shareConfig().ownerName = ownerName;
+            }
+            
+            if let ownerTel = body["ownerTel"] as? String
+            {
+                User.shareConfig().ownerTel = ownerTel;
+            }
+            
+            if let category = body["category"] as? String
+            {
+                User.shareConfig().category = category;
+            }
+            
+            if let variety = body["variety"] as? String
+            {
+                User.shareConfig().variety = variety;
+            }
+            
+            if let introduce = body["introduce"] as? String
+            {
+                User.shareConfig().introduce = introduce;
+            }
+            
+            if let imgUrl = body["icon"] as? String
+            {
+                User.shareConfig().imgUrl = imgUrl;
+            }
+            
+            if let voiceUrl = body["voice"] as? String
+            {
+                User.shareConfig().voiceUrl = voiceUrl;
+            }
+            
+            if let sex = body["sex"] as? Int
+            {
+                User.shareConfig().sex = sex;
+            }
+        }
     }
     
     /**

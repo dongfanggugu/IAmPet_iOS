@@ -29,8 +29,16 @@
     view.delegate = self;
     view.frame = CGRectMake(ScreenWidth * 0.4, 0, ScreenWidth * 0.6, ScreenHeight);
     [self.view addSubview:view];
+    
+    //set basic info
+    NSString *petsName = [User shareConfig].petsName;
+    if (0 == petsName.length)
+    {
+        petsName = @"花猫";
+    }
+    view.lbNickName.text = petsName;
+    view.lbAccount.text = [User shareConfig].userName;
 }
-
 
 #pragma mark - PersonCenterViewDelegate
 

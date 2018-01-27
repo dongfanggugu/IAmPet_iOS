@@ -211,9 +211,12 @@
  */
 - (void)showPulishPage
 {
-    PublishViewController *controller = [PublishViewController new];
-    controller.delegate = self;
-    [self presentViewController:controller animated:YES completion:nil];
+//    PublishViewController *controller = [PublishViewController new];
+//    controller.delegate = self;
+//    [self presentViewController:controller animated:YES completion:nil];
+    PersonInfoViewController *controller = [PersonInfoViewController new];
+    controller.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 /**

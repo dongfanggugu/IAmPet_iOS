@@ -24,10 +24,18 @@
     
     //请求服务器
     [[HttpClient shareClient] fgPost:@"/login" parameters:paras success:^(NSURLSessionDataTask *task, id responseObject) {
-        
+        [self setBasicInfo:responseObject[@"body"]];
     } failure:^(NSURLSessionDataTask *task, NSError *errr) {
         
     }];
+}
+
++ (void)setBasicInfo:(NSDictionary *)info
+{
+    [User shareConfig].userName = info[@"userName"];
+    [User shareConfig].accessToken = info[@"token"];
+    [User shareConfig].userId = info[@"userId"];
+    [User shareConfig].petsName = info[@"petsName"];
 }
 
 /**

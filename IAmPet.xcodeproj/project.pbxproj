@@ -120,7 +120,7 @@
 		65C6E6D71F6BCC790063F5A5 /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E6791F6BCC780063F5A5 /* chat.png */; };
 		65C6E6D81F6BCC790063F5A5 /* crop_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E67A1F6BCC780063F5A5 /* crop_bg@2x.png */; };
 		65C6E6D91F6BCC790063F5A5 /* fmale_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E67B1F6BCC780063F5A5 /* fmale_white@2x.png */; };
-		65C6E6DA1F6BCC790063F5A5 /* fmale@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E67C1F6BCC780063F5A5 /* fmale@2x.png */; };
+		65C6E6DA1F6BCC790063F5A5 /* fmale.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E67C1F6BCC780063F5A5 /* fmale.png */; };
 		65C6E6DB1F6BCC790063F5A5 /* follow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E67D1F6BCC780063F5A5 /* follow@2x.png */; };
 		65C6E6DC1F6BCC790063F5A5 /* header_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E67E1F6BCC780063F5A5 /* header_camera@2x.png */; };
 		65C6E6DD1F6BCC790063F5A5 /* header_fmale1.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C6E67F1F6BCC780063F5A5 /* header_fmale1.png */; };
@@ -226,6 +226,10 @@
 		65CCE8FD1F8331E200072D01 /* FollowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CCE8FC1F8331E200072D01 /* FollowsViewController.swift */; };
 		65D3BB4E1F774868005A3B6E /* VideoShowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65D3BB4D1F774868005A3B6E /* VideoShowView.xib */; };
 		65D3BB501F7748D1005A3B6E /* VideoShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D3BB4F1F7748D1005A3B6E /* VideoShowView.swift */; };
+		65EF110E201CD759003810FB /* InfoInputModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF110D201CD759003810FB /* InfoInputModifyViewController.swift */; };
+		65EF1110201CD7BD003810FB /* InfoSelModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF110F201CD7BD003810FB /* InfoSelModifyViewController.swift */; };
+		65EF1122201CDF67003810FB /* InfoInputModifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65EF1121201CDF67003810FB /* InfoInputModifyViewController.xib */; };
+		65EF1125201CF22B003810FB /* ImagePickerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF1124201CF22B003810FB /* ImagePickerable.swift */; };
 		65F1526E1F7FFC4C0004D679 /* ChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F1526D1F7FFC4C0004D679 /* ChatModel.m */; };
 		65F152701F7FFC6A0004D679 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F1526F1F7FFC6A0004D679 /* ChatViewController.xib */; };
 		65F152AE1F7FFD530004D679 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F152981F7FFD530004D679 /* NSDate+Utils.m */; };
@@ -432,7 +436,7 @@
 		65C6E6791F6BCC780063F5A5 /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
 		65C6E67A1F6BCC780063F5A5 /* crop_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crop_bg@2x.png"; sourceTree = "<group>"; };
 		65C6E67B1F6BCC780063F5A5 /* fmale_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fmale_white@2x.png"; sourceTree = "<group>"; };
-		65C6E67C1F6BCC780063F5A5 /* fmale@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fmale@2x.png"; sourceTree = "<group>"; };
+		65C6E67C1F6BCC780063F5A5 /* fmale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fmale.png; sourceTree = "<group>"; };
 		65C6E67D1F6BCC780063F5A5 /* follow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "follow@2x.png"; sourceTree = "<group>"; };
 		65C6E67E1F6BCC780063F5A5 /* header_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "header_camera@2x.png"; sourceTree = "<group>"; };
 		65C6E67F1F6BCC780063F5A5 /* header_fmale1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header_fmale1.png; sourceTree = "<group>"; };
@@ -540,6 +544,10 @@
 		65CCE8FC1F8331E200072D01 /* FollowsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowsViewController.swift; sourceTree = "<group>"; };
 		65D3BB4D1F774868005A3B6E /* VideoShowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoShowView.xib; sourceTree = "<group>"; };
 		65D3BB4F1F7748D1005A3B6E /* VideoShowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoShowView.swift; sourceTree = "<group>"; };
+		65EF110D201CD759003810FB /* InfoInputModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInputModifyViewController.swift; sourceTree = "<group>"; };
+		65EF110F201CD7BD003810FB /* InfoSelModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSelModifyViewController.swift; sourceTree = "<group>"; };
+		65EF1121201CDF67003810FB /* InfoInputModifyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoInputModifyViewController.xib; sourceTree = "<group>"; };
+		65EF1124201CF22B003810FB /* ImagePickerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerable.swift; sourceTree = "<group>"; };
 		65F1526C1F7FFC4C0004D679 /* ChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatModel.h; sourceTree = "<group>"; };
 		65F1526D1F7FFC4C0004D679 /* ChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatModel.m; sourceTree = "<group>"; };
 		65F1526F1F7FFC6A0004D679 /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
@@ -634,16 +642,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		654E4B0D1F7158FD0052F4A9 /* Vender */ = {
-			isa = PBXGroup;
-			children = (
-				65F152951F7FFD530004D679 /* UUChat */,
-				65C1EEA41F71620D004D464D /* WCLRecordVideo */,
-				654E4B0E1F71592D0052F4A9 /* lame */,
-			);
-			name = Vender;
-			sourceTree = "<group>";
-		};
 		654E4B0E1F71592D0052F4A9 /* lame */ = {
 			isa = PBXGroup;
 			children = (
@@ -676,119 +674,24 @@
 		657C73F71F662C02002BE2BA /* IAmPet */ = {
 			isa = PBXGroup;
 			children = (
-				654E4B0D1F7158FD0052F4A9 /* Vender */,
-				657C74391F662E89002BE2BA /* NetUtils */,
-				657C74351F662D71002BE2BA /* Resources */,
-				657C74311F662D13002BE2BA /* Utils */,
-				657C74301F662D02002BE2BA /* Controllers */,
-				657C742F1F662CFA002BE2BA /* Models */,
-				657C742E1F662CEA002BE2BA /* Views */,
+				65EF1123201CF205003810FB /* Protocols */,
+				65EF111F201CDC29003810FB /* Supporting Files */,
 				657C73FB1F662C02002BE2BA /* AppDelegate.h */,
 				657C73FC1F662C02002BE2BA /* AppDelegate.m */,
+				657C74071F662C02002BE2BA /* Assets.xcassets */,
+				65EF1118201CD9E8003810FB /* Controllers */,
+				657C74041F662C02002BE2BA /* IAmPet.xcdatamodeld */,
+				657C74091F662C02002BE2BA /* LaunchScreen.storyboard */,
+				657C74011F662C02002BE2BA /* Main.storyboard */,
+				65EF111D201CDB2F003810FB /* Models */,
+				657C74351F662D71002BE2BA /* Resources */,
+				65EF111A201CDA4C003810FB /* Utils */,
+				65EF1117201CD90A003810FB /* Vendor */,
 				657C73FE1F662C02002BE2BA /* ViewController.h */,
 				657C73FF1F662C02002BE2BA /* ViewController.m */,
-				657C74011F662C02002BE2BA /* Main.storyboard */,
-				657C74071F662C02002BE2BA /* Assets.xcassets */,
-				657C74091F662C02002BE2BA /* LaunchScreen.storyboard */,
-				657C740C1F662C02002BE2BA /* Info.plist */,
-				657C74041F662C02002BE2BA /* IAmPet.xcdatamodeld */,
-				657C73F81F662C02002BE2BA /* Supporting Files */,
+				65EF1112201CD85A003810FB /* Views */,
 			);
 			path = IAmPet;
-			sourceTree = "<group>";
-		};
-		657C73F81F662C02002BE2BA /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				656A2DAB1F749E7700E97F15 /* IAmPet-Bridging-Header.h */,
-				657C73F91F662C02002BE2BA /* main.m */,
-				657C74361F662DC1002BE2BA /* PrefixHeader.pch */,
-				657C74371F662E3C002BE2BA /* Colors.h */,
-				657C74381F662E4F002BE2BA /* Constant.h */,
-				657C74631F67AEEA002BE2BA /* NetConstant.h */,
-				658CA83D1F760A140013DCA6 /* Constant.swift */,
-				65872BE41FAB16DC00238159 /* NetConstant.swift */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		657C742E1F662CEA002BE2BA /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				657C745A1F67861B002BE2BA /* src */,
-				657C74591F678611002BE2BA /* xib */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		657C742F1F662CFA002BE2BA /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				65F1526C1F7FFC4C0004D679 /* ChatModel.h */,
-				65F1526D1F7FFC4C0004D679 /* ChatModel.m */,
-				657C74461F6637E7002BE2BA /* User.h */,
-				657C74471F6637E7002BE2BA /* User.m */,
-				657C74531F6658D2002BE2BA /* SectionInfo.h */,
-				657C74541F6658D2002BE2BA /* SectionInfo.m */,
-				656F9DC61FA038AE005A1586 /* TalkInfo.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		657C74301F662D02002BE2BA /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				65C1EEAD1F716229004D464D /* VideoPlayerController.h */,
-				6535EFF01F7A352100B610D9 /* TalkDetailViewController.swift */,
-				65C1EEAE1F716229004D464D /* VideoPlayerController.m */,
-				65C1EEAF1F716229004D464D /* VideoRecordController.h */,
-				65C1EEB01F716229004D464D /* VideoRecordController.m */,
-				657C74671F68C1B9002BE2BA /* SideMenu */,
-				657C744F1F6657F6002BE2BA /* Base */,
-				657C74501F6658A7002BE2BA /* SectionManagerController.h */,
-				657C74511F6658A7002BE2BA /* SectionManagerController.m */,
-				65C6E7401F6BCD160063F5A5 /* HomeViewController.h */,
-				65C6E7411F6BCD160063F5A5 /* HomeViewController.m */,
-				65C6E7491F6BCD450063F5A5 /* ChatViewController.h */,
-				65C6E74A1F6BCD450063F5A5 /* ChatViewController.m */,
-				656A2D741F70AD0800E97F15 /* PublishViewController.h */,
-				656A2D751F70AD0800E97F15 /* PublishViewController.m */,
-				6535EFFE1F7B925700B610D9 /* AreaViewController.swift */,
-				6535F00D1F7CCD9E00B610D9 /* SearchViewController.swift */,
-				653FEDA31F7D444D003B417C /* SearchDispayViewController.swift */,
-				65C7C7B91F7E2B3B00A44BE5 /* SearchResultViewController.swift */,
-				6544BEA51F7F41850034E042 /* ChatListViewController.swift */,
-				65CCE8EE1F81503500072D01 /* PersonHomeViewController.swift */,
-				65CCE8F61F82A1ED00072D01 /* FansViewController.swift */,
-				65CCE8FC1F8331E200072D01 /* FollowsViewController.swift */,
-				65021D301F8C998D009A0AF0 /* CommentsViewController.swift */,
-				65021D321F8CC68B009A0AF0 /* FavorViewController.swift */,
-				65021D341F8DB52E009A0AF0 /* PersonInfoViewController.swift */,
-				65021D381F8DE2EB009A0AF0 /* LoginViewController.swift */,
-				65021D3C1F8E0282009A0AF0 /* RegisterViewController.swift */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		657C74311F662D13002BE2BA /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				656A2D891F710B5200E97F15 /* ImageUtils.h */,
-				656A2D8A1F710B5200E97F15 /* ImageUtils.m */,
-				657C74431F663494002BE2BA /* HUDClass.h */,
-				657C74441F663494002BE2BA /* HUDClass.m */,
-				657C74401F66300E002BE2BA /* Utils.h */,
-				657C74411F66300E002BE2BA /* Utils.m */,
-				657C743D1F662FE1002BE2BA /* LoginUtils.h */,
-				657C743E1F662FE1002BE2BA /* LoginUtils.m */,
-				657C74321F662D48002BE2BA /* NSArray+Log.h */,
-				657C74331F662D48002BE2BA /* NSArray+Log.m */,
-				656A2DAE1F74D71600E97F15 /* HHUtils.swift */,
-				656A2DB41F7501B000E97F15 /* Nibloadable.swift */,
-				65C7C7B71F7DEB4100A44BE5 /* StringExtension.swift */,
-				65BD39B11FA1DA3500762FA5 /* ArrayExtension.swift */,
-			);
-			name = Utils;
 			sourceTree = "<group>";
 		};
 		657C74351F662D71002BE2BA /* Resources */ = {
@@ -807,7 +710,7 @@
 				65CCE8F01F81566E00072D01 /* concern.png */,
 				65C6E67A1F6BCC780063F5A5 /* crop_bg@2x.png */,
 				65C6E67B1F6BCC780063F5A5 /* fmale_white@2x.png */,
-				65C6E67C1F6BCC780063F5A5 /* fmale@2x.png */,
+				65C6E67C1F6BCC780063F5A5 /* fmale.png */,
 				65C6E67D1F6BCC780063F5A5 /* follow@2x.png */,
 				65C6E67E1F6BCC780063F5A5 /* header_camera@2x.png */,
 				65C6E67F1F6BCC780063F5A5 /* header_fmale1.png */,
@@ -913,66 +816,54 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		657C74391F662E89002BE2BA /* NetUtils */ = {
+		65C1EEA41F71620D004D464D /* WCLRecordVideo */ = {
 			isa = PBXGroup;
 			children = (
-				657C743A1F662EA5002BE2BA /* HttpClient.h */,
-				657C743B1F662EA5002BE2BA /* HttpClient.m */,
+				65C1EEA51F71620D004D464D /* WCLRecordEncoder */,
+				65C1EEA81F71620D004D464D /* WCLRecordEngine */,
 			);
-			name = NetUtils;
+			path = WCLRecordVideo;
 			sourceTree = "<group>";
 		};
-		657C744F1F6657F6002BE2BA /* Base */ = {
+		65C1EEA51F71620D004D464D /* WCLRecordEncoder */ = {
 			isa = PBXGroup;
 			children = (
-				657C74491F6655F7002BE2BA /* BaseViewController.h */,
-				657C744A1F6655F7002BE2BA /* BaseViewController.m */,
-				657C744C1F6657F2002BE2BA /* BaseNavigationController.h */,
-				657C744D1F6657F2002BE2BA /* BaseNavigationController.m */,
-				6508B23B1F6BBA3700B0418F /* BaseTableViewController.h */,
-				6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */,
-				65C6E66C1F6BCB160063F5A5 /* BaseTabBarController.h */,
-				65C6E66D1F6BCB160063F5A5 /* BaseTabBarController.m */,
-				6535EFF21F7A360800B610D9 /* SBaseViewController.swift */,
+				65C1EEA61F71620D004D464D /* WCLRecordEncoder.h */,
+				65C1EEA71F71620D004D464D /* WCLRecordEncoder.m */,
 			);
-			name = Base;
+			path = WCLRecordEncoder;
 			sourceTree = "<group>";
 		};
-		657C74591F678611002BE2BA /* xib */ = {
+		65C1EEA81F71620D004D464D /* WCLRecordEngine */ = {
 			isa = PBXGroup;
 			children = (
-				65F1526F1F7FFC6A0004D679 /* ChatViewController.xib */,
-				656A2D761F70AD0800E97F15 /* PublishViewController.xib */,
-				657C745B1F678627002BE2BA /* RegisterView.xib */,
-				65C2E2051F6FA3920043027A /* PersonCenterView.xib */,
-				65C2E20C1F6FAA460043027A /* PersonCenterCell.xib */,
-				65C2E2161F6FC3030043027A /* TalkCell.xib */,
-				656A2D7D1F70E32D00E97F15 /* PhotoView.xib */,
-				656A2D8C1F72451000E97F15 /* VoiceRecordView.xib */,
-				656A2D951F725E0E00E97F15 /* VoicePlayView.xib */,
-				656A2D9A1F739B0800E97F15 /* VideoPlayView.xib */,
-				656A2DB01F74F9F000E97F15 /* MyTalkCell.xib */,
-				658CA83F1F7611DD0013DCA6 /* VoiceShowView.xib */,
-				65D3BB4D1F774868005A3B6E /* VideoShowView.xib */,
-				6535EFD81F79F1D900B610D9 /* OtherTalkCell.xib */,
-				6535EFE01F79F76200B610D9 /* TalkDetailCell.xib */,
-				6535EFE41F7A1C6900B610D9 /* TalkOperationCell.xib */,
-				6535EFE81F7A272C00B610D9 /* TalkFavorCell.xib */,
-				6535EFEC1F7A2DF400B610D9 /* TalkCommentCell.xib */,
-				6535EFF41F7B32B300B610D9 /* CommentPublishView.xib */,
-				6535EFFC1F7B526600B610D9 /* DetailBottomView.xib */,
-				6535F0001F7B971E00B610D9 /* AreaHeaderView.xib */,
-				65A2614A1F7F65B6003C28C0 /* ChatCell.xib */,
-				65CCE8F21F829BCA00072D01 /* FansCell.xib */,
-				65CCE8F81F832A5500072D01 /* FollowsCell.xib */,
-				65021D361F8DB56E009A0AF0 /* PersonInfoViewController.xib */,
-				65021D3A1F8DE326009A0AF0 /* LoginViewController.xib */,
-				65021D3E1F8E0297009A0AF0 /* RegisterViewController.xib */,
+				65C1EEA91F71620D004D464D /* WCLRecordEngine.h */,
+				65C1EEAA1F71620D004D464D /* WCLRecordEngine.m */,
 			);
-			name = xib;
+			path = WCLRecordEngine;
 			sourceTree = "<group>";
 		};
-		657C745A1F67861B002BE2BA /* src */ = {
+		65EF110C201CD6E0003810FB /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				65021D341F8DB52E009A0AF0 /* PersonInfoViewController.swift */,
+				65EF110D201CD759003810FB /* InfoInputModifyViewController.swift */,
+				65EF110F201CD7BD003810FB /* InfoSelModifyViewController.swift */,
+			);
+			path = Person;
+			sourceTree = "<group>";
+		};
+		65EF1112201CD85A003810FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				65EF1120201CDF28003810FB /* Storyboards */,
+				65EF1116201CD88B003810FB /* Xibs */,
+				65EF1115201CD883003810FB /* Srcs */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		65EF1115201CD883003810FB /* Srcs */ = {
 			isa = PBXGroup;
 			children = (
 				657C745D1F6786D2002BE2BA /* RegisterView.h */,
@@ -1011,10 +902,136 @@
 				65CCE8F41F829D7F00072D01 /* FansCell.swift */,
 				65CCE8FA1F832A8200072D01 /* FollowsCell.swift */,
 			);
-			name = src;
+			path = Srcs;
 			sourceTree = "<group>";
 		};
-		657C74671F68C1B9002BE2BA /* SideMenu */ = {
+		65EF1116201CD88B003810FB /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				65F1526F1F7FFC6A0004D679 /* ChatViewController.xib */,
+				656A2D761F70AD0800E97F15 /* PublishViewController.xib */,
+				657C745B1F678627002BE2BA /* RegisterView.xib */,
+				65C2E2051F6FA3920043027A /* PersonCenterView.xib */,
+				65C2E20C1F6FAA460043027A /* PersonCenterCell.xib */,
+				65C2E2161F6FC3030043027A /* TalkCell.xib */,
+				656A2D7D1F70E32D00E97F15 /* PhotoView.xib */,
+				656A2D8C1F72451000E97F15 /* VoiceRecordView.xib */,
+				656A2D951F725E0E00E97F15 /* VoicePlayView.xib */,
+				656A2D9A1F739B0800E97F15 /* VideoPlayView.xib */,
+				656A2DB01F74F9F000E97F15 /* MyTalkCell.xib */,
+				658CA83F1F7611DD0013DCA6 /* VoiceShowView.xib */,
+				65D3BB4D1F774868005A3B6E /* VideoShowView.xib */,
+				6535EFD81F79F1D900B610D9 /* OtherTalkCell.xib */,
+				6535EFE01F79F76200B610D9 /* TalkDetailCell.xib */,
+				6535EFE41F7A1C6900B610D9 /* TalkOperationCell.xib */,
+				6535EFE81F7A272C00B610D9 /* TalkFavorCell.xib */,
+				6535EFEC1F7A2DF400B610D9 /* TalkCommentCell.xib */,
+				6535EFF41F7B32B300B610D9 /* CommentPublishView.xib */,
+				6535EFFC1F7B526600B610D9 /* DetailBottomView.xib */,
+				6535F0001F7B971E00B610D9 /* AreaHeaderView.xib */,
+				65A2614A1F7F65B6003C28C0 /* ChatCell.xib */,
+				65CCE8F21F829BCA00072D01 /* FansCell.xib */,
+				65CCE8F81F832A5500072D01 /* FollowsCell.xib */,
+				65021D361F8DB56E009A0AF0 /* PersonInfoViewController.xib */,
+				65021D3A1F8DE326009A0AF0 /* LoginViewController.xib */,
+				65021D3E1F8E0297009A0AF0 /* RegisterViewController.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		65EF1117201CD90A003810FB /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				65F152951F7FFD530004D679 /* UUChat */,
+				65C1EEA41F71620D004D464D /* WCLRecordVideo */,
+				654E4B0E1F71592D0052F4A9 /* lame */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		65EF1118201CD9E8003810FB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				65EF111C201CDAF0003810FB /* SideMenu */,
+				65EF111B201CDAB7003810FB /* Base */,
+				65EF110C201CD6E0003810FB /* Person */,
+				65C1EEAD1F716229004D464D /* VideoPlayerController.h */,
+				6535EFF01F7A352100B610D9 /* TalkDetailViewController.swift */,
+				65C1EEAE1F716229004D464D /* VideoPlayerController.m */,
+				65C1EEAF1F716229004D464D /* VideoRecordController.h */,
+				65C1EEB01F716229004D464D /* VideoRecordController.m */,
+				657C74501F6658A7002BE2BA /* SectionManagerController.h */,
+				657C74511F6658A7002BE2BA /* SectionManagerController.m */,
+				65C6E7401F6BCD160063F5A5 /* HomeViewController.h */,
+				65C6E7411F6BCD160063F5A5 /* HomeViewController.m */,
+				65C6E7491F6BCD450063F5A5 /* ChatViewController.h */,
+				65C6E74A1F6BCD450063F5A5 /* ChatViewController.m */,
+				656A2D741F70AD0800E97F15 /* PublishViewController.h */,
+				656A2D751F70AD0800E97F15 /* PublishViewController.m */,
+				6535EFFE1F7B925700B610D9 /* AreaViewController.swift */,
+				6535F00D1F7CCD9E00B610D9 /* SearchViewController.swift */,
+				653FEDA31F7D444D003B417C /* SearchDispayViewController.swift */,
+				65C7C7B91F7E2B3B00A44BE5 /* SearchResultViewController.swift */,
+				6544BEA51F7F41850034E042 /* ChatListViewController.swift */,
+				65CCE8EE1F81503500072D01 /* PersonHomeViewController.swift */,
+				65CCE8F61F82A1ED00072D01 /* FansViewController.swift */,
+				65CCE8FC1F8331E200072D01 /* FollowsViewController.swift */,
+				65021D301F8C998D009A0AF0 /* CommentsViewController.swift */,
+				65021D321F8CC68B009A0AF0 /* FavorViewController.swift */,
+				65021D381F8DE2EB009A0AF0 /* LoginViewController.swift */,
+				65021D3C1F8E0282009A0AF0 /* RegisterViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		65EF1119201CDA33003810FB /* NetUtils */ = {
+			isa = PBXGroup;
+			children = (
+				657C743A1F662EA5002BE2BA /* HttpClient.h */,
+				657C743B1F662EA5002BE2BA /* HttpClient.m */,
+			);
+			path = NetUtils;
+			sourceTree = "<group>";
+		};
+		65EF111A201CDA4C003810FB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				656A2D891F710B5200E97F15 /* ImageUtils.h */,
+				656A2D8A1F710B5200E97F15 /* ImageUtils.m */,
+				657C74431F663494002BE2BA /* HUDClass.h */,
+				657C74441F663494002BE2BA /* HUDClass.m */,
+				657C74401F66300E002BE2BA /* Utils.h */,
+				657C74411F66300E002BE2BA /* Utils.m */,
+				657C743D1F662FE1002BE2BA /* LoginUtils.h */,
+				657C743E1F662FE1002BE2BA /* LoginUtils.m */,
+				657C74321F662D48002BE2BA /* NSArray+Log.h */,
+				657C74331F662D48002BE2BA /* NSArray+Log.m */,
+				656A2DAE1F74D71600E97F15 /* HHUtils.swift */,
+				656A2DB41F7501B000E97F15 /* Nibloadable.swift */,
+				65C7C7B71F7DEB4100A44BE5 /* StringExtension.swift */,
+				65BD39B11FA1DA3500762FA5 /* ArrayExtension.swift */,
+				65EF1119201CDA33003810FB /* NetUtils */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		65EF111B201CDAB7003810FB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				657C74491F6655F7002BE2BA /* BaseViewController.h */,
+				657C744A1F6655F7002BE2BA /* BaseViewController.m */,
+				657C744C1F6657F2002BE2BA /* BaseNavigationController.h */,
+				657C744D1F6657F2002BE2BA /* BaseNavigationController.m */,
+				6508B23B1F6BBA3700B0418F /* BaseTableViewController.h */,
+				6508B23C1F6BBA3700B0418F /* BaseTableViewController.m */,
+				65C6E66C1F6BCB160063F5A5 /* BaseTabBarController.h */,
+				65C6E66D1F6BCB160063F5A5 /* BaseTabBarController.m */,
+				6535EFF21F7A360800B610D9 /* SBaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		65EF111C201CDAF0003810FB /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
 				657C74641F68C1AF002BE2BA /* SideMenuViewController.h */,
@@ -1024,34 +1041,53 @@
 				65C6E66F1F6BCB300063F5A5 /* MainTabBarViewController.h */,
 				65C6E6701F6BCB300063F5A5 /* MainTabBarViewController.m */,
 			);
-			name = SideMenu;
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
-		65C1EEA41F71620D004D464D /* WCLRecordVideo */ = {
+		65EF111D201CDB2F003810FB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				65C1EEA51F71620D004D464D /* WCLRecordEncoder */,
-				65C1EEA81F71620D004D464D /* WCLRecordEngine */,
+				65F1526C1F7FFC4C0004D679 /* ChatModel.h */,
+				65F1526D1F7FFC4C0004D679 /* ChatModel.m */,
+				657C74461F6637E7002BE2BA /* User.h */,
+				657C74471F6637E7002BE2BA /* User.m */,
+				657C74531F6658D2002BE2BA /* SectionInfo.h */,
+				657C74541F6658D2002BE2BA /* SectionInfo.m */,
+				656F9DC61FA038AE005A1586 /* TalkInfo.swift */,
 			);
-			path = WCLRecordVideo;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		65C1EEA51F71620D004D464D /* WCLRecordEncoder */ = {
+		65EF111F201CDC29003810FB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				65C1EEA61F71620D004D464D /* WCLRecordEncoder.h */,
-				65C1EEA71F71620D004D464D /* WCLRecordEncoder.m */,
+				656A2DAB1F749E7700E97F15 /* IAmPet-Bridging-Header.h */,
+				657C740C1F662C02002BE2BA /* Info.plist */,
+				657C73F91F662C02002BE2BA /* main.m */,
+				657C74361F662DC1002BE2BA /* PrefixHeader.pch */,
+				657C74371F662E3C002BE2BA /* Colors.h */,
+				657C74381F662E4F002BE2BA /* Constant.h */,
+				657C74631F67AEEA002BE2BA /* NetConstant.h */,
+				658CA83D1F760A140013DCA6 /* Constant.swift */,
+				65872BE41FAB16DC00238159 /* NetConstant.swift */,
 			);
-			path = WCLRecordEncoder;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		65C1EEA81F71620D004D464D /* WCLRecordEngine */ = {
+		65EF1120201CDF28003810FB /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				65C1EEA91F71620D004D464D /* WCLRecordEngine.h */,
-				65C1EEAA1F71620D004D464D /* WCLRecordEngine.m */,
+				65EF1121201CDF67003810FB /* InfoInputModifyViewController.xib */,
 			);
-			path = WCLRecordEngine;
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		65EF1123201CF205003810FB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				65EF1124201CF22B003810FB /* ImagePickerable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		65F152951F7FFD530004D679 /* UUChat */ = {
@@ -1242,6 +1278,7 @@
 				65C6E6DC1F6BCC790063F5A5 /* header_camera@2x.png in Resources */,
 				65C6E7191F6BCC790063F5A5 /* icon_message.png in Resources */,
 				65F152D11F7FFD6D0004D679 /* chat_animation_white2.png in Resources */,
+				65EF1122201CDF67003810FB /* InfoInputModifyViewController.xib in Resources */,
 				656A2D941F72542600E97F15 /* icon_voice.png in Resources */,
 				65C6E70F1F6BCC790063F5A5 /* login_able@2x.png in Resources */,
 				656A2D8D1F72451000E97F15 /* VoiceRecordView.xib in Resources */,
@@ -1338,7 +1375,7 @@
 				65C2E2151F6FBFDC0043027A /* icon_person_center.png in Resources */,
 				65F152D81F7FFD6D0004D679 /* chat_voice_record.png in Resources */,
 				65F152D31F7FFD6D0004D679 /* chat_ipunt_message.png in Resources */,
-				65C6E6DA1F6BCC790063F5A5 /* fmale@2x.png in Resources */,
+				65C6E6DA1F6BCC790063F5A5 /* fmale.png in Resources */,
 				65C6E6FB1F6BCC790063F5A5 /* icon_publish.png in Resources */,
 				65F152DB1F7FFD6D0004D679 /* chatto_bg_normal.png in Resources */,
 				65C6E6F01F6BCC790063F5A5 /* icon_login_qq@2x.png in Resources */,
@@ -1503,6 +1540,7 @@
 				65021D391F8DE2EB009A0AF0 /* LoginViewController.swift in Sources */,
 				656A2D991F725EDD00E97F15 /* VoicePlayView.m in Sources */,
 				657C74481F6637E7002BE2BA /* User.m in Sources */,
+				65EF1125201CF22B003810FB /* ImagePickerable.swift in Sources */,
 				65C2E2131F6FABE70043027A /* PersonCenterCell.m in Sources */,
 				65F152AE1F7FFD530004D679 /* NSDate+Utils.m in Sources */,
 				657C743C1F662EA5002BE2BA /* HttpClient.m in Sources */,
@@ -1513,6 +1551,7 @@
 				6535EFF71F7B34D800B610D9 /* CommentPublishView.swift in Sources */,
 				657C74451F663494002BE2BA /* HUDClass.m in Sources */,
 				657C74001F662C02002BE2BA /* ViewController.m in Sources */,
+				65EF110E201CD759003810FB /* InfoInputModifyViewController.swift in Sources */,
 				65BD39B21FA1DA3500762FA5 /* ArrayExtension.swift in Sources */,
 				656A2D771F70AD0800E97F15 /* PublishViewController.m in Sources */,
 				657C74421F66300E002BE2BA /* Utils.m in Sources */,
@@ -1532,6 +1571,7 @@
 				65F152B61F7FFD530004D679 /* UUProgressHUD.m in Sources */,
 				65C7C7BA1F7E2B3B00A44BE5 /* SearchResultViewController.swift in Sources */,
 				65F152B41F7FFD530004D679 /* UUMessageContentButton.m in Sources */,
+				65EF1110201CD7BD003810FB /* InfoSelModifyViewController.swift in Sources */,
 				6535EFE31F79F78200B610D9 /* TalkDetailCell.swift in Sources */,
 				65C2E2101F6FAB200043027A /* BaseTableViewCell.m in Sources */,
 				658CA83E1F760A140013DCA6 /* Constant.swift in Sources */,
@@ -1740,8 +1780,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/IAmPet/lame",
-					"$(PROJECT_DIR)/IAmPet/UUChat/VoiceLib",
+					"$(PROJECT_DIR)/IAmPet/Vendor/lame",
+					"$(PROJECT_DIR)/IAmPet/Vendor/UUChat/VoiceLib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhenhao.IAmPet;
 				PRODUCT_NAME = "$(TARGET_NAME)";

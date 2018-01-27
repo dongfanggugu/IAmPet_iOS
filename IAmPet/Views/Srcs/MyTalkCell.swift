@@ -80,11 +80,14 @@ class MyTalkCell : UITableViewCell, Nibloadable
     {
         didSet
         {
-            if let mediaContent = mediaContent, let oldValue = oldValue
+            if let mediaContent = mediaContent
             {
-                if (oldValue.type == mediaContent.type)
+                if let oldValue = oldValue
                 {
-                    updateMediaView(mediaContent);
+                    if (oldValue.type == mediaContent.type)
+                    {
+                        updateMediaView(mediaContent);
+                    }
                 }
                 else
                 {
