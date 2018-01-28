@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import Photos
 
-class PersonInfoViewController: SBaseViewController, ImagePickerable
+class PersonInfoViewController: SBaseViewController
 {
     @IBOutlet private var ivHead: UIImageView!;
     
@@ -166,7 +167,13 @@ class PersonInfoViewController: SBaseViewController, ImagePickerable
     
     @IBAction func clickIcon()
     {
-        showPicker(sourceController: self);
+        let author = PHPhotoLibrary.authorizationStatus();
+        if (author == PHAuthorizationStatus.denied || author == PHAuthorizationStatus.restricted)
+        {
+            jumpToSettings();
+            return;
+        }
+        showPicker();
     }
     
     @IBAction func clickSex()
@@ -187,5 +194,105 @@ class PersonInfoViewController: SBaseViewController, ImagePickerable
         controller.typeDes = typeDes;
         controller.hidesBottomBarWhenPushed = true;
         self.navigationController?.pushViewController(controller, animated: true);
+    }
+    
+    func chooseImage(_ image: UIImage)
+    {
+        let data = UIImageJPEGRepresentation(image, 1.0);
+        HttpClient.share().uploadImage(data, url: URL_UPLOAD, success: { (task, response) in
+            if let url = ((response as? [String: Any])?["body"] as? [String: Any])?["url"] as? String
+            {
+                self.modifyIcon(url: url, image: image);
+            }
+        }, failure: {(task, err) in
+            
+        });
+    }
+    
+    func modifyIcon(url: String, image: UIImage)
+    {
+        var params = [String: Any]();
+        params["type"] = "icon";
+        params["value"] = url;
+        HttpClient.share().fgPost("modifyUser", parameters: params, success: { (task,response) in
+            self.updateIcon(url: url, image: image);
+            self.showAlertMsg("头像更新成功", dismiss: {
+            });
+        }) { (task, err) in
+            
+        };
+    }
+    
+    func updateIcon(url: String, image: UIImage)
+    {
+        self.ivHead.image = image;
+        User.shareConfig().imgUrl = url;
+    }
+    
+    func showPicker()
+    {
+        let controller = UIAlertController(title: "照片", message: nil, preferredStyle: .actionSheet);
+        controller.addAction(UIAlertAction(title: "相册", style: .default, handler: {
+            (action) in
+            self.pickPhoto();
+        }));
+        controller.addAction(UIAlertAction(title: "拍摄", style: .default, handler: {
+            (action) in
+            self.takePhoto();
+            
+        }));
+        controller.addAction(UIAlertAction(title: "取消", style: .cancel, handler: {
+            (action) in
+            
+        }));
+        self.present(controller, animated: true, completion: nil);
+    }
+    
+    private func pickPhoto()
+    {
+        let picker = UIImagePickerController();
+        picker.sourceType = .photoLibrary;
+        picker.delegate = self;
+        picker.allowsEditing = true;
+        self.show(picker, sender: self);
+    }
+    
+    private func takePhoto()
+    {
+        if (UIImagePickerController.isSourceTypeAvailable(.camera))
+        {
+            let picker = UIImagePickerController();
+            picker.delegate = self;
+            picker.allowsEditing = true;
+            picker.sourceType = .camera;
+            self.show(picker, sender: self);
+        }
+        else
+        {
+            print("设备不支持拍照");
+        }
+    }
+}
+
+extension PersonInfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
+    {
+        if let type = info[UIImagePickerControllerMediaType] as? String
+        {
+            if (type == "public.image")
+            {
+                if let image = info[UIImagePickerControllerEditedImage] as? UIImage
+                {
+                    chooseImage(image);
+                }
+            }
+        }
+        picker.dismiss(animated: true, completion: nil);
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+    {
+        picker.dismiss(animated: true, completion: nil);
     }
 }

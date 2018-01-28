@@ -229,7 +229,6 @@
 		65EF110E201CD759003810FB /* InfoInputModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF110D201CD759003810FB /* InfoInputModifyViewController.swift */; };
 		65EF1110201CD7BD003810FB /* InfoSelModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF110F201CD7BD003810FB /* InfoSelModifyViewController.swift */; };
 		65EF1122201CDF67003810FB /* InfoInputModifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65EF1121201CDF67003810FB /* InfoInputModifyViewController.xib */; };
-		65EF1125201CF22B003810FB /* ImagePickerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF1124201CF22B003810FB /* ImagePickerable.swift */; };
 		65F1526E1F7FFC4C0004D679 /* ChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F1526D1F7FFC4C0004D679 /* ChatModel.m */; };
 		65F152701F7FFC6A0004D679 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65F1526F1F7FFC6A0004D679 /* ChatViewController.xib */; };
 		65F152AE1F7FFD530004D679 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F152981F7FFD530004D679 /* NSDate+Utils.m */; };
@@ -547,7 +546,6 @@
 		65EF110D201CD759003810FB /* InfoInputModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInputModifyViewController.swift; sourceTree = "<group>"; };
 		65EF110F201CD7BD003810FB /* InfoSelModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSelModifyViewController.swift; sourceTree = "<group>"; };
 		65EF1121201CDF67003810FB /* InfoInputModifyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoInputModifyViewController.xib; sourceTree = "<group>"; };
-		65EF1124201CF22B003810FB /* ImagePickerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerable.swift; sourceTree = "<group>"; };
 		65F1526C1F7FFC4C0004D679 /* ChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatModel.h; sourceTree = "<group>"; };
 		65F1526D1F7FFC4C0004D679 /* ChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatModel.m; sourceTree = "<group>"; };
 		65F1526F1F7FFC6A0004D679 /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
@@ -1085,7 +1083,6 @@
 		65EF1123201CF205003810FB /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				65EF1124201CF22B003810FB /* ImagePickerable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1540,7 +1537,6 @@
 				65021D391F8DE2EB009A0AF0 /* LoginViewController.swift in Sources */,
 				656A2D991F725EDD00E97F15 /* VoicePlayView.m in Sources */,
 				657C74481F6637E7002BE2BA /* User.m in Sources */,
-				65EF1125201CF22B003810FB /* ImagePickerable.swift in Sources */,
 				65C2E2131F6FABE70043027A /* PersonCenterCell.m in Sources */,
 				65F152AE1F7FFD530004D679 /* NSDate+Utils.m in Sources */,
 				657C743C1F662EA5002BE2BA /* HttpClient.m in Sources */,
